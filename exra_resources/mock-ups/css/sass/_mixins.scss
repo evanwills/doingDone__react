@@ -1,0 +1,48 @@
+// web-tile__flexbox() generates the column widths to be used inside a media
+// query
+// @var [string] $screen-size either 'xs', 'sm', 'md' or 'lg' (to match
+//		Bootstrap grid classes - others can be used but may not work on
+//		front end.)
+// @var [string] $class-prefix used to prefix the wrapper and to identify
+//		the children
+// @var [boolean] $non-flex if false use flex-basis, if true use width
+//
+@mixin flexbox-grid-cols($screen-size, $class-prefix, $non-flex: false, $user-col-widths: false) {
+	// to reduce processing time, I've added the final calculated values
+	// instead of calculating them on the fly (see above for original)
+
+	// @var [map] width of blocks that span various number of columns
+	//		based on Bootstrap Grid system but designed to use flexbox
+	//		can be overwritten on a per mixin call basis
+	$col-widths: (
+		(1, 5.58333%),
+		(2, 14.3%),
+		(3, 22.75%),
+		(4, 31.33333%),
+		(5, 39.91667%),
+		(6, 48.5%),
+		(7, 57.08333%),
+		(8, 65.66667%),
+		(9, 74.25%),
+		(10, 82.83333%),
+		(11, 91.41667%),
+		(12, 100%)
+	);
+	@if $user-col-widths != false {
+		// useful for IE
+		$col-widths: $user-col-widths;
+	}
+
+	@each $cols in $col-widths {
+		$col: nth($cols, 1);
+		.#{$class-prefix}-group.#{$class-prefix}__col-#{$screen-size}-#{$col} .#{$class-prefix} ,
+		.#{$class-prefix}-group .#{$class-prefix}.#{$class-prefix}__col-#{$screen-size}-#{$col} {
+			@if $non-flex == true {
+				width: nth($cols, 2);
+			}
+			@else {
+				@include flex-basis(nth($cols, 2));
+			}
+		}
+	}
+}

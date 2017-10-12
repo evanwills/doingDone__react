@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Asset ID: #416460 -->
+		<meta charset="utf-8" />
+
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="user-scalable=yes, initial-scale=1.0, width=device-width, height=device-height" />
+        <!-- <meta name="viewport" content="width=device-width" /> -->
+
+        <meta name="theme-color" content="#00539F" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="#00539F" />
+
+		<title>Default screen (To Do list) - doingDone</title>
+
+
+		<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+
+		<link rel="stylesheet" type="text/css" href="css/doingDone.css" />
+    </head>
+    <body>
+        <header>
+            <h1>Default screen (To Do list)</h1>
+            <h2>Tabs for users containing list of current tasks (ordered by soonest required completion time)</h2>
+            <nav>
+                <ul>
+                    <li><a href="index.html" class="active">To Do list</a></li>
+                    <li><a href="task.html">Task (in queue)</a></li>
+                    <li><a href="approval.html">Approval list</a></li>
+                    <li><a href="create-task.html">Create new task</a></li>
+
+                </ul>
+            </nav>
+			<p>
+				<label for="screen-size">Screen size</label>
+				<select id="screen-size">
+					<option value="320">extremely small (320px)</option>
+					<option value="400">Very very small (400px)</option>
+					<option value="480">Very small (480px)</option>
+					<option value="560">small (560px)</option>
+					<option value="640">Pretty small (640px)</option>
+					<option value="720">Not so small (720px)</option>
+					<option value="880" selected="selected">Medium (880px)</option>
+					<option value="1040">Large (1040px)</option>
+					<option value="1200">Extra large (1200px)</option>
+				</select>
+			</p>
+		</header>
+		<section class="content-wrap goalTasks" style="width: 880px;">
+			<ul>
+				<li>
+					<article class="task" id="2">
+						<header>
+							<h1>Feed chickens</h1>
+							<h2>8:20am (31 minutes)</h2>
+						</header>
+						<img src="" alt="" />
+						<main>
+							<ol>
+								<li>empty chicken bucket in chicken yard</li>
+								<li>rince chicken bucket (above and beyond)</li>
+							</ol>
+						</main>
+						<footer>
+							<a href="#t2">Completed</a>
+						</footer>
+					</article>
+				</li>
+				<li>
+					<article class="task" id="2">
+						<header>
+							<h1>Put on shoes</h1>
+							<h2>8:15am (26 minutes)</h2>
+						</header>
+						<img src="" alt="" />
+						<main>
+							<ol>
+								<li>Get toothbrush and toothpaste</li>
+								<li>brush</li>
+								<li>swish swish spit</li>
+								<li>put toothbrush back</li>
+							</ol>
+						</main>
+						<footer>
+							<a href="#t2">Completed</a>
+						</footer>
+					</article>
+				</li>
+				<li>
+					<article class="task" id="2">
+						<header>
+							<h1>Brush teeth</h1>
+							<h2>8:10am (21 minutes)</h2>
+						</header>
+						<img src="" alt="" />
+						<main>
+							<ol>
+								<li>Get toothbrush and toothpaste</li>
+								<li>brush</li>
+								<li>swish swish spit</li>
+								<li>put toothbrush back</li>
+							</ol>
+						</main>
+						<footer>
+							<a href="#t2">Completed</a>
+						</footer>
+					</article>
+				</li>
+				<li>
+					<article class="task" id="2">
+						<header>
+							<h1>Put on uniform</h1>
+							<h2>8:05am (16 minutes)</h2>
+						</header>
+						<img src="" alt="" />
+						<main>
+							<p>Is it sports day?</p>
+						</main>
+						<footer>
+							<a href="#t1">Completed</a>
+						</footer>
+					</article>
+				</li>
+				<li>
+					<article class="task" id="1">
+						<header>
+							<h1>Eat breakfast</h1>
+							<h2>8:00am (11 minutes)</h2>
+						</header>
+						<img src="" alt="" />
+						<main>
+							<ol>
+								<li>Get bowl and spoon</li>
+								<li>Get cerial</li>
+								<li>Get milk</li>
+								<li>Eat all you serve</li>
+								<li>Empty scraps into chicken bucket</li>
+								<li>Put bowl in diswasher or sink</li>
+							</ol>
+						</main>
+						<footer>
+							<a href="#t1">Completed</a>
+						</footer>
+					</article>
+				</li>
+			</ul>
+		</section>
+    </body>
+</html>

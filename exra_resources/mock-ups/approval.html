@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Asset ID: #416460 -->
+		<meta charset="utf-8" />
+
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="user-scalable=yes, initial-scale=1.0, width=device-width, height=device-height" />
+        <!-- <meta name="viewport" content="width=device-width" /> -->
+
+        <meta name="theme-color" content="#00539F" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="#00539F" />
+
+		<title>Default screen (To Do list) - doingDone</title>
+
+
+		<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+
+		<link rel="stylesheet" type="text/css" href="css/doingDone.css" />
+    </head>
+    <body>
+        <header>
+            <h1>Approval screen (To Do list)</h1>
+            <h2>list of task activities to be approved (ordered by soonest required completion time)</h2>
+            <nav>
+                <ul>
+                    <li><a href="index.html">To Do list</a></li>
+                    <li><a href="task.html">Task (in queue)</a></li>
+                    <li><a href="approval.html" class="active">Approval list</a></li>
+                    <li><a href="create-task.html">Create new task</a></li>
+
+                </ul>
+            </nav>
+			<p>
+				<label for="screen-size">Screen size</label>
+				<select id="screen-size">
+					<option value="320">extremely small (320px)</option>
+					<option value="400">Very very small (400px)</option>
+					<option value="480">Very small (480px)</option>
+					<option value="560">small (560px)</option>
+					<option value="640">Pretty small (640px)</option>
+					<option value="720">Not so small (720px)</option>
+					<option value="880" selected="selected">Medium (880px)</option>
+					<option value="1040">Large (1040px)</option>
+					<option value="1200">Extra large (1200px)</option>
+				</select>
+			</p>
+        </header>
+		<section class="content-wrap goalTasks" style="width: 880px;"></section>
+    </body>
+</html>

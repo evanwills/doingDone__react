@@ -1,0 +1,86 @@
+{
+    "household": {
+        "id": 1,
+        "name": "Pickles",
+        "active": true!,
+        "timezone": "Sydney Australia"!,
+        "locale": "en-au"!,
+
+        "valueModifiers": {
+            "completionLevel": {
+                "Not": 0,
+                "Partially": 0.5,
+                "Fully": 1,
+                "Outstandingly": 1.5
+            },
+            "InterventionRequired": {
+                "Volunteered": 1.3,
+                "Prompted": 1,
+                "Coerced": 0.7,
+                "Battled": 0.4
+            }
+        },
+
+        "currency": {
+            "prefix": "$",
+            "rounding": 2,
+            "pointsToCurrency": 1
+        },
+        "payPeriod": 1,
+        "payPeriodStart": "Saturday",
+        "totalValueOfCurrentPayPeriod": 0,
+        "token": "",
+        "devices": "One device for responsibles",
+        "SchoolTermModes": [],
+        "PublicHolidays": []
+    },
+    "tasks": [
+
+    ],
+    "users": [
+        {
+            "id": 1,
+            "created": "2017-09-07T22:55:34",
+            "active": true,
+            "name": "Evan",
+            "approver": true,
+            "colour": "#06c",
+            "avatarURL": "",
+            // in Local storage email & password are omitted in favour of
+            // keeping them in memory so they're not versioned by PouchDB
+            "email": "evan.wills@acu.edu.au", // two way hash
+            "localPin": "", // 1 way hash
+            "tasks": {
+                "now": [
+                    1,  // task ID
+                    3   // task ID
+                ],
+                "activities": [
+                    {
+                        "id": "evan_2017-09-08T08:52:23", // user.id + this.completed
+                        "completed": "2017-09-08T08:52:23",
+                        "completedBy": "evan",
+                        "task": 1,
+                        "acknowledgedBy": null,
+                        "completionLevel": null,
+                        "interventionRequired": null,
+                        // computedValue = this.task.value * household.valueModifiers.completionLevel[this.completionLevel] * household.valueModifiers.InterventionRequired[this.interventionRequired]
+                        "computedValue": 0
+                    }
+
+                ]
+            },
+            "points": {
+                "periodTotal": 8.3,
+                "grandTotal": 123.3
+            },
+            "lastPayDate": "2017-08-31"
+        }
+    ],
+    "approvalQueue": [
+        {
+            "user": 1, // user ID
+            "activitiy": "evan_2017-09-08T08:52:23" // activity GUID
+        }
+    ]
+}

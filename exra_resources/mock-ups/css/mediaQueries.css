@@ -1,0 +1,705 @@
+/**
+ * ==================================================================
+ * File: display-device-screen-sizes.css
+ * Author (compiler): Evan Wills <evan@pikewills.com.au>
+ * Generated: 2017-09-11 16:53:24
+ * Data source: http://spirelightmedia.com/resources/responsive-design-device-resolution-reference
+ *
+ * This is a dynamically generated CSS file that shows both the
+ * current width of the screen and the devices that use this width
+ *
+ * It is intended to be used to help CSS developers create responsive
+ * style sheets for different devices.
+ *
+ * It uses the :before tag to show the current width of the screen
+ * (either in EMs or Pixels)
+ *
+ * The :after pseudo element to show the devices that have a
+ * screen that fits the current width
+ *
+ * NOTE: By default the :before and :after pseudo elements are hidden
+ *	 just incase this is applied to a production site.
+ *
+ * NOTE ALSO: This is a development tool. it is not supplied in
+ *	 compressed format as it's not intended for production use!
+ */
+
+ body.window-width-in-EMs_before:before
+,body.window-width-in-PXs_before:before
+,body.device-screen-size_before:before
+,body.window-width-in-EMs_after:after
+,body.window-width-in-PXs_after:after
+,body.device-screen-size_after:after
+{
+	position: fixed;
+	color: #fff;
+	padding: 0.5em 1em;
+	z-index: 1000;
+}
+ body.window-width-in-EMs_before:before
+,body.window-width-in-PXs_before:before
+,body.window-width-in-EMs_after:after
+,body.window-width-in-PXs_after:after
+{
+	font-size: 1.5em;
+	top: 0%;
+	right: 0%;
+	background: rgba( 255 , 0 , 0 , 0.7 );
+	display: none;
+	border-bottom-left-radius: 2em
+}
+ body.device-screen-size_before:before
+,body.device-screen-size_after:after
+{
+	bottom: 0%;
+	left: 0%;
+	background: rgba( 0 , 0 , 255 , 0.7 );
+	max-width: 30%;
+	min-width: 10em;
+	overflow-x: auto;
+	display: none;
+	border-top-right-radius: 1em
+}
+
+
+/**
+ * ==================================================================
+ * To display the screen width in EMs, you need to apply the class:
+ *	'window-width-in-EMs'
+ * to the body tag
+ *
+ * To display the screen width in 10s of pixels, you need to apply
+ * the class:
+ *	'widnow-width-in-PXs'
+ * to the body tag
+ */
+
+@media screen and ( min-width:  0em ) and ( max-width:  7em ) { body.window-width-in-EMs_before:before , body.window-width-in-EMs_after:after { content:  '0em - 7em'; } }
+@media screen and ( min-width:  7em ) and ( max-width:  8em ) { body.window-width-in-EMs_before:before , body.window-width-in-EMs_after:after { content:  '7em - 8em'; } }
+@media screen and ( min-width:  8em ) and ( max-width:  9em ) { body.window-width-in-EMs_before:before , body.window-width-in-EMs_after:after { content:  '8em - 9em'; } }
+@media screen and ( min-width:  9em ) and ( max-width: 10em ) { body.window-width-in-EMs_before:before , body.window-width-in-EMs_after:after { content:  '9em - 10em'; } }
+@media screen and ( min-width: 10em ) and ( max-width: 11em ) { body.window-width-in-EMs_before:before , body.window-width-in-EMs_after:after { content: '10em - 11em'; } }
+@media screen and ( min-width: 11em ) and ( max-width: 12em ) { body.window-width-in-EMs_before:before , body.window-width-in-EMs_after:after { content: '11em - 12em'; } }
+@media screen and ( min-width: 12em ) and ( max-width: 13em ) { body.window-width-in-EMs_before:before , body.window-width-in-EMs_after:after { content: '12em - 13em'; } }
+@media screen and ( min-width: 13em ) and ( max-width: 14em ) { body.window-width-in-EMs_before:before , body.window-width-in-EMs_after:after { content: '13em - 14em'; } }
+@media screen and ( min-width: 14em ) and ( max-width: 15em ) { body.window-width-in-EMs_before:before , body.window-width-in-EMs_after:after { content: '14em - 15em'; } }
+@media screen and ( min-width: 15em ) and ( max-width: 16em ) { body.window-width-in-EMs_before:before , body.window-width-in-EMs_after:after { content: '15em - 16em'; } }
+@media screen and ( min-width: 16em ) and ( max-width: 17em ) { body.window-width-in-EMs_before:before , body.window-width-in-EMs_after:after { content: '16em - 17em'; } }
+@media screen and ( min-width: 17em ) and ( max-width: 18em ) { body.window-width-in-EMs_before:before , body.window-width-in-EMs_after:after { content: '17em - 18em'; } }
+@media screen and ( min-width: 18em ) and ( max-width: 19em ) { body.window-width-in-EMs_before:before , body.window-width-in-EMs_after:after { content: '18em - 19em'; } }
+@media screen and ( min-width: 19em ) and ( max-width: 20em ) { body.window-width-in-EMs_before:before , body.window-width-in-EMs_after:after { content: '19em - 20em'; } }
+@media screen and ( min-width: 20em ) and ( max-width: 21em ) { body.window-width-in-EMs_before:before , body.window-width-in-EMs_after:after { content: '20em - 21em'; } }
+@media screen and ( min-width: 21em ) and ( max-width: 22em ) { body.window-width-in-EMs_before:before , body.window-width-in-EMs_after:after { content: '21em - 22em'; } }
+@media screen and ( min-width: 22em ) and ( max-width: 23em ) { body.window-width-in-EMs_before:before , body.window-width-in-EMs_after:after { content: '22em - 23em'; } }
+@media screen and ( min-width: 23em ) and ( max-width: 24em ) { body.window-width-in-EMs_before:before , body.window-width-in-EMs_after:after { content: '23em - 24em'; } }
+@media screen and ( min-width: 24em ) and ( max-width: 25em ) { body.window-width-in-EMs_before:before , body.window-width-in-EMs_after:after { content: '24em - 25em'; } }
+@media screen and ( min-width: 25em ) and ( max-width: 26em ) { body.window-width-in-EMs_before:before , body.window-width-in-EMs_after:after { content: '25em - 26em'; } }
+@media screen and ( min-width: 26em ) and ( max-width: 27em ) { body.window-width-in-EMs_before:before , body.window-width-in-EMs_after:after { content: '26em - 27em'; } }
+@media screen and ( min-width: 27em ) and ( max-width: 28em ) { body.window-width-in-EMs_before:before , body.window-width-in-EMs_after:after { content: '27em - 28em'; } }
+@media screen and ( min-width: 28em ) and ( max-width: 29em ) { body.window-width-in-EMs_before:before , body.window-width-in-EMs_after:after { content: '28em - 29em'; } }
+@media screen and ( min-width: 29em ) and ( max-width: 30em ) { body.window-width-in-EMs_before:before , body.window-width-in-EMs_after:after { content: '29em - 30em'; } }
+@media screen and ( min-width: 30em ) and ( max-width: 31em ) { body.window-width-in-EMs_before:before , body.window-width-in-EMs_after:after { content: '30em - 31em'; } }
+@media screen and ( min-width: 31em ) and ( max-width: 32em ) { body.window-width-in-EMs_before:before , body.window-width-in-EMs_after:after { content: '31em - 32em'; } }
+@media screen and ( min-width: 32em ) and ( max-width: 33em ) { body.window-width-in-EMs_before:before , body.window-width-in-EMs_after:after { content: '32em - 33em'; } }
+@media screen and ( min-width: 33em ) and ( max-width: 34em ) { body.window-width-in-EMs_before:before , body.window-width-in-EMs_after:after { content: '33em - 34em'; } }
+@media screen and ( min-width: 34em ) and ( max-width: 35em ) { body.window-width-in-EMs_before:before , body.window-width-in-EMs_after:after { content: '34em - 35em'; } }
+@media screen and ( min-width: 35em ) and ( max-width: 36em ) { body.window-width-in-EMs_before:before , body.window-width-in-EMs_after:after { content: '35em - 36em'; } }
+@media screen and ( min-width: 36em ) and ( max-width: 37em ) { body.window-width-in-EMs_before:before , body.window-width-in-EMs_after:after { content: '36em - 37em'; } }
+@media screen and ( min-width: 37em ) and ( max-width: 38em ) { body.window-width-in-EMs_before:before , body.window-width-in-EMs_after:after { content: '37em - 38em'; } }
+@media screen and ( min-width: 38em ) and ( max-width: 39em ) { body.window-width-in-EMs_before:before , body.window-width-in-EMs_after:after { content: '38em - 39em'; } }
+@media screen and ( min-width: 39em ) and ( max-width: 40em ) { body.window-width-in-EMs_before:before , body.window-width-in-EMs_after:after { content: '39em - 40em'; } }
+@media screen and ( min-width: 40em ) and ( max-width: 41em ) { body.window-width-in-EMs_before:before , body.window-width-in-EMs_after:after { content: '40em - 41em'; } }
+@media screen and ( min-width: 41em ) and ( max-width: 42em ) { body.window-width-in-EMs_before:before , body.window-width-in-EMs_after:after { content: '41em - 42em'; } }
+@media screen and ( min-width: 42em ) and ( max-width: 43em ) { body.window-width-in-EMs_before:before , body.window-width-in-EMs_after:after { content: '42em - 43em'; } }
+@media screen and ( min-width: 43em ) and ( max-width: 44em ) { body.window-width-in-EMs_before:before , body.window-width-in-EMs_after:after { content: '43em - 44em'; } }
+@media screen and ( min-width: 44em ) and ( max-width: 45em ) { body.window-width-in-EMs_before:before , body.window-width-in-EMs_after:after { content: '44em - 45em'; } }
+@media screen and ( min-width: 45em ) and ( max-width: 46em ) { body.window-width-in-EMs_before:before , body.window-width-in-EMs_after:after { content: '45em - 46em'; } }
+@media screen and ( min-width: 46em ) and ( max-width: 47em ) { body.window-width-in-EMs_before:before , body.window-width-in-EMs_after:after { content: '46em - 47em'; } }
+@media screen and ( min-width: 47em ) and ( max-width: 48em ) { body.window-width-in-EMs_before:before , body.window-width-in-EMs_after:after { content: '47em - 48em'; } }
+@media screen and ( min-width: 48em ) and ( max-width: 49em ) { body.window-width-in-EMs_before:before , body.window-width-in-EMs_after:after { content: '48em - 49em'; } }
+@media screen and ( min-width: 49em ) and ( max-width: 50em ) { body.window-width-in-EMs_before:before , body.window-width-in-EMs_after:after { content: '49em - 50em'; } }
+@media screen and ( min-width: 50em ) and ( max-width: 51em ) { body.window-width-in-EMs_before:before , body.window-width-in-EMs_after:after { content: '50em - 51em'; } }
+@media screen and ( min-width: 51em ) and ( max-width: 52em ) { body.window-width-in-EMs_before:before , body.window-width-in-EMs_after:after { content: '51em - 52em'; } }
+@media screen and ( min-width: 52em ) and ( max-width: 53em ) { body.window-width-in-EMs_before:before , body.window-width-in-EMs_after:after { content: '52em - 53em'; } }
+@media screen and ( min-width: 53em ) and ( max-width: 54em ) { body.window-width-in-EMs_before:before , body.window-width-in-EMs_after:after { content: '53em - 54em'; } }
+@media screen and ( min-width: 54em ) and ( max-width: 55em ) { body.window-width-in-EMs_before:before , body.window-width-in-EMs_after:after { content: '54em - 55em'; } }
+@media screen and ( min-width: 55em ) and ( max-width: 56em ) { body.window-width-in-EMs_before:before , body.window-width-in-EMs_after:after { content: '55em - 56em'; } }
+@media screen and ( min-width: 56em ) and ( max-width: 57em ) { body.window-width-in-EMs_before:before , body.window-width-in-EMs_after:after { content: '56em - 57em'; } }
+@media screen and ( min-width: 57em ) and ( max-width: 58em ) { body.window-width-in-EMs_before:before , body.window-width-in-EMs_after:after { content: '57em - 58em'; } }
+@media screen and ( min-width: 58em ) and ( max-width: 59em ) { body.window-width-in-EMs_before:before , body.window-width-in-EMs_after:after { content: '58em - 59em'; } }
+@media screen and ( min-width: 59em ) and ( max-width: 60em ) { body.window-width-in-EMs_before:before , body.window-width-in-EMs_after:after { content: '59em - 60em'; } }
+@media screen and ( min-width: 60em ) and ( max-width: 61em ) { body.window-width-in-EMs_before:before , body.window-width-in-EMs_after:after { content: '60em - 61em'; } }
+@media screen and ( min-width: 61em ) and ( max-width: 62em ) { body.window-width-in-EMs_before:before , body.window-width-in-EMs_after:after { content: '61em - 62em'; } }
+@media screen and ( min-width: 62em ) and ( max-width: 63em ) { body.window-width-in-EMs_before:before , body.window-width-in-EMs_after:after { content: '62em - 63em'; } }
+@media screen and ( min-width: 63em ) and ( max-width: 64em ) { body.window-width-in-EMs_before:before , body.window-width-in-EMs_after:after { content: '63em - 64em'; } }
+@media screen and ( min-width: 64em ) and ( max-width: 65em ) { body.window-width-in-EMs_before:before , body.window-width-in-EMs_after:after { content: '64em - 65em'; } }
+@media screen and ( min-width: 65em ) and ( max-width: 66em ) { body.window-width-in-EMs_before:before , body.window-width-in-EMs_after:after { content: '65em - 66em'; } }
+@media screen and ( min-width: 66em ) and ( max-width: 67em ) { body.window-width-in-EMs_before:before , body.window-width-in-EMs_after:after { content: '66em - 67em'; } }
+@media screen and ( min-width: 67em ) and ( max-width: 68em ) { body.window-width-in-EMs_before:before , body.window-width-in-EMs_after:after { content: '67em - 68em'; } }
+@media screen and ( min-width: 68em ) and ( max-width: 69em ) { body.window-width-in-EMs_before:before , body.window-width-in-EMs_after:after { content: '68em - 69em'; } }
+@media screen and ( min-width: 69em ) and ( max-width: 70em ) { body.window-width-in-EMs_before:before , body.window-width-in-EMs_after:after { content: '69em - 70em'; } }
+@media screen and ( min-width: 70em ) and ( max-width: 71em ) { body.window-width-in-EMs_before:before , body.window-width-in-EMs_after:after { content: '70em - 71em'; } }
+@media screen and ( min-width: 71em ) and ( max-width: 72em ) { body.window-width-in-EMs_before:before , body.window-width-in-EMs_after:after { content: '71em - 72em'; } }
+@media screen and ( min-width: 72em ) and ( max-width: 73em ) { body.window-width-in-EMs_before:before , body.window-width-in-EMs_after:after { content: '72em - 73em'; } }
+@media screen and ( min-width: 73em ) and ( max-width: 74em ) { body.window-width-in-EMs_before:before , body.window-width-in-EMs_after:after { content: '73em - 74em'; } }
+@media screen and ( min-width: 74em ) and ( max-width: 75em ) { body.window-width-in-EMs_before:before , body.window-width-in-EMs_after:after { content: '74em - 75em'; } }
+@media screen and ( min-width: 75em ) and ( max-width: 76em ) { body.window-width-in-EMs_before:before , body.window-width-in-EMs_after:after { content: '75em - 76em'; } }
+@media screen and ( min-width: 76em ) and ( max-width: 77em ) { body.window-width-in-EMs_before:before , body.window-width-in-EMs_after:after { content: '76em - 77em'; } }
+@media screen and ( min-width: 77em ) and ( max-width: 78em ) { body.window-width-in-EMs_before:before , body.window-width-in-EMs_after:after { content: '77em - 78em'; } }
+@media screen and ( min-width: 78em ) and ( max-width: 79em ) { body.window-width-in-EMs_before:before , body.window-width-in-EMs_after:after { content: '78em - 79em'; } }
+@media screen and ( min-width: 79em ) and ( max-width: 80em ) { body.window-width-in-EMs_before:before , body.window-width-in-EMs_after:after { content: '79em - 80em'; } }
+@media screen and ( min-width: 80em ) and ( max-width: 81em ) { body.window-width-in-EMs_before:before , body.window-width-in-EMs_after:after { content: '80em - 81em'; } }
+@media screen and ( min-width: 81em ) and ( max-width: 82em ) { body.window-width-in-EMs_before:before , body.window-width-in-EMs_after:after { content: '81em - 82em'; } }
+@media screen and ( min-width: 82em ) and ( max-width: 83em ) { body.window-width-in-EMs_before:before , body.window-width-in-EMs_after:after { content: '82em - 83em'; } }
+@media screen and ( min-width: 83em ) and ( max-width: 84em ) { body.window-width-in-EMs_before:before , body.window-width-in-EMs_after:after { content: '83em - 84em'; } }
+@media screen and ( min-width: 84em ) and ( max-width: 85em ) { body.window-width-in-EMs_before:before , body.window-width-in-EMs_after:after { content: '84em - 85em'; } }
+@media screen and ( min-width: 85em ) and ( max-width: 86em ) { body.window-width-in-EMs_before:before , body.window-width-in-EMs_after:after { content: '85em - 86em'; } }
+@media screen and ( min-width: 86em ) and ( max-width: 87em ) { body.window-width-in-EMs_before:before , body.window-width-in-EMs_after:after { content: '86em - 87em'; } }
+@media screen and ( min-width: 87em ) and ( max-width: 88em ) { body.window-width-in-EMs_before:before , body.window-width-in-EMs_after:after { content: '87em - 88em'; } }
+@media screen and ( min-width: 88em ) and ( max-width: 89em ) { body.window-width-in-EMs_before:before , body.window-width-in-EMs_after:after { content: '88em - 89em'; } }
+@media screen and ( min-width: 89em ) and ( max-width: 90em ) { body.window-width-in-EMs_before:before , body.window-width-in-EMs_after:after { content: '89em - 90em'; } }
+@media screen and ( min-width: 90em ) { body.window-width-in-EMs:before { content: 'more than 90em'; } }
+
+
+
+@media screen and ( min-width:    0px ) and ( max-width:  100px ) { body.window-width-in-PXs_before:before , body.window-width-in-EMs_after:after { content:    '0px - 100px'; } }
+@media screen and ( min-width:  100px ) and ( max-width:  105px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '100px - 105px'; } }
+@media screen and ( min-width:  105px ) and ( max-width:  110px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '105px - 110px'; } }
+@media screen and ( min-width:  110px ) and ( max-width:  115px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '110px - 115px'; } }
+@media screen and ( min-width:  115px ) and ( max-width:  120px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '115px - 120px'; } }
+@media screen and ( min-width:  120px ) and ( max-width:  125px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '120px - 125px'; } }
+@media screen and ( min-width:  125px ) and ( max-width:  130px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '125px - 130px'; } }
+@media screen and ( min-width:  130px ) and ( max-width:  135px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '130px - 135px'; } }
+@media screen and ( min-width:  135px ) and ( max-width:  140px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '135px - 140px'; } }
+@media screen and ( min-width:  140px ) and ( max-width:  145px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '140px - 145px'; } }
+@media screen and ( min-width:  145px ) and ( max-width:  150px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '145px - 150px'; } }
+@media screen and ( min-width:  150px ) and ( max-width:  155px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '150px - 155px'; } }
+@media screen and ( min-width:  155px ) and ( max-width:  160px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '155px - 160px'; } }
+@media screen and ( min-width:  160px ) and ( max-width:  165px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '160px - 165px'; } }
+@media screen and ( min-width:  165px ) and ( max-width:  170px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '165px - 170px'; } }
+@media screen and ( min-width:  170px ) and ( max-width:  175px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '170px - 175px'; } }
+@media screen and ( min-width:  175px ) and ( max-width:  180px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '175px - 180px'; } }
+@media screen and ( min-width:  180px ) and ( max-width:  185px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '180px - 185px'; } }
+@media screen and ( min-width:  185px ) and ( max-width:  190px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '185px - 190px'; } }
+@media screen and ( min-width:  190px ) and ( max-width:  195px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '190px - 195px'; } }
+@media screen and ( min-width:  195px ) and ( max-width:  200px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '195px - 200px'; } }
+@media screen and ( min-width:  200px ) and ( max-width:  205px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '200px - 205px'; } }
+@media screen and ( min-width:  205px ) and ( max-width:  210px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '205px - 210px'; } }
+@media screen and ( min-width:  210px ) and ( max-width:  215px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '210px - 215px'; } }
+@media screen and ( min-width:  215px ) and ( max-width:  220px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '215px - 220px'; } }
+@media screen and ( min-width:  220px ) and ( max-width:  225px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '220px - 225px'; } }
+@media screen and ( min-width:  225px ) and ( max-width:  230px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '225px - 230px'; } }
+@media screen and ( min-width:  230px ) and ( max-width:  235px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '230px - 235px'; } }
+@media screen and ( min-width:  235px ) and ( max-width:  240px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '235px - 240px'; } }
+@media screen and ( min-width:  240px ) and ( max-width:  245px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '240px - 245px'; } }
+@media screen and ( min-width:  245px ) and ( max-width:  250px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '245px - 250px'; } }
+@media screen and ( min-width:  250px ) and ( max-width:  255px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '250px - 255px'; } }
+@media screen and ( min-width:  255px ) and ( max-width:  260px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '255px - 260px'; } }
+@media screen and ( min-width:  260px ) and ( max-width:  265px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '260px - 265px'; } }
+@media screen and ( min-width:  265px ) and ( max-width:  270px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '265px - 270px'; } }
+@media screen and ( min-width:  270px ) and ( max-width:  275px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '270px - 275px'; } }
+@media screen and ( min-width:  275px ) and ( max-width:  280px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '275px - 280px'; } }
+@media screen and ( min-width:  280px ) and ( max-width:  285px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '280px - 285px'; } }
+@media screen and ( min-width:  285px ) and ( max-width:  290px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '285px - 290px'; } }
+@media screen and ( min-width:  290px ) and ( max-width:  295px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '290px - 295px'; } }
+@media screen and ( min-width:  295px ) and ( max-width:  300px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '295px - 300px'; } }
+@media screen and ( min-width:  300px ) and ( max-width:  305px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '300px - 305px'; } }
+@media screen and ( min-width:  305px ) and ( max-width:  310px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '305px - 310px'; } }
+@media screen and ( min-width:  310px ) and ( max-width:  315px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '310px - 315px'; } }
+@media screen and ( min-width:  315px ) and ( max-width:  320px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '315px - 320px'; } }
+@media screen and ( min-width:  320px ) and ( max-width:  325px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '320px - 325px'; } }
+@media screen and ( min-width:  325px ) and ( max-width:  330px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '325px - 330px'; } }
+@media screen and ( min-width:  330px ) and ( max-width:  335px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '330px - 335px'; } }
+@media screen and ( min-width:  335px ) and ( max-width:  340px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '335px - 340px'; } }
+@media screen and ( min-width:  340px ) and ( max-width:  345px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '340px - 345px'; } }
+@media screen and ( min-width:  345px ) and ( max-width:  350px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '345px - 350px'; } }
+@media screen and ( min-width:  350px ) and ( max-width:  355px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '350px - 355px'; } }
+@media screen and ( min-width:  355px ) and ( max-width:  360px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '355px - 360px'; } }
+@media screen and ( min-width:  360px ) and ( max-width:  365px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '360px - 365px'; } }
+@media screen and ( min-width:  365px ) and ( max-width:  370px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '365px - 370px'; } }
+@media screen and ( min-width:  370px ) and ( max-width:  375px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '370px - 375px'; } }
+@media screen and ( min-width:  375px ) and ( max-width:  380px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '375px - 380px'; } }
+@media screen and ( min-width:  380px ) and ( max-width:  385px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '380px - 385px'; } }
+@media screen and ( min-width:  385px ) and ( max-width:  390px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '385px - 390px'; } }
+@media screen and ( min-width:  390px ) and ( max-width:  395px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '390px - 395px'; } }
+@media screen and ( min-width:  395px ) and ( max-width:  400px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '395px - 400px'; } }
+@media screen and ( min-width:  400px ) and ( max-width:  405px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '400px - 405px'; } }
+@media screen and ( min-width:  405px ) and ( max-width:  410px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '405px - 410px'; } }
+@media screen and ( min-width:  410px ) and ( max-width:  415px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '410px - 415px'; } }
+@media screen and ( min-width:  415px ) and ( max-width:  420px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '415px - 420px'; } }
+@media screen and ( min-width:  420px ) and ( max-width:  425px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '420px - 425px'; } }
+@media screen and ( min-width:  425px ) and ( max-width:  430px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '425px - 430px'; } }
+@media screen and ( min-width:  430px ) and ( max-width:  435px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '430px - 435px'; } }
+@media screen and ( min-width:  435px ) and ( max-width:  440px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '435px - 440px'; } }
+@media screen and ( min-width:  440px ) and ( max-width:  445px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '440px - 445px'; } }
+@media screen and ( min-width:  445px ) and ( max-width:  450px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '445px - 450px'; } }
+@media screen and ( min-width:  450px ) and ( max-width:  455px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '450px - 455px'; } }
+@media screen and ( min-width:  455px ) and ( max-width:  460px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '455px - 460px'; } }
+@media screen and ( min-width:  460px ) and ( max-width:  465px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '460px - 465px'; } }
+@media screen and ( min-width:  465px ) and ( max-width:  470px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '465px - 470px'; } }
+@media screen and ( min-width:  470px ) and ( max-width:  475px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '470px - 475px'; } }
+@media screen and ( min-width:  475px ) and ( max-width:  480px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '475px - 480px'; } }
+@media screen and ( min-width:  480px ) and ( max-width:  485px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '480px - 485px'; } }
+@media screen and ( min-width:  485px ) and ( max-width:  490px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '485px - 490px'; } }
+@media screen and ( min-width:  490px ) and ( max-width:  495px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '490px - 495px'; } }
+@media screen and ( min-width:  495px ) and ( max-width:  500px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '495px - 500px'; } }
+@media screen and ( min-width:  500px ) and ( max-width:  505px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '500px - 505px'; } }
+@media screen and ( min-width:  505px ) and ( max-width:  510px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '505px - 510px'; } }
+@media screen and ( min-width:  510px ) and ( max-width:  515px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '510px - 515px'; } }
+@media screen and ( min-width:  515px ) and ( max-width:  520px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '515px - 520px'; } }
+@media screen and ( min-width:  520px ) and ( max-width:  525px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '520px - 525px'; } }
+@media screen and ( min-width:  525px ) and ( max-width:  530px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '525px - 530px'; } }
+@media screen and ( min-width:  530px ) and ( max-width:  535px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '530px - 535px'; } }
+@media screen and ( min-width:  535px ) and ( max-width:  540px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '535px - 540px'; } }
+@media screen and ( min-width:  540px ) and ( max-width:  545px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '540px - 545px'; } }
+@media screen and ( min-width:  545px ) and ( max-width:  550px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '545px - 550px'; } }
+@media screen and ( min-width:  550px ) and ( max-width:  555px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '550px - 555px'; } }
+@media screen and ( min-width:  555px ) and ( max-width:  560px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '555px - 560px'; } }
+@media screen and ( min-width:  560px ) and ( max-width:  565px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '560px - 565px'; } }
+@media screen and ( min-width:  565px ) and ( max-width:  570px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '565px - 570px'; } }
+@media screen and ( min-width:  570px ) and ( max-width:  575px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '570px - 575px'; } }
+@media screen and ( min-width:  575px ) and ( max-width:  580px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '575px - 580px'; } }
+@media screen and ( min-width:  580px ) and ( max-width:  585px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '580px - 585px'; } }
+@media screen and ( min-width:  585px ) and ( max-width:  590px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '585px - 590px'; } }
+@media screen and ( min-width:  590px ) and ( max-width:  595px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '590px - 595px'; } }
+@media screen and ( min-width:  595px ) and ( max-width:  600px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '595px - 600px'; } }
+@media screen and ( min-width:  600px ) and ( max-width:  605px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '600px - 605px'; } }
+@media screen and ( min-width:  605px ) and ( max-width:  610px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '605px - 610px'; } }
+@media screen and ( min-width:  610px ) and ( max-width:  615px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '610px - 615px'; } }
+@media screen and ( min-width:  615px ) and ( max-width:  620px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '615px - 620px'; } }
+@media screen and ( min-width:  620px ) and ( max-width:  625px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '620px - 625px'; } }
+@media screen and ( min-width:  625px ) and ( max-width:  630px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '625px - 630px'; } }
+@media screen and ( min-width:  630px ) and ( max-width:  635px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '630px - 635px'; } }
+@media screen and ( min-width:  635px ) and ( max-width:  640px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '635px - 640px'; } }
+@media screen and ( min-width:  640px ) and ( max-width:  645px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '640px - 645px'; } }
+@media screen and ( min-width:  645px ) and ( max-width:  650px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '645px - 650px'; } }
+@media screen and ( min-width:  650px ) and ( max-width:  655px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '650px - 655px'; } }
+@media screen and ( min-width:  655px ) and ( max-width:  660px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '655px - 660px'; } }
+@media screen and ( min-width:  660px ) and ( max-width:  665px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '660px - 665px'; } }
+@media screen and ( min-width:  665px ) and ( max-width:  670px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '665px - 670px'; } }
+@media screen and ( min-width:  670px ) and ( max-width:  675px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '670px - 675px'; } }
+@media screen and ( min-width:  675px ) and ( max-width:  680px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '675px - 680px'; } }
+@media screen and ( min-width:  680px ) and ( max-width:  685px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '680px - 685px'; } }
+@media screen and ( min-width:  685px ) and ( max-width:  690px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '685px - 690px'; } }
+@media screen and ( min-width:  690px ) and ( max-width:  695px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '690px - 695px'; } }
+@media screen and ( min-width:  695px ) and ( max-width:  700px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '695px - 700px'; } }
+@media screen and ( min-width:  700px ) and ( max-width:  705px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '700px - 705px'; } }
+@media screen and ( min-width:  705px ) and ( max-width:  710px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '705px - 710px'; } }
+@media screen and ( min-width:  710px ) and ( max-width:  715px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '710px - 715px'; } }
+@media screen and ( min-width:  715px ) and ( max-width:  720px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '715px - 720px'; } }
+@media screen and ( min-width:  720px ) and ( max-width:  725px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '720px - 725px'; } }
+@media screen and ( min-width:  725px ) and ( max-width:  730px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '725px - 730px'; } }
+@media screen and ( min-width:  730px ) and ( max-width:  735px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '730px - 735px'; } }
+@media screen and ( min-width:  735px ) and ( max-width:  740px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '735px - 740px'; } }
+@media screen and ( min-width:  740px ) and ( max-width:  745px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '740px - 745px'; } }
+@media screen and ( min-width:  745px ) and ( max-width:  750px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '745px - 750px'; } }
+@media screen and ( min-width:  750px ) and ( max-width:  755px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '750px - 755px'; } }
+@media screen and ( min-width:  755px ) and ( max-width:  760px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '755px - 760px'; } }
+@media screen and ( min-width:  760px ) and ( max-width:  765px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '760px - 765px'; } }
+@media screen and ( min-width:  765px ) and ( max-width:  770px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '765px - 770px'; } }
+@media screen and ( min-width:  770px ) and ( max-width:  775px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '770px - 775px'; } }
+@media screen and ( min-width:  775px ) and ( max-width:  780px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '775px - 780px'; } }
+@media screen and ( min-width:  780px ) and ( max-width:  785px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '780px - 785px'; } }
+@media screen and ( min-width:  785px ) and ( max-width:  790px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '785px - 790px'; } }
+@media screen and ( min-width:  790px ) and ( max-width:  795px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '790px - 795px'; } }
+@media screen and ( min-width:  795px ) and ( max-width:  800px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '795px - 800px'; } }
+@media screen and ( min-width:  800px ) and ( max-width:  805px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '800px - 805px'; } }
+@media screen and ( min-width:  805px ) and ( max-width:  810px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '805px - 810px'; } }
+@media screen and ( min-width:  810px ) and ( max-width:  815px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '810px - 815px'; } }
+@media screen and ( min-width:  815px ) and ( max-width:  820px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '815px - 820px'; } }
+@media screen and ( min-width:  820px ) and ( max-width:  825px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '820px - 825px'; } }
+@media screen and ( min-width:  825px ) and ( max-width:  830px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '825px - 830px'; } }
+@media screen and ( min-width:  830px ) and ( max-width:  835px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '830px - 835px'; } }
+@media screen and ( min-width:  835px ) and ( max-width:  840px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '835px - 840px'; } }
+@media screen and ( min-width:  840px ) and ( max-width:  845px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '840px - 845px'; } }
+@media screen and ( min-width:  845px ) and ( max-width:  850px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '845px - 850px'; } }
+@media screen and ( min-width:  850px ) and ( max-width:  855px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '850px - 855px'; } }
+@media screen and ( min-width:  855px ) and ( max-width:  860px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '855px - 860px'; } }
+@media screen and ( min-width:  860px ) and ( max-width:  865px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '860px - 865px'; } }
+@media screen and ( min-width:  865px ) and ( max-width:  870px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '865px - 870px'; } }
+@media screen and ( min-width:  870px ) and ( max-width:  875px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '870px - 875px'; } }
+@media screen and ( min-width:  875px ) and ( max-width:  880px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '875px - 880px'; } }
+@media screen and ( min-width:  880px ) and ( max-width:  885px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '880px - 885px'; } }
+@media screen and ( min-width:  885px ) and ( max-width:  890px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '885px - 890px'; } }
+@media screen and ( min-width:  890px ) and ( max-width:  895px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '890px - 895px'; } }
+@media screen and ( min-width:  895px ) and ( max-width:  900px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '895px - 900px'; } }
+@media screen and ( min-width:  900px ) and ( max-width:  905px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '900px - 905px'; } }
+@media screen and ( min-width:  905px ) and ( max-width:  910px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '905px - 910px'; } }
+@media screen and ( min-width:  910px ) and ( max-width:  915px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '910px - 915px'; } }
+@media screen and ( min-width:  915px ) and ( max-width:  920px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '915px - 920px'; } }
+@media screen and ( min-width:  920px ) and ( max-width:  925px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '920px - 925px'; } }
+@media screen and ( min-width:  925px ) and ( max-width:  930px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '925px - 930px'; } }
+@media screen and ( min-width:  930px ) and ( max-width:  935px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '930px - 935px'; } }
+@media screen and ( min-width:  935px ) and ( max-width:  940px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '935px - 940px'; } }
+@media screen and ( min-width:  940px ) and ( max-width:  945px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '940px - 945px'; } }
+@media screen and ( min-width:  945px ) and ( max-width:  950px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '945px - 950px'; } }
+@media screen and ( min-width:  950px ) and ( max-width:  955px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '950px - 955px'; } }
+@media screen and ( min-width:  955px ) and ( max-width:  960px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '955px - 960px'; } }
+@media screen and ( min-width:  960px ) and ( max-width:  965px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '960px - 965px'; } }
+@media screen and ( min-width:  965px ) and ( max-width:  970px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '965px - 970px'; } }
+@media screen and ( min-width:  970px ) and ( max-width:  975px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '970px - 975px'; } }
+@media screen and ( min-width:  975px ) and ( max-width:  980px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '975px - 980px'; } }
+@media screen and ( min-width:  980px ) and ( max-width:  985px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '980px - 985px'; } }
+@media screen and ( min-width:  985px ) and ( max-width:  990px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '985px - 990px'; } }
+@media screen and ( min-width:  990px ) and ( max-width:  995px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '990px - 995px'; } }
+@media screen and ( min-width:  995px ) and ( max-width: 1000px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content:  '995px - 1000px'; } }
+@media screen and ( min-width: 1000px ) and ( max-width: 1005px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1000px - 1005px'; } }
+@media screen and ( min-width: 1005px ) and ( max-width: 1010px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1005px - 1010px'; } }
+@media screen and ( min-width: 1010px ) and ( max-width: 1015px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1010px - 1015px'; } }
+@media screen and ( min-width: 1015px ) and ( max-width: 1020px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1015px - 1020px'; } }
+@media screen and ( min-width: 1020px ) and ( max-width: 1025px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1020px - 1025px'; } }
+@media screen and ( min-width: 1025px ) and ( max-width: 1030px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1025px - 1030px'; } }
+@media screen and ( min-width: 1030px ) and ( max-width: 1035px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1030px - 1035px'; } }
+@media screen and ( min-width: 1035px ) and ( max-width: 1040px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1035px - 1040px'; } }
+@media screen and ( min-width: 1040px ) and ( max-width: 1045px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1040px - 1045px'; } }
+@media screen and ( min-width: 1045px ) and ( max-width: 1050px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1045px - 1050px'; } }
+@media screen and ( min-width: 1050px ) and ( max-width: 1055px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1050px - 1055px'; } }
+@media screen and ( min-width: 1055px ) and ( max-width: 1060px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1055px - 1060px'; } }
+@media screen and ( min-width: 1060px ) and ( max-width: 1065px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1060px - 1065px'; } }
+@media screen and ( min-width: 1065px ) and ( max-width: 1070px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1065px - 1070px'; } }
+@media screen and ( min-width: 1070px ) and ( max-width: 1075px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1070px - 1075px'; } }
+@media screen and ( min-width: 1075px ) and ( max-width: 1080px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1075px - 1080px'; } }
+@media screen and ( min-width: 1080px ) and ( max-width: 1085px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1080px - 1085px'; } }
+@media screen and ( min-width: 1085px ) and ( max-width: 1090px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1085px - 1090px'; } }
+@media screen and ( min-width: 1090px ) and ( max-width: 1095px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1090px - 1095px'; } }
+@media screen and ( min-width: 1095px ) and ( max-width: 1100px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1095px - 1100px'; } }
+@media screen and ( min-width: 1100px ) and ( max-width: 1105px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1100px - 1105px'; } }
+@media screen and ( min-width: 1105px ) and ( max-width: 1110px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1105px - 1110px'; } }
+@media screen and ( min-width: 1110px ) and ( max-width: 1115px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1110px - 1115px'; } }
+@media screen and ( min-width: 1115px ) and ( max-width: 1120px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1115px - 1120px'; } }
+@media screen and ( min-width: 1120px ) and ( max-width: 1125px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1120px - 1125px'; } }
+@media screen and ( min-width: 1125px ) and ( max-width: 1130px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1125px - 1130px'; } }
+@media screen and ( min-width: 1130px ) and ( max-width: 1135px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1130px - 1135px'; } }
+@media screen and ( min-width: 1135px ) and ( max-width: 1140px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1135px - 1140px'; } }
+@media screen and ( min-width: 1140px ) and ( max-width: 1145px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1140px - 1145px'; } }
+@media screen and ( min-width: 1145px ) and ( max-width: 1150px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1145px - 1150px'; } }
+@media screen and ( min-width: 1150px ) and ( max-width: 1155px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1150px - 1155px'; } }
+@media screen and ( min-width: 1155px ) and ( max-width: 1160px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1155px - 1160px'; } }
+@media screen and ( min-width: 1160px ) and ( max-width: 1165px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1160px - 1165px'; } }
+@media screen and ( min-width: 1165px ) and ( max-width: 1170px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1165px - 1170px'; } }
+@media screen and ( min-width: 1170px ) and ( max-width: 1175px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1170px - 1175px'; } }
+@media screen and ( min-width: 1175px ) and ( max-width: 1180px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1175px - 1180px'; } }
+@media screen and ( min-width: 1180px ) and ( max-width: 1185px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1180px - 1185px'; } }
+@media screen and ( min-width: 1185px ) and ( max-width: 1190px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1185px - 1190px'; } }
+@media screen and ( min-width: 1190px ) and ( max-width: 1195px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1190px - 1195px'; } }
+@media screen and ( min-width: 1195px ) and ( max-width: 1200px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1195px - 1200px'; } }
+@media screen and ( min-width: 1200px ) and ( max-width: 1205px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1200px - 1205px'; } }
+@media screen and ( min-width: 1205px ) and ( max-width: 1210px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1205px - 1210px'; } }
+@media screen and ( min-width: 1210px ) and ( max-width: 1215px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1210px - 1215px'; } }
+@media screen and ( min-width: 1215px ) and ( max-width: 1220px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1215px - 1220px'; } }
+@media screen and ( min-width: 1220px ) and ( max-width: 1225px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1220px - 1225px'; } }
+@media screen and ( min-width: 1225px ) and ( max-width: 1230px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1225px - 1230px'; } }
+@media screen and ( min-width: 1230px ) and ( max-width: 1235px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1230px - 1235px'; } }
+@media screen and ( min-width: 1235px ) and ( max-width: 1240px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1235px - 1240px'; } }
+@media screen and ( min-width: 1240px ) and ( max-width: 1245px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1240px - 1245px'; } }
+@media screen and ( min-width: 1245px ) and ( max-width: 1250px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1245px - 1250px'; } }
+@media screen and ( min-width: 1250px ) and ( max-width: 1255px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1250px - 1255px'; } }
+@media screen and ( min-width: 1255px ) and ( max-width: 1260px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1255px - 1260px'; } }
+@media screen and ( min-width: 1260px ) and ( max-width: 1265px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1260px - 1265px'; } }
+@media screen and ( min-width: 1265px ) and ( max-width: 1270px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1265px - 1270px'; } }
+@media screen and ( min-width: 1270px ) and ( max-width: 1275px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1270px - 1275px'; } }
+@media screen and ( min-width: 1275px ) and ( max-width: 1280px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1275px - 1280px'; } }
+@media screen and ( min-width: 1280px ) and ( max-width: 1285px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1280px - 1285px'; } }
+@media screen and ( min-width: 1285px ) and ( max-width: 1290px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1285px - 1290px'; } }
+@media screen and ( min-width: 1290px ) and ( max-width: 1295px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1290px - 1295px'; } }
+@media screen and ( min-width: 1295px ) and ( max-width: 1300px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1295px - 1300px'; } }
+@media screen and ( min-width: 1300px ) and ( max-width: 1305px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1300px - 1305px'; } }
+@media screen and ( min-width: 1305px ) and ( max-width: 1310px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1305px - 1310px'; } }
+@media screen and ( min-width: 1310px ) and ( max-width: 1315px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1310px - 1315px'; } }
+@media screen and ( min-width: 1315px ) and ( max-width: 1320px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1315px - 1320px'; } }
+@media screen and ( min-width: 1320px ) and ( max-width: 1325px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1320px - 1325px'; } }
+@media screen and ( min-width: 1325px ) and ( max-width: 1330px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1325px - 1330px'; } }
+@media screen and ( min-width: 1330px ) and ( max-width: 1335px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1330px - 1335px'; } }
+@media screen and ( min-width: 1335px ) and ( max-width: 1340px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1335px - 1340px'; } }
+@media screen and ( min-width: 1340px ) and ( max-width: 1345px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1340px - 1345px'; } }
+@media screen and ( min-width: 1345px ) and ( max-width: 1350px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1345px - 1350px'; } }
+@media screen and ( min-width: 1350px ) and ( max-width: 1355px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1350px - 1355px'; } }
+@media screen and ( min-width: 1355px ) and ( max-width: 1360px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1355px - 1360px'; } }
+@media screen and ( min-width: 1360px ) and ( max-width: 1365px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1360px - 1365px'; } }
+@media screen and ( min-width: 1365px ) and ( max-width: 1370px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1365px - 1370px'; } }
+@media screen and ( min-width: 1370px ) and ( max-width: 1375px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1370px - 1375px'; } }
+@media screen and ( min-width: 1375px ) and ( max-width: 1380px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1375px - 1380px'; } }
+@media screen and ( min-width: 1380px ) and ( max-width: 1385px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1380px - 1385px'; } }
+@media screen and ( min-width: 1385px ) and ( max-width: 1390px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1385px - 1390px'; } }
+@media screen and ( min-width: 1390px ) and ( max-width: 1395px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1390px - 1395px'; } }
+@media screen and ( min-width: 1395px ) and ( max-width: 1400px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1395px - 1400px'; } }
+@media screen and ( min-width: 1400px ) and ( max-width: 1405px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1400px - 1405px'; } }
+@media screen and ( min-width: 1405px ) and ( max-width: 1410px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1405px - 1410px'; } }
+@media screen and ( min-width: 1410px ) and ( max-width: 1415px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1410px - 1415px'; } }
+@media screen and ( min-width: 1415px ) and ( max-width: 1420px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1415px - 1420px'; } }
+@media screen and ( min-width: 1420px ) and ( max-width: 1425px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1420px - 1425px'; } }
+@media screen and ( min-width: 1425px ) and ( max-width: 1430px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1425px - 1430px'; } }
+@media screen and ( min-width: 1430px ) and ( max-width: 1435px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1430px - 1435px'; } }
+@media screen and ( min-width: 1435px ) and ( max-width: 1440px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1435px - 1440px'; } }
+@media screen and ( min-width: 1440px ) and ( max-width: 1445px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1440px - 1445px'; } }
+@media screen and ( min-width: 1445px ) and ( max-width: 1450px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1445px - 1450px'; } }
+@media screen and ( min-width: 1450px ) and ( max-width: 1455px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1450px - 1455px'; } }
+@media screen and ( min-width: 1455px ) and ( max-width: 1460px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1455px - 1460px'; } }
+@media screen and ( min-width: 1460px ) and ( max-width: 1465px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1460px - 1465px'; } }
+@media screen and ( min-width: 1465px ) and ( max-width: 1470px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1465px - 1470px'; } }
+@media screen and ( min-width: 1470px ) and ( max-width: 1475px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1470px - 1475px'; } }
+@media screen and ( min-width: 1475px ) and ( max-width: 1480px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1475px - 1480px'; } }
+@media screen and ( min-width: 1480px ) and ( max-width: 1485px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1480px - 1485px'; } }
+@media screen and ( min-width: 1485px ) and ( max-width: 1490px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1485px - 1490px'; } }
+@media screen and ( min-width: 1490px ) and ( max-width: 1495px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1490px - 1495px'; } }
+@media screen and ( min-width: 1495px ) and ( max-width: 1500px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1495px - 1500px'; } }
+@media screen and ( min-width: 1500px ) and ( max-width: 1505px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1500px - 1505px'; } }
+@media screen and ( min-width: 1505px ) and ( max-width: 1510px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1505px - 1510px'; } }
+@media screen and ( min-width: 1510px ) and ( max-width: 1515px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1510px - 1515px'; } }
+@media screen and ( min-width: 1515px ) and ( max-width: 1520px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1515px - 1520px'; } }
+@media screen and ( min-width: 1520px ) and ( max-width: 1525px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1520px - 1525px'; } }
+@media screen and ( min-width: 1525px ) and ( max-width: 1530px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1525px - 1530px'; } }
+@media screen and ( min-width: 1530px ) and ( max-width: 1535px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1530px - 1535px'; } }
+@media screen and ( min-width: 1535px ) and ( max-width: 1540px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1535px - 1540px'; } }
+@media screen and ( min-width: 1540px ) and ( max-width: 1545px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1540px - 1545px'; } }
+@media screen and ( min-width: 1545px ) and ( max-width: 1550px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1545px - 1550px'; } }
+@media screen and ( min-width: 1550px ) and ( max-width: 1555px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1550px - 1555px'; } }
+@media screen and ( min-width: 1555px ) and ( max-width: 1560px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1555px - 1560px'; } }
+@media screen and ( min-width: 1560px ) and ( max-width: 1565px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1560px - 1565px'; } }
+@media screen and ( min-width: 1565px ) and ( max-width: 1570px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1565px - 1570px'; } }
+@media screen and ( min-width: 1570px ) and ( max-width: 1575px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1570px - 1575px'; } }
+@media screen and ( min-width: 1575px ) and ( max-width: 1580px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1575px - 1580px'; } }
+@media screen and ( min-width: 1580px ) and ( max-width: 1585px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1580px - 1585px'; } }
+@media screen and ( min-width: 1585px ) and ( max-width: 1590px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1585px - 1590px'; } }
+@media screen and ( min-width: 1590px ) and ( max-width: 1595px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1590px - 1595px'; } }
+@media screen and ( min-width: 1595px ) and ( max-width: 1600px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1595px - 1600px'; } }
+@media screen and ( min-width: 1600px ) and ( max-width: 1605px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1600px - 1605px'; } }
+@media screen and ( min-width: 1605px ) and ( max-width: 1610px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1605px - 1610px'; } }
+@media screen and ( min-width: 1610px ) and ( max-width: 1615px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1610px - 1615px'; } }
+@media screen and ( min-width: 1615px ) and ( max-width: 1620px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1615px - 1620px'; } }
+@media screen and ( min-width: 1620px ) and ( max-width: 1625px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1620px - 1625px'; } }
+@media screen and ( min-width: 1625px ) and ( max-width: 1630px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1625px - 1630px'; } }
+@media screen and ( min-width: 1630px ) and ( max-width: 1635px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1630px - 1635px'; } }
+@media screen and ( min-width: 1635px ) and ( max-width: 1640px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1635px - 1640px'; } }
+@media screen and ( min-width: 1640px ) and ( max-width: 1645px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1640px - 1645px'; } }
+@media screen and ( min-width: 1645px ) and ( max-width: 1650px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1645px - 1650px'; } }
+@media screen and ( min-width: 1650px ) and ( max-width: 1655px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1650px - 1655px'; } }
+@media screen and ( min-width: 1655px ) and ( max-width: 1660px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1655px - 1660px'; } }
+@media screen and ( min-width: 1660px ) and ( max-width: 1665px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1660px - 1665px'; } }
+@media screen and ( min-width: 1665px ) and ( max-width: 1670px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1665px - 1670px'; } }
+@media screen and ( min-width: 1670px ) and ( max-width: 1675px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1670px - 1675px'; } }
+@media screen and ( min-width: 1675px ) and ( max-width: 1680px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1675px - 1680px'; } }
+@media screen and ( min-width: 1680px ) and ( max-width: 1685px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1680px - 1685px'; } }
+@media screen and ( min-width: 1685px ) and ( max-width: 1690px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1685px - 1690px'; } }
+@media screen and ( min-width: 1690px ) and ( max-width: 1695px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1690px - 1695px'; } }
+@media screen and ( min-width: 1695px ) and ( max-width: 1700px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1695px - 1700px'; } }
+@media screen and ( min-width: 1700px ) and ( max-width: 1705px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: '1700px - 1705px'; } }
+@media screen and ( min-width: 1705px ) { body.window-width-in-PXs_before:before , body.window-width-in-PXs_after:after { content: 'more than 1705px'; } }
+
+
+
+
+
+
+
+/**
+ * The following media queries identify the devices that use a given
+ * screen width.
+ * The details are scraped from:
+ * http://spirelightmedia.com/resources/responsive-design-device-resolution-reference
+ * and formatted using:
+ * http://antechinus/play/do-regex-stuff/?stuff=media-query_from_screen-size
+ * (Generated: 2017-09-11 16:55:33)
+ */
+
+
+@media ( max-width: 240px )
+{
+	body.device-screen-size_before:before , body.device-screen-size_after:after { content: '[LANDSCAPE: Samsung Star / Tocco &amp; Star II {155 ppi}; Sony Mix Walkman Phone {155 ppi}; Sony Ericsson txt pro {155 ppi}; Nokia Asha 305, 306, 310 &amp; 311 {155 ppi}; Samsung Star II DUOS {146 ppi}; Nokia E71 {169 ppi}; Blackberry Curve 9220 &amp; 9320 {164 ppi}; Blackberry Curve 8310, 8520, 8530, 3G 9300 &amp; 3G 9330 {163 ppi}; Blackberry Curve 8300, 8320 &amp; 8330 {160 ppi}; Sony Ericsson txt {157 ppi}; Samsung Galaxy Y &amp; Galaxy Chat {133 ppi}; Nokia Asha 501 {133 ppi}; HTC Wildfire {125 ppi}; LG Optimus L3 &amp; L3 II {125 ppi}]'; }
+}
+
+
+@media screen and ( min-width: 240px ) and ( max-width: 320px )
+{
+	body.device-screen-size_before:before , body.device-screen-size_after:after { content: '[LANDSCAPE:  {222 ppi}; BlackBerry Bold 9000 {222 ppi}; Sony Xperia min, Xperia mini pro &amp; Xperia active {192 ppi}; LG Optimus {192 ppi}; LG Optimus One, Optimus S, Optimus M, Optimus Slider, Optimus Net, Optimus T, Optimus Chic &amp; Optimus Net Dual {180 ppi}; Sony Xperia tipo {180 ppi}; Sony Live with Walkman {180 ppi}; Apple iPhone 3G &amp; 3GS {165 ppi}; Apple iPod touch (1st, 2nd &amp; 3rd generation) {165 ppi}; Samsung Galaxy Ace, Galaxy Ace Advance, Galaxy Fame &amp; Galaxy Ace Duos {165 ppi}; HTC Desire C {165 ppi}; Sony Xperia E, Xperia miro &amp; Xperia go {165 ppi}; LG Optimus Hub, Optimus Chat, Optimus Elite, Optimus M+ &amp; Motion 4G {165 ppi}; Samsung Galaxy Ace Plus {158 ppi}; LG Optimus L5 &amp; Optimus L5 Dual {144 ppi}]   ,   [PORTRAIT: Nokia E71 {169 ppi}; Blackberry Curve 9220 &amp; 9320 {164 ppi}; Blackberry Curve 8310, 8520, 8530, 3G 9300 &amp; 3G 9330 {163 ppi}; Blackberry Curve 8300, 8320 &amp; 8330 {160 ppi}; Sony Ericsson txt {157 ppi}; Samsung Galaxy Y &amp; Galaxy Chat {133 ppi}; Nokia Asha 501 {133 ppi}; HTC Wildfire {125 ppi}; LG Optimus L3 &amp; L3 II {125 ppi}]'; }
+}
+
+
+@media screen and ( min-width: 320px ) and ( max-width: 360px )
+{
+	body.device-screen-size_before:before , body.device-screen-size_after:after { content: '[LANDSCAPE: Sony Ericsson Vivaz &amp; Vivaz Pro {229 ppi}; Nokia 500 &amp; 5800 XpressMusic {229 ppi}; Nokia N8, N97, E7 and X6 {210 ppi}; Nokia E7 {184 ppi}; BlackBerry Curve 8900 {250 ppi}; BlackBerry Curve 8980, 9350, 9360, 9370, Bold 9700 &amp; 9780 {246 ppi}; BlackBerry Bold 9790 {245 ppi}; BlackBerry Curve 9380, Bold 9650 &amp; Torch 9800 {188 ppi}; BlackBerry Curve Touch, Storm &amp; Storm2 {185 ppi}]'; }
+}
+
+
+@media screen and ( min-width: 360px ) and ( max-width: 400px )
+{
+	body.device-screen-size_before:before , body.device-screen-size_after:after { content: '[PORTRAIT: Samsung Star / Tocco &amp; Star II {155 ppi}; Sony Mix Walkman Phone {155 ppi}; Sony Ericsson txt pro {155 ppi}; Nokia Asha 305, 306, 310 &amp; 311 {155 ppi}; Samsung Star II DUOS {146 ppi}]'; }
+}
+
+
+@media screen and ( min-width: 400px ) and ( max-width: 480px )
+{
+	body.device-screen-size_before:before , body.device-screen-size_after:after { content: '[LANDSCAPE: Sony Xperia ray {297 ppi}; Sony Xperia U {280 ppi}; Sony Xperia sola, Xperia pro, Xperia neo &amp; Xperia neo V {265 ppi}; Motorola Milestone and Milestone 2 {265 ppi}; Nokia N9 {251 ppi}; Sony Xperia X10, Xperia PLAY &amp; Xperia J {245 ppi}; Sony Xperia arc &amp; Xperia arc S {233 ppi}; LG Optimus Q &amp; Optimus 7Q {267 ppi}; Asus P835 {267 ppi}; Blackberry Storm 3, Torch 9850 &amp; Torch 9860 {252 ppi}; Nokia Lumia 610, 710 &amp; 800 {252 ppi}; HTC Desire, Desire Z, Desire S &amp; One V {252 ppi}; Samsung Galaxy W {252 ppi}; Samsung Galaxy Ace 2 {246 ppi}; Blackberry Storm 3 {246 ppi}; LG Optimus 7, Optimus Mach &amp; Optimus Sol {246 ppi}; Nokia Lumia 510 &amp; 520 {233 ppi}; Samsung Galaxy I, Galaxy S, Galaxy S Plus, Galaxy S Advance, Galaxy SL, Galaxy S Duos, Galaxy Xcover 2, Galaxy Beam, Nexus S, Captivate Glide &amp; Galaxy S III mini {233 ppi}; HTC Desire X, HTC Desire V, Desire VC, Desire VT, Desire U &amp; Windows Phone 8S {233 ppi}; LG Optimus 2X, Optimus EX, Optimus L5 II, Optimus Q2 &amp; Optimus Black {233 ppi}; T-Mobile G2x {233 ppi}; Asus E600 {233 ppi}; Nokia Lumia N800 &amp; N810 {226 ppi}; Nokia Lumia 720, 820 &amp; 900 {217 ppi}; Samsung Galaxy S II &amp; Galaxy S II Plus {217 ppi}; HTC Evo 4G, Desire HD, Desire SV, One SC, One ST, One SU &amp; One SV {217 ppi}; LG Optimus 3D, Optimus 3D Cube, Optimus Big, Optimus LTE Tag &amp; Optimus L7 IID {217 ppi}; Samsung Galaxy S II Duos, Galaxy S II X &amp; Galaxy S II Epic 4G Touch {206 ppi}; HTC Sensation XL {199 ppi}; Samsung Galaxy Grand {187 ppi}; Viewsonic Viewpad 7 {133 ppi}; Blackberry Bold 9900 &amp; Bold Touch 9930 {286 ppi}; Blackberry Torch 9810 {250 ppi}; LG Optimus Z {229 ppi}]   ,   [PORTRAIT: BlackBerry Curve 8900 {250 ppi}; BlackBerry Curve 8980, 9350, 9360, 9370, Bold 9700 &amp; 9780 {246 ppi}; BlackBerry Bold 9790 {245 ppi}; BlackBerry Curve 9380, Bold 9650 &amp; Torch 9800 {188 ppi}; BlackBerry Curve Touch, Storm &amp; Storm2 {185 ppi};  {222 ppi}; BlackBerry Bold 9000 {222 ppi}; Sony Xperia min, Xperia mini pro &amp; Xperia active {192 ppi}; LG Optimus {192 ppi}; LG Optimus One, Optimus S, Optimus M, Optimus Slider, Optimus Net, Optimus T, Optimus Chic &amp; Optimus Net Dual {180 ppi}; Sony Xperia tipo {180 ppi}; Sony Live with Walkman {180 ppi}; Apple iPhone 3G &amp; 3GS {165 ppi}; Apple iPod touch (1st, 2nd &amp; 3rd generation) {165 ppi}; Samsung Galaxy Ace, Galaxy Ace Advance, Galaxy Fame &amp; Galaxy Ace Duos {165 ppi}; HTC Desire C {165 ppi}; Sony Xperia E, Xperia miro &amp; Xperia go {165 ppi}; LG Optimus Hub, Optimus Chat, Optimus Elite, Optimus M+ &amp; Motion 4G {165 ppi}; Samsung Galaxy Ace Plus {158 ppi}; LG Optimus L5 &amp; Optimus L5 Dual {144 ppi}]'; }
+}
+
+
+@media screen and ( min-width: 480px ) and ( max-width: 540px )
+{
+	body.device-screen-size_before:before , body.device-screen-size_after:after { content: '[LANDSCAPE: HTC EVO Design 4G {275 ppi}; Sony Xperia P {275 ppi}; Motorola Atrix {275 ppi}; HTC Sensation, Sensation 4G, Sensation HTC Evo 3D, Sensation XE, Evo 4G+, Desire HD2 &amp; One S {256 ppi}; LG Optimus F5 {256 ppi}; Motorola Bionic, Photon Q, Droid RAZR, Droid RAZR i, Droid RAZR M &amp; Droid RAZR MAXX {256 ppi}; Samsung Galaxy S4 mini {256 ppi}; Asus PadFone {256 ppi}; HTC One VX {245 ppi}; LG Optimus L9 {245 ppi}]'; }
+}
+
+
+@media screen and ( min-width: 540px ) and ( max-width: 600px )
+{
+	body.device-screen-size_before:before , body.device-screen-size_after:after { content: '[LANDSCAPE: HTC EVO View 4G {170 ppi}; Samsung Galaxy Tab, Galaxy Tab 7.0 Plus &amp; Galaxy Tab 2 7.0 {170 ppi}; Viewsonic ViewPad E72 {170 ppi}; Blackberry Playbook {170 ppi}; Amazon Kindle Fire {170 ppi}; Asus Memo Pad {170 ppi}]'; }
+}
+
+
+@media screen and ( min-width: 600px ) and ( max-width: 640px )
+{
+	body.device-screen-size_before:before , body.device-screen-size_after:after { content: '[LANDSCAPE: Apple iPhone 5, 5S &amp; 5C {326 ppi}; Apple iPod Touch (5th generation) {326 ppi}; Apple iPhone 4 &amp; 4S {330 ppi}; Apple iPod Touch (4th generation) {330 ppi}]   ,   [PORTRAIT: Blackberry Bold 9900 &amp; Bold Touch 9930 {286 ppi}; Blackberry Torch 9810 {250 ppi}; LG Optimus Z {229 ppi}; Sony Ericsson Vivaz &amp; Vivaz Pro {229 ppi}; Nokia 500 &amp; 5800 XpressMusic {229 ppi}; Nokia N8, N97, E7 and X6 {210 ppi}; Nokia E7 {184 ppi}]'; }
+}
+
+
+@media screen and ( min-width: 640px ) and ( max-width: 720px )
+{
+	body.device-screen-size_before:before , body.device-screen-size_after:after { content: '[LANDSCAPE:  {342 ppi}; <p>Sony Xperia S {342 ppi}; HTC Windows Phone 8X {342 ppi}; HTC One mini</p> {342 ppi};  {342 ppi}; LG Optimus LTE, Optimus True HD LTE &amp; Optimus 4G LTE {326 ppi}; Sony Xperia T {326 ppi}; Samsung Galaxy Nexus, Galaxy S II HD LTE, Galaxy Pop, Galaxy Premier &amp; Galaxy S II Skyrocket HD {316 ppi}; LG Optimus G, Optimus 4X HD, Optimus LTE2 &amp; Optimus F7 {312 ppi}; HTC One X &amp; X+ &amp; XL {312 ppi}; Motorola Droid RAZR HD &amp; Droid RAZR MAXX HD {312 ppi}; Motorola Moto X {316 ppi}; Samsung Galaxy S III {306 ppi}; Samsung Galaxy Note II {267 ppi}; Blackberry Q10 &amp; Q5 {328 ppi}]   ,   [PORTRAIT: Blackberry Q10 &amp; Q5 {328 ppi}]'; }
+}
+
+
+@media screen and ( min-width: 720px ) and ( max-width: 768px )
+{
+	body.device-screen-size_before:before , body.device-screen-size_after:after { content: '[LANDSCAPE: Asus VivoTab RT {155 ppi}; Samsung N350 {155 ppi}; Microsoft Surface with Windows RT {148 ppi}; Apple Macbook Air {135 ppi}; Samsung Series 3 Chromebook {135 ppi}; Acer C7 Chromebook {135 ppi}; Samsung Series 5 Chromebook {130 ppi}; ASUS Eee PC VX6 Lambourghini {130 ppi}; BlackBerry Z10 {332 ppi}; Nokia Lumia 920, Nokia Lumia 925, Nokia Lumia 1020 {332 ppi}; LG Optimus G {318 ppi}; LG Google Nexus 4 {318 ppi}; LG Optimus 4X HD {318 ppi}; Samsung Galaxy Camera {306 ppi}; LG Optimus Pad {168 ppi}; Apple iPad Mini {162 ppi}; LG Intuition, Optimus Vu &amp; Optimus Vu II {256 ppi}; Apple iPad 1 &amp; 2 {132 ppi}; HP TouchPad {132 ppi}; Viewsonic ViewPad 10e &amp; ViewPad E100 {132 ppi}]'; }
+}
+
+
+@media screen and ( min-width: 768px ) and ( max-width: 800px )
+{
+	body.device-screen-size_before:before , body.device-screen-size_after:after { content: '[PORTRAIT: LG Optimus Q &amp; Optimus 7Q {267 ppi}; Asus P835 {267 ppi}; Blackberry Storm 3, Torch 9850 &amp; Torch 9860 {252 ppi}; Nokia Lumia 610, 710 &amp; 800 {252 ppi}; HTC Desire, Desire Z, Desire S &amp; One V {252 ppi}; Samsung Galaxy W {252 ppi}; Samsung Galaxy Ace 2 {246 ppi}; Blackberry Storm 3 {246 ppi}; LG Optimus 7, Optimus Mach &amp; Optimus Sol {246 ppi}; Nokia Lumia 510 &amp; 520 {233 ppi}; Samsung Galaxy I, Galaxy S, Galaxy S Plus, Galaxy S Advance, Galaxy SL, Galaxy S Duos, Galaxy Xcover 2, Galaxy Beam, Nexus S, Captivate Glide &amp; Galaxy S III mini {233 ppi}; HTC Desire X, HTC Desire V, Desire VC, Desire VT, Desire U &amp; Windows Phone 8S {233 ppi}; LG Optimus 2X, Optimus EX, Optimus L5 II, Optimus Q2 &amp; Optimus Black {233 ppi}; T-Mobile G2x {233 ppi}; Asus E600 {233 ppi}; Nokia Lumia N800 &amp; N810 {226 ppi}; Nokia Lumia 720, 820 &amp; 900 {217 ppi}; Samsung Galaxy S II &amp; Galaxy S II Plus {217 ppi}; HTC Evo 4G, Desire HD, Desire SV, One SC, One ST, One SU &amp; One SV {217 ppi}; LG Optimus 3D, Optimus 3D Cube, Optimus Big, Optimus LTE Tag &amp; Optimus L7 IID {217 ppi}; Samsung Galaxy S II Duos, Galaxy S II X &amp; Galaxy S II Epic 4G Touch {206 ppi}; HTC Sensation XL {199 ppi}; Samsung Galaxy Grand {187 ppi}; Viewsonic Viewpad 7 {133 ppi}]'; }
+}
+
+
+@media screen and ( min-width: 800px ) and ( max-width: 854px )
+{
+	body.device-screen-size_before:before , body.device-screen-size_after:after { content: '[PORTRAIT: Sony Xperia ray {297 ppi}; Sony Xperia U {280 ppi}; Sony Xperia sola, Xperia pro, Xperia neo &amp; Xperia neo V {265 ppi}; Motorola Milestone and Milestone 2 {265 ppi}; Nokia N9 {251 ppi}; Sony Xperia X10, Xperia PLAY &amp; Xperia J {245 ppi}; Sony Xperia arc &amp; Xperia arc S {233 ppi}]'; }
+}
+
+
+@media screen and ( min-width: 854px ) and ( max-width: 900px )
+{
+	body.device-screen-size_before:before , body.device-screen-size_after:after { content: '[LANDSCAPE: Barnes &amp; Noble NOOK HD {243 ppi}; Apple Macbook Air {128 ppi}; Apple iMac 4,1 / 5,2 (Early 2006 - Late 2006) {100 ppi }]'; }
+}
+
+
+@media screen and ( min-width: 900px ) and ( max-width: 960px )
+{
+	body.device-screen-size_before:before , body.device-screen-size_after:after { content: '[PORTRAIT: Apple iPhone 4 &amp; 4S {330 ppi}; Apple iPod Touch (4th generation) {330 ppi}; HTC EVO Design 4G {275 ppi}; Sony Xperia P {275 ppi}; Motorola Atrix {275 ppi}; HTC Sensation, Sensation 4G, Sensation HTC Evo 3D, Sensation XE, Evo 4G+, Desire HD2 &amp; One S {256 ppi}; LG Optimus F5 {256 ppi}; Motorola Bionic, Photon Q, Droid RAZR, Droid RAZR i, Droid RAZR M &amp; Droid RAZR MAXX {256 ppi}; Samsung Galaxy S4 mini {256 ppi}; Asus PadFone {256 ppi}; HTC One VX {245 ppi}; LG Optimus L9 {245 ppi}]'; }
+}
+
+
+@media screen and ( min-width: 960px ) and ( max-width: 1024px )
+{
+	body.device-screen-size_before:before , body.device-screen-size_after:after { content: '[LANDSCAPE: Asus PadFone 2 {WXGA
+4.7 in312 ppi}; Samsung Galaxy Note {285 ppi}; Kindle Fire HD {216 ppi}; Asus Google Nexus 7, Memo &amp; Fonepad {216 ppi}; Samsung Galaxy Tab 7.7 {196 ppi}; Samsung Galaxy Note 8.0 {189 ppi}; Motorola Droid XYBOARD {189 ppi}; Samsung Galaxy Tab 8.9 {170 ppi}; Sony Xperia Tablet S {161 ppi}; Samsung Galaxy Note 10.1, Galaxy Tab 10.1 &amp; Galaxy Tab 2 10.1 {149 ppi}; Viewsonic ViewPad 10pi {149 ppi}; Motorola Zoom {149 ppi}; Asus Memo Pad Smart 10, Transformer, Transformer Prime TF201 &amp; Transformer Pad {149 ppi}]   ,   [PORTRAIT: Apple iPad Mini {162 ppi}; LG Intuition, Optimus Vu &amp; Optimus Vu II {256 ppi}; Apple iPad 1 &amp; 2 {132 ppi}; HP TouchPad {132 ppi}; Viewsonic ViewPad 10e &amp; ViewPad E100 {132 ppi}; HTC EVO View 4G {170 ppi}; Samsung Galaxy Tab, Galaxy Tab 7.0 Plus &amp; Galaxy Tab 2 7.0 {170 ppi}; Viewsonic ViewPad E72 {170 ppi}; Blackberry Playbook {170 ppi}; Amazon Kindle Fire {170 ppi}; Asus Memo Pad {170 ppi}]'; }
+}
+
+
+@media screen and ( min-width: 1024px ) and ( max-width: 1050px )
+{
+	body.device-screen-size_before:before , body.device-screen-size_after:after { content: '[LANDSCAPE: Apple iMac 4,1 / 5,1 / 7,1 / 8,1 / 9,1 (Early 2006 - Early 2009) {99 ppi}]'; }
+}
+
+
+@media screen and ( min-width: 1050px ) and ( max-width: 1080px )
+{
+	body.device-screen-size_before:before , body.device-screen-size_after:after { content: '[LANDSCAPE: HTC One {469 ppi}; Samsung Galaxy S4 {441 ppi}; Sony Xperia Z &amp; Xperia ZL {441 ppi}; Asus PadFone Infinity {441 ppi}; LG Optimus G Pro {401 ppi}; LG G2 {423 ppi}; Sony Xperia Z Ultra {344 ppi}; Amazon Kindle Fire HD 8.9 {254 ppi}; Microsoft Surface with Windows 8 Pro {208 ppi}; Acer Iconia W700 &amp; Aspire S7 {190 ppi}; Sony Vaio Duo 11 {190 ppi}; Dell XPS 12 {176 ppi}; Acer Aspire S5 {166 ppi}; Asus Zenbook Prime {166 ppi}; Apple iMac 10,1 / 11,2 / 12,1 (Late 2009 - Mid 2011) {102 ppi}]'; }
+}
+
+
+@media screen and ( min-width: 1080px ) and ( max-width: 1136px )
+{
+	body.device-screen-size_before:before , body.device-screen-size_after:after { content: '[PORTRAIT: Apple iPhone 5, 5S &amp; 5C {326 ppi}; Apple iPod Touch (5th generation) {326 ppi}]'; }
+}
+
+
+@media screen and ( min-width: 1136px ) and ( max-width: 1200px )
+{
+	body.device-screen-size_before:before , body.device-screen-size_after:after { content: '[LANDSCAPE: Sony Xperia Tablet Z {224 ppi}; Asus Transformer Pad Infinity &amp; Transformer Prime TF700T {224 ppi}; 24-inch Apple iMac 6,1 / 7,1 / 8,1 / 9,1(Late 2006 - Early 2009) {94 ppi}; Apple Macbook Air {HD+
+Medium 16:10 desktop/laptop screen resolution
+
+
+13 in141 ppi}]'; }
+}
+
+
+@media screen and ( min-width: 1200px ) and ( max-width: 1280px )
+{
+	body.device-screen-size_before:before , body.device-screen-size_after:after { content: '[LANDSCAPE: NOOK HD+ Tablet {256 ppi }]   ,   [PORTRAIT: Asus PadFone 2 {WXGA
+4.7 in312 ppi}; Samsung Galaxy Note {285 ppi}; Kindle Fire HD {216 ppi}; Asus Google Nexus 7, Memo &amp; Fonepad {216 ppi}; Samsung Galaxy Tab 7.7 {196 ppi}; Samsung Galaxy Note 8.0 {189 ppi}; Motorola Droid XYBOARD {189 ppi}; Samsung Galaxy Tab 8.9 {170 ppi}; Sony Xperia Tablet S {161 ppi}; Samsung Galaxy Note 10.1, Galaxy Tab 10.1 &amp; Galaxy Tab 2 10.1 {149 ppi}; Viewsonic ViewPad 10pi {149 ppi}; Motorola Zoom {149 ppi}; Asus Memo Pad Smart 10, Transformer, Transformer Prime TF201 &amp; Transformer Pad {149 ppi}; BlackBerry Z10 {332 ppi}; Nokia Lumia 920, Nokia Lumia 925, Nokia Lumia 1020 {332 ppi}; LG Optimus G {318 ppi}; LG Google Nexus 4 {318 ppi}; LG Optimus 4X HD {318 ppi}; Samsung Galaxy Camera {306 ppi}; LG Optimus Pad {168 ppi};  {342 ppi}; <p>Sony Xperia S {342 ppi}; HTC Windows Phone 8X {342 ppi}; HTC One mini</p> {342 ppi}; LG Optimus LTE, Optimus True HD LTE &amp; Optimus 4G LTE {326 ppi}; Sony Xperia T {326 ppi}; Samsung Galaxy Nexus, Galaxy S II HD LTE, Galaxy Pop, Galaxy Premier &amp; Galaxy S II Skyrocket HD {316 ppi}; LG Optimus G, Optimus 4X HD, Optimus LTE2 &amp; Optimus F7 {312 ppi}; HTC One X &amp; X+ &amp; XL {312 ppi}; Motorola Droid RAZR HD &amp; Droid RAZR MAXX HD {312 ppi}; Motorola Moto X {316 ppi}; Samsung Galaxy S III {306 ppi}; Samsung Galaxy Note II {267 ppi}]'; }
+}
+
+
+@media screen and ( min-width: 1280px ) and ( max-width: 1366px )
+{
+	body.device-screen-size_before:before , body.device-screen-size_after:after { content: '[PORTRAIT: Asus VivoTab RT {155 ppi}; Samsung N350 {155 ppi}; Microsoft Surface with Windows RT {148 ppi}; Apple Macbook Air {135 ppi}; Samsung Series 3 Chromebook {135 ppi}; Acer C7 Chromebook {135 ppi}; Samsung Series 5 Chromebook {130 ppi}; ASUS Eee PC VX6 Lambourghini {130 ppi}]'; }
+}
+
+
+@media screen and ( min-width: 1366px ) and ( max-width: 1440px )
+{
+	body.device-screen-size_before:before , body.device-screen-size_after:after { content: '[LANDSCAPE: 27-inch Apple iMac 10,2 / 11,1 / 11,3 / 12,2 (Late 2009 - 2012) {109 ppi}]   ,   [PORTRAIT: Barnes &amp; Noble NOOK HD {243 ppi}; Apple Macbook Air {128 ppi}; Apple iMac 4,1 / 5,2 (Early 2006 - Late 2006) {100 ppi }]'; }
+}
+
+
+@media screen and ( min-width: 1440px ) and ( max-width: 1536px )
+{
+	body.device-screen-size_before:before , body.device-screen-size_after:after { content: '[LANDSCAPE: Apple iPad 3 {264 ppi}; Apple iPad 4 (Apple iPad with Retina display) {264 ppi}; Apple iPad Air {264 ppi}]'; }
+}
+
+
+@media screen and ( min-width: 1536px ) and ( max-width: 1600px )
+{
+	body.device-screen-size_before:before , body.device-screen-size_after:after { content: '[LANDSCAPE: Samsung Google Nexus 10 {300 ppi}; 13-inch Apple MacBook Pro with Retina display {227 ppi}]   ,   [PORTRAIT: Apple Macbook Air {HD+
+Medium 16:10 desktop/laptop screen resolution
+
+
+13 in141 ppi}]'; }
+}
+
+
+@media screen and ( min-width: 1600px ) and ( max-width: 1680px )
+{
+	body.device-screen-size_before:before , body.device-screen-size_after:after { content: '[PORTRAIT: Apple iMac 4,1 / 5,1 / 7,1 / 8,1 / 9,1 (Early 2006 - Early 2009) {99 ppi}]'; }
+}
+
+
+@media screen and ( min-width: 1680px ) and ( max-width: 1700px )
+{
+	body.device-screen-size_before:before , body.device-screen-size_after:after { content: '[LANDSCAPE: Google Chromebook Pixel {239 ppi}]'; }
+}
+
+
+@media screen and ( min-width: 1700px ) and ( max-width: 1800px )
+{
+	body.device-screen-size_before:before , body.device-screen-size_after:after { content: '[LANDSCAPE: 15-inch Apple MacBook Pro with Retina display {226 ppi}]'; }
+}
+
+
+@media screen and ( min-width: 1800px ) and ( max-width: 1920px )
+{
+	body.device-screen-size_before:before , body.device-screen-size_after:after { content: '[PORTRAIT: NOOK HD+ Tablet {256 ppi }; Sony Xperia Tablet Z {224 ppi}; Asus Transformer Pad Infinity &amp; Transformer Prime TF700T {224 ppi}; 24-inch Apple iMac 6,1 / 7,1 / 8,1 / 9,1(Late 2006 - Early 2009) {94 ppi}; HTC One {469 ppi}; Samsung Galaxy S4 {441 ppi}; Sony Xperia Z &amp; Xperia ZL {441 ppi}; Asus PadFone Infinity {441 ppi}; LG Optimus G Pro {401 ppi}; LG G2 {423 ppi}; Sony Xperia Z Ultra {344 ppi}; Amazon Kindle Fire HD 8.9 {254 ppi}; Microsoft Surface with Windows 8 Pro {208 ppi}; Acer Iconia W700 &amp; Aspire S7 {190 ppi}; Sony Vaio Duo 11 {190 ppi}; Dell XPS 12 {176 ppi}; Acer Aspire S5 {166 ppi}; Asus Zenbook Prime {166 ppi}; Apple iMac 10,1 / 11,2 / 12,1 (Late 2009 - Mid 2011) {102 ppi}]'; }
+}
+
+
+@media screen and ( min-width: 1920px ) and ( max-width: 2048px )
+{
+	body.device-screen-size_before:before , body.device-screen-size_after:after { content: '[PORTRAIT: Apple iPad 3 {264 ppi}; Apple iPad 4 (Apple iPad with Retina display) {264 ppi}; Apple iPad Air {264 ppi}]'; }
+}
+
+
+@media screen and ( min-width: 2048px ) and ( max-width: 2560px )
+{
+	body.device-screen-size_before:before , body.device-screen-size_after:after { content: '[PORTRAIT: Google Chromebook Pixel {239 ppi}; Samsung Google Nexus 10 {300 ppi}; 13-inch Apple MacBook Pro with Retina display {227 ppi}; 27-inch Apple iMac 10,2 / 11,1 / 11,3 / 12,2 (Late 2009 - 2012) {109 ppi}]'; }
+}
+
+
+@media screen and ( min-width: 2560px ) and ( max-width: 2880px )
+{
+	body.device-screen-size_before:before , body.device-screen-size_after:after { content: '[PORTRAIT: 15-inch Apple MacBook Pro with Retina display {226 ppi}]'; }
+}
+
+
+@media screen and ( min-width: 2880px )
+{
+	body.device-screen-size_before:before , body.device-screen-size_after:after { content: 'Very wide (not yet defined)'; }
+}

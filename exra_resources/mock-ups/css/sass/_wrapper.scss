@@ -1,0 +1,46 @@
+body > header {
+    text-align: center;
+    padding-top: 3em;
+    padding-bottom: 0.5em;
+    border-bottom: 0.05em solid #ccc;
+    position: relative;
+    nav {
+        position: absolute;
+        top: 0%;
+        right: 0%;
+        left: 0%;
+        ul {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: stretch;
+            align-content: stretch;
+            margin: 0%;
+            padding: 0%;
+            li {
+                flex-grow: 1;
+                display: inline-block;
+                list-style-type: none;
+                a {
+                    display: block;
+                    background-color: #017;
+                    color: #fff;
+                    padding: 0.5em 2em;
+                    font-size: 1.75rem;
+                    &:hover {
+                        color: #fff !important;
+                    }
+                    &.active {
+                        background-color: #05a;
+                    }
+                }
+            }
+        }
+    }
+}
+.content-wrap {
+	margin: auto;
+	border: 0.1em solid #ccc;
+	padding: 0% 1em;
+}

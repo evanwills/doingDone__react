@@ -1,0 +1,140 @@
+{
+	"households": [
+		{
+			"id": 1,
+			"name": "pickles",
+			"users": [
+				/**
+				 * list of all users in a given household
+				 */
+			],
+			"tasks": [
+				/**
+				 * complete list of all task objects available
+				 * to a given househole
+				 */
+			],
+			/**
+			 * list of tasks available to each user at any given moment.
+			 */
+			"availableTasks": [
+				{
+					"userID": [
+						"taskID" // ordered by completion time, then by priority
+					]
+				}
+			],
+			"taskUser": [
+				{
+					"_id": "date/time",
+					"completedBy": "userID",
+					"taskID": "",
+					"approvedBy": 1,
+					"completionStatus": "",
+					"interventionRequired": ""
+				}
+			],
+			"approvalQue": [
+
+			]
+		}
+	],
+	"completionStatus": [	// {enum}
+		"Not done",
+		"Partially done",
+		"Completely done",
+		"Above and beyond"
+	],
+	"interventionRequired": [	// {enum}
+		"Volunteered",
+		"Prompted",
+		"Coerced"
+	],
+	"taskType": [	// {enum}
+		"Weekly",	// [default]
+		"One off",
+		"Fixed period"
+	],
+	/**
+	 *
+	 */
+	"user": {
+		"_id": 1,
+		"name": "Evan",
+		"approver": true,
+		"colour": "#090",
+		"avatar": "", // binary blob (image)
+		"active": true,
+		"created": "2017-08-25T23:19:00",
+		"email": "AA0D390903EB53E0F00F472BC7FB3C010A98A9399812D0ABAB32F68295C108C4", // two way hash
+		"password": "F040E1BFF502D2217B1887B61B203832EE8BEA444DC4AD2B7009566C610427F7" // 1 way hash
+	},
+
+	"baseTask": { // task interface
+		"_id": 1,
+		"taskName": "",
+		"taskDetails": "",
+		"taskVisual":"base64 image/svg",
+		"completionWindow": {
+			"start": "08:00",
+			"end": "09:00"
+		},
+		"active": true,
+		"allowPartial": false,
+		"required": false,
+		"value": 1,
+		"approvers": [],
+		"responsibles": [],
+		"priority":	10
+	},
+	"weekTask": {
+		// extends baseTask
+		"taskType": "Weekly", // fixed - cannot be set
+		"rotating": true,
+		"lastAssigned": "userID",
+		"days": {
+			"mon": true,
+			"tues": false,
+			"wed": false,
+			"thurs": true,
+			"fri": true,
+			"sat": false,
+			"sun": false,
+			"holidays": false,	// only during holidays
+			"nonSchool": false,	// only on non-school days
+			"school": false		// only on school days
+		}
+	},
+	"oneOffTasks": {
+		// extends baseTask
+		"taskType": "One off", // fixed - cannot be set
+		"date": "date"
+	},
+	"fixedPeriodTasks": {
+		// extends weekTask
+		"taskType": "Fixed period", // fixed - cannot be set
+		"startDate": "date",
+		"duration": "days"
+	},
+	/**
+	 *
+	 */
+	"predictableRecurringTask": {
+		// extends weekTask or oneOffTask or fixedPeriodTask
+		"taskType": "Predictable, recurring", // fixed - cannot be set
+		"firstInstance": "date/time",
+		"duration": 5, // days
+		"interval": 8 // days from start of last interval
+	},
+	/**
+	 *
+	 */
+	"randomRecurringPeriodicTask": {
+		// extends weekTask or oneOffTask or fixedPeriodTask
+		"taskType": "Random, recurring, periodic", // fixed - cannot be set
+		"startDates": [
+			// list of dates
+		],
+		"duration": , // days
+	}
+}

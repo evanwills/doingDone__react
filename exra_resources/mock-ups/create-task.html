@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Asset ID: #416460 -->
+		<meta charset="utf-8" />
+
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="user-scalable=yes, initial-scale=1.0, width=device-width, height=device-height" />
+        <!-- <meta name="viewport" content="width=device-width" /> -->
+
+        <meta name="theme-color" content="#00539F" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="#00539F" />
+
+		<title>Default screen (To Do list) - doingDone</title>
+
+
+		<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+		<script type="text/javascript" src="js/doingDone.js"></script>
+
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+
+		<link rel="stylesheet" type="text/css" href="css/doingDone.css" />
+    </head>
+    <body>
+        <header>
+            <h1>Create Task screen (To Do list)</h1>
+            <h2>Add a new task to the list of available tasks</h2>
+            <nav>
+                <ul>
+                    <li><a href="index.html">To Do list</a></li>
+                    <li><a href="task.html">Task (in queue)</a></li>
+                    <li><a href="approval.html">Approval list</a></li>
+                    <li><a href="create-task.html" class="active">Create new task</a></li>
+
+                </ul>
+            </nav>
+			<p>
+				<label for="screen-size">Screen size</label>
+				<select id="screen-size">
+					<option value="320">extremely small (320px)</option>
+					<option value="400">Very very small (400px)</option>
+					<option value="480">Very small (480px)</option>
+					<option value="560">small (560px)</option>
+					<option value="640">Pretty small (640px)</option>
+					<option value="720">Not so small (720px)</option>
+					<option value="880" selected="selected">Medium (880px)</option>
+					<option value="1040">Large (1040px)</option>
+					<option value="1200">Extra large (1200px)</option>
+				</select>
+			</p>
+        </header>
+		<section class="content-wrap goalTasks" style="width: 880px;">
+			<form class="form-horizontal">
+				<fieldset>
+					<legend>Details</legend>
+					<div class="form-group">
+						<label for="task-name" class="col-sm-3 control-label"><em>Unique</em> name</label>
+						<div class="col-sm-9">
+							<input type="text" pattern="^[a-zA-Z0-9:.,()\-_ ]+$" class="form-control" name="task-uname" id="task-uname" placeholder="Task name" />
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="task-name" class="col-sm-3 control-label">Name</label>
+						<div class="col-sm-9">
+							<input type="text" pattern="^[a-zA-Z0-9:.,()\-_ ]+$" class="form-control" name="task-name" id="task-name" placeholder="Task name" />
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="task-name" class="col-sm-3 control-label">Description</label>
+						<div class="col-sm-9">
+							<textarea class="form-control markdown" name="task-description" id="task-description" placeholder="Task description" ></textarea>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="task-name" class="col-sm-3 control-label">Visual aid</label>
+						<div class="col-sm-9">
+							<input type="file" name="task-visual" id="task-visual" />
+						</div>
+					</div>
+					<div class="checkbox">
+						<label for="task-active" class="col-sm-5 control-label">
+							<input type="checkbox" name="task-active" id="task-active" /> Make active
+						</label>
+					</div>
+				</fieldset>
+				<!-- <div class="clearfix"></div> -->
+				<fieldset class="form-horizontal">
+					<legend>Completion window</legend>
+
+					<div class="form-group col-sm-6">
+						<label for="task-start-time" class="col-sm-7 control-label">Start time</label>
+						<div class="col-sm-5">
+							<input type="time" class="form-control" name="task-start-time" step="60" id="task-start-time" value="" />
+						</div>
+					</div>
+					<div class="form-group col-sm-6">
+						<label for="task-end-time" class="col-sm-7 control-label">End time</label>
+						<div class="col-sm-5">
+							<input type="time" class="form-control" name="task-end-time" step="60" id="task-end-time" value="" />
+						</div>
+					</div>
+					<div class="form-group col-sm-6 pull-left-6">
+						<label for="task-extended-end-time" class="col-sm-7 control-label">Extended end time</label>
+						<div class="col-sm-5">
+							<input type="time" class="form-control" name="task-end-time" step="60" id="task-extended-end-time" value="" />
+						</div>
+					</div>
+				</fieldset>
+				<fieldset>
+					<legend>Days of the week task is to be performed</legend>
+					<ul class="weekdays row">
+						<li class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+							<label>
+								<input type="checkbox" name="task-monday" id="task-monday" value="monday" checked="checked" />
+								Monday
+							</label>
+						</li>
+						<li class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+							<label>
+								<input type="checkbox" name="task-tuesday" id="task-tuesday" value="monday" checked="checked" />
+								Tuesday
+							</label>
+						</li>
+						<li class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+							<label>
+								<input type="checkbox" name="task-wednesday" id="task-wednesday" value="monday" checked="checked" />
+								Wednesday
+							</label>
+						</li>
+						<li class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+							<label>
+								<input type="checkbox" name="task-thursday" id="task-thursday" value="monday" checked="checked" />
+								Thursday
+							</label>
+						</li>
+						<li class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+							<label>
+								<input type="checkbox" name="task-friday" id="task-friday" value="monday" checked="checked" />
+								Friday
+							</label>
+						</li>
+						<li class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+							<label>
+								<input type="checkbox" name="task-saturday" id="task-saturday" value="monday" checked="checked" />
+								Saturday
+							</label>
+						</li>
+						<li class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+							<label>
+								<input type="checkbox" name="task-sunday" id="task-sunday" value="monday" checked="checked" />
+								Sunday
+							</label>
+						</li>
+					</ul>
+				</fieldset>
+				<fieldset>
+					<legend>Holidays</legend>
+					<ul class="weekdays row">
+						<li class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+							<label>
+								<input type="checkbox" name="school-term" id="school-term" value="term" checked="checked" />
+								Required on school days
+							</label>
+						</li>
+						<li class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+							<label>
+								<input type="checkbox" name="school-holidays" id="school-holidays" value="school-holidays" checked="checked" />
+								Required on school holidays
+							</label>
+						</li>
+						<li class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+							<label>
+								<input type="checkbox" name="public-holidays" id="public-holidays" value="public-holidays" checked="checked" />
+								Required on public holidays
+							</label>
+						</li>
+					</ul>
+				</fieldset>
+				<fieldset>
+					<legend>Repetition</legend>
+
+					<div class="form-group">
+						<label for="task-repetion-mode" class="col-sm-3 control-label">Name</label>
+						<div class="col-sm-9">
+							<select class="form-control" name="task-repetion-mode" id="task-repetion-mode">
+								<option value="weekly">Task is part of weekly duties</option>
+								<option value="regular">Task required at regular intervals</option>
+								<option value="random">Task required at random intervals</option>
+							</select>
+						</div>
+					</div>
+					<fieldset id="regular" class="form-horizontal">
+						<legend>Task required at regular intervals</legend>
+
+						<div class="form-group">
+							<label for="task-regular-interval" class="col-sm-3 control-label">Interval</label>
+							<div class="col-sm-9">
+								<input type="number" class="form-control" min="0" step="1" name="task-regular-interval" id="task-regular-interval" aria-describedby="task-regular-interval-help" />
+							</div>
+							<span id="task-regular-interval-help" class="help-block ">Days from when active period starts and when next active period starts.<br /><strong>NOTE:</strong> Interval must be greater than duration.</span>
+						</div>
+						<div class="form-group">
+							<label for="task-regular-duration" class="col-sm-3 control-label">Duration</label>
+							<div class="col-sm-9">
+								<input type="number" class="form-control" min="0" step="1" name="task-regular-duration" id="task-regular-duration" aria-describedby="task-regular-duration-help" />
+							</div>
+							<span id="task-regular-duration-help" class="help-block">
+								Number of days task is to be performed.<br />
+								<strong>NOTE:</strong> Duration must be less than Interval.
+							</span>
+						</div>
+						<div class="form-group">
+							<label for="task-regular-first" class="col-sm-3 control-label">Date of first occurance</label>
+							<div class="col-sm-9">
+								<input type="date" class="form-control" name="task-regular-first" id="task-regular-first" />
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="task-regular-last" class="col-sm-3 control-label">Date of last occurance (optional)</label>
+							<div class="col-sm-9">
+								<input type="date" class="form-control" name="task-regular-last" id="task-regular-last" />
+							</div>
+						</div>
+					</fieldset>
+					<fieldset id="random">
+						<legend>Task required at random intervals</legend>
+
+						<div class="form-group">
+							<label for="task-regular-start" class="col-sm-3 control-label">Period start date</label>
+							<div class="col-sm-9">
+								<input type="date" class="form-control" name="task-regular-start" id="task-regular-start" />
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="task-regular-duration" class="col-sm-3 control-label">Duration (Number of days task is to be performed)</label>
+							<div class="col-sm-9">
+								<input type="number" class="form-control" min="0" step="1" name="task-regular-duration" id="task-regular-duration" />
+							</div>
+						</div>
+					</fieldset>
+				</fieldset>
+			</form>
+		</section>
+
+		<script type="text/javascript">
+$(document).ready(function () {
+	showHideBySelect('#task-repetion-mode', '#regular', 'regular', false, true, '#task-regular-interval');
+	showHideBySelect('#task-repetion-mode', '#random', 'random', false, true, '#task-regular-start');
+	$('#task-repetion-mode').trigger('change');
+});
+		</script>
+    </body>
+</html>

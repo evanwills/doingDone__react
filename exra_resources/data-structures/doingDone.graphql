@@ -1,0 +1,460 @@
+type household {
+	id: ID,
+	active: Boolean!,
+	name: String!,
+	timezone: String!,
+	locale: String!,
+	users: [User],
+
+	tasks: {
+		# all tasks ever created for the household
+		all: [Task],
+		# list of tasks currently available for doing
+		now: [task.id]
+	},
+	# all goals ever created for the household
+	goals: {
+		# all goals ever created for the household
+		all: [Goals],
+		# list of goals currently available for doing
+		now: [goal.id]
+	},
+	# activities that are of high value but can only be done by one
+	# child at a time. (e.g. sitting in the front seat of the car or having the favoured seat in the lounge room)
+	rotatingTurns: [RotatingTurn],
+
+	# list of task activities that need approving/verifying
+	approvalQueue: [TaskActivity],
+
+	valueModifiers: {
+		completionLevel: {
+			Not: Float!,			# default (optional) = 0	(required) = -0.5
+			Partially: Float!,		# default = 0.5
+			Fully: Float!,			# default = 1
+			Outstandingly: Float!	# default = 1.5
+		},
+		InterventionRequired: {
+			Volunteered: Float!,	# default = 1.3
+			Prompted: Float!,		# default = 1
+			Coerced: Float!,		# default = 0.7
+			Battled: Float!			# default = 0.4
+		}
+	},
+	currency: {
+		prefix: String!,
+		rounding: Int!,
+		pointsToCurrency: Float!
+	},
+
+	payPeriod: Int!, # weeks
+	payPeriodStart: DayOfWeek,
+	# dollar (or whatever) value of points
+	totalValueOfCurrentPayPeriod: Float!,
+	token: String!,
+	devices: Devices,
+	SchoolTermModes: [DateBlock]!,
+	PublicHolidays: [Date]!
+
+	today: {
+		isSchoolDay: Boolean!,
+		isSchoolHoliday: Boolean!,
+		isPublicHoliday: Boolean!
+	}
+}
+
+type user {
+	id: ID,
+	created: DateTime,
+	active: Boolean!,
+	name: String!,
+
+	# whether or not a user can approve tasks (usually an adult)
+	approver: true,
+
+	# hex colour value to identify user
+	colour: String!,
+	avatarURL: String!,
+	# in Local storage email & password are omitted in favour of
+	# keeping them in memory so they're not versioned by PouchDB
+	# email: String, # two way hash
+	# password: String!, # 1 way hash
+	tasks: {
+		# tasks get added to the "now" list and removed from it by
+		# task the scheduler
+		# tasks in the "now" list are ordered soonest "endTime" to
+		# farthest "endTime" then by "priority"
+		now: [Task],
+		# list of all tasks completed by the user
+		history: [TaskActivity],
+	}
+	goals: {
+		# goals get added to the "now" list and removed from it by
+		# goals the scheduler
+		# tasks in the "now" list are ordered soonest "endTime" to
+		# farthest "endTime" then by "priority"
+		now: [Goal],
+		# list of all goals met by the user
+		history: [GoalActivity],
+	}
+	rewards: [Reward],
+	points: {
+		periodTotal: Float!,
+		grandTotal: Float!
+	},
+	lastPaymentDate: Date!
+	showTimeRemaining: Boolean!
+}
+
+interface TaskGoal {
+	id: ID!,
+	created: Date,
+
+	# goals/tasks can be manually made inactive or automatically become
+	# inactive if they have a period property and the final occurance
+	# (startDate plus duration) has passed.
+	active: Boolean!,
+
+	name: String!,
+
+	# You may wish to have multiple variations of the same goal/task
+	# e.g.
+	#	 one doer needs to perform a goal/task by 7pm and another
+	#	 doer needs to perform the same goal/task by 8pm.
+	# or
+	#	 a goal/task needs to be performed at a different time on
+	#	 holidays compared to school term.
+	# This allows goal/task creators to easily differentiate between
+	# versions while showing a standard name to goal/task doers.
+	uniqueName: String!,
+	description: String,
+
+	# for some children (and adults) a visual prompt can be very
+	# helpful for processing what needs to be done for a particular
+	# goal/task this allows you to provide a visaul aid to assist in
+	# completion of the task
+	visualURL: String,
+
+	# default is FALSE if the goal/task can still get points for
+	# partial
+	# completion then this should be set to TRUE
+
+	allowPartial: boolean!,
+
+	# if goals/tasks have the same end time priority is used to rank
+	# them.
+	priority: Int!,
+
+	# Should this task be performed only on specific days of the week
+	# default is for all days to be true
+	monday: Boolean!,
+	tuesday: Boolean!,
+	wednesday: Boolean!,
+	thursday: Boolean!,
+	friday: Boolean!,
+	saturday: Boolean!,
+	sunday: Boolean!,
+
+	# Required on school term days
+	schoolDays: Boolean!,
+
+	# Required on School holidays
+	schoolHolidays: Boolean!,
+
+	# Required on public holidays
+	publicHolidays: Boolean!,
+
+	# period handles repeating the task on a
+	# regular or irregular basis
+	period: TaskPeriod
+}
+
+
+interface Task implements TaskGoal { # task interface
+	# If not required and not completed tasks will not appear in the
+	# responsible user's history
+	# If required and not completed, task will be pushed into the
+	# responsible user's task history and possibly cause a decrement
+	# that user's value tally
+	required: boolean!,
+
+	# points gained by completing this task (can be modified by
+	# household's valueModifiers)
+	# default: 1
+	value: Float!,
+
+	# startTime and endTime affect what goals/tasks will be shown (on
+	# relevant days) in a user's current task list
+	startTime: Time!,
+
+	# When there are multiple goal/task available at the same time,
+	# they will be sorted by end time to ensure the most urgent
+	# goals/tasks are completed first
+	endTime: Time!,
+
+	# allow completion after normal end time
+	extendedEndTime: Time,
+
+	# assigned user changes with each completion period
+	rotating: Boolean!,
+
+	# index of the user listed in the "responsibles"
+	# array currently assigned to task
+	assignedTo: Int,
+
+	# list of users who can approve this task.
+	# If empty any user with approver: TRUE can approve
+	approvers: [User],
+
+	# minimum of two responsibles are required if rotating is TRUE
+	# If empty (and rotating is FALSE) task is added to all
+	# non-approvers
+	responsibles: [User],
+}
+
+type Goal implements TaskGoal {
+	# goals can only be owned by a single user
+	owner: User!,
+
+	# how many times in the current period has the task
+	periodAchievementCount: Int!,
+
+	# how many times has this goal been achieved
+	totalAchievementCount: Int!,
+
+	# who can see this goal
+	visibility: GoalVisibility!,
+
+	# can others clone this goal?
+	clonable: Boolean!
+}
+
+
+type DoOnWeekDays {
+	monday: Boolean!,
+	tuesday: Boolean!,
+	wednesday: Boolean!,
+	thursday: Boolean!,
+	friday: Boolean!,
+	saturday: Boolean!,
+	sunday: Boolean!
+}
+
+interface Recurrance {
+	duration: Int!,	# days (NOTE: duration must be less than or equal to interval)
+	nextOccuranceStart: Date!,
+	nextOccuranceEnd: Date!
+	# if finalEndDate is NULL, task never becomes inactive
+	finalEndDate: Date,
+}
+
+type IntervalRecurrance implements Recurrance {
+	interval: Int!,	# number of days from start of last interval
+	firstOccurance: Date!,
+	# logic:
+	# if ((nextOccuranceEnd) < today) {
+	#	 while (nextOccuranceEnd < today) {
+	#		nextOccuranceStart += interval;
+	#		nextOccuranceEnd = nextOccuranceStart + duration;
+	#	 }
+	#	 if (finalEndDate !== null) {
+	#	 	if (nextOccuranceStart > finalEndDate) {
+	#			active = false;
+	#			nextOccuranceStart = null;
+	#			nextOccuranceEnd = null;
+	#		 } else if (nextOccuranceEnd > finalEndDate) {
+	#			nextOccuranceEnd = finalEndDate;
+	#		 }
+	#	 }
+	# }
+}
+
+type MonthlyOccurance {
+	weekDayOfMonth: DayOfWeek!,
+	# position of weekday from start (or end of month) [1-5]
+	Position: Int!,
+	# if FromEnd: TRUE then position is calculated from end of month rather than begining.
+	FromEnd: Boolean!, # defalt FALSE
+	# Number of days the period runs for.
+	duration: Int! # days
+}
+
+type MonthlyRecurrance implements Recurrance {
+	start: [MonthlyOccurance!]!;
+}
+
+type FixedPeriod {
+	startDate: Date!,
+	duration: Int! # days
+}
+
+type RandomRecurrance implements Recurrance {
+	# startDates are removed from array once their period has passed
+	startDates: [FixedPeriod!]!,
+	# taken from the endDate of the final FixedPeriod
+	finalEndDate: Date!,
+	# logic:
+	# if (nextOccuranceEnd < today) {
+	#    for (let i = 0; i < startDates.length; i += 1) {
+	#		 if (startDates[i].startDate > today || (startDates[i].startDate < today && (startDates[i].startDate + startDates[i].duraton) > today))
+	#			nextOccuranceStart = startDates[i].startDate;
+	#			nextOccuranceEnd = nextOccuranceStart + startDates[i].duraton;
+	#			break;
+	#		 } else {
+	#			if (i + 1 === startDates.length && (startDates[i].startDate + startDates[i].duraton) < today) {
+	#				active = false;
+	#				nextOccuranceStart = null;
+	#				nextOccuranceEnd = null;
+	#			}
+	#		 }
+	#	 }
+	# }
+}
+
+union TaskPeriod = IntervalRecurrance | MonthlyRecurrance | RandomRecurrance
+
+interface Activity {
+	id: ID!, # user.id + this.completed
+	completed: DateTime!,
+	completionLevel: CompletionLevel!,
+	computedValue: Float!,
+	notes: String
+}
+
+
+type TaskActivity implements Activity {
+{
+	completedBy: User!,
+	task: Task!,
+	acknowledgedBy: User,
+	interventionRequired: InterventionRequired,
+	# computedValue = this.task.value * household.valueModifiers.completionLevel[this.completionLevel] * household.valueModifiers.InterventionRequired[this.interventionRequired]
+	# (based on task and household modifier values at time of acknowledgement)
+	acknowledgedByNotes: String
+}
+
+type GoalActivity implements Activity {
+	goal: Goal!
+}
+
+
+
+type DateBlock {
+	start: Date!,
+	end: Date!
+}
+
+type ScheduledItem {
+	user: User!,
+	taskGoalID: TaskGoal!,
+	taskGoalType: TaskGoalType!,
+	activityID: Activity,
+	startTime: Time!,
+	endTime: Time!,
+	completed: Boolean!
+}
+
+type Reward {
+	id: ID!,
+	name: String!,
+	description: String!,
+	value: Number!,
+	visualURL: String!,
+	expirationDate: DateTime,
+	awardedDate: DateTime
+}
+
+type RotatingTurn {
+	id: ID!,
+	name: String!
+
+	# because turn taking sometimes needs to be in random order users
+	# are added to the turn taken list until every turn taker has had
+	# a turn. then the turn taken list is emptied and it can start
+	# again
+	turnTaken: [User],
+
+	# last user to have a turn
+	lastTurnTakenBy: User,
+
+	# list of users who can approve this task.
+	# If empty any user with approver: TRUE can approve
+	approvers: [User],
+
+	# minimum of two responsibles are required if rotating is TRUE
+	# If empty (and rotating is FALSE) task is added to all
+	# non-approvers
+	turnTakers: [User]!,
+}
+
+# ===============================================
+
+enum CompletionLevel {
+	Not,
+	Partially,
+	Fully,
+	Outstandingly
+}
+enum InterventionRequired {
+	# did the task without needing prompting
+	Volunteered,
+	# needed to be reminded to to do task
+	Prompted,
+	# needed repeated prompting to do task and possible threats
+	# (only available on "Required" tasks)
+	Coerced,
+	# refused to do task and argued about it or ignored all efforts
+	# get task completed. (only available on "Required" tasks)
+	Battled
+}
+enum DayOfWeek {
+	Monday,
+	Tuesday,
+	Wednesday,
+	Thursday,
+	Friday,
+	Saturday,
+	Sunday
+}
+enum Devices {
+	# only one device in the household
+	One device only,
+	# each approver has their own device but responsibles share a device
+	One device for responsibles,
+	# everyone has their own device
+	multiple devices for responsibles
+}
+enum SchoolTermMode {
+	# task is not affected by school term
+	Not applicable,
+	# only add to list during school term (Only TRUE has an effect)
+	School term only,
+	# only add to list on school holidays (Only TRUE has an effect)
+	School holidays only
+}
+
+enum GoalVisibility {
+	# only the owner and household approvers can view this goal and
+	# its achievement counts.
+	Approvers,
+	# only the owner can view this goal and its achievement counts.
+	Private,
+	# anyone can view this goal and its achievement counts.
+	Public
+}
+
+enum TaskGoalType {
+	Goal,
+	Task
+}
+
+enum CalendarPeriodType {
+	Week of year
+	Week of month
+	Week day of month
+}
+
+# ===============================================
+
+scalar DateTime	# 	ISO 8601 date (stored at UTC then converted at run time e.g. 2004-02-12T15:19:21+00:00)
+scalar Date		#	YYYY-MM-DD
+scalar Time		#	HH:MM
