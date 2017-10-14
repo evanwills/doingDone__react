@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import taskCompletion from '../taskCompletionLevel';
 
 
@@ -24,14 +25,14 @@ const TaskActivity = (activity) => {
 
 
 TaskActivity.propTypes = {
-	completionLevel: String,
-	completionTIme: Date,
-	interventionLevel: String,
-	approved: Boolean,
+	completionLevel: PropTypes.string.isRequired,
+	completionTIme: PropTypes.instanceOf(Date),
+	interventionLevel: PropTypes.string,
+	approved: PropTypes.bool.isRequired,
 	approver: {
-		id: String,
-		name: String
+		id: PropTypes.string.isRequired,
+		name: PropTypes.string.isRequired
 	}
-}
+};
 
-export default TaskActivity
+export default TaskActivity;

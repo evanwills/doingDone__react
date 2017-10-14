@@ -28,8 +28,116 @@ h3 { font-size: 1.4em; }
 
 .App-title {
   font-size: 1.5em;
+  margin: 0%;
 }
 
 .App-intro {
   font-size: large;
+}
+
+/** ====================================== */
+.list-unstyled {
+	margin: 0%;
+	padding: 0%;
+}
+.list-unstyled > li {
+	list-style: none;
+	margin: 0%;
+	padding: 0%;
+}
+
+.list-inline > li {
+	display: inline-block;
+	padding: 0% 1em;
+}
+
+.sr-only {
+	display: inline-block;
+	text-indent: -1000em;
+}
+.show-hide__checkbox {
+	position: absolute;
+	left: -1000em;
+	top: -1000em;
+}
+.show-hide__checkbox + header {
+	padding-right: 1.5em;
+	position: relative;
+}
+.show-hide__checkbox + header label {
+	position: absolute;
+	top: 0%;
+	right: 0%;
+	bottom: 0%;
+	left: 0%;
+	cursor: pointer;
+}
+.show-hide__checkbox--icon {
+	position: absolute;
+	top: 50%;
+	right: 0%;
+	transform: translateY(-50%);
+	padding: 0.5em;
+	font-weight: bold;
+	font-size: 200%;
+}
+.show-hide__checkbox + header + .details {
+	height: 0px;
+	overflow: hidden;
+	transition: height 1.5s ease-in-out;
+}
+.show-hide__checkbox + header .show { display: block; }
+.show-hide__checkbox + header .hide { display: none; }
+.show-hide__checkbox:checked + header .show { display: none; }
+.show-hide__checkbox:checked + header .hide { display: block; }
+
+.show-hide__checkbox:checked + header + .details {
+	height: auto;
+}
+li .to-do__item {
+	border-bottom: 0.1em solid #eee;
+	padding: 0.5em 1em;
+	border-collapse: collapse;
+}
+li:first-child .to-do__item {
+	border-top: 0.1em solid #eee;
+}
+.to-do__item header h1 {
+	font-size: 1.4rem;
+	margin: 0% 0% 0.2em;
+}
+.to-do__item header h2 {
+	font-size: 1.2rem;
+	margin: 0% 0% 0.2em;
+}
+.to-do__item .details h2 {
+	font-size: 1rem;
+	margin-bottom: 0.25rem;
+}
+.to-do__item .details ul {
+	margin-top: 0%;
+}
+.filter-list {
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: stretch;
+	align-content: stretch;
+
+}
+.filter-list li {
+	flex-grow: 1;
+	flex-basis: 25%;
+	padding: 0%;
+}
+.filter-list a {
+	padding: 0.75em;
+	display: block;
+	text-align: center;
+}
+
+.filter-list a.active {
+	background-color: #009;
+	color: #fff;
 }

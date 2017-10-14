@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import ToDoList from './tasks/toDoList';
+import ToDoList from './components/tasks/toDoList';
 
 
 
@@ -12,11 +12,66 @@ class App extends Component {
 		this.state = {
 			tasks: [
 				{
+					id: 'evanPutOnSchoolUniform',
+					status: 'doing',
+					thumbnail: null,
+					name: 'Put your school uniform',
+					available: new Date('2017-10-14T07:00:00+1100'),
+					due: new Date('2017-10-14T08:10:00+1100'),
+					expand: true,
+					img: '',
+					steps: [
+						'Take off pyjamas',
+						'put pyjamas on your bed',
+						'put used undies in washing basket',
+						'put clean undies on',
+						'get school cloths out of draws',
+						'put on school cloths'
+					],
+					activity: null,
+					completionLevel: null
+				},
+				{
+					id: 'evanPutOnSchoolShoes',
+					status: 'doing',
+					thumbnail: null,
+					name: 'Put your school shoes',
+					available: new Date('2017-10-14T07:45:00+1100'),
+					due: new Date('2017-10-14T08:10:00+1100'),
+					expand: true,
+					img: '',
+					steps: [
+						'Find socks',
+						'Put on socks',
+						'Put on shoes'
+					],
+					activity: null,
+					completionLevel: null
+				},
+				{
+					id: 'evanPutShoesOnShoeShelf',
+					status: 'doing',
+					thumbnail: null,
+					name: 'Put your shoes on the shoe shelf',
+					available: new Date('2017-10-14T14:45:00+1100'),
+					due: new Date('2017-10-14T18:00:00+1100'),
+					expand: true,
+					img: '',
+					steps: [
+						'Put shoes on shoe shelf',
+						'If socks are clean put socks in shoes',
+						'or put them in the washing basket'
+					],
+					activity: null,
+					completionLevel: null
+				},
+				{
 					id: 'evanBrushYourTeath',
 					status: 'doing',
 					thumbnail: null,
 					name: 'Brush your teath',
-					due: new Date('2017-10-10T19:45:00+1100'),
+					available: new Date('2017-10-14T16:45:00+1100'),
+					due: new Date('2017-10-14T19:45:00+1100'),
 					expand: true,
 					img: '',
 					steps: [
@@ -38,7 +93,8 @@ class App extends Component {
 					status: 'done',
 					thumbnail: null,
 					name: 'Put on your Jarmies',
-					due: new Date('2017-10-10T20:00:00+1100'),
+					available: new Date('2017-10-14T16:30:00+1100'),
+					due: new Date('2017-10-14T20:00:00+1100'),
 					expand: false,
 					img: '',
 					steps: [
@@ -48,7 +104,7 @@ class App extends Component {
 						'Put clean cloths on the end of your bed',
 					],
 					activity: {
-						completed: new Date('2017-10-10T18:37:52+1100'),
+						completed: new Date('2017-10-14T18:37:52+1100'),
 						approved: false,
 						completionLevel: 1,
 						intervention: null,
@@ -62,7 +118,8 @@ class App extends Component {
 					status: 'doing',
 					thumbnail: null,
 					name: 'Do a wee before bed',
-					due: new Date('2017-10-10T20:00:00+1100'),
+					available: new Date('2017-10-14T19:30:00+1100'),
+					due: new Date('2017-10-14T20:15:00+1100'),
 					expand: false,
 					img: '',
 					steps: [
@@ -83,7 +140,7 @@ class App extends Component {
 		<header className="App-header">
 				<h1 className="App-title">Doing Done</h1>
 			</header>
-			<ToDoList tasks={this.state.tasks} />
+			<ToDoList tasks={this.state.tasks} filterView={this.props.params.filterView} />
 		</div>
 		);
 	}
