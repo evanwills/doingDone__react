@@ -14,10 +14,10 @@ class App extends Component {
 		this.state = {
 			tasks: [
 				{
-					id: 'evanPutOnSchoolUniform',
+					id: 'evanPutOnYourSchoolUniform',
 					status: 'doing',
 					thumbnail: null,
-					name: 'Put your school uniform',
+					name: 'Put on your school uniform',
 					available: new Date('2017-10-15T07:00:00+1100'),
 					due: new Date('2017-10-15T08:10:00+1100'),
 					expand: true,
@@ -34,10 +34,10 @@ class App extends Component {
 					completionLevel: null
 				},
 				{
-					id: 'evanPutOnSchoolShoes',
+					id: 'evanPutOnYourSchoolShoes',
 					status: 'doing',
 					thumbnail: null,
-					name: 'Put your school shoes',
+					name: 'Put on your school shoes',
 					available: new Date('2017-10-15T07:45:00+1100'),
 					due: new Date('2017-10-15T08:10:00+1100'),
 					expand: true,
