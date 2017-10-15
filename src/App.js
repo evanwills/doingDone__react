@@ -139,12 +139,15 @@ class App extends Component {
 
 	addNewToDoTask(newToDO) {
 		console.log('newToDO: ', newToDO);
+		console.log('newToDO.due: ', newToDO.due);
+		console.log('newToDO.available: ', newToDO.available);
 		console.log('this.state.tasks: ', this.state);
 		let tmpTasks = [...this.state.tasks, newToDO];
 		console.log('tmpTasks: ', tmpTasks);
-		this.setState({
-			tasks: 	[...tmpTasks]
-		},function () { console.log(this.state.tasks) } );
+		this.setState(
+			{tasks: [...tmpTasks]}
+			// ,function () { console.log(this.state.tasks) }
+		);
 		console.log('this.state.tasks: ', this.state);
 	}
 

@@ -22,8 +22,23 @@ h3 { font-size: 1.4em; }
 
 .App-header {
   background-color: #222;
-  padding: 20px;
+  padding: 3em 2em 1em;
   color: white;
+  position: relative;
+}
+.App-header .main-nav {
+	position: absolute;
+	top: 0%;
+	left: 0%;
+	right: 0%;
+}
+.App-header .main-nav a {
+	padding: 0.3em;
+	/* background-color: #800; */
+	color: #fff;
+}
+.App-header .main-nav a.active {
+	background-color: #555;
 }
 
 .App-title {

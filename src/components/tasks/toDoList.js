@@ -4,38 +4,6 @@ import {Link} from 'react-router';
 // import ReactDOM from 'react-dom';
 import ToDoTask from './toDoItem/toDoTask';
 
-// const filter = (mode) => {
-// };
-
-// const handleFilterClick = (mode) => {
-// };
-
-// const completedTaskCount = (tasks) => {
-// };
-
-// const currentTaskCount = (tasks) => {
-// }
-
-
-// filter options
-// <ul className='filter'>
-	// <li>
-	// 	<a onClick={handleFilterClick('all')}>All</a>
-	// </li>
-	// <li>
-	// 	<a onClick={handleFilterClick('done')}>Done</a>
-	// </li>
-	// <li>
-	// 	<a onClick={handleFilterClick('now')}>Now</a>
-	// </li>
-	// <li>
-	// 	<a onClick={handleFilterClick('past')}>Past</a>
-	// </li>
-	// <li>
-	// 	<a onClick={handleFilterClick('future')}>Future</a>
-	// </li>
-// </ul>
-
 // basic stats
 // <footer>
 	// <div><strong>Total:</strong> {tasks.length}</div>

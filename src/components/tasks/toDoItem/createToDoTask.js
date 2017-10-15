@@ -45,13 +45,16 @@ const CreateToDoTask = ({taskName, uniqueName, description, available, due, exte
 				sunday: _sunday.value
 			},
 			steps: [],
+			activity: null,
 			priority: _priority.value,
 			allowPartial: _allowPartial.checked,
 			schoolTerm: _schoolTerm.checked,
 			schoolHolidays: _schoolHolidays.checked,
 			publicHolidays: _publicHolidays.checked
 		});
- 	};
+	 };
+
+	const timePattern = '^(?:[01]?[0-9]|2[0-4]):[05][0-9]$';
 
 
 
@@ -91,15 +94,35 @@ const CreateToDoTask = ({taskName, uniqueName, description, available, due, exte
 
 				<div className="form-group">
 					<label htmlFor="available">Time when task is available</label>
-					<input type="time" id="available" defaultValue={available} ref={input => _available = input} required placeholder="00:00"  />
+					<input  type="text"
+							id="available"
+							defaultValue={available}
+							ref={input => _available = input}
+							required
+							placeholder="HH:MM"
+							pattern={timePattern}
+					 />
 				</div>
 				<div className="form-group">
 					<label htmlFor="due">Time task is to be completed by</label>
-					<input type="time" id="due" defaultValue={due} ref={input => _due = input} required placeholder="23:59" />
+					<input  type="text"
+							id="due"
+							defaultValue={due}
+							ref={input => _due = input}
+							required
+							placeholder="HH:MM"
+							pattern={timePattern}
+					 />
 				</div>
 				<div className="form-group">
 					<label htmlFor="extendedDue">Extended time task is to be completed by</label>
-					<input type="time" id="extendedDue" defaultValue={extendedDue} ref={input => _extendedDue = input} placeholder="00:00" />
+					<input  type="text"
+							id="extendedDue"
+							defaultValue={extendedDue}
+							ref={input => _extendedDue = input}
+							placeholder="HH:MM"
+							pattern={timePattern}
+					 />
 				</div>
 				<fieldset>
 					<legend>Weekdays task is required on</legend>
@@ -202,8 +225,8 @@ CreateToDoTask.defaultProps = {
 				taskName: '',
 				uniqueName: '',
 				description: '',
-				available: '00:00:00',
-				due: '23:59:59',
+				available: '06:00',
+				due: '22:00',
 				extendedDue: null,
 				thumbnail: {
 					url: '',
