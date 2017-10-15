@@ -4,6 +4,38 @@ import {Link} from 'react-router';
 // import ReactDOM from 'react-dom';
 import ToDoTask from './toDoItem/toDoTask';
 
+// const filter = (mode) => {
+// };
+
+// const handleFilterClick = (mode) => {
+// };
+
+// const completedTaskCount = (tasks) => {
+// };
+
+// const currentTaskCount = (tasks) => {
+// }
+
+
+// filter options
+// <ul className='filter'>
+	// <li>
+	// 	<a onClick={handleFilterClick('all')}>All</a>
+	// </li>
+	// <li>
+	// 	<a onClick={handleFilterClick('done')}>Done</a>
+	// </li>
+	// <li>
+	// 	<a onClick={handleFilterClick('now')}>Now</a>
+	// </li>
+	// <li>
+	// 	<a onClick={handleFilterClick('past')}>Past</a>
+	// </li>
+	// <li>
+	// 	<a onClick={handleFilterClick('future')}>Future</a>
+	// </li>
+// </ul>
+
 // basic stats
 // <footer>
 	// <div><strong>Total:</strong> {tasks.length}</div>
@@ -20,6 +52,16 @@ const ToDoList = ({tasks, filterView}) => {
 
 		let midnightBefore = new Date(now.getUTCFullYear() + '-' + (now.getUTCMonth() + 1) + '-' + now.getUTCDate() + 'T00:00:00'),
 			 midnightAfter = new Date(now.getUTCFullYear() + '-' + (now.getUTCMonth() + 1) + '-' + now.getUTCDate() + 'T23:59:59')
+
+		console.log('-----------------------------');
+		console.log('ID: ', task.id);
+		console.log('now: ', now);
+		console.log('midnightBefore: ', midnightBefore);
+		console.log('midnightAfter: ', midnightAfter);
+		console.log('available: ', task.available);
+		console.log('due: ', task.due);
+		console.log()
+		console.log('-----------------------------');
 
 		if ( (task.available > midnightBefore && task.due < midnightAfter) && (
 			 filterView === 'all' ||
@@ -57,7 +99,7 @@ const ToDoList = ({tasks, filterView}) => {
 export default ToDoList
 
 
-ToDoList.propTypes = {
+ToDoList.PropTypes = {
 	tasks: function(props) {
 		if(!Array.isArray(props.tasks)) {
 			return new Error("Tasks must be an array")

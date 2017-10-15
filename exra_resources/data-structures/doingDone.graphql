@@ -43,12 +43,13 @@ type household {
 	currency: {
 		prefix: String!,
 		rounding: Int!,
+		# currency value for each point e.g. $1 = 2 points
 		pointsToCurrency: Float!
 	},
 
 	payPeriod: Int!, # weeks
 	payPeriodStart: DayOfWeek,
-	# dollar (or whatever) value of points
+	# dollar (or whatever) value of points to be paid out by the household
 	totalValueOfCurrentPayPeriod: Float!,
 	token: String!,
 	devices: Devices,
@@ -83,7 +84,7 @@ type user {
 		# task the scheduler
 		# tasks in the "now" list are ordered soonest "endTime" to
 		# farthest "endTime" then by "priority"
-		now: [Task],
+		today: [Task],
 		# list of all tasks completed by the user
 		history: [TaskActivity],
 	}

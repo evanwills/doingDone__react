@@ -25,6 +25,7 @@ const TaskActivity = (activity) => {
 
 
 TaskActivity.propTypes = {
+	state: PropTypes.string.isRequired,
 	completionLevel: PropTypes.string.isRequired,
 	completionTIme: PropTypes.instanceOf(Date),
 	interventionLevel: PropTypes.string,

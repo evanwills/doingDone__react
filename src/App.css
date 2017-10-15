@@ -141,3 +141,18 @@ li:first-child .to-do__item {
 	background-color: #009;
 	color: #fff;
 }
+
+.form-group label {
+	display: inline-block;
+	width: 10em;
+}
+
+.form-group input {
+	display: inline-block;
+	width: 25em;
+}
+
+.form-group span {
+	display: block;
+	font-size: 90%;
+}

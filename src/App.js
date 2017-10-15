@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import ToDoList from './components/tasks/toDoList';
+import CreateToDoTask from './components/tasks/toDoItem/createToDoTask';
+import MainNav from './components/genericComponents/nav';
 
 
 
@@ -16,8 +18,8 @@ class App extends Component {
 					status: 'doing',
 					thumbnail: null,
 					name: 'Put your school uniform',
-					available: new Date('2017-10-14T07:00:00+1100'),
-					due: new Date('2017-10-14T08:10:00+1100'),
+					available: new Date('2017-10-15T07:00:00+1100'),
+					due: new Date('2017-10-15T08:10:00+1100'),
 					expand: true,
 					img: '',
 					steps: [
@@ -36,8 +38,8 @@ class App extends Component {
 					status: 'doing',
 					thumbnail: null,
 					name: 'Put your school shoes',
-					available: new Date('2017-10-14T07:45:00+1100'),
-					due: new Date('2017-10-14T08:10:00+1100'),
+					available: new Date('2017-10-15T07:45:00+1100'),
+					due: new Date('2017-10-15T08:10:00+1100'),
 					expand: true,
 					img: '',
 					steps: [
@@ -53,8 +55,8 @@ class App extends Component {
 					status: 'doing',
 					thumbnail: null,
 					name: 'Put your shoes on the shoe shelf',
-					available: new Date('2017-10-14T14:45:00+1100'),
-					due: new Date('2017-10-14T18:00:00+1100'),
+					available: new Date('2017-10-15T14:45:00+1100'),
+					due: new Date('2017-10-15T18:00:00+1100'),
 					expand: true,
 					img: '',
 					steps: [
@@ -70,8 +72,8 @@ class App extends Component {
 					status: 'doing',
 					thumbnail: null,
 					name: 'Brush your teath',
-					available: new Date('2017-10-14T16:45:00+1100'),
-					due: new Date('2017-10-14T19:45:00+1100'),
+					available: new Date('2017-10-15T16:45:00+1100'),
+					due: new Date('2017-10-15T19:45:00+1100'),
 					expand: true,
 					img: '',
 					steps: [
@@ -93,8 +95,8 @@ class App extends Component {
 					status: 'done',
 					thumbnail: null,
 					name: 'Put on your Jarmies',
-					available: new Date('2017-10-14T16:30:00+1100'),
-					due: new Date('2017-10-14T20:00:00+1100'),
+					available: new Date('2017-10-15T16:30:00+1100'),
+					due: new Date('2017-10-15T20:00:00+1100'),
 					expand: false,
 					img: '',
 					steps: [
@@ -104,7 +106,7 @@ class App extends Component {
 						'Put clean cloths on the end of your bed',
 					],
 					activity: {
-						completed: new Date('2017-10-14T18:37:52+1100'),
+						completed: new Date('2017-10-15T18:37:52+1100'),
 						approved: false,
 						completionLevel: 1,
 						intervention: null,
@@ -118,8 +120,8 @@ class App extends Component {
 					status: 'doing',
 					thumbnail: null,
 					name: 'Do a wee before bed',
-					available: new Date('2017-10-14T19:30:00+1100'),
-					due: new Date('2017-10-14T20:15:00+1100'),
+					available: new Date('2017-10-15T19:30:00+1100'),
+					due: new Date('2017-10-15T20:15:00+1100'),
 					expand: false,
 					img: '',
 					steps: [
@@ -132,15 +134,29 @@ class App extends Component {
 				}
 			]
 		};
+		this.addNewToDoTask = this.addNewToDoTask.bind(this);
+	}
+
+	addNewToDoTask(newToDO) {
+		console.log('newToDO: ', newToDO);
+		console.log('this.state.tasks: ', this.state);
+		let tmpTasks = [...this.state.tasks, newToDO];
+		console.log('tmpTasks: ', tmpTasks);
+		this.setState({
+			tasks: 	[...tmpTasks]
+		},function () { console.log(this.state.tasks) } );
+		console.log('this.state.tasks: ', this.state);
 	}
 
 	render() {
+		// console.log(this.props.params)
 		return (
 		<div className="App">
 		<header className="App-header">
 				<h1 className="App-title">Doing Done</h1>
+				<MainNav props={this.props} />
 			</header>
-			<ToDoList tasks={this.state.tasks} filterView={this.props.params.filterView} />
+			{(this.props.location.pathname === '/addToDo')? <CreateToDoTask onNewToDo={this.addNewToDoTask} /> :  <ToDoList tasks={this.state.tasks} filterView={this.props.params.filterView} />}
 		</div>
 		);
 	}

@@ -47,10 +47,10 @@ INSERT INTO `_doingDone__enum__completion_level` (
 	`completion_level_name`
 )
 VALUES
-( NULL , 'Not' ),
-( NULL , 'Partially' ),
-( NULL , 'Fully' ),
-( NULL , 'Outstandingly' );
+( NULL , 'Not done' ),
+( NULL , 'Partially done' ),
+( NULL , 'Done fully' ),
+( NULL , 'Dine outstandingly' );
 
 
 
@@ -109,19 +109,19 @@ VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `_doingDone__enum__devices`
+-- Table structure for table `_doingDone__enum__device_mode`
 --
 
-CREATE TABLE IF NOT EXISTS `_doingDone__enum__devices` (
-  `device_id` tinyint(3) unsigned NOT NULL auto_increment,
-  `device_name` varchar(44) NOT NULL,
+CREATE TABLE IF NOT EXISTS `_doingDone__enum__device_mode` (
+  `device_mode_id` tinyint(3) unsigned NOT NULL auto_increment,
+  `device_mode_name` varchar(44) NOT NULL,
   PRIMARY KEY  (`device_id`),
   UNIQUE KEY `device_name` (`device_name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
 
-INSERT INTO `_doingDone__enum__devices` (
-	`device_id` ,
-	`device_name`
+INSERT INTO `_doingDone__enum__device_mode` (
+	`device_mode_id` ,
+	`device_mode_name`
 )
 VALUES
 ( NULL , 'One device only' ),

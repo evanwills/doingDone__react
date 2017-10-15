@@ -6,9 +6,9 @@ import PropTypes from 'prop-types';
 
 
 const TaskDetails = (details) => {
-	console.log(details);
-	console.log(details.img);
-	console.log(details.activity);
+	// console.log(details);
+	// console.log(details.img);
+	// console.log(details.activity);
 	return (
 					<div class={'details ' + details.classes}>
 						{(details.img)?<img {...details.img} />:null}

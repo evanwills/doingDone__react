@@ -12,6 +12,7 @@ ReactDOM.render(
 		<Route path="/toDoList" component={App}>
 			<Route path=":filterView" component={App} />
 		</Route>
+		<Route path="/addToDo" component={App} />
 		<Route path="*" component={Whoops404} />
 	</Router>,
 	document.getElementById('root')
