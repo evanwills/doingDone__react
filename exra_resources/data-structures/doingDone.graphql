@@ -52,8 +52,9 @@ type household {
 	# dollar (or whatever) value of points to be paid out by the household
 	totalValueOfCurrentPayPeriod: Float!,
 	token: String!,
-	devices: Devices,
-	SchoolTermModes: [DateBlock]!,
+	devices: DevicesMode,
+
+	SchoolTerms: [DateBlock]!,
 	PublicHolidays: [Date]!
 
 	today: {
@@ -61,6 +62,12 @@ type household {
 		isSchoolHoliday: Boolean!,
 		isPublicHoliday: Boolean!
 	}
+}
+
+type Device: {
+	id: String!,
+	name: String!,
+	singleUser: Boolean!
 }
 
 type user {
@@ -156,10 +163,7 @@ interface TaskGoal {
 	sunday: Boolean!,
 
 	# Required on school term days
-	schoolDays: Boolean!,
-
-	# Required on School holidays
-	schoolHolidays: Boolean!,
+	schoolTermMode: SchoolTermMode!,
 
 	# Required on public holidays
 	publicHolidays: Boolean!,
@@ -285,7 +289,8 @@ type MonthlyRecurrance implements Recurrance {
 
 type FixedPeriod {
 	startDate: Date!,
-	duration: Int! # days
+	duration: Int!, # days
+	passed: Boolean!
 }
 
 type RandomRecurrance implements Recurrance {
@@ -326,6 +331,7 @@ type TaskActivity implements Activity {
 {
 	completedBy: User!,
 	task: Task!,
+	status: TaskStatus!,
 	acknowledgedBy: User,
 	interventionRequired: InterventionRequired,
 	# computedValue = this.task.value * household.valueModifiers.completionLevel[this.completionLevel] * household.valueModifiers.InterventionRequired[this.interventionRequired]
@@ -348,10 +354,10 @@ type ScheduledItem {
 	user: User!,
 	taskGoalID: TaskGoal!,
 	taskGoalType: TaskGoalType!,
+	status: TaskStatus!,
 	activityID: Activity,
 	startTime: Time!,
-	endTime: Time!,
-	completed: Boolean!
+	endTime: Time!
 }
 
 type Reward {
@@ -389,6 +395,14 @@ type RotatingTurn {
 
 # ===============================================
 
+enum TaskStatus {
+	Queued,
+	Available,
+	In Progress,
+	Done,
+	Approved
+}
+
 enum CompletionLevel {
 	Not,
 	Partially,
@@ -416,7 +430,7 @@ enum DayOfWeek {
 	Saturday,
 	Sunday
 }
-enum Devices {
+enum DevicesMode {
 	# only one device in the household
 	One device only,
 	# each approver has their own device but responsibles share a device
