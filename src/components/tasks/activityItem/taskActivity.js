@@ -8,7 +8,7 @@ const interventionLevel = () => {
 };
 
 const TaskActivity = (activity) => {
-	console.log(activity);
+	// console.log(activity);
 	return (
 		<div className={'activity'}>
 			<dl>

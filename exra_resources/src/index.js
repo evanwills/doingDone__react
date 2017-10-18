@@ -3,7 +3,6 @@ import {taskAction} from './store/reducers.js';
 
 
 let now = Date.now();
-console.log('now: ', now);
 
 const state = [
 	{
@@ -81,13 +80,13 @@ const action = {
 const nextState = taskAction(state, action);
 
 
-console.log(`
+// console.log(`
 
-	initial state: ${JSON.stringify(state)}
-	action: ${JSON.stringify(action)}
-	nextState: ${JSON.stringify(nextState)}
+// 	initial state: ${JSON.stringify(state)}
+// 	action: ${JSON.stringify(action)}
+// 	nextState: ${JSON.stringify(nextState)}
 
-`);
+// `);
 
 
 const extraAction = {
@@ -97,9 +96,9 @@ const extraAction = {
 
 const thirdState = taskAction(state, extraAction);
 
-console.log(`
+// console.log(`
 
-	extraAction: ${JSON.stringify(extraAction)}
-	thirdState: ${JSON.stringify(thirdState)}
+// 	extraAction: ${JSON.stringify(extraAction)}
+// 	thirdState: ${JSON.stringify(thirdState)}
 
-`);
+// `);

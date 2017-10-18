@@ -50,7 +50,11 @@ h3 { font-size: 1.4em; }
   font-size: large;
 }
 
-/** ====================================== */
+
+/**
+ * ==============================================
+ */
+
 .list-unstyled {
 	margin: 0%;
 	padding: 0%;
@@ -132,6 +136,11 @@ li:first-child .to-do__item {
 .to-do__item .details ul {
 	margin-top: 0%;
 }
+
+/**
+ * ==============================================
+ */
+
 .filter-list {
 	display: flex;
 	flex-wrap: wrap;
@@ -170,4 +179,75 @@ li:first-child .to-do__item {
 .form-group span {
 	display: block;
 	font-size: 90%;
+}
+
+
+/**
+ * ==============================================
+*/
+
+.completionLevel {
+	/* border-top: 0.1em solid #eee; */
+	padding-top: 0em;
+	margin-top: 0.5em;
+	padding-bottom: 0em;
+}
+
+.completionLevel ul {
+	display: inline-block;
+	width: 70%;
+	margin: 2em 5% -1em 0%;
+	padding: 0%;
+}
+.completionLevel ul:before {
+	display: block;
+	width: 75%;
+	border-top: 0.15em solid #ccc;
+	content: '';
+	margin-left: 12.5%
+}
+.completionLevel li {
+	display: inline-block;
+	position: relative;
+	width: 25%;
+	padding: 0%;
+	margin: 0%;
+	text-align: center;
+}
+
+.completionLevel label {
+	position: absolute;
+	left: 0%;
+	right: 0%;
+	text-align: center;
+	text-transform: uppercase;
+	font-size: 0.7rem;
+	/* background-color: #55f; */
+	/* cursor: pointer; */
+}
+.completionLevel li:nth-child(odd) label {
+	top: -4.1em;
+	padding-bottom: 2.7em
+}
+.completionLevel li:nth-child(even) label {
+	bottom: -0.75em;
+	white-space: nowrap;
+	padding-top: 2.71em;
+}
+.completionLevel input {
+	position: absolute;
+	top: -2.7em;
+	left: 50%;
+	transform: translateX(-75%);
+}
+.completionLevel button {
+	font-size: 120%;
+	background-color: rgb(2, 117, 2);
+	color: #fff;
+	border: none;
+	padding: 0.5em 0%;
+	display: inline-block;
+	width: 25%;
+	position: relative;
+	top: -0.6em;
 }

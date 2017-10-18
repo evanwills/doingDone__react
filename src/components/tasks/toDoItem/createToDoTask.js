@@ -22,7 +22,7 @@ const CreateToDoTask = ({taskName, uniqueName, description, available, due, exte
 			available: new Date(tmpDate.getUTCFullYear()+ '-' + (tmpDate.getUTCMonth() + 1) + '-' + tmpDate.getUTCDate() + 'T' + _available.value),
 			// due: _due.value,
 			due: new Date(tmpDate.getUTCFullYear()+ '-' + (tmpDate.getUTCMonth() + 1) + '-' + tmpDate.getUTCDate() + 'T' + _due.value),
-			// extendedDue: _extendedDue.value,
+			extendedDue: _extendedDue.value,
 			thumbnail: {
 				url: _thumbnailFile.value,
 				alt: _thumbnailAlt.value,
@@ -119,7 +119,7 @@ const CreateToDoTask = ({taskName, uniqueName, description, available, due, exte
 					<input  type="text"
 							id="extendedDue"
 							defaultValue={extendedDue}
-							ref={input => _extendedDue = input}
+							ref={input => extendedDue = input}
 							placeholder="HH:MM"
 							pattern={timePattern}
 					 />
@@ -205,7 +205,7 @@ const CreateToDoTask = ({taskName, uniqueName, description, available, due, exte
 				<div className="form-group">
 					<label htmlFor="points">Points</label>
 					<input type="number" id="points" defaultValue={points} ref={input => _points = input} min="0" max="10" step="0.01" placeholder="1.0" aria-describedby="describedbyPoints"  />
-					<span className="describedby" id="describedbyPoints">If multiple tasks have the same due time the priority sets the order. (The higher the priority the further up the list the task will be pushed)</span>
+					<span className="describedby" id="describedbyPoints">Points are used to gamify tasks. They can be used to work towards a particular goal (e.g. a trip to the zoo or a movie) or can provide a way of assigning monetary value to a task (e.g. 1 point = $0.25) and make calculating and tracking pocket money easier.</span>
 				</div>
 				<div className="">
 					<label>
@@ -262,13 +262,13 @@ CreateToDoTask.PropTypes = {
 	description: PropTypes.string,
 	available: PropTypes.string.isRequired,
 	due: PropTypes.string.isRequired,
-	extendedDue: PropTypes.string,
+	// extendedDue: PropTypes.string,
 	thumbnail: PropTypes.shape({
 		url: PropTypes.string.isRequired,
 		alt: PropTypes.string.isRequired,
 		caption: PropTypes.string
 	}),
-	image: PropTypes.shape({
+	img: PropTypes.shape({
 		url: PropTypes.string.isRequired,
 		alt: PropTypes.string.isRequired,
 		caption: PropTypes.string

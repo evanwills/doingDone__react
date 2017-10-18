@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 import ToDoList from './components/tasks/toDoList';
 import CreateToDoTask from './components/tasks/toDoItem/createToDoTask';
@@ -14,14 +14,13 @@ class App extends Component {
 		this.state = {
 			tasks: [
 				{
-					id: 'evanPutOnYourSchoolUniform',
-					status: 'doing',
+					id: 'putOnYourSchoolUniform',
 					thumbnail: null,
 					name: 'Put on your school uniform',
-					available: new Date('2017-10-15T07:00:00+1100'),
-					due: new Date('2017-10-15T08:10:00+1100'),
+					available: '07:00',
+					due: '08:10',
 					expand: true,
-					img: '',
+					img: null,
 					steps: [
 						'Take off pyjamas',
 						'put pyjamas on your bed',
@@ -30,52 +29,81 @@ class App extends Component {
 						'get school cloths out of draws',
 						'put on school cloths'
 					],
-					activity: null,
-					completionLevel: null
+					monday: true,
+					tuesday: true,
+					wednesday: true,
+					thursday: true,
+					friday: true,
+					saturday: false,
+					sunday: false
 				},
 				{
-					id: 'evanPutOnYourSchoolShoes',
-					status: 'doing',
+					id: 'putOnYourSchoolShoes',
 					thumbnail: null,
 					name: 'Put on your school shoes',
-					available: new Date('2017-10-15T07:45:00+1100'),
-					due: new Date('2017-10-15T08:10:00+1100'),
-					expand: true,
-					img: '',
+					available: '07:45',
+					due: '08:10',
+					img: null,
 					steps: [
 						'Find socks',
 						'Put on socks',
 						'Put on shoes'
 					],
-					activity: null,
-					completionLevel: null
+					monday: true,
+					tuesday: true,
+					wednesday: true,
+					thursday: true,
+					friday: true,
+					saturday: false,
+					sunday: false
 				},
 				{
-					id: 'evanPutShoesOnShoeShelf',
-					status: 'doing',
+					id: 'getToysToTakeToSchool',
+					thumbnail: null,
+					name: 'Get toys to take to school',
+					available: '06:45',
+					due: '08:10',
+					img: null,
+					steps: [
+						'Choose toys',
+						'Find toys',
+						'Put toys in school bag'
+					],
+					monday: true,
+					tuesday: false,
+					wednesday: false,
+					thursday: false,
+					friday: true,
+					saturday: false,
+					sunday: false
+				},
+				{
+					id: 'putShoesOnShoeShelf',
 					thumbnail: null,
 					name: 'Put your shoes on the shoe shelf',
-					available: new Date('2017-10-15T14:45:00+1100'),
-					due: new Date('2017-10-15T18:00:00+1100'),
-					expand: true,
-					img: '',
+					available: '14:45',
+					due: '20:00',
+					img: null,
 					steps: [
 						'Put shoes on shoe shelf',
 						'If socks are clean put socks in shoes',
 						'or put them in the washing basket'
 					],
-					activity: null,
-					completionLevel: null
+					monday: true,
+					tuesday: true,
+					wednesday: true,
+					thursday: true,
+					friday: true,
+					saturday: true,
+					sunday: true
 				},
 				{
-					id: 'evanBrushYourTeath',
-					status: 'doing',
+					id: 'brushYourTeath',
 					thumbnail: null,
 					name: 'Brush your teath',
-					available: new Date('2017-10-15T16:45:00+1100'),
-					due: new Date('2017-10-15T19:45:00+1100'),
-					expand: true,
-					img: '',
+					available: '16:45',
+					due: '19:45',
+					img: null,
 					steps: [
 						'Get toothbrush',
 						'Get toothpaste',
@@ -87,68 +115,114 @@ class App extends Component {
 						'Clean toothbrush',
 						'Put toothbrush away'
 					],
-					activity: null,
-					completionLevel: null
+					monday: true,
+					tuesday: true,
+					wednesday: true,
+					thursday: true,
+					friday: true,
+					saturday: false,
+					sunday: false
 				},
 				{
-					id: 'evanPutJarmies',
-					status: 'done',
+					id: 'putJarmies',
 					thumbnail: null,
 					name: 'Put on your Jarmies',
-					available: new Date('2017-10-15T16:30:00+1100'),
-					due: new Date('2017-10-15T20:00:00+1100'),
-					expand: false,
-					img: '',
+					available: '16:30',
+					due: '20:00',
+					img: null,
 					steps: [
 						'Get get undressed',
 						'Put on your jarmies',
 						'Put dirty cloths in basket',
 						'Put clean cloths on the end of your bed',
 					],
-					activity: {
-						completed: new Date('2017-10-15T18:37:52+1100'),
-						approved: false,
-						completionLevel: 1,
-						intervention: null,
-						points: null,
-						value: null
-					},
-					completionLevel: null
+					monday: true,
+					tuesday: true,
+					wednesday: true,
+					thursday: true,
+					friday: true,
+					saturday: false,
+					sunday: false
 				},
 				{
-					id: 'evanDoWeeBeforeBed',
-					status: 'doing',
+					id: 'doWeeBeforeBed',
 					thumbnail: null,
 					name: 'Do a wee before bed',
-					available: new Date('2017-10-15T19:30:00+1100'),
-					due: new Date('2017-10-15T20:15:00+1100'),
-					expand: false,
-					img: '',
+					available: '19:30',
+					due: '20:15',
+					img: null,
 					steps: [
 						'Lift up toilet seat',
 						'Do wee',
 						'put toilet seat back down'
 					],
-					activity: null,
-					completionLevel: null
+					monday: true,
+					tuesday: true,
+					wednesday: true,
+					thursday: true,
+					friday: true,
+					saturday: false,
+					sunday: false
 				}
-			]
+			],
+			todaysTasks: []
 		};
 		this.addNewToDoTask = this.addNewToDoTask.bind(this);
+		this.addNewToDoActivity = this.addNewToDoActivity.bind(this);
+
+		this.state = {
+			tasks: this.tasks,
+			todaysTasks: this.queueDailyTasks(this.state.tasks, new Date(Date()))
+		};
 	}
 
 	addNewToDoTask(newToDO) {
-		console.log('newToDO: ', newToDO);
-		console.log('newToDO.due: ', newToDO.due);
-		console.log('newToDO.available: ', newToDO.available);
-		console.log('this.state.tasks: ', this.state);
+		// console.log('newToDO: ', newToDO);
+		// console.log('newToDO.due: ', newToDO.due);
+		// console.log('newToDO.available: ', newToDO.available);
+		// console.log('this.state.tasks: ', this.state);
 		let tmpTasks = [...this.state.tasks, newToDO];
-		console.log('tmpTasks: ', tmpTasks);
+		// console.log('tmpTasks: ', tmpTasks);
 		this.setState(
 			{tasks: [...tmpTasks]}
 			// ,function () { console.log(this.state.tasks) }
 		);
-		console.log('this.state.tasks: ', this.state);
+		// console.log('this.state.tasks: ', this.state);
+	}
+
+	addNewToDoActivity(taskID, status, user, now) {
+		return {
+			id: now,
+			user: user,
+			taskID: taskID,
+			status: status,
+			completed: now,
+			approver: null,
+		};
+	}
+
+	queueDailyTasks(tasks, now) {
+		let today = now.getDay(),
+			days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'],
+			day = '';
+
+			day = days[today];
+
+		return tasks.filter((task) => task[day]).map((task) => {
+			return {
+				id: task.id,
+				thumbnail: task.thumnail,
+				name: task.name,
+				available: new Date(Date().replace(/[0-9]{2}(?::[0-9]{2}){2}(?= GMT)/, task.available + ':00')),
+				due: new Date(Date().replace(/[0-9]{2}(?::[0-9]{2}){2}(?= GMT)/, task.due + ':00')),
+				img: task.img,
+				steps: task.steps,
+				activity: null,
+				status: 'queued',
+				completionLevel: 'notStarted',
+				expand: false
+			}
+		}) ;
 	}
 
 	render() {
@@ -159,7 +233,7 @@ class App extends Component {
 				<h1 className="App-title">Doing Done</h1>
 				<MainNav props={this.props} />
 			</header>
-			{(this.props.location.pathname === '/addToDo')? <CreateToDoTask onNewToDo={this.addNewToDoTask} /> :  <ToDoList tasks={this.state.tasks} filterView={this.props.params.filterView} />}
+			{(this.props.location.pathname === '/addToDo')? <CreateToDoTask onNewToDo={this.addNewToDoTask} /> :  <ToDoList tasks={this.state.todaysTasks} filterView={this.props.params.filterView} />}
 		</div>
 		);
 	}

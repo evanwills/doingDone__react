@@ -364,7 +364,7 @@ type Reward {
 	id: ID!,
 	name: String!,
 	description: String!,
-	value: Number!,
+	value: Number!, # number of points needed to achieve reward
 	visualURL: String!,
 	expirationDate: DateTime,
 	awardedDate: DateTime
