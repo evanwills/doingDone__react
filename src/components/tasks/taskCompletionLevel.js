@@ -6,19 +6,17 @@ import PropTypes from 'prop-types';
 
 const TaskCompletionLevel = (props) => {
 	const completionLevels = [
-		{id: 'notStarted', label: 'Not started'},
-		{id: 'incomplete', label: 'Incomplete'},
-		{id: 'complete', label: 'Complete'},
-		{id: 'excellent', label: 'Excelent'},
+		{levelId: 'notStarted', label: 'Not started'},
+		{levelId: 'incomplete', label: 'Incomplete'},
+		{levelId: 'complete', label: 'Complete'},
+		{levelId: 'excellent', label: 'Excelent'},
 	]
-	const id = props.id;
-	console.log(props);
 
 	const CompletionLevelItem = (compLevel) => {
 		return (
 				<li>
-					<input type="radio" id={id + compLevel.id} name={id} value={compLevel.id} />
-					<label htmlFor={id + compLevel.id}>{compLevel.label}</label>
+					<input type="radio" id={props.id + compLevel.levelId} name={props.id} value={compLevel.levelId} defaultChecked={(props.completionLevel === compLevel.levelId)?`checked="checked"`:null} />
+					<label htmlFor={props.id + compLevel.levelId}>{compLevel.label}</label>
 				</li>
 		);
 	}
@@ -26,7 +24,11 @@ const TaskCompletionLevel = (props) => {
 	return (
 		<div className="completionLevel">
 			<ul>
-				{completionLevels.map((completionLevel, i) => <CompletionLevelItem key={i} {...completionLevel} />)}
+				{completionLevels.map((completionLevel) => {
+									return {...completionLevel, ...props}
+								 }).map((completionLevel, i) =>
+									 <CompletionLevelItem key={i} {...completionLevel} />
+								 )}
 			</ul>
 			{(props.status !== 'Approved')?<button>Done!</button>:<button>Approve</button>}
 		</div>);

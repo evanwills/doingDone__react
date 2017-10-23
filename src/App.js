@@ -169,6 +169,8 @@ class App extends Component {
 		};
 		this.addNewToDoTask = this.addNewToDoTask.bind(this);
 		this.addNewToDoActivity = this.addNewToDoActivity.bind(this);
+		this.updateTaskCompletionLevel = this.updateTaskCompletionLevel.bind(this);
+		this.completeTask = this.completeTask.bind(this);
 
 		this.state = {
 			tasks: this.tasks,
@@ -223,6 +225,24 @@ class App extends Component {
 				expand: false
 			}
 		}) ;
+	}
+
+	updateTaskCompletionLevel(task, level) {
+		const newTodaysTasks = this.state.todaysTasks.map((todaysTask) => {
+				if (task.id === todaysTask.id) {
+					let tmpTask = {...todaysTask};
+					todaysTask.completionLevel = level;
+					return tmpTask;
+				} else {
+					return todaysTask;
+				}
+			}
+		);
+		this.setState({newTodaysTasks});
+	}
+
+	completeTask(task, level) {
+
 	}
 
 	render() {

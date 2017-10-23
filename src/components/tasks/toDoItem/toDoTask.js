@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 // import ReactDOM from 'react-dom';
-// import thumbnail from '../../genericComponents/thumbnail';
+import Thumbnail from '../../genericComponents/thumbnail';
 import TaskCompletionLevel from '../taskCompletionLevel';
 import TaskDetails from './taskDetails';
 
@@ -26,7 +26,7 @@ const ToDoTask = (props) => {
 				<article className={'to-do__item to-do__task status-' + props.status}>
 					<input type="checkbox" id={props.id + '-details'} className="show-hide__checkbox" />
 					<header>
-						<thumbnail img={props.thumbnail} />
+						{(props.thumbnail)?<Thumbnail img={props.thumbnail} />:null}
 						<h1>{props.name}</h1>
 						<h2>Due: <time dateTime={props.due}>{props.due.toLocaleTimeString()}</time></h2>
 						<label htmlFor={props.id + '-details'} className="show-hide__checkbox--label">
