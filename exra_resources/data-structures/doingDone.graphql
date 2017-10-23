@@ -91,26 +91,33 @@ type user {
 		# task the scheduler
 		# tasks in the "now" list are ordered soonest "endTime" to
 		# farthest "endTime" then by "priority"
-		today: [Task],
+		today: [Task]!,
 		# list of all tasks completed by the user
-		history: [TaskActivity],
+		history: [TaskActivity]!,
 	}
 	goals: {
+		allGoals: [Goal]!,
 		# goals get added to the "now" list and removed from it by
 		# goals the scheduler
 		# tasks in the "now" list are ordered soonest "endTime" to
 		# farthest "endTime" then by "priority"
-		now: [Goal],
+		today: [Goal]!,
 		# list of all goals met by the user
-		history: [GoalActivity],
+		history: [GoalActivity]!,
 	}
-	rewards: [Reward],
+	rewards: [DelayedReward],
+
+	# list of simple (non financial) rewards that can be assigned to tasks
+	# e.g. watching a favourite show or playing a game for 10 minutes on a device
+	instantRewards: [Reward],
+
 	points: {
 		periodTotal: Float!,
 		grandTotal: Float!
 	},
 	lastPaymentDate: Date!
-	showTimeRemaining: Boolean!
+	showTimeRemaining: Boolean!,
+	absentDates: [DateBlock]!
 }
 
 interface TaskGoal {
@@ -200,7 +207,7 @@ interface Task implements TaskGoal { # task interface
 	extendedEndTime: Time,
 
 	# assigned user changes with each completion period
-	rotating: Boolean!,
+	rotating: RotatingTurn,
 
 	# index of the user listed in the "responsibles"
 	# array currently assigned to task
@@ -214,6 +221,11 @@ interface Task implements TaskGoal { # task interface
 	# If empty (and rotating is FALSE) task is added to all
 	# non-approvers
 	responsibles: [User],
+
+	# for some kids (like my son) delayed gratification is not a strong point
+	# for these kids it's neccessary to provide a small extrisic reward for
+	# completing some (or all) tasks
+	instantReward: InstantReward
 }
 
 type Goal implements TaskGoal {
@@ -232,6 +244,7 @@ type Goal implements TaskGoal {
 	# can others clone this goal?
 	clonable: Boolean!
 }
+
 
 
 type DoOnWeekDays {
@@ -316,14 +329,28 @@ type RandomRecurrance implements Recurrance {
 	# }
 }
 
+
+type RotatingTurn {
+	# person currently responsible for the task
+	assignedTo: User,
+
+	# because turn taking sometimes needs to be in random order users
+	# are added to the turn taken list until every turn taker has had
+	# a turn. Then the turn taken list is emptied and it can start
+	# again
+	turnsTaken: [User]
+}
+
 union TaskPeriod = IntervalRecurrance | MonthlyRecurrance | RandomRecurrance
 
 interface Activity {
-	id: ID!, # user.id + this.completed
-	completed: DateTime!,
-	completionLevel: CompletionLevel!,
-	computedValue: Float!,
-	notes: String
+	id: ID!, # User.id + this.initialised
+	user: User!,
+	initialised: DateTime!,
+	completed: DateTime,
+	completionLevel: CompletionLevel!,	# default 0
+	computedValue: Float!,				# default 0
+	doerNotes: String
 }
 
 
@@ -336,7 +363,8 @@ type TaskActivity implements Activity {
 	interventionRequired: InterventionRequired,
 	# computedValue = this.task.value * household.valueModifiers.completionLevel[this.completionLevel] * household.valueModifiers.InterventionRequired[this.interventionRequired]
 	# (based on task and household modifier values at time of acknowledgement)
-	acknowledgedByNotes: String
+	acknowledgedByNotes: String,
+	instantReward: InstantReward
 }
 
 type GoalActivity implements Activity {
@@ -352,45 +380,34 @@ type DateBlock {
 
 type ScheduledItem {
 	user: User!,
-	taskGoalID: TaskGoal!,
+	taskGoal: TaskGoal!,
 	taskGoalType: TaskGoalType!,
 	status: TaskStatus!,
-	activityID: Activity,
-	startTime: Time!,
-	endTime: Time!
+	activity: Activity,
+	startTime: DateTime!,
+	endTime: DateTime!
+}
+
+type ActiveTask {
+	taskActivityID: String!
 }
 
 type Reward {
 	id: ID!,
 	name: String!,
 	description: String!,
-	value: Number!, # number of points needed to achieve reward
 	visualURL: String!,
+}
+
+type DelayedReward implements Reward {
+	value: Number!, # number of points needed to achieve reward
 	expirationDate: DateTime,
 	awardedDate: DateTime
 }
 
-type RotatingTurn {
-	id: ID!,
-	name: String!
-
-	# because turn taking sometimes needs to be in random order users
-	# are added to the turn taken list until every turn taker has had
-	# a turn. then the turn taken list is emptied and it can start
-	# again
-	turnTaken: [User],
-
-	# last user to have a turn
-	lastTurnTakenBy: User,
-
-	# list of users who can approve this task.
-	# If empty any user with approver: TRUE can approve
-	approvers: [User],
-
-	# minimum of two responsibles are required if rotating is TRUE
-	# If empty (and rotating is FALSE) task is added to all
-	# non-approvers
-	turnTakers: [User]!,
+type InstantReward: implements Reward {
+	# List of users who want this reward
+	users: []
 }
 
 # ===============================================
@@ -432,14 +449,15 @@ enum DayOfWeek {
 }
 enum DevicesMode {
 	# only one device in the household
-	One device only,
+	Shared,
 	# each approver has their own device but responsibles share a device
 	One device for responsibles,
 	# everyone has their own device
-	multiple devices for responsibles
+	Single user
 }
 enum SchoolTermMode {
 	# task is not affected by school term
+	# (same as both "School term only" AND "School holidays only")
 	Not applicable,
 	# only add to list during school term (Only TRUE has an effect)
 	School term only,
