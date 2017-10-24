@@ -37,6 +37,7 @@ It's written in React/Redux because a while ago I went for a job interview. I di
 10. Get local persistance synced with cloud/server
 11. Implement sharehouse mode - all tasks are rotated between each household member and any household member (other than the taks doer) can approve a task activity.
 12. Create an native android version of the app. If there's enough money, (and demand) I'll employ someone to create an iOS app version too. Windows (and other platforms) will only have access the web app.
+13. Set up community server to allow sharing of task data with other households.
 
 ## The future
 
