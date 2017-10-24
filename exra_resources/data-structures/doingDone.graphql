@@ -267,23 +267,7 @@ interface Recurrance {
 
 type IntervalRecurrance implements Recurrance {
 	interval: Int!,	# number of days from start of last interval
-	firstOccurance: Date!,
-	# logic:
-	# if ((nextOccuranceEnd) < today) {
-	#	 while (nextOccuranceEnd < today) {
-	#		nextOccuranceStart += interval;
-	#		nextOccuranceEnd = nextOccuranceStart + duration;
-	#	 }
-	#	 if (finalEndDate !== null) {
-	#	 	if (nextOccuranceStart > finalEndDate) {
-	#			active = false;
-	#			nextOccuranceStart = null;
-	#			nextOccuranceEnd = null;
-	#		 } else if (nextOccuranceEnd > finalEndDate) {
-	#			nextOccuranceEnd = finalEndDate;
-	#		 }
-	#	 }
-	# }
+	firstOccurance: Date!
 }
 
 type MonthlyOccurance {
@@ -311,22 +295,6 @@ type RandomRecurrance implements Recurrance {
 	startDates: [FixedPeriod!]!,
 	# taken from the endDate of the final FixedPeriod
 	finalEndDate: Date!,
-	# logic:
-	# if (nextOccuranceEnd < today) {
-	#    for (let i = 0; i < startDates.length; i += 1) {
-	#		 if (startDates[i].startDate > today || (startDates[i].startDate < today && (startDates[i].startDate + startDates[i].duraton) > today))
-	#			nextOccuranceStart = startDates[i].startDate;
-	#			nextOccuranceEnd = nextOccuranceStart + startDates[i].duraton;
-	#			break;
-	#		 } else {
-	#			if (i + 1 === startDates.length && (startDates[i].startDate + startDates[i].duraton) < today) {
-	#				active = false;
-	#				nextOccuranceStart = null;
-	#				nextOccuranceEnd = null;
-	#			}
-	#		 }
-	#	 }
-	# }
 }
 
 
@@ -359,11 +327,12 @@ type TaskActivity implements Activity {
 	completedBy: User!,
 	task: Task!,
 	status: TaskStatus!,
+	acknowledged: DateTime,
 	acknowledgedBy: User,
 	interventionRequired: InterventionRequired,
 	# computedValue = this.task.value * household.valueModifiers.completionLevel[this.completionLevel] * household.valueModifiers.InterventionRequired[this.interventionRequired]
 	# (based on task and household modifier values at time of acknowledgement)
-	acknowledgedByNotes: String,
+	acknowledgementNotes: String,
 	instantReward: InstantReward
 }
 
@@ -378,6 +347,7 @@ type DateBlock {
 	end: Date!
 }
 
+# ScheduledItem is a temporary object used for listing tasks & is thrown away at the end of the day.
 type ScheduledItem {
 	user: User!,
 	taskGoal: TaskGoal!,
@@ -385,7 +355,9 @@ type ScheduledItem {
 	status: TaskStatus!,
 	activity: Activity,
 	startTime: DateTime!,
-	endTime: DateTime!
+	endTime: DateTime!,
+	value: Float!,
+	pointsToCurrency: Float!,
 }
 
 type ActiveTask {
