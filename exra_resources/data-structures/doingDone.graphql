@@ -61,7 +61,9 @@ type household {
 		isSchoolDay: Boolean!,
 		isSchoolHoliday: Boolean!,
 		isPublicHoliday: Boolean!
-	}
+	},
+	subscribeToSchoolTerms: Boolean!,
+	subscribeToPublicHolidays: Boolean!,
 }
 
 type Device: {

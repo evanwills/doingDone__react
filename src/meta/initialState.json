@@ -31,17 +31,17 @@
 	"payPeriod": 2,
 	"payPeriodStart": "Saturday",
 	"totalValueOfCurrentPayPeriod": 0,
-	"SchoolTerms": [
-		{"start": "2017-01-27", "end": "2017-04-07", "default": true},
+	"schoolTerms": [
 		{"start": "2017-04-24", "end": "2017-06-30", "default": true},
-		{"start": "2017-07-17", "end": "2017-09-22", "default": true},
-		{"start": "2017-10-09", "end": "2017-12-19", "default": true},
-		{"start": "2018-01-29", "end": "2018-04-13", "default": true},
+		{"start": "2017-01-27", "end": "2017-04-07", "default": true},
 		{"start": "2018-05-01", "end": "2018-07-06", "default": true},
+		{"start": "2017-10-09", "end": "2017-12-19", "default": true},
+		{"start": "2017-07-17", "end": "2017-09-22", "default": true},
+		{"start": "2018-01-29", "end": "2018-04-13", "default": true},
 		{"start": "2018-07-24", "end": "2018-09-28", "default": true},
 		{"start": "2018-10-15", "end": "2018-12-19", "default": true}
 	],
-	"PublicHolidays": [
+	"publicHolidays": [
 		{"day": "2017-12-25", "default": true},
 		{"day": "2017-12-26", "default": true},
 		{"day": "2018-01-01", "default": true},
