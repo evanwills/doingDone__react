@@ -53,12 +53,24 @@ const makeDateUseful = (today) => {
 	const dateTemplate = (time) => new Date(today.toString().replace(/[0-9]{2}(?::[0-9]{2}){2}(?= GMT)/, time));
 
 	return {
-		dayOfWeek: daysOfWeek[today.getDay()],
+		date: today.toISOString().replace(/T.*$/,''),
 		dateFromLocalTime: dateTemplate,
-		start: dateTemplate('00:00:00'),
+		dayOfWeek: daysOfWeek[today.getDay()],
 		end: dateTemplate('23:59:59'),
-		date: today.toISOString().replace(/T.*$/,'')
+		start: dateTemplate('00:00:00'),
 	}
+}
+
+const sortPublicHolidays = (publicHolidays) => {
+	let sortedHolidays = publicHolidays.map((term) => term);
+
+	sortedHolidays.sort((a, b) => {
+		const aDay = new Date(a.day),
+			  bDay = new Date(b.day);
+		return (aDay > bDay) ? 1 : (aDay < bDay) ? -1 : 0;
+	});
+
+	return sortedHolidays;
 }
 
 const isPublicHoliday = (holidays, todaysDate) => {
@@ -69,16 +81,8 @@ const isPublicHoliday = (holidays, todaysDate) => {
 	}
 }
 
-const schoolDayMeta = (schoolTerms, todaysDate) => {
-	let i = 0,
-		j = 0,
-		thisStart,
-		thisEnd,
-		isSchoolDay = false,
-		isSchoolHoliday = false,
-		sortedTerms = schoolTerms.map((term) => term);
-
-	const today = todaysDate.getDay();
+const sortTerms = (schoolTerms) => {
+	let sortedTerms = schoolTerms.map((term) => term);
 
 	sortedTerms.sort((a, b) => {
 		const aStart = new Date(a.start),
@@ -86,25 +90,30 @@ const schoolDayMeta = (schoolTerms, todaysDate) => {
 		return (aStart > bStart) ? 1 : (aStart < bStart) ? -1 : 0;
 	});
 
+	return sortedTerms;
+}
+
+
+const schoolDayMeta = (schoolTerms, todaysDate) => {
+	let i = 0,
+		j = 0,
+		thisStart,
+		thisEnd,
+		isSchoolTerm = false,
+		isSchoolHoliday = false,
+		sortedTerms = sortTerms(schoolTerms);
+
 	if (schoolTerms.length > 0) {
 		for (i = 0; i < sortedTerms.length; i += 1) {
 			thisStart = new Date(sortedTerms[i].start);
 			thisEnd = new Date(sortedTerms[i].end);
 
 			if (thisStart <= todaysDate && thisEnd >= todaysDate) {
-
-				if (today > 0 & today < 7) {
-					isSchoolDay = true;
-					isSchoolHoliday = false;
-				} else {
-					isSchoolDay = false;
-					isSchoolHoliday = false;
-				}
+				isSchoolTerm = true;
 				break;
 			} else if (i > 0) {
 				j = i - 1;
 				if (new Date(sortedTerms[j].end) < todaysDate && thisStart > todaysDate ) {
-					isSchoolDay = false;
 					isSchoolHoliday = true;
 					break;
 				}
@@ -112,7 +121,7 @@ const schoolDayMeta = (schoolTerms, todaysDate) => {
 		}
 	}
 	return {
-		isSchoolDay: isSchoolDay,
+		isSchoolTerm: isSchoolTerm,
 		isSchoolHoliday: isSchoolHoliday
 	}
 }

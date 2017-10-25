@@ -1,14 +1,4 @@
 {
-	"household": {
-		"id": "pickleJar",
-		"name": "Pickle jar",
-		"active": true,
-		"token": "",
-		"countIncomplete": false
-	},
-	"deviceMode": "shared",
-	"locale": "en-au",
-	"timezone": "Sydney",
 	"valueModifiers": {
 		"completionLevel": {
 			"Not": 0,

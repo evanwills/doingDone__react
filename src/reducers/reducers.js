@@ -5,7 +5,7 @@ export const schedule = (state, action) => {
 		case constants.AUTO_SET_TODAYS_METADATA:
 			const day = action.payload.date.day(),
 				  startTime = new Date(Date().replace(/[0-9]{2}(?::[0-9]{2}){2}(?= GMT)/, '00:00:00')),
-			endTime = new Date(Date().replace(/[0-9]{2}(?::[0-9]{2}){2}(?= GMT)/, '23:59:59'));
+					endTime = new Date(Date().replace(/[0-9]{2}(?::[0-9]{2}){2}(?= GMT)/, '23:59:59'));
 
 			return {
 

@@ -26,18 +26,23 @@ type household {
 	# list of task activities that need approving/verifying
 	approvalQueue: [TaskActivity],
 
+	# valueModifiers are used multiply task points to get a
+	# taskActivitie's computed value.
+	# e.g.  a task has a points value of 2, the task doer didn't need
+	#		prompting but the task was only partially completed
+	#		the computed value would be 2 * 1.3 * 0.5 = 1.3
 	valueModifiers: {
 		completionLevel: {
-			Not: Float!,			# default (optional) = 0	(required) = -0.5
-			Partially: Float!,		# default = 0.5
-			Fully: Float!,			# default = 1
-			Outstandingly: Float!	# default = 1.5
+			Not: Float!,			# default = 0		[min: -0.5, max: 5]
+			Partially: Float!,		# default = 0.5		[min: -0.5, max: 5]
+			Fully: Float!,			# default = 1		[min: -0.5, max: 5]
+			Outstandingly: Float!	# default = 1.5		[min: -0.5, max: 5]
 		},
 		InterventionRequired: {
-			Volunteered: Float!,	# default = 1.3
-			Prompted: Float!,		# default = 1
-			Coerced: Float!,		# default = 0.7
-			Battled: Float!			# default = 0.4
+			Volunteered: Float!,	# default = 1.3		[min: 0, max: 5]
+			Prompted: Float!,		# default = 1		[min: 0, max: 5]
+			Coerced: Float!,		# default = 0.7		[min: 0, max: 5]
+			Battled: Float!			# default = 0.4		[min: 0, max: 5]
 		}
 	},
 	currency: {
