@@ -221,7 +221,18 @@ interface Task implements TaskGoal { # task interface
 	# allow completion after normal end time
 	extendedEndTime: Time,
 
-	#
+	# sometasks can be done either the night before or the next
+	# morning e.g. putting out the garbage bins.
+	# for these tasks the endTime will end up being before the
+	# startTime. overNight provides extra validation to allow
+	# endTime to be before startTime.
+	# NOTE: startTime must be after midday and
+	#		endTime must be before midday
+	#		to keep the task scheduler happy.
+	overNight: Boolean!,
+
+	# let a task be marked as completed before its
+	# designated start time
 	canCompleteBefore: boolean!,
 
 	# assigned user changes with each completion period
@@ -318,7 +329,7 @@ type RandomRecurrance implements Recurrance {
 
 type RotatingTurn {
 	# person currently responsible for the task
-	assignedTo: User,
+	assignedTo: [User],
 
 	# because turn taking sometimes needs to be in random order users
 	# are added to the turn taken list until every turn taker has had

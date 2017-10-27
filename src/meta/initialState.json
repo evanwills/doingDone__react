@@ -22,30 +22,30 @@
 	"payPeriodStart": "Saturday",
 	"totalValueOfCurrentPayPeriod": 0,
 	"schoolTerms": [
-		{"start": "2017-04-24", "end": "2017-06-30", "default": true},
-		{"start": "2017-01-27", "end": "2017-04-07", "default": true},
-		{"start": "2018-05-01", "end": "2018-07-06", "default": true},
-		{"start": "2017-10-09", "end": "2017-12-19", "default": true},
-		{"start": "2017-07-17", "end": "2017-09-22", "default": true},
-		{"start": "2018-01-29", "end": "2018-04-13", "default": true},
-		{"start": "2018-07-24", "end": "2018-09-28", "default": true},
-		{"start": "2018-10-15", "end": "2018-12-19", "default": true}
+		{"id": "2017042420170630", "start": "2017-04-24", "end": "2017-06-30", "default": true},
+		{"id": "2017012720170407", "start": "2017-01-27", "end": "2017-04-07", "default": true},
+		{"id": "2018050120180706", "start": "2018-05-01", "end": "2018-07-06", "default": true},
+		{"id": "2017100920171219", "start": "2017-10-09", "end": "2017-12-19", "default": true},
+		{"id": "2017071720170922", "start": "2017-07-17", "end": "2017-09-22", "default": true},
+		{"id": "2018012920180413", "start": "2018-01-29", "end": "2018-04-13", "default": true},
+		{"id": "2018072420180928", "start": "2018-07-24", "end": "2018-09-28", "default": true},
+		{"id": "2018101520181219", "start": "2018-10-15", "end": "2018-12-19", "default": true}
 	],
 	"publicHolidays": [
-		{"day": "2017-12-25", "default": true},
-		{"day": "2017-12-26", "default": true},
-		{"day": "2018-01-01", "default": true},
-		{"day": "2018-01-26", "default": true},
-		{"day": "2018-03-30", "default": true},
-		{"day": "2018-04-02", "default": true},
-		{"day": "2018-04-25", "default": true},
-		{"day": "2018-06-11", "default": true},
-		{"day": "2018-08-06", "default": true},
-		{"day": "2018-10-01", "default": true},
-		{"day": "2018-12-25", "default": true},
-		{"day": "2018-12-26", "default": true}
+		{"date": "2017-12-25", "default": true},
+		{"date": "2017-12-26", "default": true},
+		{"date": "2018-01-01", "default": true},
+		{"date": "2018-01-26", "default": true},
+		{"date": "2018-03-30", "default": true},
+		{"date": "2018-04-02", "default": true},
+		{"date": "2018-04-25", "default": true},
+		{"date": "2018-06-11", "default": true},
+		{"date": "2018-08-06", "default": true},
+		{"date": "2018-10-01", "default": true},
+		{"date": "2018-12-25", "default": true},
+		{"date": "2018-12-26", "default": true}
 	],
-	"today": {
+	"todaysMeta": {
 		"isSchoolDay": false,
 		"isSchoolHoliday": false,
 		"isPublicHoliday": false,
@@ -172,7 +172,7 @@
 			"available": "07:00",
 			"due": "08:10",
 			"extendedEndTime": null,
-			"expand": true,
+			"overNight": false,
 			"canCompleteBefore": true,
 			"img": null,
 			"steps": [
@@ -189,7 +189,13 @@
 			"thursday": true,
 			"friday": true,
 			"saturday": false,
-			"sunday": false
+			"sunday": false,
+			"rotating": null,
+			"users": [],
+			"schoolTerm": true,
+			"schoolHolidays": false,
+			"publicHolidays": false
+			
 		},
 		{
 			"id": "putOnYourSchoolShoes",
@@ -198,6 +204,7 @@
 			"available": "07:45",
 			"due": "08:10",
 			"extendedEndTime": null,
+			"overNight": false,
 			"canCompleteBefore": true,
 			"img": null,
 			"steps": [
@@ -211,7 +218,12 @@
 			"thursday": true,
 			"friday": true,
 			"saturday": false,
-			"sunday": false
+			"sunday": false,
+			"rotating": null,
+			"users": [],
+			"schoolTerm": true,
+			"schoolHolidays": false,
+			"publicHolidays": false
 		},
 		{
 			"id": "getToysToTakeToSchool",
@@ -220,6 +232,7 @@
 			"available": "06:45",
 			"due": "08:10",
 			"extendedEndTime": "8:15",
+			"overNight": false,
 			"canCompleteBefore": true,
 			"img": null,
 			"steps": [
@@ -233,7 +246,46 @@
 			"thursday": false,
 			"friday": true,
 			"saturday": false,
-			"sunday": false
+			"sunday": false,
+			"rotating": null,
+			"users": [],
+			"schoolTerm": true,
+			"schoolHolidays": false,
+			"publicHolidays": false
+		},
+		{
+			"id": "emptyChickenBucket",
+			"thumbnail": null,
+			"name": "Empty chicken bucket",
+			"available": "05:45",
+			"due": "08:10",
+			"extendedEndTime": "16:45",
+			"overNight": false,
+			"canCompleteBefore": true,
+			"img": null,
+			"steps": [
+				"Get chicken bucket",
+				"Make sure all chickens are in chicken yard",
+				"Empty chicken bucket near Bannana trees",
+				"Check feeder",
+				"Check water",
+				"Make sure gate is properly closed"
+			],
+			"monday": true,
+			"tuesday": true,
+			"wednesday": true,
+			"thursday": true,
+			"friday": true,
+			"saturday": true,
+			"sunday": true,
+			"rotating": {
+				"assignedTo": null,
+				"turnsTaken": []
+			},
+			"users": [],
+			"schoolTerm": true,
+			"schoolHolidays": true,
+			"publicHolidays": true
 		},
 		{
 			"id": "putShoesOnShoeShelf",
@@ -242,6 +294,7 @@
 			"available": "14:45",
 			"due": "20:00",
 			"extendedEndTime": null,
+			"overNight": false,
 			"canCompleteBefore": false,
 			"img": null,
 			"steps": [
@@ -255,7 +308,12 @@
 			"thursday": true,
 			"friday": true,
 			"saturday": true,
-			"sunday": true
+			"sunday": true,
+			"rotating": null,
+			"users": [],
+			"schoolTerm": true,
+			"schoolHolidays": true,
+			"publicHolidays": true
 		},
 		{
 			"id": "brushYourTeath",
@@ -264,6 +322,7 @@
 			"available": "18:45",
 			"due": "19:45",
 			"extendedEndTime": "20:15",
+			"overNight": false,
 			"canCompleteBefore": false,
 			"img": null,
 			"steps": [
@@ -283,7 +342,12 @@
 			"thursday": true,
 			"friday": true,
 			"saturday": false,
-			"sunday": false
+			"sunday": false,
+			"rotating": null,
+			"users": [],
+			"schoolTerm": true,
+			"schoolHolidays": true,
+			"publicHolidays": true
 		},
 		{
 			"id": "putJarmies",
@@ -292,6 +356,7 @@
 			"available": "16:30",
 			"due": "20:00",
 			"extendedEndTime": null,
+			"overNight": false,
 			"canCompleteBefore": true,
 			"img": null,
 			"steps": [
@@ -306,7 +371,12 @@
 			"thursday": true,
 			"friday": true,
 			"saturday": false,
-			"sunday": false
+			"sunday": false,
+			"rotating": null,
+			"users": [],
+			"schoolTerm": true,
+			"schoolHolidays": true,
+			"publicHolidays": true
 		},
 		{
 			"id": "doWeeBeforeBed",
@@ -315,6 +385,7 @@
 			"available": "19:30",
 			"due": "20:15",
 			"extendedEndTime": null,
+			"overNight": false,
 			"canCompleteBefore": false,
 			"img": null,
 			"steps": [
@@ -328,7 +399,42 @@
 			"thursday": true,
 			"friday": true,
 			"saturday": false,
-			"sunday": false
+			"sunday": false,
+			"rotating": null,
+			"users": [],
+			"schoolTerm": true,
+			"schoolHolidays": true,
+			"publicHolidays": true
+		},
+		{
+			"id": "getReadyForSwimming",
+			"thumbnail": null,
+			"name": "Get ready for swimming",
+			"available": "16:00",
+			"due": "08:20",
+			"overNight": true,
+			"extendedEndTime": null,
+			"canCompleteBefore": true,
+			"expand": true,
+			"img": null,
+			"steps": [
+				"Find swimmers",
+				"get clean undies",
+				"get goggles & swimming cap",
+				"get towel"
+			],
+			"monday": false,
+			"tuesday": false,
+			"wednesday": false,
+			"thursday": false,
+			"friday": true,
+			"saturday": false,
+			"sunday": false,
+			"rotating": null,
+			"users": [],
+			"schoolTerm": true,
+			"schoolHolidays": false,
+			"publicHolidays": false
 		},
 		{
 			"id": "getReadyForSwimming",
@@ -336,29 +442,30 @@
 			"name": "Get ready for swimming",
 			"available": "06:00",
 			"due": "08:20",
+			"overNight": false,
 			"extendedEndTime": null,
 			"canCompleteBefore": true,
 			"expand": true,
 			"img": null,
 			"steps": [
-				"Find swimmers",
 				"Take off pyjamas",
 				"put pyjamas on your bed",
 				"put used undies in washing basket",
 				"put swimmers on",
-				"get put cloths on",
-				"get clean undies",
-				"get goggles & swimming cap",
-				"get towel",
-				"put on shoes on"
+				"put cloths on"
 			],
-			"monday": true,
-			"tuesday": true,
-			"wednesday": true,
-			"thursday": true,
-			"friday": true,
-			"saturday": false,
-			"sunday": false
+			"monday": false,
+			"tuesday": false,
+			"wednesday": false,
+			"thursday": false,
+			"friday": false,
+			"saturday": true,
+			"sunday": false,
+			"rotating": null,
+			"users": [],
+			"schoolTerm": true,
+			"schoolHolidays": false,
+			"publicHolidays": false
 		}
 	],
 	"scheduledItems": [],
