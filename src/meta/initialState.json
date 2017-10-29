@@ -280,7 +280,7 @@
 			"sunday": true,
 			"rotating": {
 				"assignedTo": null,
-				"turnsTaken": []
+				"turnsTaken": ["malleePikeWills"]
 			},
 			"users": [],
 			"schoolTerm": true,

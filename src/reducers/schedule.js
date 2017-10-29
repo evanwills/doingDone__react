@@ -1,5 +1,5 @@
 import constants from '../meta/constants';
-
+import {sortByDate} from '../utils/utilityFunctions';
 
 export const scheduledItemsAction = (today, tasks, users, pointsToCurrency) => ({
     type: constants.AUTO_SCHEDULE_TASK,
@@ -9,7 +9,15 @@ export const scheduledItemsAction = (today, tasks, users, pointsToCurrency) => (
 		today: today,
 		pointsToCurrency: pointsToCurrency
     }
-})
+});
+
+export const removeScheduledItemsAction = (today, scheduledItems) => ({
+	type: constants.AUTO_REMOVE_SCHEDULED_TASKS,
+	payload: {
+		scheduledItems: scheduledItems,
+		today: today
+	}
+});
 
 
 // ==================================================================
@@ -31,16 +39,21 @@ const nextInRotation = (allUsers, rotating) => {
 	}
 }
 
-
+const removeScheduled = (scheduledItems, todaysEnd) => {
+	return scheduledItems.filter((task) => {
+		const taskEnd = (task.extendedEndTime === null) ? task.due : task.extendedEndTime;
+		return (todaysEnd > taskEnd) ? true : false;
+	});
+}
 
 
 
 export const scheduledItems = (state, action) => {
 	let i = 0,
 		tmpUsers = [],
-		newSchedule = [],
+		newSchedule = removeScheduled(state, action.payload.today.end),
 		rotation;
-		
+
 	switch(action.type) {
 		case constants.AUTO_SCHEDULE_TASK:
 			const today = action.payload.today,
@@ -72,7 +85,11 @@ export const scheduledItems = (state, action) => {
 					})
 				)]
 			}
-			return newSchedule;
+			return sortByDate(newSchedule, 'due');
+
+		case constants.AUTO_REMOVE_SCHEDULED_TASKS:
+			return newSchedule
+
 		default:
 			return state;
 	}

@@ -1,4 +1,5 @@
 import constants from '../meta/constants';
+import {sortByDate} from '../utils/utilityFunctions';
 
 export const addSchoolTermAction = (newTerm) => ({
 	type: constants.ADD_SCHOOL_TERM,
@@ -15,27 +16,14 @@ export const updateSchoolTermAction = (updatedTerm) => ({
 // ==================================================================
 
 
-const sortTerms = (schoolTerms) => {
-	let sortedTerms = schoolTerms.map((term) => term);
-
-	sortedTerms.sort((a, b) => {
-		const aStart = new Date(a.start),
-			  bStart = new Date(b.start);
-		return (aStart > bStart) ? 1 : (aStart < bStart) ? -1 : 0;
-	});
-
-	return sortedTerms;
-}
-
-
 
 const schoolTerms = (state, action) => {
 	switch(action.type) {
 		case constants.ADD_SCHOOL_TERM:
-			return sortTerms([...state, action.payload]);
+			return sortByDate([...state, action.payload], 'start');
 		
 		case constants.UPDATE_SCHOOL_TERM:
-			return sortTerms(
+			return sortByDate(
 				state.map(
 					(term) => (term.id === action.payload.id) ? {
                         id: action.payload.id,
@@ -43,7 +31,8 @@ const schoolTerms = (state, action) => {
                         end: action.payload.end,
                         default: false,
 					}: term
-				)
+				),
+				'start'
 			)
 		default:
 			return state;

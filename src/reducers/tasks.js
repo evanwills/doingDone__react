@@ -1,4 +1,5 @@
 import constants from '../meta/constants';
+import {sortByDate} from '../utils/utilityFunctions';
 
 const tasksAdmin = (state, action) => {
 
@@ -7,7 +8,7 @@ const tasksAdmin = (state, action) => {
 	switch (action.type) {
 		case constants.ADD_TASK:
 			if (taskExists(state, action.payload.id) === false) {
-				return [...state, action.payload];
+				return sortByDate([...state, action.payload], 'due');
 			}
 			break;
 
@@ -19,7 +20,11 @@ const tasksAdmin = (state, action) => {
 
 		case constants.UPDATE_TASK:
 			if (taskExists(state, action.payload.id)) {
-				return state.map((task) => (task.id === action.payload.id)?action.payload:task);
+				return sortByDate(
+					state.map(
+						(task) => (task.id === action.payload.id)?action.payload:task),
+					'due'
+				);
 			}
 			break;
 	}

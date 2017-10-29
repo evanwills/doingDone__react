@@ -1,4 +1,5 @@
 import constants from '../meta/constants';
+import {sortByDate} from '../utils/utilityFunctions';
 
 
 export const addPublicHolidayAction = (newHoliday) => ({
@@ -17,31 +18,21 @@ export const updatePublicHolidayAction = (updatedHoliday) => ({
 
 
 
-const sortPublicHolidays = (publicHolidays) => {
-	let sortedHolidays = publicHolidays.map((holiday) => holiday);
-
-	sortedHolidays.sort((a, b) => {
-		const aDay = new Date(a.day),
-			  bDay = new Date(b.day);
-		return (aDay > bDay) ? 1 : (aDay < bDay) ? -1 : 0;
-	});
-
-	return sortedHolidays;
-}
 
 
 const publicHolidays = (state, action) => {
 	switch(action.type) {
 		case constants.ADD_PUBLIC_HOLIDAYS:
-			return sortPublicHolidays([...state, action.payload]);
+			return sortByDate([...state, action.payload], 'day');
 		
 		case constants.UPDATE_PUBLIC_HOLIDAYS:
-			return sortPublicHolidays(
+			return sortByDate(
 				state.map(
 					(holiday) => (holiday.day === action.payload.oldDate) ? {
 						date: action.payload.newDate, default: false
 					}: holiday
-				)
+				),
+				'day'
 			)
 		default:
 			return state;
