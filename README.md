@@ -23,7 +23,7 @@ It's written in React/Redux because a while ago I went for a job interview. I di
 
 I spent a lot of time reading about Javascript frameworks. Too much time. In the end it just came down to what framework they were looking at where I had my job interview.
 
-[React](https://reactjs.org/), [Angular](https://angularjs.org/), [Ember](https://www.emberjs.com/), [Aurelia](http://aurelia). They all sound awesome and I'd love to have time to try all of them but I work full time and have a family so...
+[React](https://reactjs.org/), [Angular](https://angularjs.org/), [Ember](https://www.emberjs.com/), [Aurelia](http://aurelia) and all the others. They all sound awesome and I'd love to have time to try all of them but I work full time and have a family so...
 
 ## How it works
 
