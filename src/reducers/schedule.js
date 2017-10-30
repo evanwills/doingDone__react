@@ -54,7 +54,6 @@ export const scheduledItems = (state = [], action) => {
 		newSchedule = [],
 		rotation;
 
-	console.log('action: ', action);
 	
 	switch(action.type) {
 		case constants.AUTO_SCHEDULE_TASK:

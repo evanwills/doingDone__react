@@ -11,7 +11,7 @@ It would also be good for share houses where there are regular communal tasks th
 
 ## Why was this app created
 
-I have a family with two school age kids, one of whom has mild autism. I (and my partner) are constantly telling the kids to do various tasks and I'm sick of it. Hopefully this app will provide a list of tasks (some of which I always forget) to the kids without it haveing to be me (or my partner) saying "Put your shoes on" in the morning or "Brush your teeth" before bed. It's also useful to remind me of the jobs I have to do as part of the household (like "Clean the toilet" on Friday night or "Unpack the dishwasher" after dinner).
+I have a family with two school age kids, one of whom has mild autism. I (and my partner) are constantly telling the kids to do various tasks and I'm sick of it. Hopefully this app will provide a list of tasks (some of which I always forget) for the kids without it haveing to be me (or my partner) saying "Put your shoes on" in the morning or "Brush your teeth" before bed. It's also useful to remind me of the jobs I have to do as part of the household (like "Clean the toilet" on Friday night or "Unpack the dishwasher" after dinner).
 
 It's written in React/Redux because a while ago I went for a job interview. I didn't get the job because I didn't have any front-end framework experience. Hopefully this will stop that from happening again.
 
@@ -20,12 +20,12 @@ It's written in React/Redux because a while ago I went for a job interview. I di
 1. Someone in the family (presumably a parent - AKA "_Approver_") creates tasks and assigns household members to those tasks
 2. Every day a list of tasks is created for each household members
 3. The household members completes task
-4. The _Approver_ approves the task setting the level of completion and the amount of intervention required (i.e. if the task is done without prompting intervention would be 0, if the task doer was repeatedly prompted and cajolled to complte the task intervention would be 3) and points are assigned (also if the household implements pocket money each task gets a calculated dollar value)
+4. The _Approver_ approves the task setting the level of completion and the amount of intervention required (i.e. if the task is done without prompting intervention would be 0, if the task doer was repeatedly prompted and cajolled to complete the task intervention would be 3) and points are assigned (also if the household implements pocket money each task gets a calculated dollar value)
 5. Throughout the week points (and if applicable dollars) are awarded. Task doers can see their progress
 
 ## Todo
 
-1. Get sort out time management.
+1. Get out time management working __correctly__.
 2. Get local persistance working.
 3. Get user completion of tasks and approval workflow working.
 4. Get images and task steps working.
