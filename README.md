@@ -54,7 +54,8 @@ How much effort was required by the parent/approver to get the task doer to comp
 
 To calculate the points for a task you multiply the completion level, the intervention level and the task points
 
-e.g.
+__e.g.__
+
 |label  |name   |value |
 |-------|-------|------|
 |Task points||1.2|
