@@ -73,10 +73,10 @@ export const scheduledItems = (state, action) => {
 					...newSchedule,
 					...tmpUsers.map((user) => ({
 						id: user.id + today.date + availableTasks[i].id,
-						user: user,
-						task: availableTasks[i],
+						userID: user.id,
+						taskID: availableTasks[i].id,
 						status: 'Queued',
-						activity: null,
+						hasActivity: false,
 						available: today.dateFromTime(availableTasks[i].available),
 						due: today.dateFromTime(availableTasks[i].due),
 						extendedDue: today.dateFromTime(availableTasks[i].extendedEndTime),
@@ -87,10 +87,18 @@ export const scheduledItems = (state, action) => {
 			}
 			return sortByDate(newSchedule, 'due');
 
+		case constants.CREATE_ACTIVITY:
+			return state.map((task) => (action.payload.activityID === task.id) ? {...task, hasActivity: true} : task);
+		// case constants.APPROVE_ACTIVITY:
+		// case constants.UPDATE_APPROVED_ACTIVITY:
+		// 	return state;
+
 		case constants.AUTO_REMOVE_SCHEDULED_TASKS:
-			return newSchedule
+			return newSchedule;
 
 		default:
 			return state;
 	}
 }
+
+export default scheduledItems;

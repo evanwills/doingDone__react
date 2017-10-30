@@ -1,7 +1,7 @@
 import constants from '../meta/constants';
 import {sortByDate} from '../utils/utilityFunctions';
 
-const tasksAdmin = (state, action) => {
+const tasks = (state, action) => {
 
 	const taskExists = (tasks, newID) => (tasks.reduce((count, task) => (task.id === newID)?count += 1:count,0))?true:false;
 
@@ -31,4 +31,4 @@ const tasksAdmin = (state, action) => {
 	return state;
 }
 
-export default tasksAdmin
+export default tasks
