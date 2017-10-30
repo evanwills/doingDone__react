@@ -20,7 +20,7 @@ export const updatePublicHolidayAction = (updatedHoliday) => ({
 
 
 
-const publicHolidays = (state, action) => {
+export const publicHolidays = (state = [], action) => {
 	switch(action.type) {
 		case constants.ADD_PUBLIC_HOLIDAYS:
 			return sortByDate([...state, action.payload], 'day');

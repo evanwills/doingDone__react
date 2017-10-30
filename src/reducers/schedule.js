@@ -48,30 +48,71 @@ const removeScheduled = (scheduledItems, todaysEnd) => {
 
 
 
-export const scheduledItems = (state, action) => {
+export const scheduledItems = (state = [], action) => {
 	let i = 0,
 		tmpUsers = [],
-		newSchedule = removeScheduled(state, action.payload.today.end),
+		newSchedule = [],
 		rotation;
 
+	console.log('action: ', action);
+	
 	switch(action.type) {
 		case constants.AUTO_SCHEDULE_TASK:
 			const today = action.payload.today,
-				  users =  action.payload.users.filter((user) => !user.approver),
-				  availableTasks = action.payload.tasks.filter(
-					  (task) => (task[today.dayOfWeek] && (task.schoolTerm === today.isSchoolTerm || task.schoolHolidays === today.isSchoolHoliday || task.publicHolidays === today.isPublicHoliday)));
+				// get a list of users who are NOT approvers and
+				// who ARE active
+				users = action.payload.users.filter(
+							(user) => !user.approver
+						).filter(
+							(user) => user.active
+						),
+				// get a list of tasks that fit today's criteria
+				availableTasks = action.payload.tasks.filter(
+						(task) => (
+							task[today.dayOfWeek] && (
+								task.schoolTerm === today.isSchoolTerm ||
+								task.schoolHolidays === today.isSchoolHoliday ||
+								task.publicHolidays === today.isPublicHoliday
+							)
+						)
+				);
 
+			newSchedule = removeScheduled(state, action.payload.today.end);
 			
 			for (i = 0; i < availableTasks.length; i += 1) {
-				tmpUsers = (availableTasks[i].users.length === 0) ? users : availableTasks[i].users;
 
+				// get the list of users eligible to do this task.
+				if (availableTasks[i].users.length === 0) {
+					tmpUsers = users;
+				} else {
+					tmpUsers = users.filter(
+						(user) => (availableTasks[i].users.indexOf(user.id) > -1 && user.active) ? true : false
+					);
+				}
+
+				// if the task is a rotating task, then only schedule
+				// it for the next person in the rotation.
 				if (availableTasks[i].rotating !== null) {
 					rotation = nextInRotation(tmpUsers, availableTasks[i].rotating);
-					tmpUsers = tmpUsers.filter((user) => user.id === rotation.assignedTo);
+					tmpUsers = tmpUsers.filter(
+						(user) => user.id === rotation.assignedTo
+					);
 				}
+
+				// check to see if there's an existing scheduled item
+				// matching this ID. If yes remove them from the list
+				// of users
+				tmpUsers = tmpUsers.filter(
+					(user) => newSchedule.reduce(
+						(count, task) => (user.id + today.date + task.taskID === task.userID + today.date + task.taskID) ? count + 1 : count, 0
+					) > 0 ? false : true
+				);
+
 				newSchedule = [
 					...newSchedule,
-					...tmpUsers.map((user) => ({
+					// add a scheduled task for each user who is
+					// elligable to do this task
+					...tmpUsers.map((user, i, all) => ({
 						id: user.id + today.date + availableTasks[i].id,
 						userID: user.id,
 						taskID: availableTasks[i].id,
@@ -87,11 +128,8 @@ export const scheduledItems = (state, action) => {
 			}
 			return sortByDate(newSchedule, 'due');
 
-		case constants.CREATE_ACTIVITY:
-			return state.map((task) => (action.payload.activityID === task.id) ? {...task, hasActivity: true} : task);
-		// case constants.APPROVE_ACTIVITY:
-		// case constants.UPDATE_APPROVED_ACTIVITY:
-		// 	return state;
+		// case constants.CREATE_ACTIVITY:
+		// 	return state.map((task) => (action.payload.activityID === task.id) ? {...task, hasActivity: true} : task); 
 
 		case constants.AUTO_REMOVE_SCHEDULED_TASKS:
 			return newSchedule;
@@ -100,5 +138,3 @@ export const scheduledItems = (state, action) => {
 			return state;
 	}
 }
-
-export default scheduledItems;

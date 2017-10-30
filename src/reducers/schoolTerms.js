@@ -17,7 +17,7 @@ export const updateSchoolTermAction = (updatedTerm) => ({
 
 
 
-const schoolTerms = (state, action) => {
+export const schoolTerms = (state = [], action) => {
 	switch(action.type) {
 		case constants.ADD_SCHOOL_TERM:
 			return sortByDate([...state, action.payload], 'start');

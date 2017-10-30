@@ -15,7 +15,7 @@ export const todaysMetaAction = (now, terms, holidays) => ({
 
 
 
-const makeDateUseful = (today) => {
+export const makeDateUseful = (today) => {
 	const daysOfWeek = [
 		'sunday',
 		'monday',
@@ -25,7 +25,7 @@ const makeDateUseful = (today) => {
 		'friday',
 		'saturday'
 	];
-	
+
 	const dateFromTime = (time) => (time)?
 		new Date(today.toString().replace(/[0-9]{2}(?::[0-9]{2}){2}(?= GMT)/, time)):null;
 
@@ -81,7 +81,7 @@ const schoolDayMeta = (schoolTerms, todaysDate) => {
 }
 
 
-export const todaysMeta = (state, action) => {
+export const todaysMeta = (state = {}, action) => {
 	if (action.type === 'AUTO_SET_TODAYS_METADATA') {
 		return {
 			...makeDateUseful(action.payload.now),

@@ -9,23 +9,30 @@
 // import { createStore } from 'redux'
 import initialState from './meta/initialState.json';
 // import { createStore } from 'redux';
-import {todaysMeta, todaysMetaAction} from './reducers/todaysMeta';
-import {scheduledItems, scheduledItemsAction} from './reducers/schedule';
-// import todaysMetaAction from './actions/todaysMetaAction';
+import {todaysMetaAction} from './reducers/todaysMeta';
+import {scheduledItemsAction} from './reducers/schedule';
+import doingDoneReducer from './reducers/reducers';
 
 let state = initialState;
 
 console.log('state.scheduledItems: ', state.scheduledItems);
+console.log('state.todaysMeta: ', state.todaysMeta);
 
 const meta = todaysMetaAction(new Date(), state.schoolTerms, state.publicHolidays);
-
-state.todaysMeta = todaysMeta(state.todaysMeta, meta);
+console.log('meta: ', meta);
+state = doingDoneReducer(state, meta);
+console.log('state.todaysMeta: ', state.todaysMeta);
 
 console.log('state.scheduledItems: ', state.scheduledItems);
 
-const schedule = scheduledItemsAction(state.todaysMeta, state.tasks, state.users, state.pointsToCurrency);
+const schedule = scheduledItemsAction(
+    state.todaysMeta,
+    state.tasks,
+    state.users,
+    state.pointsToCurrency
+);
 
-state.scheduledItems = scheduledItems(state.scheduledItems, schedule);
+state = doingDoneReducer(state, schedule);
 
 console.log('state.scheduledItems: ', state.scheduledItems);
 

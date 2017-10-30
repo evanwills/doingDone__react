@@ -1,28 +1,27 @@
 {
-	"points": {
-		"valueModifiers": {
-			"completionLevel": {
-				"Not": 0,
-				"Partially": 0.5,
-				"Fully": 1,
-				"Outstandingly": 1.5
-			},
-			"InterventionRequired": {
-				"Volunteered": 1.3,
-				"Prompted": 1,
-				"Coerced": 0.7,
-				"Battled": 0.4
-			}
+	"valueModifiers": {
+		"completionLevel": {
+			"Not": 0,
+			"Partially": 0.5,
+			"Fully": 1,
+			"Outstandingly": 1.5
 		},
-		"currency": {
-			"prefix": "$",
-			"rounding": 2,
-			"pointsToCurrency": 1
+		"InterventionRequired": {
+			"Volunteered": 1.3,
+			"Prompted": 1,
+			"Coerced": 0.7,
+			"Battled": 0.4
 		}
 	},
-	"payPeriod": 2,
-	"payPeriodStart": "Saturday",
-	"totalValueOfCurrentPayPeriod": 0,
+	"currency": {
+		"prefix": "$",
+		"rounding": 2,
+		"pointsToCurrency": 1
+	},
+	"pay": {
+		"period": 2,
+		"start": "Saturday"
+	},
 	"schoolTerms": [
 		{"id": "2017042420170630", "start": "2017-04-24", "end": "2017-06-30", "default": true},
 		{"id": "2017012720170407", "start": "2017-01-27", "end": "2017-04-07", "default": true},
@@ -67,10 +66,6 @@
 			"avatarURL": "",
 			"email": "evan.i.wills@gmail.com",
 			"password": "1234",
-			"scheduledTasks": {
-				"scheduledItemsID": [],
-				"activityIDs": []
-			},
 			"rewards": [],
 			"points": {
 				"periodTotal": 0,
@@ -89,10 +84,6 @@
 			"avatarURL": "",
 			"email": "georginacap@gmail.com",
 			"password": "1234",
-			"scheduledTasks": {
-				"scheduledItemsID": [],
-				"activityIDs": []
-			},
 			"rewards": [],
 			"points": {
 				"periodTotal": 0,
@@ -111,10 +102,6 @@
 			"avatarURL": "",
 			"email": "",
 			"password": "1234",
-			"scheduledTasks": {
-				"scheduledItemsID": [],
-				"activityIDs": []
-			},
 			"rewards": [],
 			"points": {
 				"periodTotal": 0,
@@ -133,10 +120,6 @@
 			"avatarURL": "",
 			"email": "",
 			"password": "1234",
-			"scheduledTasks": {
-				"scheduledItemsID": [],
-				"activityIDs": []
-			},
 			"rewards": [],
 			"points": {
 				"periodTotal": 0,

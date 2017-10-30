@@ -340,8 +340,11 @@ type RotatingTurn {
 
 union TaskPeriod = IntervalRecurrance | MonthlyRecurrance | RandomRecurrance
 
+
+
+
 interface Activity {
-	id: ID!, # User.id + this.initialised
+	id: ID!, # user ID + task/goal ID + date (YYYY-MM-DD)
 	user: User!,
 	initialised: DateTime!,
 	completed: DateTime,
@@ -375,13 +378,16 @@ type DateBlock {
 	end: Date!
 }
 
-# ScheduledItem is a temporary object used for listing tasks & is thrown away at the end of the day.
+# ScheduledItem is a temporary object used for listing tasks & is
+# thrown away at the end of the day.
 type ScheduledItem {
+	id: string!, # user ID + task/goal ID + date (YYYY-MM-DD)
 	user: User!,
 	taskGoal: TaskGoal!,
 	taskGoalType: TaskGoalType!,
 	status: TaskStatus!,
-	activity: Activity,
+	# scheduledItems and Activities use the same pattern for ID so they
+	hasActivity: boolean!,
 	startTime: DateTime!,
 	endTime: DateTime!,
 	extendedEndTime: DateTime,
