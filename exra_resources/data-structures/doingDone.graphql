@@ -446,7 +446,7 @@ enum InterventionRequired {
 	Prompted,
 	# needed repeated prompting to do task and possible threats
 	# (only available on "Required" tasks)
-	Coerced,
+	Cajoled,
 	# refused to do task and argued about it or ignored all efforts
 	# get task completed. (only available on "Required" tasks)
 	Battled

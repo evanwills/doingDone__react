@@ -22,10 +22,64 @@ It's written in React/Redux because a while ago I went for a job interview. I di
 3. The household members completes task
 4. The _Approver_ approves the task setting the level of completion and the amount of intervention required (i.e. if the task is done without prompting intervention would be 0, if the task doer was repeatedly prompted and cajolled to complete the task intervention would be 3) and points are assigned (also if the household implements pocket money each task gets a calculated dollar value)
 5. Throughout the week points (and if applicable dollars) are awarded. Task doers can see their progress
+6. At the end of the week, rewards are distributed based on accumulated points.
+
+### How points are awarded
+
+Each task has a value in points (usually 1).
+Each household sets points modifiers for completion level and intervention.
+The defaults are 
+
+#### Completion level:
+
+How well a task was completed
+
+| status name | modifier value |
+|-------------|----------------|
+|__Not started__|0|
+|__Partially completed__|0.5|
+|__Completed__|1|
+|__Above and beyond__|1.5|
+
+#### Intervention level:
+
+How much effort was required by the parent/approver to get the task doer to complete the task.
+
+| status name | modifier value |
+|-------------|----------------|
+|__Volunteered__|1.3|
+|__Prompted__|1|
+|__Cajoled__|0.7|
+|__Battled__|0.4|
+
+To calculate the points for a task you multiply the completion level, the intervention level and the task points
+
+e.g.
+|label  |name   |value |
+|-------|-------|------|
+|Task points||1.2|
+|Completion level|partial|0.5|
+|Intervention level|volunteered|1.3|
+|Total||0.78|
+|Monetary value|Points to currency|0.75|
+|__Total $__||__$0.59__|
+||||
+
+__NOTE:__ because things change over time, the points value and monetary value (if applicable) are stored with the task activity to ensure they don't change when other things change.
+
+## How tasks work
+
+* There is a pool of household tasks.
+* Each day the pool is processed and tasks that are relevent for that day are collected.
+* Then each task (along with the points value, points to currency and the modifiers value) is assigned to one or more users.
+* When the task is completed an initial calculated value is stored with the task activity record
+* When the activity is approved the final calculated value is stored
+* Even if the task's points value is modified (or the point to currency value or the modifiers) the value of the activity will be uneffected.
+
 
 ## Todo
 
-1. Get out time management working __correctly__.
+1. Get time management working __*correctly*__.
 2. Get local persistance working.
 3. Get user completion of tasks and approval workflow working.
 4. Get images and task steps working.
@@ -35,9 +89,9 @@ It's written in React/Redux because a while ago I went for a job interview. I di
 8. Implement pocket money & reward management
 9. Implement personal goals
 10. Get local persistance synced with cloud/server
-11. Implement sharehouse mode - all tasks are rotated between each household member and any household member (other than the taks doer) can approve a task activity.
-12. Create an native android version of the app. If there's enough money, (and demand) I'll employ someone to create an iOS app version too. Windows (and other platforms) will only have access the web app.
-13. Set up community server to allow sharing of task data with other households.
+11. Implement sharehouse mode - all tasks are rotated between each household member and any household member (other than the task doer) can approve a task activity.
+12. Set up community server to allow sharing of task data with other households. And sharing school holidays
+13. Create an native android version of the app. If there's enough money, (and demand) I'll employ someone to create an iOS app version too. Windows (and other platforms) will only have access to the web app.
 
 ## The future
 
