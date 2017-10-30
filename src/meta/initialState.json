@@ -71,6 +71,7 @@
 				"periodTotal": 0,
 				"grandTotal": 0
 			},
+			"absentDates": [],
 			"lastPaymentDate": "2017-10-18T10:47:00+1000",
 			"showTimeRemaining": true
 		},
@@ -89,6 +90,7 @@
 				"periodTotal": 0,
 				"grandTotal": 0
 			},
+			"absentDates": [],
 			"lastPaymentDate": "2017-10-18T10:47:00+1000",
 			"showTimeRemaining": true
 		},
@@ -107,6 +109,7 @@
 				"periodTotal": 0,
 				"grandTotal": 0
 			},
+			"absentDates": [],
 			"lastPaymentDate": "2017-10-18T10:47:00+1000",
 			"showTimeRemaining": true
 		},
@@ -125,6 +128,7 @@
 				"periodTotal": 0,
 				"grandTotal": 0
 			},
+			"absentDates": [],
 			"lastPaymentDate": "2017-10-18T10:47:00+1000",
 			"showTimeRemaining": true
 		}
@@ -435,5 +439,6 @@
 	],
 	"scheduledItems": [],
 	"activities": [],
-	"errors": []
+	"errors": [],
+	"accountLedger": []
 }

@@ -12,6 +12,7 @@ import {valueModifiers} from './valueModifiers';
 import {currency} from './currency';
 import {activities} from './activities';
 import {pay} from './pay';
+import {accountLedger} from './accountLedger';
 
 export default combineReducers({
 	valueModifiers,
@@ -24,5 +25,6 @@ export default combineReducers({
 	tasks,
 	scheduledItems,
 	activities,
-	errors
+	errors,
+	accountLedger
 });

@@ -11,7 +11,7 @@ It would also be good for share houses where there are regular communal tasks th
 
 ## Why was this app created
 
-I have a family with two school age kids, one of whom has mild autism. I (and my partner) are constantly telling the kids to do various tasks and I'm sick of it. Hopefully this app will provide a list of tasks (some of which I always forget) for the kids without it haveing to be me (or my partner) saying "Put your shoes on" in the morning or "Brush your teeth" before bed. It's also useful to remind me of the jobs I have to do as part of the household (like "Clean the toilet" on Friday night or "Unpack the dishwasher" after dinner).
+I have a family with two school age kids, one of whom has mild autism. I (and my partner) are constantly telling the kids to do various tasks and I'm sick of it. Hopefully this app will provide a list of tasks (some of which I always forget) for the kids without it haveing to be me (or my partner) saying "Put your shoes on" in the morning or "Brush your teeth" before bed. Because each task can have a step by step list of things to do for the task, it should be easy for the kids to follow and measure how well they've done their tasks. It's also useful to remind me of the jobs I have to do as part of the household (like "Clean the toilet" on Friday night or "Unpack the dishwasher" after dinner).
 
 It's written in React/Redux because a while ago I went for a job interview. I didn't get the job because I didn't have any front-end framework experience. Hopefully this will stop that from happening again.
 
@@ -75,7 +75,7 @@ __NOTE:__ because things change over time, the points value and monetary value (
 * Then each task (along with the points value, points to currency and the modifiers value) is assigned to one or more users.
 * When the task is completed an initial calculated value is stored with the task activity record
 * When the activity is approved the final calculated value is stored
-* Even if the task's points value is modified (or the point to currency value or the modifiers) the value of the activity will be uneffected.
+* Even if the task's points value is modified (or the point to currency value or the modifiers) after the task is assigned to a person, the value of the activity will be uneffected.
 
 
 ## Todo

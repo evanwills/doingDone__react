@@ -93,35 +93,19 @@ type user {
 	# keeping them in memory so they're not versioned by PouchDB
 	# email: String, # two way hash
 	# password: String!, # 1 way hash
-	tasks: {
-		# tasks get added to the "now" list and removed from it by
-		# task the scheduler
-		# tasks in the "now" list are ordered soonest "endTime" to
-		# farthest "endTime" then by "priority"
-		today: [Task]!,
-		# list of all tasks completed by the user
-		history: [TaskActivity]!,
-	}
-	goals: {
-		allGoals: [Goal]!,
-		# goals get added to the "now" list and removed from it by
-		# goals the scheduler
-		# tasks in the "now" list are ordered soonest "endTime" to
-		# farthest "endTime" then by "priority"
-		today: [Goal]!,
-		# list of all goals met by the user
-		history: [GoalActivity]!,
-	}
 	rewards: [DelayedReward],
 
 	# list of simple (non financial) rewards that can be assigned to tasks
-	# e.g. watching a favourite show or playing a game for 10 minutes on a device
+	# e.g.	watching a favourite show or playing a game for 10 minutes
+	#		on a device
 	instantRewards: [Reward],
 
 	points: {
 		periodTotal: Float!,
 		grandTotal: Float!
 	},
+	# list of dates when the user will not be available for doing tasks
+	absentDates: [Date]!,
 	lastPaymentDate: Date!
 	showTimeRemaining: Boolean!,
 	absentDates: [DateBlock]!
@@ -421,6 +405,13 @@ type Tag {
 	id: Int!,
 	name: String!,
 	description: String
+}
+
+type AccountLedgerEntry {
+	date: DateTime!,
+	userID: string!,
+	pointsValue: Float!,
+	monetaryValue: Float!
 }
 
 # ===============================================
