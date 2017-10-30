@@ -3,17 +3,27 @@
 
 Part of the aim of this app is to gamify household life by asigning points to day-to-day tasks. The other aim is to shift the responsibility of seeing that tasks are completed from responsible household members to the app and the task doers.
 
-## Who is this app good for
+### I downloaded the source and tried to run it but _nothing_ happened!
+
+Yep... All in good time. Currently it just logs stuff to the console. Hopefully, in the next few days (today is 2017-11-01) I'll get some UI implemented and you can try it out.
+
+## Who is this app good for?
 
 It's primary audience is families with school age kids. It aims to be Autism friendly by providing step by step guide to each task and lists each task in order of when they are due (i.e. tasks that need to be completed sooner are listed at the top).
 
 It would also be good for share houses where there are regular communal tasks that no one wants to do but still need doing.
 
-## Why was this app created
+## Why was this app created?
 
 I have a family with two school age kids, one of whom has mild autism. I (and my partner) are constantly telling the kids to do various tasks and I'm sick of it. Hopefully this app will provide a list of tasks (some of which I always forget) for the kids without it haveing to be me (or my partner) saying "Put your shoes on" in the morning or "Brush your teeth" before bed. Because each task can have a step by step list of things to do for the task, it should be easy for the kids to follow and measure how well they've done their tasks. It's also useful to remind me of the jobs I have to do as part of the household (like "Clean the toilet" on Friday night or "Unpack the dishwasher" after dinner).
 
 It's written in React/Redux because a while ago I went for a job interview. I didn't get the job because I didn't have any front-end framework experience. Hopefully this will stop that from happening again.
+
+### Why React/Redux?
+
+I spent a lot of time reading about Javascript frameworks. Too much time. In the end it just came down to what framework they were looking at where I had my job interview.
+
+[React](https://reactjs.org/), [Angular](https://angularjs.org/), [Ember](https://www.emberjs.com/), [Aurelia](http://aurelia). They all sound awesome and I'd love to have time to try all of them but I work full time and have a family so...
 
 ## How it works
 
