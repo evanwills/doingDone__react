@@ -2,6 +2,10 @@ import constants from '../meta/constants';
 import {sortByDate} from '../utils/utilityFunctions';
 
 
+// ===============================================
+// START: actionCreators
+
+
 export const addPublicHolidayAction = (newHoliday) => ({
 	type: constants.ADD_PUBLIC_HOLIDAYS,
 	payload: newHoliday
@@ -14,10 +18,9 @@ export const updatePublicHolidayAction = (updatedHoliday) => ({
 })
 
 
-// ==================================================================
-
-
-
+//  END:  actionCreators
+// ===============================================
+// START: reducers
 
 
 export const publicHolidays = (state = [], action) => {
@@ -38,3 +41,6 @@ export const publicHolidays = (state = [], action) => {
 			return state;
 	}
 }
+
+//  END:  reducers
+// ===============================================

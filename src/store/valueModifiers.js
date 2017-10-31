@@ -2,6 +2,9 @@ import constants from '../meta/constants';
 import { combineReducers } from 'redux';
 
 
+// ===============================================
+// START: actionCreators
+
 
 export const completionLevelAction = (completionLevel) => ({
     type: constants.UPDATE_COMPLETION_LEVEL_VALUES,
@@ -14,7 +17,10 @@ export const interventionLevelAction = (interventionLevel) => ({
 });
 
 
-// ==================================================================
+//  END:  actionCreators
+// ===============================================
+// START: reducers
+
 
 const completionLevel = (state = {Not: 0, Partially: 0.5, Fully: 1, Outstandingly: 1.5}, action) => {
     switch(action.type) {
@@ -41,3 +47,6 @@ export const valueModifiers = combineReducers({
     completionLevel,
     interventionLevel
 });
+
+//  END:  reducers
+// ===============================================

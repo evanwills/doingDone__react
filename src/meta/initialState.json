@@ -18,7 +18,7 @@
 		"rounding": 2,
 		"pointsToCurrency": 1
 	},
-	"pay": {
+	"payMeta": {
 		"period": 2,
 		"start": "Saturday"
 	},

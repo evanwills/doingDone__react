@@ -1,5 +1,10 @@
 import constants from '../meta/constants';
 
+
+// ===============================================
+// START: actionCreators
+
+
 export const todaysMetaAction = (terms, holidays) => ({
     type: constants.AUTO_SET_TODAYS_METADATA,
     payload: {
@@ -10,8 +15,9 @@ export const todaysMetaAction = (terms, holidays) => ({
 })
 
 
-// ==================================================================
-
+//  END:  actionCreators
+// ===============================================
+// START: reducers
 
 
 export const makeDateUseful = (today) => {
@@ -92,4 +98,6 @@ export const todaysMeta = (state = {}, action) => {
 	}
 }
 
-// export default todaysMeta;
+
+//  END:  reducers
+// ===============================================

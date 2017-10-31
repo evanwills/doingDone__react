@@ -7,7 +7,7 @@ import {activities} from './activities';
 import {currency} from './currency';
 import {errors} from './errors';
 import {archivedActivities} from './archivedActivities';
-import {pay} from './pay';
+import {payMeta} from './pay';
 import {publicHolidays} from './publicHolidays';
 import {scheduledItems} from './schedule';
 import {schoolTerms} from './schoolTerms';
@@ -19,7 +19,7 @@ import {valueModifiers} from './valueModifiers';
 export default combineReducers({
 	valueModifiers,
 	currency,
-	pay,
+	payMeta,
 	archiveActivityMeta,
 	schoolTerms,
 	publicHolidays,

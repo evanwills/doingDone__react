@@ -1,6 +1,23 @@
 import constants from '../meta/constants';
 
 
+// ===============================================
+// START: actionCreators
+
+
+export const errorsAction = (errorMsg) => {
+	return {
+		type: constants.ADD_ERROR,
+		payload: errorMsg
+	}
+}
+
+
+//  END:  actionCreators
+// ===============================================
+// START: reducers
+
+
 export const errors = (state = [], action) => {
 	switch (action.type) {
 		case constants.ADD_ERROR:
@@ -13,3 +30,6 @@ export const errors = (state = [], action) => {
 			return state;
 	}
 }
+
+//  END:  reducers
+// ===============================================

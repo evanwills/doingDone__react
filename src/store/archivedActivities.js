@@ -1,5 +1,10 @@
 import constants from '../meta/constants';
 
+
+// ===============================================
+// START: actionCreators
+
+
 export const autoArchiveActivitiesAction = (activities) => ({
     type: constants.AUTO_ARCHIVE_ACTIVITIES,
     payload: activities
@@ -11,8 +16,10 @@ export const deleteArchivedActivitiesAction = (activities) => ({
 });
 
 
+//  END:  actionCreators
+// ===============================================
+// START: reducers
 
-// ==================================================================
 
 export const archivedActivities = (state = [], action) => {
     switch(action.type) {
@@ -26,3 +33,6 @@ export const archivedActivities = (state = [], action) => {
             return state;
     }
 }
+
+//  END:  reducers
+// ===============================================

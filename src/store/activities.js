@@ -1,6 +1,10 @@
 import constants from '../meta/constants';
 
 
+// ===============================================
+// START: actionCreators
+
+
 export const addActivityAction = (activity) => ({
     type: constants.ADD_ACTIVITY,
     payload: activity
@@ -18,7 +22,9 @@ export const archiveActivityAction = (activityIDs) => ({
 });
 
 
-// ==================================================================
+//  END:  actionCreators
+// ===============================================
+// START: reducers
 
 
 export const activities = (state = [], action) => {
@@ -37,3 +43,6 @@ export const activities = (state = [], action) => {
             return state;
     }
 }
+
+//  END:  reducers
+// ===============================================

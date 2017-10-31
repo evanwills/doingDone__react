@@ -1,6 +1,11 @@
 import constants from '../meta/constants';
 import {sortByDate} from '../utils/utilityFunctions';
 
+
+// ===============================================
+// START: actionCreators
+
+
 export const addSchoolTermAction = (newTerm) => ({
 	type: constants.ADD_SCHOOL_TERM,
 	payload: newTerm
@@ -13,8 +18,9 @@ export const updateSchoolTermAction = (updatedTerm) => ({
 })
 
 
-// ==================================================================
-
+//  END:  actionCreators
+// ===============================================
+// START: reducers
 
 
 export const schoolTerms = (state = [], action) => {
@@ -38,3 +44,6 @@ export const schoolTerms = (state = [], action) => {
 			return state;
 	}
 }
+
+//  END:  reducers
+// ===============================================

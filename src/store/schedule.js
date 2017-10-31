@@ -1,6 +1,11 @@
 import constants from '../meta/constants';
 import {sortByDate} from '../utils/utilityFunctions';
 
+
+// ===============================================
+// START: actionCreators
+
+
 export const scheduledItemsAction = (today, tasks, users, pointsToCurrency) => ({
     type: constants.AUTO_SCHEDULE_TASK,
     payload: {
@@ -20,8 +25,9 @@ export const removeScheduledItemsAction = (today, scheduledItems) => ({
 });
 
 
-// ==================================================================
-
+//  END:  actionCreators
+// ===============================================
+// START: reducers
 
 
 const nextInRotation = (allUsers, rotating) => {
@@ -137,3 +143,7 @@ export const scheduledItems = (state = [], action) => {
 			return state;
 	}
 }
+
+
+//  END:  reducers
+// ===============================================
