@@ -7,7 +7,7 @@ import {activities} from './activities';
 import {currency} from './currency';
 import {errors} from './errors';
 import {archivedActivities} from './archivedActivities';
-import {payMeta} from './pay';
+import {payMeta} from './payMeta';
 import {publicHolidays} from './publicHolidays';
 import {scheduledItems} from './schedule';
 import {schoolTerms} from './schoolTerms';
