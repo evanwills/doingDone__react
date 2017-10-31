@@ -17,11 +17,13 @@ It would also be good for share houses where there are regular communal tasks th
 
 I have a family with two school age kids, one of whom has mild autism. I (and my partner) are constantly telling the kids to do various tasks and I'm sick of it. Hopefully this app will provide a list of tasks (some of which I always forget) for the kids without it haveing to be me (or my partner) saying "Put your shoes on" in the morning or "Brush your teeth" before bed. Because each task can have a step by step list of things to do for the task, it should be easy for the kids to follow and measure how well they've done their tasks. It's also useful to remind me of the jobs I have to do as part of the household (like "Clean the toilet" on Friday night or "Unpack the dishwasher" after dinner).
 
-It's written in React/Redux because a while ago I went for a job interview. I didn't get the job because I didn't have any front-end framework experience. Hopefully this will stop that from happening again.
+The other reason I wanted this app was because in our house rewards seem arbitrary and often a bit random. doingDone provides a consistant predictable way of approaching rewards or pocket-money.
 
 ### Why React/Redux?
 
-I spent a lot of time reading about Javascript frameworks. Too much time. In the end it just came down to what framework they were looking at where I had my job interview.
+It's written in React/Redux because a while ago I went for a job interview. I didn't get the job because I didn't have any front-end framework experience. Hopefully this will stop that from happening again.
+
+I spent a lot of time reading and listening to podcasts about Javascript frameworks. (Probably) Too much time. In the end it just came down to what framework they were looking at where I had my job interview.
 
 [React](https://reactjs.org/), [Angular](https://angularjs.org/), [Ember](https://www.emberjs.com/), [Aurelia](http://aurelia) and all the others. They all sound awesome and I'd love to have time to try all of them but I work full time and have a family so...
 
@@ -31,8 +33,9 @@ I spent a lot of time reading about Javascript frameworks. Too much time. In the
 2. Every day a list of tasks is created for each household members
 3. The household members completes task
 4. The _Approver_ approves the task setting the level of completion and the amount of intervention required (i.e. if the task is done without prompting intervention would be 0, if the task doer was repeatedly prompted and cajolled to complete the task intervention would be 3) and points are assigned (also if the household implements pocket money each task gets a calculated dollar value)
-5. Throughout the week points (and if applicable dollars) are awarded. Task doers can see their progress
+5. Throughout the week points (and if applicable dollars) are awarded (and added to household ledger). Task doers can see their progress
 6. At the end of the week, rewards are distributed based on accumulated points.
+7. When rewards are distributed the parent/approver/distributor updates the household ledger
 
 ### How points are awarded
 
@@ -44,23 +47,23 @@ The defaults are
 
 How well a task was completed
 
-| status name | modifier value |
-|-------------|----------------|
-|__Not started__|0|
-|__Partially completed__|0.5|
-|__Completed__|1|
-|__Above and beyond__|1.5|
+| status name | modifier value |description|
+|-------------|----------------|-----------|
+|__Not started__|0|Didn't attempt to do the task|
+|__Partially completed__|0.5|Started the task but didn't complete it|
+|__Completed__|1|Completed the task as specified|
+|__Above and beyond__|1.5|Complted the task and did more than was specified|
 
 #### Intervention level:
 
 How much effort was required by the parent/approver to get the task doer to complete the task.
 
-| status name | modifier value |
-|-------------|----------------|
-|__Volunteered__|1.3|
-|__Prompted__|1|
-|__Cajoled__|0.7|
-|__Battled__|0.4|
+| status name | modifier value |description|
+|-------------|----------------|-----------|
+|__Volunteered__|1.3|Completed the task without having to be asked|
+|__Prompted__|1|Only needed to be reminded once|
+|__Cajoled__|0.7|Needed to be repeatedly reminded to do the task|
+|__Battled__|0.4|Was completely uncooperative in doing the task|
 
 To calculate the points for a task you multiply the completion level, the intervention level and the task points
 
@@ -68,12 +71,12 @@ __e.g.__
 
 |label  |name   |value |
 |-------|-------|------|
-|Task points||1.2|
+|Task points|Emptying chicken bucket|1.2|
 |Completion level|partial|0.5|
 |Intervention level|volunteered|1.3|
 |Total||0.78|
-|Monetary value|Points to currency|0.75|
-|__Total $__||__$0.59__|
+|Monetary value|Points to currency|0.50|
+|__Total $__||__$0.39__|
 ||||
 
 __NOTE:__ because things change over time, the points value and monetary value (if applicable) are stored with the task activity to ensure they don't change when other things change.
