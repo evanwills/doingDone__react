@@ -1,39 +1,46 @@
-// import React from 'react';
-// import ReactDOM from 'react-dom';
+import React from 'react';
+import {render} from 'react-dom';
 // import './index.css';
-// import App from './App';
+import App from './App';
 // import Whoops404 from './components/genericComponents/whoops404'
 // import {Router, Route, hashHistory } from 'react-router';
 // import registerServiceWorker from './registerServiceWorker';
 // import constants from './meta/constants';
-// import { createStore } from 'redux'
-import initialState from './meta/initialState.json';
-// import { createStore } from 'redux';
-import {todaysMetaAction} from './reducers/todaysMeta';
-import {scheduledItemsAction} from './reducers/schedule';
-import doingDoneReducer from './reducers/reducers';
 import { createStore } from 'redux'
+import { Provider } from 'react-redux';
+import initialState from './meta/initialState.json';
+import {todaysMetaAction} from './store/todaysMeta';
+import {scheduledItemsAction} from './store/schedule';
+import doingDoneReducer from './store/reducers';
+// import storeFactory from './store'
 
 
-const doingDoneStore = createStore(doingDoneReducer, initialState)
-console.log('getState(): ', doingDoneStore.getState().todaysMeta);
+let store = createStore(doingDoneReducer, initialState);
+// console.log('getState(): ', store.getState().todaysMeta);
 
 
 
-const meta = todaysMetaAction(new Date(), doingDoneStore.getState().schoolTerms, doingDoneStore.getState().publicHolidays);
-console.log('meta: ', meta);
+// const meta = todaysMetaAction(store.getState().schoolTerms, store.getState().publicHolidays);
+// console.log('meta: ', meta);
 
-doingDoneStore.dispatch(meta);
-console.log('getState(): ', doingDoneStore.getState());
+// store.dispatch(meta);
+// console.log('getState(): ', store.getState());
 
 
-const schedule = scheduledItemsAction(
-    doingDoneStore.getState().todaysMeta,
-    doingDoneStore.getState().tasks,
-    doingDoneStore.getState().users,
-    doingDoneStore.getState().currency.pointsToCurrency
+// const schedule = scheduledItemsAction(
+//     store.getState().todaysMeta,
+//     store.getState().tasks,
+//     store.getState().users,
+//     store.getState().currency.pointsToCurrency
+// );
+// console.log('schedule: ', schedule);
+
+// store.dispatch(schedule);
+// console.log('getState(): ', store.getState());
+
+render (
+    <Provider store={store}>
+        <App />
+    </Provider>,
+    document.getElementById('root')
 );
-console.log('schedule: ', schedule);
-
-doingDoneStore.dispatch(schedule);
-console.log('getState(): ', doingDoneStore.getState());

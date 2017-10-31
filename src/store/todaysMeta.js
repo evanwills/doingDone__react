@@ -1,10 +1,9 @@
 import constants from '../meta/constants';
 
-
-export const todaysMetaAction = (now, terms, holidays) => ({
+export const todaysMetaAction = (terms, holidays) => ({
     type: constants.AUTO_SET_TODAYS_METADATA,
     payload: {
-        now: now,
+        now: new Date(),
         schoolTerms: terms,
         publicHolidays: holidays
     }

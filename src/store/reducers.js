@@ -1,23 +1,26 @@
 // import constants from '../meta/constants';
 import { combineReducers } from 'redux';
 
+import {accountLedger} from './accountLedger';
+import {archiveActivityMeta} from './archiveActivityMeta';
+import {activities} from './activities';
+import {currency} from './currency';
+import {errors} from './errors';
+import {archivedActivities} from './archivedActivities';
+import {pay} from './pay';
+import {publicHolidays} from './publicHolidays';
 import {scheduledItems} from './schedule';
-import {todaysMeta} from './todaysMeta';
 import {schoolTerms} from './schoolTerms';
 import {tasks} from './tasks';
-import {publicHolidays} from './publicHolidays';
+import {todaysMeta} from './todaysMeta';
 import {users} from './users';
-import {errors} from './errors';
 import {valueModifiers} from './valueModifiers';
-import {currency} from './currency';
-import {activities} from './activities';
-import {pay} from './pay';
-import {accountLedger} from './accountLedger';
 
 export default combineReducers({
 	valueModifiers,
 	currency,
 	pay,
+	archiveActivityMeta,
 	schoolTerms,
 	publicHolidays,
 	todaysMeta,
@@ -25,6 +28,7 @@ export default combineReducers({
 	tasks,
 	scheduledItems,
 	activities,
+	archivedActivities,
 	errors,
 	accountLedger
 });
