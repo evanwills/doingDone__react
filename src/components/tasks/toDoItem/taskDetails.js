@@ -5,17 +5,17 @@ import PropTypes from 'prop-types';
 	import TaskActivity from '../activityItem/taskActivity';
 
 
-const TaskDetails = (details) => {
+const TaskDetails = ({classes, img, steps, activity}) => {
 	// console.log(details);
 	// console.log(details.img);
 	// console.log(details.activity);
 	return (
-					<div className={'details ' + details.classes}>
-						{(details.img)?<img {...details.img} />:null}
+					<div className={'details ' + classes}>
+						{(img)?<img {...img} />:null}
 						<h2>Steps:</h2>
-						<ol>{details.steps.map((step, i) => <li key={i}>{step}</li>)}
+						<ol>{steps.map((step, i) => <li key={i}>{step}</li>)}
 						</ol>
-						{(details.activity)?<TaskActivity {...details.activity} />:null}
+						{(activity)?<TaskActivity {...activity} />:null}
 					</div>);
 
 };

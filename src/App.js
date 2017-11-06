@@ -8,7 +8,7 @@ import MainNav from './components/genericComponents/nav';
 
 /*
 Routes:
-	/[user]/[listing]/[filter]
+	/[user]/[scheduled|activities]/[filter]
 	/admin/create/[type]
 	/admin/update/[type]/id
 */

@@ -1,18 +1,16 @@
 import React from 'react';
 import {render} from 'react-dom';
+import { createStore } from 'redux'
+import { Provider } from 'react-redux';
+// import registerServiceWorker from './registerServiceWorker';
+
 // import './index.css';
 import App from './App';
 // import Whoops404 from './components/genericComponents/whoops404'
 // import {Router, Route, hashHistory } from 'react-router';
-// import registerServiceWorker from './registerServiceWorker';
 // import constants from './meta/constants';
-import { createStore } from 'redux'
-import { Provider } from 'react-redux';
 import initialState from './meta/initialState.json';
-import {todaysMetaAction} from './store/todaysMeta';
-import {scheduledItemsAction} from './store/schedule';
 import doingDoneReducer from './store/reducers';
-// import storeFactory from './store'
 
 
 let store = createStore(doingDoneReducer, initialState);
