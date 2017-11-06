@@ -1,4 +1,4 @@
-import constants from '../meta/constants';
+import {constants} from '../meta/constants';
 import {sortByDate} from '../utils/utilityFunctions';
 
 
@@ -121,7 +121,7 @@ export const scheduledItems = (state = [], action) => {
 						id: user.id + today.date + availableTasks[i].id,
 						userID: user.id,
 						taskID: availableTasks[i].id,
-						status: 'Queued',
+						status: 0,
 						hasActivity: false,
 						available: today.dateFromTime(availableTasks[i].available),
 						due: today.dateFromTime(availableTasks[i].due),

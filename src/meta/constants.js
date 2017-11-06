@@ -1,4 +1,4 @@
-const constants = {
+export const constants = {
 	// admin only
 	ADD_TASK: 'ADD_TASK',
 	UPDATE_TASK: 'UPDATE_TASK',
@@ -67,4 +67,21 @@ const constants = {
 	ADD_ACCOUNT_LEDGER_ENTRY: 'ADD_ACCOUNT_LEDGER_ENTRY'
 }
 
-export default constants;
+export const activityStatus = [
+	'In progress',
+	'Complete',
+	'Approved',
+	'Archived'
+];
+
+export const scheduledItemStatus = [
+	'Queued',
+	'Active',
+	'Overdue',
+	'Expired',
+	'Complete'
+];
+	
+
+
+// export default constants;

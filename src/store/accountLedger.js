@@ -1,4 +1,4 @@
-import constants from '../meta/constants';
+import {constants} from '../meta/constants';
 import PropTypes from 'prop-types';
 
 
