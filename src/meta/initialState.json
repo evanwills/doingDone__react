@@ -1,4 +1,5 @@
 {
+	"household": "Pickle Jar",
 	"valueModifiers": {
 		"completionLevel": {
 			"Not": 0,
@@ -445,5 +446,7 @@
 	"activities": [],
 	"archivedActivities": [],
 	"errors": [],
-	"accountLedger": []
+	"accountLedger": [],
+	"activeUser": "mallee",
+	"filterState": "SHOW_ACTIVE"
 }

@@ -3,6 +3,7 @@ import { combineReducers } from 'redux';
 
 import {accountLedger} from './accountLedger';
 import {archiveActivityMeta} from './archiveActivityMeta';
+import {activeUser} from './activeUser';
 import {activities} from './activities';
 import {currency} from './currency';
 import {errors} from './errors';
@@ -30,5 +31,6 @@ export default combineReducers({
 	activities,
 	archivedActivities,
 	errors,
-	accountLedger
+	accountLedger,
+	activeUser
 });
