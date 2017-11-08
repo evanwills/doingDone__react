@@ -21,16 +21,7 @@ const consoleMessages = store => next => action => {
             // accountLedger
         } = store.getState()
 
-    console.groupCollapsed(`dispatching action => ${action.type}`)
-    console.log('scheduled Items', store.getState().scheduledItems.length)
     result = next(action);
-
-    console.log(`
-        todaysMeta: ${JSON.stringify(todaysMeta)}
-        scheduledItems: ${JSON.stringify(scheduledItems)}
-    `)
-
-    console.groupEnd();
 
     return result;
 

@@ -2,7 +2,6 @@ import React from 'react';
 import {render} from 'react-dom';
 import {createStore, applyMiddleware} from 'redux'
 import {Provider} from 'react-redux';
-import globalStore from './middleWare/globalStore';
 // import registerServiceWorker from './registerServiceWorker';
 
 // import './index.css';
@@ -12,10 +11,16 @@ import App from './App';
 // import constants from './meta/constants';
 import initialState from './meta/initialState.json';
 import doingDoneReducer from './store/reducers';
+import globalStore from './middleWare/globalStore';
+
 import {todaysMetaAction} from './store/todaysMeta';
 import {scheduledItemsAction} from './store/schedule';
 
-console.log('globalStore: ', globalStore);
+
+
+
+// ---------------------------------------------------------
+// set up the store
 
 let store = createStore(
     doingDoneReducer,
@@ -26,12 +31,16 @@ let store = createStore(
 
 
 // initialise today
-store.dispatch(todaysMetaAction(store.getState().schoolTerms, store.getState().publicHolidays));
+store.dispatch(todaysMetaAction(new Date()));
 
 // initialise today's scheduled tasks
 store.dispatch(scheduledItemsAction(store.getState()));
 
 
+
+
+// ---------------------------------------------------------
+// render the app
 
 render (
     <Provider store={store}>

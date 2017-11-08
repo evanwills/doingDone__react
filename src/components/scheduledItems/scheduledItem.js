@@ -1,5 +1,5 @@
 import React from 'react';
-import TaskDetials from '../tasks/toDoItem/taskDetails';
+// import TaskDetials from '../tasks/toDoItem/taskDetails';
 
 const ScheduledItem = ({onClick, id, available, due, extendedDue, status, task, activity}) => {
     return (

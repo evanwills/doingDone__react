@@ -7,7 +7,7 @@ const getVisibleItems = (items, filter, user, tasks, activities) => {
 	let userItems = items;
 
 	if(!user.approver) {
-		userItems = items.filter(item => (item.user === user.id));
+		userItems = items.filter(item => (item.userID === user));
 	}
 
 	switch (filter) {
@@ -31,23 +31,26 @@ const getVisibleItems = (items, filter, user, tasks, activities) => {
 				return (item.completed === null && item.available <= now && item.due > now);
 			});
 	}
-
+	
 	if (userItems.length > 0) {
 		return userItems.map(
 			item => (
 				{
 					id: item.id,
 					status: item.status,
+					due: item.due,
+					available: item.available,
+					extendedDue: item.extendedDue,
 					task: tasks.filter(
 						task => (item.taskID === task.id)
 					).map(task => ({
-						name: task.name,
-						description: task.description,
-						visualURL: task.visualURL,
-						steps: task.steps,
-						available: task.available,
-						due: task.due,
-						extendedDue: task.extendedDue
+							name: task.name,
+							description: (task.description)?task.description:'',
+							visualURL: task.visualURL,
+							steps: task.steps,
+							available: task.available,
+							due: task.due,
+							extendedDue: task.extendedDue
 					}))[0],
 					activity: (item.hasActivity) ?
 						activities.filter(activity => (activity.id === item.id))[0] : null
@@ -64,7 +67,8 @@ const mapStateToProps = (state) => {
 	return {
 		scheduledItems: getVisibleItems(
 			state.scheduledItems,
-			state.visibilityFilter, state.users.filter(user => (user.id === state.activeUser)),
+			state.filterState,
+			state.users.filter(user => (user.id === state.activeUser))[0].id,
 			state.tasks,
 			state.activities,
 		)

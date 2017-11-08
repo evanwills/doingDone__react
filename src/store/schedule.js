@@ -70,93 +70,79 @@ const sortScheduled = (inputArray, field = 'due') => {
 	return sortedInput;
 }
 
+const isNewTask = (tasks, taskID) => {
+	const c = tasks.reduce((count, task) => (task.id === taskID) ? count += 1 : count, 0);
+	return (c > 0)?false:true;
+}
+
+const getScheduledTasks = (state, user, tasks, today, pointsToCurrency) => {
+	let newSchedule = [];
+		// i = 0,
+		// tmpUsers = [],
+		// rotation;
+	const tmpID = user + today.date.replace(/[^0-9]+/g, '');
+	
+	// get a list of tasks that fit today's criteria
+	const availableTasks = tasks.filter(
+		(task) => (
+			task[today.dayOfWeek] && (
+				task.schoolTerm === today.isSchoolTerm ||
+				task.schoolHolidays === today.isSchoolHoliday ||
+				task.publicHolidays === today.isPublicHoliday
+			)
+		)
+	);
+
+	newSchedule = removeScheduled(state, today.end);
+	
+	newSchedule = [...newSchedule, ...availableTasks.filter(
+		task => (isNewTask(newSchedule, tmpID + task.id) && (task.users.length === 0 || task.users.indexOf(user) > -1))
+	).map(task => {
+		return {
+			id: tmpID + task.id,
+			userID: user,
+			taskID: task.id,
+			status: 0,
+			hasActivity: false,
+			available: today.dateFromTime(task.available),
+			due: today.dateFromTime(task.due),
+			extendedDue: today.dateFromTime(task.extendedEndTime),
+			value:task.value,
+			pointsToCurrency: pointsToCurrency,
+			priority: task.priority,
+			steps: task.steps
+		}
+	})];
+
+
+
+	// // if the task is a rotating task, then only schedule
+	// // it for the next person in the rotation.
+	// if (availableTasks[i].rotating !== null) {
+	// 	rotation = nextInRotation(tmpUsers, availableTasks[i].rotating);
+	// 	tmpUsers = tmpUsers.filter(
+	// 		(user) => user.id === rotation.assignedTo
+	// 	);
+	// }
+
+	return sortScheduled(newSchedule);
+}
+
 
 export const scheduledItems = (state = [], action) => {
-	let i = 0,
-		tmpUsers = [],
-		newSchedule = [],
-		rotation;
-
+	let user;
 	
 	switch(action.type) {
 		case constants.AUTO_SCHEDULE_TASK:
-			const today = action.getState.todaysMeta,
-				// get a list of users who are NOT approvers and
-				// who ARE active
-				users = action.getState.users.filter(
-							(user) => !user.approver
-						).filter(
-							(user) => user.active
-						),
-				// get a list of tasks that fit today's criteria
-				availableTasks = action.getState.tasks.filter(
-						(task) => (
-							task[today.dayOfWeek] && (
-								task.schoolTerm === today.isSchoolTerm ||
-								task.schoolHolidays === today.isSchoolHoliday ||
-								task.publicHolidays === today.isPublicHoliday
-							)
-						)
-				);
-			console.log('availableTasks: ', availableTasks);
-
-			newSchedule = removeScheduled(state, today.end);
-			
-			for (i = 0; i < availableTasks.length; i += 1) {
-
-				// get the list of users eligible to do this task.
-				if (availableTasks[i].users.length === 0) {
-					tmpUsers = users;
-				} else {
-					tmpUsers = users.filter(
-						(user) => (availableTasks[i].users.indexOf(user.id) > -1 && user.active) ? true : false
-					);
-				}
-
-				// if the task is a rotating task, then only schedule
-				// it for the next person in the rotation.
-				if (availableTasks[i].rotating !== null) {
-					rotation = nextInRotation(tmpUsers, availableTasks[i].rotating);
-					tmpUsers = tmpUsers.filter(
-						(user) => user.id === rotation.assignedTo
-					);
-				}
-
-				// check to see if there's an existing scheduled item
-				// matching this ID. If yes remove them from the list
-				// of users
-				tmpUsers = tmpUsers.filter(
-					(user) => newSchedule.reduce(
-						(count, task) => (user.id + today.date + task.taskID === task.userID + today.date + task.taskID) ? count + 1 : count, 0
-					) > 0 ? false : true
-				);
-
-				newSchedule = [
-					...newSchedule,
-					// add a scheduled task for each user who is
-					// elligable to do this task
-					...tmpUsers.map((user, i, all) => ({
-						id: user.id + today.date.replace(/[^0-9]+/g, '') + availableTasks[i].id,
-						userID: user.id,
-						taskID: availableTasks[i].id,
-						status: 0,
-						hasActivity: false,
-						available: today.dateFromTime(availableTasks[i].available),
-						due: today.dateFromTime(availableTasks[i].due),
-						extendedDue: today.dateFromTime(availableTasks[i].extendedEndTime),
-						value: availableTasks[i].value,
-						pointsToCurrency: action.payload.pointsToCurrency,
-						priority: availableTasks[i].priority
-					})
-				)]
+			user = action.getState.users.filter(user => (user.active && !user.approver && user.id === action.getState.activeUser));
+			if (user.length !== 0) {
+				return getScheduledTasks(state, user[0].id, action.getState.tasks, action.getState.todaysMeta);
+			} else {
+				return state;
 			}
-			return sortScheduled(newSchedule);
-
-		// case constants.CREATE_ACTIVITY:
-		// 	return state.map((task) => (action.payload.activityID === task.id) ? {...task, hasActivity: true} : task); 
 
 		case constants.AUTO_REMOVE_SCHEDULED_TASKS:
-			return newSchedule;
+			return removeScheduled(state, action.getState.todaysMeta.end);
 
 		default:
 			return state;

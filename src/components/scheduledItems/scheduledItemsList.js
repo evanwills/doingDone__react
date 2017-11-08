@@ -26,15 +26,16 @@ export default ScheduledItemsList;
 ScheduledItemsList.propTypes = {
   scheduledItems: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.string.isRequired,
-    status: PropTypes.string.isRequired,
+    status: PropTypes.number.isRequired,
     task: PropTypes.shape({
       name: PropTypes.string.isRequired,
       description: PropTypes.string.isRequired,
       visualURL: PropTypes.string,
-      steps: PropTypes.arrayOf(PropTypes.shape({
-        text: PropTypes.string.isRequired,
-        imgURL: PropTypes.string
-      }).isRequired).isRequired
+      // steps: PropTypes.arrayOf(PropTypes.shape({
+      //   text: PropTypes.string.isRequired,
+      //   imgURL: PropTypes.string
+      // }).isRequired).isRequired
+      steps: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired
     }).isRequired,
     activity: PropTypes.shape({
       completed: PropTypes.instanceOf(Date),

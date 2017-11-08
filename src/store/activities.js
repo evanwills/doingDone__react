@@ -1,4 +1,4 @@
-import {constants} from '../meta/constants';
+import {constants, activityStatus} from '../meta/constants';
 
 const adjustOverDue = (points, completed, due, extended, overdue) => {
     if (completed < due) {
@@ -32,23 +32,10 @@ const adjustPoints = (activity, scheduledItem, modifiers) => {
 // START: actionCreators
 
 
-export const addActivityAction = (scheduledItem) => {
+export const addActivityAction = (itemID) => {
     return {
         type: constants.ADD_ACTIVITY,
-        payload: {
-            id: scheduledItem.id,
-            user: scheduledItem.user.id,
-            task: scheduledItem.task.id,
-            completed: new Date(),
-            status: constants.activityStatus.indexOf('Completed'),
-            completionLevel: 1,
-            interventionLevel: 0,
-            acknowledged: null,
-            acknowledgedBy: null,
-            computedValue: scheduledItem.points,
-            instantReward: scheduledItem.instantReward,
-            instantRewardGranted: false
-        }
+        payload: itemID
     };
 }
 
@@ -72,7 +59,22 @@ export const archiveActivityAction = (activityIDs) => ({
 export const activities = (state = [], action) => {
     switch(action.type) {
         case constants.ADD_ACTIVITY:
-            return [...state, action.payload];
+            const scheduledItem = action.getState.scheduledItems.filter(item => (item.id === action.payload))[0];
+            const newActivity = {
+                id: action.payload,
+                user: scheduledItem.userID,
+                task: scheduledItem.taskID,
+                completed: action.now,
+                status: activityStatus.indexOf('Completed'),
+                completionLevel: 1,
+                interventionLevel: 0,
+                acknowledged: null,
+                acknowledgedBy: null,
+                computedValue: scheduledItem.points,
+                instantReward: scheduledItem.instantReward,
+                instantRewardGranted: false
+            }
+            return [...state, newActivity];
         case constants.UPDATE_ACTIVITY:
             return state.map(
                 (activity) => (action.payload.id === activity.id) ? action.payload : activity
