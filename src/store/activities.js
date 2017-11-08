@@ -1,11 +1,6 @@
 import {constants} from '../meta/constants';
 
 const adjustOverDue = (points, completed, due, extended, overdue) => {
-    console.log('points: ', points);
-    console.log('completed: ', completed);
-    console.log('due: ', due);
-    console.log('extended: ', extended);
-    console.log('overdue: ', overdue);
     if (completed < due) {
         return points;
     } else if (completed > extended) {
