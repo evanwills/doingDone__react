@@ -1,7 +1,8 @@
 import React from 'react';
 import {render} from 'react-dom';
-import { createStore } from 'redux'
-import { Provider } from 'react-redux';
+import {createStore, applyMiddleware} from 'redux'
+import {Provider} from 'react-redux';
+import globalStore from './middleWare/globalStore';
 // import registerServiceWorker from './registerServiceWorker';
 
 // import './index.css';
@@ -11,30 +12,26 @@ import App from './App';
 // import constants from './meta/constants';
 import initialState from './meta/initialState.json';
 import doingDoneReducer from './store/reducers';
+import {todaysMetaAction} from './store/todaysMeta';
+import {scheduledItemsAction} from './store/schedule';
+
+console.log('globalStore: ', globalStore);
+
+let store = createStore(
+    doingDoneReducer,
+    initialState,
+    applyMiddleware(globalStore),
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
 
 
-let store = createStore(doingDoneReducer, initialState);
-// console.log('getState(): ', store.getState().todaysMeta);
+// initialise today
+store.dispatch(todaysMetaAction(store.getState().schoolTerms, store.getState().publicHolidays));
+
+// initialise today's scheduled tasks
+store.dispatch(scheduledItemsAction(store.getState()));
 
 
-
-// const meta = todaysMetaAction(store.getState().schoolTerms, store.getState().publicHolidays);
-// console.log('meta: ', meta);
-
-// store.dispatch(meta);
-// console.log('getState(): ', store.getState());
-
-
-// const schedule = scheduledItemsAction(
-//     store.getState().todaysMeta,
-//     store.getState().tasks,
-//     store.getState().users,
-//     store.getState().currency.pointsToCurrency
-// );
-// console.log('schedule: ', schedule);
-
-// store.dispatch(schedule);
-// console.log('getState(): ', store.getState());
 
 render (
     <Provider store={store}>

@@ -2,20 +2,29 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ScheduledItem from './scheduledItem'
 
-const ScheduledItemList = ({ items, onItemClick }) => (
-  <ul>
-    {items.map(item =>
-      <ScheduledItem
-        key={item.id}
-        {...item}
-        onClick={() => onItemClick(item.id)}
-      />
-    )}
-  </ul>
-)
+const ScheduledItemsList = ({ scheduledItems, onItemClick }) => {
+  if (scheduledItems.length > 0) {
+  return (
+    <ul>
+      {scheduledItems.map(item =>
+        <ScheduledItem
+          key={item.id}
+          {...item}
+          onClick={() => onItemClick(item.id)}
+        />
+      )}
+    </ul>
+  ); 
+  } else {
+    return null;
+  }
+};
+export default ScheduledItemsList;
 
-ScheduledItemList.propTypes = {
-  items: PropTypes.arrayOf(PropTypes.shape({
+
+
+ScheduledItemsList.propTypes = {
+  scheduledItems: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.string.isRequired,
     status: PropTypes.string.isRequired,
     task: PropTypes.shape({
@@ -41,4 +50,3 @@ ScheduledItemList.propTypes = {
   onItemClick: PropTypes.func.isRequired
 }
 
-export default ScheduledItemList;

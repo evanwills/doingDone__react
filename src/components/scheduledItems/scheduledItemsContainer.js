@@ -1,5 +1,5 @@
 import {connect} from 'react-redux';
-import {ScheduledItemList} from './scheduledItemsListing';
+import ScheduledItemsList from './scheduledItemsList';
 import {addActivityAction} from '../../store/activities';
 
 const getVisibleItems = (items, filter, user, tasks, activities) => {
@@ -16,42 +16,54 @@ const getVisibleItems = (items, filter, user, tasks, activities) => {
 
 		case 'SHOW_COMPLETED':
 			userItems = userItems.filter(item => (item.completed !== null));
-
+			break;
+			
 		case 'SHOW_OVERDUE':
 			userItems = userItems.filter(item => (item.completed === null && item.due <= now));
-
+			break;
+			
 		case 'SHOW_COMING':
 			userItems =  userItems.filter(item => (item.completed === null && item.available > now))
-
-		case 'SHOW_ACTIVE':
+			break;
+			
 		default:
-			userItems = userItems.filter(item => (item.completed === null && item.available <= now && item.due > now))
+			userItems = userItems.filter(item => {
+				return (item.completed === null && item.available <= now && item.due > now);
+			});
 	}
 
-	return userItems.map(item => ({
-			id: item.id,
-			status: item.status,
-			task: tasks.filter(
-				task => (item.taskID === task.id)
-			).map(task => ({
-				name: task.name,
-				description: task.description,
-				visualURL: task.visualURL,
-				steps: task.steps,
-				available: task.available,
-				due: task.due,
-				extendedDue: task.extendedDue
-			}))[0],
-			activity: (item.hasActivity) ?
-				activities.filter(activity => (activity.id === item.id))[0] : null
-	}));
+	if (userItems.length > 0) {
+		return userItems.map(
+			item => (
+				{
+					id: item.id,
+					status: item.status,
+					task: tasks.filter(
+						task => (item.taskID === task.id)
+					).map(task => ({
+						name: task.name,
+						description: task.description,
+						visualURL: task.visualURL,
+						steps: task.steps,
+						available: task.available,
+						due: task.due,
+						extendedDue: task.extendedDue
+					}))[0],
+					activity: (item.hasActivity) ?
+						activities.filter(activity => (activity.id === item.id))[0] : null
+				}
+			)
+		);
+	} else {
+		return [];
+	}
 }
 
 
 const mapStateToProps = (state) => {
 	return {
 		scheduledItems: getVisibleItems(
-			state.ScheduledItems,
+			state.scheduledItems,
 			state.visibilityFilter, state.users.filter(user => (user.id === state.activeUser)),
 			state.tasks,
 			state.activities,
@@ -68,6 +80,6 @@ const mapDispatchToProps = (dispatch) => {
 const VisibleScheduledItems = connect(
 	mapStateToProps,
 	mapDispatchToProps
-)(ScheduledItemList);
+)(ScheduledItemsList);
   
 export default VisibleScheduledItems;

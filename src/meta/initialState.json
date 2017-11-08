@@ -448,5 +448,5 @@
 	"errors": [],
 	"accountLedger": [],
 	"activeUser": "mallee",
-	"filterState": "SHOW_ACTIVE"
+	"filterState": "SHOW_ALL"
 }

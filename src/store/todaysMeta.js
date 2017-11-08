@@ -5,13 +5,9 @@ import {constants} from '../meta/constants';
 // START: actionCreators
 
 
-export const todaysMetaAction = (terms, holidays) => ({
-    type: constants.AUTO_SET_TODAYS_METADATA,
-    payload: {
-        now: new Date(),
-        schoolTerms: terms,
-        publicHolidays: holidays
-    }
+export const todaysMetaAction = (now) => ({
+	type: constants.AUTO_SET_TODAYS_METADATA,
+	payload: now
 })
 
 
@@ -89,9 +85,9 @@ const schoolDayMeta = (schoolTerms, todaysDate) => {
 export const todaysMeta = (state = {}, action) => {
 	if (action.type === 'AUTO_SET_TODAYS_METADATA') {
 		return {
-			...makeDateUseful(action.payload.now),
-			...schoolDayMeta(action.payload.schoolTerms, action.payload.now),
-			isPublicHoliday: isPublicHoliday(action.payload.publicHolidays, action.payload.now)
+			...makeDateUseful(action.now),
+			...schoolDayMeta(action.getState.schoolTerms, action.now),
+			isPublicHoliday: isPublicHoliday(action.getState.publicHolidays, action.now)
 		};
 	} else {
 		return state;

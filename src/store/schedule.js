@@ -5,22 +5,14 @@ import {constants} from '../meta/constants';
 // START: actionCreators
 
 
-export const scheduledItemsAction = (today, tasks, users, pointsToCurrency) => ({
-    type: constants.AUTO_SCHEDULE_TASK,
-    payload: {
-        tasks: tasks,
-        users: users,
-		today: today,
-		pointsToCurrency: pointsToCurrency
-    }
+export const scheduledItemsAction = (scheduledItems) => ({
+	type: constants.AUTO_SCHEDULE_TASK,
+	payload: scheduledItems
 });
 
-export const removeScheduledItemsAction = (today, scheduledItems) => ({
+export const removeScheduledItemsAction = (scheduledItems) => ({
 	type: constants.AUTO_REMOVE_SCHEDULED_TASKS,
-	payload: {
-		scheduledItems: scheduledItems,
-		today: today
-	}
+	payload: scheduledItems
 });
 
 
@@ -88,16 +80,16 @@ export const scheduledItems = (state = [], action) => {
 	
 	switch(action.type) {
 		case constants.AUTO_SCHEDULE_TASK:
-			const today = action.payload.today,
+			const today = action.getState.todaysMeta,
 				// get a list of users who are NOT approvers and
 				// who ARE active
-				users = action.payload.users.filter(
+				users = action.getState.users.filter(
 							(user) => !user.approver
 						).filter(
 							(user) => user.active
 						),
 				// get a list of tasks that fit today's criteria
-				availableTasks = action.payload.tasks.filter(
+				availableTasks = action.getState.tasks.filter(
 						(task) => (
 							task[today.dayOfWeek] && (
 								task.schoolTerm === today.isSchoolTerm ||
@@ -106,8 +98,9 @@ export const scheduledItems = (state = [], action) => {
 							)
 						)
 				);
+			console.log('availableTasks: ', availableTasks);
 
-			newSchedule = removeScheduled(state, action.payload.today.end);
+			newSchedule = removeScheduled(state, today.end);
 			
 			for (i = 0; i < availableTasks.length; i += 1) {
 
@@ -143,7 +136,7 @@ export const scheduledItems = (state = [], action) => {
 					// add a scheduled task for each user who is
 					// elligable to do this task
 					...tmpUsers.map((user, i, all) => ({
-						id: user.id + today.date + availableTasks[i].id,
+						id: user.id + today.date.replace(/[^0-9]+/g, '') + availableTasks[i].id,
 						userID: user.id,
 						taskID: availableTasks[i].id,
 						status: 0,

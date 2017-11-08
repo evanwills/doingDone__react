@@ -4,7 +4,6 @@ import VisibleScheduledItems from './components/scheduledItems/scheduledItemsCon
 
 
 const App = () => (
-		// console.log(this.props.params)
 		<div className="App">
 			<header className="App-header">
 				<h1 className="App-title">Doing Done</h1>
