@@ -23,7 +23,6 @@ export const sortByDate = (inputArray, field) => {
 }
 
 
-
 sortByDate.PropTypes = {
 	input: PropTypes.array.isRequired,
 	field: PropTypes.string.isRequired

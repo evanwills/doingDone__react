@@ -42,8 +42,8 @@ export const addActivityAction = (scheduledItem) => {
         type: constants.ADD_ACTIVITY,
         payload: {
             id: scheduledItem.id,
-            user: scheduledItem.user,
-            task: scheduledItem.task,
+            user: scheduledItem.user.id,
+            task: scheduledItem.task.id,
             completed: new Date(),
             status: constants.activityStatus.indexOf('Completed'),
             completionLevel: 1,

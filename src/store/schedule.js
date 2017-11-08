@@ -1,5 +1,4 @@
 import {constants} from '../meta/constants';
-import {sortByDate} from '../utils/utilityFunctions';
 
 
 // ===============================================
@@ -52,6 +51,32 @@ const removeScheduled = (scheduledItems, todaysEnd) => {
 	});
 }
 
+const sortScheduled = (inputArray, field = 'due') => {
+	// clone the input array so we don't mutate it.
+	let sortedInput = inputArray.map((inputItem) => inputItem);
+
+	if (typeof field !== 'string' || (field !== 'due' && field !== 'available' && field !== 'extendedDue')) {
+		field = 'due';
+	}
+
+	sortedInput.sort((a, b) => {
+		// sort by field
+		if (a[field] > b[field]) {
+			return 1;
+		} else if (a[field] < b[field]) {
+			return -1;
+		} else {
+			if (a.priority > b.priority) {
+				return 1;
+			} else if (a.priority < b.priority) {
+				return -1;
+			} else {
+				return 0;
+			}
+		}
+	});
+	return sortedInput;
+}
 
 
 export const scheduledItems = (state = [], action) => {
@@ -127,11 +152,12 @@ export const scheduledItems = (state = [], action) => {
 						due: today.dateFromTime(availableTasks[i].due),
 						extendedDue: today.dateFromTime(availableTasks[i].extendedEndTime),
 						value: availableTasks[i].value,
-						pointsToCurrency: action.payload.pointsToCurrency
+						pointsToCurrency: action.payload.pointsToCurrency,
+						priority: availableTasks[i].priority
 					})
 				)]
 			}
-			return sortByDate(newSchedule, 'due');
+			return sortScheduled(newSchedule);
 
 		// case constants.CREATE_ACTIVITY:
 		// 	return state.map((task) => (action.payload.activityID === task.id) ? {...task, hasActivity: true} : task); 

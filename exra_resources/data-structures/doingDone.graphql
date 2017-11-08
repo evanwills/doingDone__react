@@ -157,6 +157,9 @@ interface TaskGoal {
 	uniqueName: String!,
 	description: String,
 
+	# steps required to complete the task.
+	steps: [taskGoalStep!]!,
+
 	# When sharing tasks with community is enabled tags will allow filtering of tasks by type.
 	tags: [Tag]!,
 
@@ -198,7 +201,7 @@ interface TaskGoal {
 }
 
 
-interface Task implements TaskGoal { # task interface
+type Task implements TaskGoal { # task interface
 	# If not required and not completed tasks will not appear in the
 	# responsible user's history
 	# If required and not completed, task will be pushed into the
@@ -281,7 +284,11 @@ type Goal implements TaskGoal {
 	clonable: Boolean!
 }
 
-
+# 
+type taskGoalStep {
+	text: String!,
+	imgURL: String
+}
 
 type DoOnWeekDays {
 	monday: Boolean!,
@@ -362,9 +369,9 @@ interface Activity {
 
 
 type TaskActivity implements Activity {
-	task: Task!,
+	task: Task.id!,
 	acknowledged: DateTime,
-	acknowledgedBy: User,
+	acknowledgedBy: User.id,
 	interventionLevel: interventionLevel,
 	# computedValue =	this.task.value * completionLevel * interventionLevel
 	# (based on task and household modifier values at time of acknowledgement)
@@ -375,7 +382,7 @@ type TaskActivity implements Activity {
 }
 
 type GoalActivity implements Activity {
-	goal: Goal!
+	goal: Goal.id!
 }
 
 

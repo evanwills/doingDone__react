@@ -1,6 +1,6 @@
-import { connect } from 'react-redux';
-
-import {scheduledItemsListing} from './scheduledItemsListing';
+import {connect} from 'react-redux';
+import {ScheduledItemList} from './scheduledItemsListing';
+import {addActivityAction} from '../../store/activities';
 
 const getVisibleItems = (items, filter, user, tasks, activities) => {
 	const now = new Date();
@@ -9,6 +9,7 @@ const getVisibleItems = (items, filter, user, tasks, activities) => {
 	if(!user.approver) {
 		userItems = items.filter(item => (item.user === user.id));
 	}
+
 	switch (filter) {
 		case 'SHOW_ALL':
 			break;
@@ -26,23 +27,32 @@ const getVisibleItems = (items, filter, user, tasks, activities) => {
 		default:
 			userItems = userItems.filter(item => (item.completed === null && item.available <= now && item.due > now))
 	}
-	return userItems.map(item => {
-		const currentTask = tasks.filter(task => (item.taskID === task.id)),
-			  currentActivity = activities.filter(activity => (activity.id === item.id));
-		return {
-			...item,
-			task: currentTask[0],
-			activity: (cuurentActivity.length === 1)?currentActivity:null
-		} 
-	});
+
+	return userItems.map(item => ({
+			id: item.id,
+			status: item.status,
+			task: tasks.filter(
+				task => (item.taskID === task.id)
+			).map(task => ({
+				name: task.name,
+				description: task.description,
+				visualURL: task.visualURL,
+				steps: task.steps,
+				available: task.available,
+				due: task.due,
+				extendedDue: task.extendedDue
+			}))[0],
+			activity: (item.hasActivity) ?
+				activities.filter(activity => (activity.id === item.id))[0] : null
+	}));
 }
 
 
 const mapStateToProps = (state) => {
 	return {
 		scheduledItems: getVisibleItems(
-			state.scheduledItems,
-			state.visibilityFilter, state.users.filter(user => (user.id === activeUser)),
+			state.ScheduledItems,
+			state.visibilityFilter, state.users.filter(user => (user.id === state.activeUser)),
 			state.tasks,
 			state.activities,
 		)
@@ -51,15 +61,13 @@ const mapStateToProps = (state) => {
   
 const mapDispatchToProps = (dispatch) => {
 	return {
-		onItemClick: (id) => {
-			dispatch(completeItem(id))
-		}
+		onItemClick: (id) => dispatch(addActivityAction(id))
 	};
 };
   
-  const VisibleScheduledItems = connect(
+const VisibleScheduledItems = connect(
 	mapStateToProps,
 	mapDispatchToProps
-  )(scheduledItemsListing);
+)(ScheduledItemList);
   
-  export default VisibleTodoList
+export default VisibleScheduledItems;

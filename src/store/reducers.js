@@ -3,11 +3,13 @@ import { combineReducers } from 'redux';
 
 import {accountLedger} from './accountLedger';
 import {archiveActivityMeta} from './archiveActivityMeta';
+import {archivedActivities} from './archivedActivities';
 import {activeUser} from './activeUser';
 import {activities} from './activities';
 import {currency} from './currency';
 import {errors} from './errors';
-import {archivedActivities} from './archivedActivities';
+import {household} from './household';
+import {filterState} from './filterState';
 import {payMeta} from './payMeta';
 import {publicHolidays} from './publicHolidays';
 import {scheduledItems} from './schedule';
@@ -18,6 +20,7 @@ import {users} from './users';
 import {valueModifiers} from './valueModifiers';
 
 export default combineReducers({
+	household,
 	valueModifiers,
 	currency,
 	payMeta,
@@ -32,5 +35,6 @@ export default combineReducers({
 	archivedActivities,
 	errors,
 	accountLedger,
-	activeUser
+	activeUser,
+	filterState
 });

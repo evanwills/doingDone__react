@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import scheduledItem from './scheduledItem'
+import ScheduledItem from './scheduledItem'
 
-const scheduledItemList = ({ items, onItemClick }) => (
+const ScheduledItemList = ({ items, onItemClick }) => (
   <ul>
-    {items.map(todo =>
-      <scheduledItem
+    {items.map(item =>
+      <ScheduledItem
         key={item.id}
         {...item}
         onClick={() => onItemClick(item.id)}
@@ -14,23 +14,31 @@ const scheduledItemList = ({ items, onItemClick }) => (
   </ul>
 )
 
-scheduledItemList.propTypes = {
+ScheduledItemList.propTypes = {
   items: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.string.isRequired,
-	userID: PropTypes.string.isRequired,
-	taskID: availableTasks[i].id,
-    completed: PropTypes.instanceOf(Date).isRequired,
-	text: PropTypes.string.isRequired,
-	
-	status: 0,
-	hasActivity: false,
-	available: today.dateFromTime(availableTasks[i].available),
-	due: today.dateFromTime(availableTasks[i].due),
-	extendedDue: today.dateFromTime(availableTasks[i].extendedEndTime),
-	value: availableTasks[i].value,
-	pointsToCurrency: action.payload.pointsToCurrency
-  }).isRequired).isRequired,
+    status: PropTypes.string.isRequired,
+    task: PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      description: PropTypes.string.isRequired,
+      visualURL: PropTypes.string,
+      steps: PropTypes.arrayOf(PropTypes.shape({
+        text: PropTypes.string.isRequired,
+        imgURL: PropTypes.string
+      }).isRequired).isRequired
+    }).isRequired,
+    activity: PropTypes.shape({
+      completed: PropTypes.instanceOf(Date),
+      status: PropTypes.string.isRequired,
+      completionLevel: PropTypes.number.isRequired,
+      interventionLevel: PropTypes.number.isRequired,
+      computedValue: PropTypes.Number
+    }),
+    available: PropTypes.instanceOf(Date).isRequired,
+    due: PropTypes.instanceOf(Date).isRequired,
+    extendedDue: PropTypes.instanceOf(Date)
+  })).isRequired,
   onItemClick: PropTypes.func.isRequired
 }
 
-export default scheduledItemList;
+export default ScheduledItemList;
