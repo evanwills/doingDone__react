@@ -81,7 +81,7 @@ const getScheduledTasks = (state, user, tasks, today, pointsToCurrency) => {
 		// tmpUsers = [],
 		// rotation;
 	const tmpID = user + today.date.replace(/[^0-9]+/g, '');
-	
+	console.log('today:', today);
 	// get a list of tasks that fit today's criteria
 	const availableTasks = tasks.filter(
 		(task) => (

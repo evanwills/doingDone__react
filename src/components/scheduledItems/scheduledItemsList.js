@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import ScheduledItem from './scheduledItem'
 
 const ScheduledItemsList = ({ scheduledItems, onItemClick }) => {
+  console.log('onItemClick:', onItemClick);
+
   if (scheduledItems.length > 0) {
   return (
     <ul>
@@ -10,7 +12,7 @@ const ScheduledItemsList = ({ scheduledItems, onItemClick }) => {
         <ScheduledItem
           key={item.id}
           {...item}
-          onClick={() => onItemClick(item.id)}
+          onClick={onItemClick}
         />
       )}
     </ul>

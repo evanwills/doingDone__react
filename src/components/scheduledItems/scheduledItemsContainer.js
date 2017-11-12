@@ -76,8 +76,12 @@ const mapStateToProps = (state) => {
 }
   
 const mapDispatchToProps = (dispatch) => {
+	console.log('dispatch:', dispatch);
 	return {
-		onItemClick: (id) => dispatch(addActivityAction(id))
+		onItemClick: (id) => {
+			console.log('id:', id);
+			return dispatch(addActivityAction(id))
+		}
 	};
 };
   

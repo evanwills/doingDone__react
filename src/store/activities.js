@@ -59,22 +59,27 @@ export const archiveActivityAction = (activityIDs) => ({
 export const activities = (state = [], action) => {
     switch(action.type) {
         case constants.ADD_ACTIVITY:
-            const scheduledItem = action.getState.scheduledItems.filter(item => (item.id === action.payload))[0];
-            const newActivity = {
-                id: action.payload,
-                user: scheduledItem.userID,
-                task: scheduledItem.taskID,
-                completed: action.now,
-                status: activityStatus.indexOf('Completed'),
-                completionLevel: 1,
-                interventionLevel: 0,
-                acknowledged: null,
-                acknowledgedBy: null,
-                computedValue: scheduledItem.points,
-                instantReward: scheduledItem.instantReward,
-                instantRewardGranted: false
+            console.log(action.getState.activities, action.getState.payload);
+            if (action.getState.activities.reduce((c,activity) => (action.payload === activity.id) ? c + 1 : c, 0) > 0) {
+                return state;
+            } else {
+                const scheduledItem = action.getState.scheduledItems.filter(item => (item.id === action.payload))[0];
+                const newActivity = {
+                    id: action.payload,
+                    user: scheduledItem.userID,
+                    task: scheduledItem.taskID,
+                    completed: action.now,
+                    status: activityStatus.indexOf('Completed'),
+                    completionLevel: 1,
+                    interventionLevel: 0,
+                    acknowledged: null,
+                    acknowledgedBy: null,
+                    computedValue: scheduledItem.points,
+                    instantReward: scheduledItem.instantReward,
+                    instantRewardGranted: false
+                }
+                return [...state, newActivity];
             }
-            return [...state, newActivity];
         case constants.UPDATE_ACTIVITY:
             return state.map(
                 (activity) => (action.payload.id === activity.id) ? action.payload : activity
