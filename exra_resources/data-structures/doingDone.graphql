@@ -5,42 +5,12 @@ type householdMeta {
 	timezone: String!,
 	locale: String!,
 
-	# valueModifiers are used multiply task points to get a
+	# valueModifiers are used to multiply task points to get a
 	# TaskActivity's computed value.
 	# e.g.  a task has a points value of 2, the task doer didn't need
-	#		prompting but the task was only partially completed
+	#		prompting but the task was only half completed
 	#		the computed value would be 2 * 1.3 * 0.5 = 1.3
-	valueModifiers: {
-		completionLevel: {
-			Not: Float!,			# default: 0	[min: -1,	max: 0] (must be < Partially)
-			Partially: Float!,		# default: 0.5	[min: -0.5,	max: 5] (must be > Not & < Fully )
-			Fully: Float!,			# default: 1	[min: -0.5,	max: 5] (must be > Partially & < Outstandingly)
-			Outstandingly: Float!	# default: 1.5	[min: -0.5,	max: 5] (must be > Fully)
-		},
-		InterventionLevel: {
-			Volunteered: Float!,	# default: 1.3	[min: 0, max: 5] (must be < Prompted)
-			Prompted: Float!,		# default: 1	[min: 0, max: 5] (must be > Volunteered & < Coerced )
-			Coerced: Float!,		# default: 0.7	[min: 0, max: 5] (must be > Prompted & < Battled )
-			Battled: Float!			# default: 0.4	[min: 0, max: 5] (must be > Coerced)
-		},
-		# If a task is completed after the due time but within the
-		# extended due time the points value is adjusted by the 
-		# Overdue value:
-		# et	(extended time) = extendedDueTime - dueTime
-		# c		(completion time) = completionTime - dueTime
-		# od	(overdue modifier)
-		# calculated value = ( ((1 - (c / et)) * (1 - od)) + od )
-		# e.g.	DueTime:		 8:00am
-		#		ExtendedDueTime: 8:20am
-		#		CompletionTime:  8:05am
-		#		Points:			 1
-		#		Overdue:		 0.3
-		#		et:				 20
-		#		c:				 5
-		#		v: 1 * (((1 - (5 / 20)) * (1 - 0.3)) + 0.3)
-		#		adjusted points: 0.825
-		Overdue: Float!,			# default: 0.5		[min: 0, max: 1]
-	},
+	defaultValueModifiers: valueModifiers,
 	currency: {
 		prefix: String!,
 		rounding: Int!,
@@ -79,9 +49,6 @@ type household {
 	tasks: [Task],
 	# all goals ever created for the household
 	goals: [Goals],
-
-	# list of task activities that need approving/verifying
-	scheduledItems: [ScheduledItem]!,
 
 	activities: [TaskActivity]!,
 	archivedActivities: [TaskActivity]!,
@@ -264,7 +231,8 @@ type Task implements TaskGoal { # task interface
 	# for some kids (like my son) delayed gratification is not a strong point
 	# for these kids it's neccessary to provide a small extrisic reward for
 	# completing some (or all) tasks
-	instantReward: InstantReward
+	instantReward: InstantReward,
+	valueModifiers: valueModifiers
 }
 
 type Goal implements TaskGoal {
@@ -354,17 +322,72 @@ type RotatingTurn {
 
 union TaskPeriod = IntervalRecurrance | MonthlyRecurrance | RandomRecurrance
 
-
+# valueModifiers are used to multiply task points to get a
+# TaskActivity's computed value.
+# e.g. a task has a points value of 2, the task doer didn't need
+#      prompting but the task was only half completed the computed
+#      value would be 2 * 1.3 * 0.5 = 1.3
+type valueModifiers {
+	# completionLevel determins the upper and lower limits of the
+	# modifier the approver has a sliding scale where the "Not"
+	# value determins the lowest value the 
+	completionLevel: {
+		# Not (not started) - default: 0
+		#	[min: -1,	max: 0]
+		# NOTE: A negative "Not" value equates to a fine for not
+		#       doing the task
+		Not: Float!,
+		# Fully completed = 1
+		# Outstandingly (completed beyond expectation) default: 1.5
+		#	[min: > 1,	max: 5]
+		Outstandingly: Float!
+	},
+	InterventionLevel: {
+		# Volunteered - default: 1.3
+		#	[min: 1, max: 5] (must be > Prompted)
+		Volunteered: Float!,
+		# Prompted - default: 1
+		#	[min: > 0, max: 5] (must be < Volunteered & > Coerced )
+		Prompted: Float!,
+		# Coerced - default: 0.7
+		#	[min: > 0, max: 5] (must be < Prompted & > Battled )
+		Coerced: Float!,
+		# Battled - default: 0.4
+		#	[min: > 0, max: 1] (must be < Coerced)
+		Battled: Float!
+	},
+	# If a task is completed after the due time but within the
+	# extended due time the points value is adjusted by the 
+	# Overdue value:
+	# et	(extended time) = extendedDueTime - dueTime
+	# c		(completion time) = completionTime - dueTime
+	# od	(overdue modifier)
+	# calculated value = ( ((1 - (c / et)) * (1 - od)) + od )
+	# e.g.	DueTime:		 8:00am
+	#		ExtendedDueTime: 8:20am
+	#		CompletionTime:  8:05am
+	#		Points:			 1
+	#		Overdue:		 0.3
+	#		et:				 20
+	#		c:				 5
+	#		v: 1 * (((1 - (5 / 20)) * (1 - 0.3)) + 0.3)
+	#		adjusted points: 0.825
+	Overdue: Float!,			# default: 0.5		[min: 0, max: 1]
+}
 
 
 interface Activity {
 	id: ID!, # user ID + task/goal ID + date (YYYY-MM-DD)
 	user: User.id!,
-	status: activityStatus,
+	scheduleStatus: scheduledItemStatus!,
+	activityStatus: activityStatus,
 	# initialised: DateTime!,
 	completed: DateTime,
 	completionLevel: CompletionLevel!,	# default 0
-	doerNotes: String
+	doerNotes: String,
+	startTime: DateTime!,
+	endTime: DateTime!,
+	extendedEndTime: DateTime
 }
 
 
@@ -372,13 +395,21 @@ type TaskActivity implements Activity {
 	task: Task.id!,
 	acknowledged: DateTime,
 	acknowledgedBy: User.id,
+	acknowledgementNotes: String,
 	interventionLevel: interventionLevel,
-	# computedValue =	this.task.value * completionLevel * interventionLevel
+	# computedValue = currentValue * completionLevel * interventionLevel
 	# (based on task and household modifier values at time of acknowledgement)
 	computedValue: Float!,				# default 0
-	acknowledgementNotes: String,
 	instantReward: InstantReward,
-	instantRewardGranted: boolean!
+	# the following values are stored immutably in each activity to
+	# ensure that updates to the completionLevel and interventionLevel
+	# modify the computedValue following the same rules as when the
+	# activity was created (i.e. changes over time, to a task or the
+	# monetary value of points do not affect the activities created
+	# before those changes.)
+	currentValue: Float!, # task.value
+	currentValueModifiers: valueModifiers!, # clone of task.valueModifiers
+	currentPointsToCurrency: Float! # householdMeta.currency.pointsToCurrency
 }
 
 type GoalActivity implements Activity {
@@ -394,31 +425,12 @@ type DateBlock {
 
 # ScheduledItem is a temporary object used for listing tasks & is
 # thrown away at the end of the day.
-type StoredScheduledItem {
-	id: string!, # user ID + task/goal ID + date (YYYY-MM-DD)
-	user: User.id!,
-	taskGoal: TaskGoal.id!,
-	taskGoalType: TaskGoalType!,
-	status: scheduledItemStatus!,
-	# scheduledItems and Activities use the same pattern for ID so they
-	hasActivity: boolean!,
-	startTime: DateTime!,
-	endTime: DateTime!,
-	extendedEndTime: DateTime,
-	value: Float!,
-	pointsToCurrency: Float!,
-}
-
-# ScheduledItem is a temporary object used for listing tasks & is
-# thrown away at the end of the day.
 type RenderedScheduledItem {
 	id: string!, # user ID + task/goal ID + date (YYYY-MM-DD)
 	user: User!,
 	taskGoal: TaskGoal!,
 	taskGoalType: TaskGoalType!,
 	status: scheduledItemStatus!,
-	# scheduledItems and Activities use the same pattern for ID so they
-	hasActivity: boolean!,
 	startTime: DateTime!,
 	endTime: DateTime!,
 	extendedEndTime: DateTime,
@@ -479,7 +491,7 @@ enum activityStatus {
 }
 
 enum CompletionLevel {
-	Not,
+	Not started,
 	Partially,
 	Fully,
 	Outstandingly
@@ -524,11 +536,14 @@ enum SchoolTermMode {
 }
 
 enum GoalVisibility {
+	# only the owner can view this goal and its achievement counts.
+	# (equivalent to owner only in Unix)
+	Private, 
 	# only the owner and household approvers can view this goal and
 	# its achievement counts.
+	# (equivalent to group in Unix where group is all approvers and
+	#  individual doer)
 	Approvers,
-	# only the owner can view this goal and its achievement counts.
-	Private,
 	# anyone can view this goal and its achievement counts.
 	Public
 }
