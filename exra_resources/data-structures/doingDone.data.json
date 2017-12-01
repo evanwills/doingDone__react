@@ -40,7 +40,7 @@
 		}
 	],
 	"completionStatus": [	// {enum}
-		"Not done",
+		"Not started",
 		"Partially done",
 		"Completely done",
 		"Above and beyond"

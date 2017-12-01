@@ -258,16 +258,6 @@ type taskGoalStep {
 	imgURL: String
 }
 
-type DoOnWeekDays {
-	monday: Boolean!,
-	tuesday: Boolean!,
-	wednesday: Boolean!,
-	thursday: Boolean!,
-	friday: Boolean!,
-	saturday: Boolean!,
-	sunday: Boolean!
-}
-
 interface Recurrance {
 	duration: Int!,	# days (NOTE: duration must be less than or equal to interval)
 	nextOccuranceStart: Date!,
@@ -396,9 +386,11 @@ type TaskActivity implements Activity {
 	acknowledged: DateTime,
 	acknowledgedBy: User.id,
 	acknowledgementNotes: String,
+	completionValue: Float,
 	interventionLevel: interventionLevel,
 	# computedValue = currentValue * completionLevel * interventionLevel
 	# (based on task and household modifier values at time of acknowledgement)
+	interventionValue: Float,
 	computedValue: Float!,				# default 0
 	instantReward: InstantReward,
 	# the following values are stored immutably in each activity to
@@ -442,7 +434,7 @@ type ActiveTask {
 	taskActivityID: String!
 }
 
-type Reward {
+interface Reward {
 	id: ID!,
 	name: String!,
 	description: String!,
