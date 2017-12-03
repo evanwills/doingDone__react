@@ -101,6 +101,8 @@ type user {
 	absentDates: [DateBlock]!
 }
 
+# ===================================================================
+
 interface TaskGoal {
 	id: ID!,
 	created: Date,
@@ -212,6 +214,9 @@ type Task implements TaskGoal { # task interface
 	# designated start time
 	canCompleteBefore: boolean!,
 
+	# extra steps to achieve above and beyond.
+	extraSteps: [String]!,
+
 	# assigned user changes with each completion period
 	rotating: RotatingTurn,
 
@@ -258,6 +263,22 @@ type taskGoalStep {
 	imgURL: String
 }
 
+# ===================================================================
+
+
+type RotatingTurn {
+	# person currently responsible for the task
+	assignedTo: [User],
+
+	# because turn taking sometimes needs to be in random order users
+	# are added to the turn taken list until every turn taker has had
+	# a turn. Then the turn taken list is emptied and it can start
+	# again
+	turnsTaken: [User]
+}
+
+# ===================================================================
+
 interface Recurrance {
 	duration: Int!,	# days (NOTE: duration must be less than or equal to interval)
 	nextOccuranceStart: Date!,
@@ -299,18 +320,10 @@ type RandomRecurrance implements Recurrance {
 }
 
 
-type RotatingTurn {
-	# person currently responsible for the task
-	assignedTo: [User],
-
-	# because turn taking sometimes needs to be in random order users
-	# are added to the turn taken list until every turn taker has had
-	# a turn. Then the turn taken list is emptied and it can start
-	# again
-	turnsTaken: [User]
-}
-
 union TaskPeriod = IntervalRecurrance | MonthlyRecurrance | RandomRecurrance
+
+# ===================================================================
+
 
 # valueModifiers are used to multiply task points to get a
 # TaskActivity's computed value.
@@ -352,7 +365,8 @@ type valueModifiers {
 	# et	(extended time) = extendedDueTime - dueTime
 	# c		(completion time) = completionTime - dueTime
 	# od	(overdue modifier)
-	# calculated value = ( ((1 - (c / et)) * (1 - od)) + od )
+	# pv	(task points value)
+	# calculated value = pv * ( ((1 - (c / et)) * (1 - od)) + od )
 	# e.g.	DueTime:		 8:00am
 	#		ExtendedDueTime: 8:20am
 	#		CompletionTime:  8:05am
@@ -360,10 +374,14 @@ type valueModifiers {
 	#		Overdue:		 0.3
 	#		et:				 20
 	#		c:				 5
-	#		v: 1 * (((1 - (5 / 20)) * (1 - 0.3)) + 0.3)
-	#		adjusted points: 0.825
+	#		pv:				 0.8
+	#		v: 0.8 * (((1 - (5 / 20)) * (1 - 0.3)) + 0.3)
+	#		adjusted points: 0.66
 	Overdue: Float!,			# default: 0.5		[min: 0, max: 1]
 }
+
+
+# ===================================================================
 
 
 interface Activity {

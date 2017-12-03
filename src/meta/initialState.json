@@ -19,7 +19,7 @@
 	"currency": {
 		"prefix": "$",
 		"rounding": 2,
-		"pointsToCurrency": 1
+		"pointsToCurrency": 0.1
 	},
 	"payMeta": {
 		"period": 2,
@@ -57,78 +57,58 @@
 		"byID": {
 			"evan": {
 				"id": "evan",
-				"created": "2017-10-18T10:47:00+1000",
-				"active": true,
 				"name": "Evan",
+				"created": "2017-10-18T10:47:00+1000",
+				"YoB": 1973,
+				"MoB": 1,
+				"active": true,
 				"approver": true,
 				"colour": "021a91",
 				"avatarURL": "",
 				"email": "evan.i.wills@gmail.com",
-				"password": "1234",
-				"rewards": [],
-				"points": {
-					"periodTotal": 0,
-					"grandTotal": 0
-				},
 				"absentDates": [],
-				"lastPaymentDate": "2017-10-18T10:47:00+1000",
 				"showTimeRemaining": true
 			},
 			"georgie": {
 				"id": "georgie",
-				"created": "2017-10-18T10:47:00+1000",
-				"active": true,
 				"name": "Georgie",
+				"created": "2017-10-18T10:47:00+1000",
+				"YoB": 1979,
+				"MoB": 9,
+				"active": true,
 				"approver": true,
 				"colour": "e5c75b",
 				"avatarURL": "",
 				"email": "georginacap@gmail.com",
-				"password": "1234",
-				"rewards": [],
-				"points": {
-					"periodTotal": 0,
-					"grandTotal": 0
-				},
 				"absentDates": [],
-				"lastPaymentDate": "2017-10-18T10:47:00+1000",
 				"showTimeRemaining": true
 			},
 			"mallee": {
 				"id": "mallee",
-				"created": "2017-10-18T10:47:00+1000",
-				"active": true,
 				"name": "Mallee",
+				"created": "2017-10-18T10:47:00+1000",
+				"YoB": 2008,
+				"MoB": 5,
+				"active": true,
 				"approver": false,
 				"colour": "21d13e",
 				"avatarURL": "",
 				"email": "",
-				"password": "1234",
-				"rewards": [],
-				"points": {
-					"periodTotal": 0,
-					"grandTotal": 0
-				},
 				"absentDates": [],
-				"lastPaymentDate": "2017-10-18T10:47:00+1000",
 				"showTimeRemaining": true
 			},
 			"ada": {
 				"id": "ada",
-				"created": "2017-10-18T10:47:00+1000",
-				"active": true,
 				"name": "Ada",
+				"created": "2017-10-18T10:47:00+1000",
+				"YoB": 2010,
+				"MoB": 7,
+				"active": true,
 				"approver": false,
 				"colour": "3328cc",
 				"avatarURL": "",
 				"email": "",
-				"password": "1234",
-				"rewards": [],
-				"points": {
-					"periodTotal": 0,
-					"grandTotal": 0
-				},
 				"absentDates": [],
-				"lastPaymentDate": "2017-10-18T10:47:00+1000",
 				"showTimeRemaining": true
 			}
 		},
@@ -139,6 +119,7 @@
 			"putOnYourSchoolUniform": {
 				"id": "putOnYourSchoolUniform",
 				"thumbnail": null,
+				"active": true,
 				"name": "Put on your school uniform",
 				"available": "07:00",
 				"due": "08:10",
@@ -171,6 +152,7 @@
 					"Overdue": 0.5
 				},
 				"value": 1,
+				"rotating": null,
 				"monday": true,
 				"tuesday": true,
 				"wednesday": true,
@@ -178,18 +160,20 @@
 				"friday": true,
 				"saturday": false,
 				"sunday": false,
-				"rotating": null,
 				"schoolTerm": true,
 				"schoolHolidays": false,
-				"publicHolidays": false
+				"publicHolidays": false,
+				"atHome": true,
+				"away": true
 			},
-			"eatBreakySchool": {
+			"eatBreakySchoolMallee": {
 				"id": "eatBreakySchool",
+				"active": true,
 				"thumbnail": null,
 				"name": "Eat your breakfast and clean up",
 				"available": "06:00",
-				"due": "08:00",
-				"extendedEndTime": null,
+				"due": "07:50",
+				"extendedEndTime": "08:10",
 				"priority": 1,
 				"overNight": false,
 				"required": true,
@@ -218,6 +202,7 @@
 					"Overdue": 0.5
 				},
 				"value": 0.8,
+				"rotating": null,
 				"monday": true,
 				"tuesday": true,
 				"wednesday": true,
@@ -225,13 +210,65 @@
 				"friday": true,
 				"saturday": true,
 				"sunday": false,
-				"rotating": null,
 				"schoolTerm": true,
 				"schoolHolidays": false,
-				"publicHolidays": false
+				"publicHolidays": false,
+				"atHome": true,
+				"away": true
+			},
+			"eatBreakySchoolAda": {
+				"id": "eatBreakySchool",
+				"active": true,
+				"thumbnail": null,
+				"name": "Eat your breakfast and clean up",
+				"available": "06:00",
+				"due": "08:00",
+				"extendedEndTime": "08:20",
+				"priority": 1,
+				"overNight": false,
+				"required": true,
+				"canCompleteBefore": true,
+				"img": null,
+				"steps": [
+					"Eat all your breakfast",
+					"Scrape bowl into chicken bucket",
+					"Put bowl in the dishwasher (or on the sink)",
+					"Put breakfast things away"
+				],
+				"extraSteps": [
+					"Wipe down table"
+				],
+				"valueModifiers": {
+					"completionLevel": {
+						"Not": 0,
+						"Outstandingly": 1.5
+					},
+					"InterventionLevel": {
+						"Volunteered": 1.3,
+						"Prompted": 1,
+						"Coerced": 0.7,
+						"Battled": 0.4
+					},
+					"Overdue": 0.5
+				},
+				"value": 0.8,
+				"rotating": null,
+				"monday": true,
+				"tuesday": true,
+				"wednesday": true,
+				"thursday": true,
+				"friday": true,
+				"saturday": true,
+				"sunday": false,
+				"schoolTerm": true,
+				"schoolHolidays": false,
+				"publicHolidays": false,
+				"atHome": true,
+				"away": true
 			},
 			"eatBreakyNonSchool": {
 				"id": "eatBreakyNonSchool",
+				"active": true,
 				"thumbnail": null,
 				"name": "Eat your breakfast and clean up",
 				"available": "06:00",
@@ -265,6 +302,7 @@
 					"Overdue": 0.5
 				},
 				"value": 0.5,
+				"rotating": null,
 				"monday": true,
 				"tuesday": true,
 				"wednesday": true,
@@ -272,13 +310,15 @@
 				"friday": true,
 				"saturday": true,
 				"sunday": true,
-				"rotating": null,
 				"schoolTerm": false,
 				"schoolHolidays": true,
-				"publicHolidays": true
+				"publicHolidays": true,
+				"atHome": true,
+				"away": true
 			},
 			"putOnYourSchoolShoes": {
 				"id": "putOnYourSchoolShoes",
+				"active": true,
 				"thumbnail": null,
 				"name": "Put on your school shoes",
 				"available": "07:45",
@@ -312,6 +352,7 @@
 					"Overdue": 0.5
 				},
 				"value": 1,
+				"rotating": null,
 				"monday": true,
 				"tuesday": true,
 				"wednesday": true,
@@ -319,13 +360,15 @@
 				"friday": true,
 				"saturday": false,
 				"sunday": false,
-				"rotating": null,
 				"schoolTerm": true,
 				"schoolHolidays": false,
-				"publicHolidays": false
+				"publicHolidays": false,
+				"atHome": true,
+				"false": true
 			},
 			"getToysToTakeToSchool": {
 				"id": "getToysToTakeToSchool",
+				"active": true,
 				"thumbnail": null,
 				"name": "Get toys to take to school",
 				"available": "06:45",
@@ -356,6 +399,7 @@
 					"Overdue": 0.5
 				},
 				"value": 0.2,
+				"rotating": null,
 				"monday": true,
 				"tuesday": false,
 				"wednesday": false,
@@ -363,13 +407,15 @@
 				"friday": true,
 				"saturday": false,
 				"sunday": false,
-				"rotating": null,
 				"schoolTerm": true,
 				"schoolHolidays": false,
-				"publicHolidays": false
+				"publicHolidays": false,
+				"atHome": true,
+				"away": true
 			},
 			"emptyChickenBucket": {
 				"id": "emptyChickenBucket",
+				"active": true,
 				"thumbnail": null,
 				"name": "Empty chicken bucket",
 				"available": "05:45",
@@ -406,6 +452,10 @@
 					"Overdue": 0.6
 				},
 				"value": 1.3,
+				"rotating": {
+					"assignedTo": null,
+					"turnsTaken": ["mallee"]
+				},
 				"monday": true,
 				"tuesday": true,
 				"wednesday": true,
@@ -413,16 +463,15 @@
 				"friday": true,
 				"saturday": true,
 				"sunday": true,
-				"rotating": {
-					"assignedTo": null,
-					"turnsTaken": ["mallee"]
-				},
 				"schoolTerm": true,
 				"schoolHolidays": true,
-				"publicHolidays": true
+				"publicHolidays": true,
+				"atHome": true,
+				"away": false
 			},
 			"putShoesOnShoeShelf": {
 				"id": "putShoesOnShoeShelf",
+				"active": true,
 				"thumbnail": null,
 				"name": "Put your shoes on the shoe shelf",
 				"available": "14:45",
@@ -455,6 +504,7 @@
 					"Overdue": 0.5
 				},
 				"value": 1,
+				"rotating": null,
 				"monday": true,
 				"tuesday": true,
 				"wednesday": true,
@@ -462,13 +512,15 @@
 				"friday": true,
 				"saturday": true,
 				"sunday": true,
-				"rotating": null,
 				"schoolTerm": true,
 				"schoolHolidays": true,
-				"publicHolidays": true
+				"publicHolidays": true,
+				"atHome": true,
+				"away": false
 			},
 			"brushYourTeathBeforeBed": {
 				"id": "brushYourTeathBeforeBed",
+				"active": true,
 				"thumbnail": null,
 				"name": "Brush your teath",
 				"available": "18:45",
@@ -508,6 +560,7 @@
 					"Overdue": 0.5
 				},
 				"value": 1,
+				"rotating": null,
 				"monday": true,
 				"tuesday": true,
 				"wednesday": true,
@@ -515,13 +568,13 @@
 				"friday": true,
 				"saturday": false,
 				"sunday": false,
-				"rotating": null,
 				"schoolTerm": true,
 				"schoolHolidays": true,
 				"publicHolidays": true
 			},
 			"brushYourTeathBeforeSchool": {
 				"id": "brushYourTeathBeforeSchool",
+				"active": true,
 				"thumbnail": null,
 				"name": "Brush your teath",
 				"available": "07:45",
@@ -558,6 +611,7 @@
 					"Overdue": 0.5
 				},
 				"value": 1,
+				"rotating": null,
 				"monday": true,
 				"tuesday": true,
 				"wednesday": true,
@@ -565,13 +619,15 @@
 				"friday": true,
 				"saturday": false,
 				"sunday": false,
-				"rotating": null,
 				"schoolTerm": true,
 				"schoolHolidays": true,
-				"publicHolidays": true
+				"publicHolidays": true,
+				"atHome": true,
+				"away": false
 			},
 			"putJarmiesSchool": {
 				"id": "putJarmiesSchool",
+				"active": true,
 				"thumbnail": null,
 				"name": "Put on your Jarmies",
 				"available": "16:30",
@@ -605,20 +661,23 @@
 					"Overdue": 0.5
 				},
 				"value": 1,
+				"rotating": null,
 				"monday": true,
 				"tuesday": true,
 				"wednesday": true,
 				"thursday": true,
-				"friday": true,
+				"friday": false,
 				"saturday": false,
-				"sunday": false,
-				"rotating": null,
+				"sunday": true,
 				"schoolTerm": true,
 				"schoolHolidays": true,
-				"publicHolidays": true
+				"publicHolidays": true,
+				"atHome": true,
+				"away": true
 			},
 			"putJarmiesWeekends": {
 				"id": "putJarmiesNonSchool",
+				"active": true,
 				"thumbnail": null,
 				"name": "Put on your Jarmies",
 				"available": "16:30",
@@ -652,20 +711,23 @@
 					"Overdue": 0.8
 				},
 				"value": 1,
+				"rotating": null,
 				"monday": false,
 				"tuesday": false,
 				"wednesday": false,
 				"thursday": false,
-				"friday": false,
+				"friday": true,
 				"saturday": true,
-				"sunday": true,
-				"rotating": null,
+				"sunday": false,
 				"schoolTerm": true,
 				"schoolHolidays": false,
-				"publicHolidays": false
+				"publicHolidays": false,
+				"atHome": true,
+				"away": true
 			},
 			"putJarmiesHolidays": {
 				"id": "putJarmiesNonSchool",
+				"active": true,
 				"thumbnail": null,
 				"name": "Put on your Jarmies",
 				"available": "16:30",
@@ -699,6 +761,7 @@
 					"Overdue": 0.8
 				},
 				"value": 0.8,
+				"rotating": null,
 				"monday": true,
 				"tuesday": true,
 				"wednesday": true,
@@ -706,13 +769,15 @@
 				"friday": true,
 				"saturday": true,
 				"sunday": true,
-				"rotating": null,
 				"schoolTerm": false,
 				"schoolHolidays": true,
-				"publicHolidays": true
+				"publicHolidays": true,
+				"atHome": true,
+				"away": true
 			},
 			"doWeeBeforeBed": {
 				"id": "doWeeBeforeBed",
+				"active": true,
 				"thumbnail": null,
 				"name": "Do a wee before bed",
 				"available": "19:30",
@@ -745,6 +810,7 @@
 					"Overdue": 1
 				},
 				"value": 1,
+				"rotating": null,
 				"monday": true,
 				"tuesday": true,
 				"wednesday": true,
@@ -752,13 +818,15 @@
 				"friday": true,
 				"saturday": false,
 				"sunday": false,
-				"rotating": null,
 				"schoolTerm": true,
 				"schoolHolidays": true,
-				"publicHolidays": true
+				"publicHolidays": true,
+				"atHome": true,
+				"away": true
 			},
 			"getReadyForSwimming": {
 				"id": "getReadyForSwimming",
+				"active": true,
 				"thumbnail": null,
 				"name": "Get ready for swimming",
 				"available": "16:00",
@@ -780,6 +848,8 @@
 					"Get clean cloths for after swimming",
 					"Get clean shoes and socks",
 				],
+				"valModComLevelNot": -0.3,
+				"valModComLevelExtra": 1.5,
 				"valueModifiers": {
 					"completionLevel": {
 						"Not": -0.3,
@@ -804,7 +874,9 @@
 				"rotating": null,
 				"schoolTerm": true,
 				"schoolHolidays": false,
-				"publicHolidays": false
+				"publicHolidays": false,
+				"atHome": true,
+				"away": false
 			}
 		},
 		"allIDs": ["putOnYourSchoolUniform", "eatBreakySchool", "eatBreakyNonSchool", "putOnYourSchoolShoes", "getToysToTakeToSchool", "emptyChickenBucket", "putShoesOnShoeShelf", "brushYourTeathBeforeBed", "brushYourTeathBeforeSchool", "putJarmiesSchool", "putJarmiesWeekends", "putJarmiesHolidays", "doWeeBeforeBed", "getReadyForSwimming"],
@@ -1050,14 +1122,92 @@
 		"allIDs": ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16"]
 	},
 	"activities": {
-		"byID": {},
-		"allIDs": [],
-		"todaysIDs":[],
+		"byID": {
+			"55da8d15": {
+				"id": "55da8d15",
+				"rawID": "20171201-Ada-EatBreakySchoolAda",
+				"userID": "ada",
+				"taskID": "eatBreakySchoolAda",
+				"valueModifiers": {
+					"completionLevel": {
+						"Not": 0,
+						"Outstandingly": 1.5
+					},
+					"InterventionLevel": {
+						"Volunteered": 1.3,
+						"Prompted": 1,
+						"Coerced": 0.7,
+						"Battled": 0.4
+					},
+					"Overdue": 0.5
+				},
+				"value": 0.8,
+				"pointsToCurrency": 0.1,
+				"scheduleStatus": "Complete",
+				"activityStatus": "Approved",
+				"completed": "2017-12-01T08:05:00+11:00",
+				"acknowledged": "2017-12-01T11:35:12+11:00",
+				"acknowledgedBy": "evan",
+				"acknowledgementNotes": "",
+				"completionLevel": "Partially",
+				"completionValue": 0.8,
+				"interventionLevel": "coerced",
+				"interventionValue": 0.9,
+				"computedValue": 0.7,
+				"doerNotes": ""
+			},
+			"f919e4cb": {
+				"id": "f919e4cb",
+				"rawID": "20171201-Mallee-EatBreakySchoolMallee",
+				"userID": "mallee",
+				"taskID": "eatBreakySchoolMallee",
+				"valueModifiers": {
+					"completionLevel": {
+						"Not": 0,
+						"Outstandingly": 1.5
+					},
+					"InterventionLevel": {
+						"Volunteered": 1.3,
+						"Prompted": 1,
+						"Coerced": 0.7,
+						"Battled": 0.4
+					},
+					"Overdue": 0.5
+				},
+				"value": 0.8,
+				"pointsToCurrency": 0.1,
+				"scheduleStatus": "Complete",
+				"activityStatus": "Approved",
+				"completed": "2017-12-01T07:20:00+11:00",
+				"acknowledged": "2017-12-01T11:32:34+11:00",
+				"acknowledgedBy": "evan",
+				"acknowledgementNotes": "",
+				"completionLevel": "Fully",
+				"completionValue": 1,
+				"interventionLevel": "Prompted",
+				"interventionValue": 1,
+				"computedValue": 0.8,
+				"doerNotes": ""
+			}
+		},
+		"allIDs": ["f919e4cb", "c65e5fc2"],
+		"todaysIDs":["f919e4cb", "c65e5fc2"],
 		"toReviewIDs":[],
-		"IDsByDate": {},
-		"IDsByUser": {},
-		"IDsByCompletionLevel": {},
-		"IDsByInterventionLevel": {}
+		"IDsByDate": {
+			"2017-12-04": ["f919e4cb", "c65e5fc2"]
+		},
+		"IDsByUser": {
+			"ada": ["3571aa91"],
+			"mallee": ["f919e4cb"]
+		},
+		"IDsByCompletionLevel": {
+			"Fully": ["f919e4cb"],
+			"Partially": ["c65e5fc2"]
+		},
+		"IDsByInterventionLevel": {
+			"Prompted": ["f919e4cb"],
+			"Coerced": ["c65e5fc2"]
+		}
 	},
 	"archivedActivities": {
 		"byID": {},
@@ -1068,25 +1218,49 @@
 		"IDsByInterventionLevel": {}
 	},
 	"accountLedger": {
-		"byID": {},
+		"byID": {
+			"595d6705": {
+				"id": "595d6705",
+				"date": "2017-12-01T11:32:34+11:00",
+				"userID": "ada",
+				"activityID": "55da8d15",
+				"pointsValue": 0.7,
+				"monetaryValue": 0.07
+			},
+			"727b311f": {
+				"id": "727b311f",
+				"date": "2017-12-01T11:32:34+11:00",
+				"userID": "mallee",
+				"activityID": "f919e4cb",
+				"pointsValue": 0.8,
+				"monetaryValue": 0.08
+			}
+		},
 		"allIDs": [],
-		"IDsByDate": {},
-		"IDsByUser": {},
-		"IDsByCredit": [],
+		"IDsByDate": {
+			"2017-12-04": ["595d6705", "727b311f"]
+		},
+		"IDsByUser": {
+			"ada": ["595d6705"],
+			"mallee": ["727b311f"]
+		},
+		"IDsByCredit": ["595d6705", "727b311f"],
 		"IDsByDebit": []
 	},
 	"errors": [],
+	"todaysMeta": {
+		"isSchoolDay": false,
+		"isSchoolHoliday": false,
+		"isPublicHoliday": false,
+		"atHome": true,
+		"away": false,
+		"start": null,
+		"end": null,
+		"date": null,
+		"dayOfWeek": null
+	},
 	"uiState": {
 		"filterState": "SHOW_ALL",
 		"activeUser": "mallee",
-		"todaysMeta": {
-			"isSchoolDay": false,
-			"isSchoolHoliday": false,
-			"isPublicHoliday": false,
-			"start": null,
-			"end": null,
-			"date": null,
-			"dayOfWeek": null
-		}
 	}
 }
