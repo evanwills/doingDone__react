@@ -263,7 +263,8 @@ type Goal implements TaskGoal {
 # 
 type taskGoalStep {
 	text: String!,
-	imgURL: String
+	# URL or SVG for visual
+	src: String
 }
 
 # ===================================================================
@@ -569,9 +570,15 @@ enum TaskGoalType {
 }
 
 enum CalendarPeriodType {
-	Week of year
-	Week of month
+	Week of year,
+	Week of month,
 	Week day of month
+}
+
+enum LedgerEntryType {
+	Credit,
+	Debit,
+	Correction
 }
 
 # ===============================================

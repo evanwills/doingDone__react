@@ -54,1411 +54,1419 @@
 		{"date": "2018-12-25", "default": true},
 		{"date": "2018-12-26", "default": true}
 	],
-	"users": {
-		"byID": {
-			"evan": {
-				"id": "evan",
-				"name": "Evan",
-				// "created": "2017-10-18T10:47:00+1000",
-				// "YoB": 1973,
-				// "MoB": 1,
-				"active": true,
-				"approver": true,
-				"colour": "021a91",
-				"avatarURL": "",
-				// "email": "evan.i.wills@gmail.com",
-				"absentDates": [],
-				"showTimeRemaining": true
+	"orm": {
+		"users": {
+			"byID": {
+				"evan": {
+					"id": "evan",
+					"name": "Evan",
+					// "created": "2017-10-18T10:47:00+1000",
+					// "YoB": 1973,
+					// "MoB": 1,
+					"active": true,
+					"approver": true,
+					"colour": "021a91",
+					"avatarURL": "",
+					// "email": "evan.i.wills@gmail.com",
+					"absentDates": [],
+					"showTimeRemaining": true
+				},
+				"georgie": {
+					"id": "georgie",
+					"name": "Georgie",
+					// "created": "2017-10-18T10:47:00+1000",
+					// "YoB": 1979,
+					// "MoB": 9,
+					"active": true,
+					"approver": true,
+					"colour": "e5c75b",
+					"avatarURL": "",
+					// "email": "georginacap@gmail.com",
+					"absentDates": [],
+					"showTimeRemaining": true
+				},
+				"mallee": {
+					"id": "mallee",
+					"name": "Mallee",
+					// "created": "2017-10-18T10:47:00+1000",
+					// "YoB": 2008,
+					// "MoB": 5,
+					"active": true,
+					"approver": false,
+					"colour": "21d13e",
+					"avatarURL": "",
+					// "email": "",
+					"absentDates": [],
+					"showTimeRemaining": true
+				},
+				"ada": {
+					"id": "ada",
+					"name": "Ada",
+					// "created": "2017-10-18T10:47:00+1000",
+					// "YoB": 2010,
+					// "MoB": 7,
+					"active": true,
+					"approver": false,
+					"colour": "3328cc",
+					"avatarURL": "",
+					// "email": "",
+					"absentDates": [],
+					"showTimeRemaining": true
+				}
 			},
-			"georgie": {
-				"id": "georgie",
-				"name": "Georgie",
-				// "created": "2017-10-18T10:47:00+1000",
-				// "YoB": 1979,
-				// "MoB": 9,
-				"active": true,
-				"approver": true,
-				"colour": "e5c75b",
-				"avatarURL": "",
-				// "email": "georginacap@gmail.com",
-				"absentDates": [],
-				"showTimeRemaining": true
+			"allIDs": ["evan", "georgie", "mallee", "ada"]
+		},
+		"tasks": {
+			"byID":{
+				"putOnYourSchoolUniform": {
+					"id": "putOnYourSchoolUniform",
+					"thumbnail": null,
+					"active": true,
+					"name": "Put on your school uniform",
+					"available": "07:00",
+					"due": "08:10",
+					"extendedEndTime": null,
+					"priority": 1,
+					"overNight": false,
+					"required": true,
+					"canCompleteBefore": true,
+					"img": null,
+					"steps": [
+						{"text": "Take off pyjamas", "src": ""},
+						{"text": "put pyjamas on your bed", "src": ""},
+						{"text": "put used undies in washing basket", "src": ""},
+						{"text": "put clean undies on", "src": ""},
+						{"text": "get school cloths out of draws", "src": ""},
+						{"text": "put on school cloths", "src": ""}
+					],
+					"extraSteps": [],
+					"valueModifiers": {
+						"completionLevel": {
+							"Not": 0,
+							"Outstandingly": 1.5
+						},
+						"interventionLevel": {
+							"Volunteered": 1.3,
+							"Prompted": 1,
+							"Coerced": 0.7,
+							"Battled": 0.4
+						},
+						"overdue": 0.5
+					},
+					"value": 1,
+					"rotatingID": null,
+					"monday": true,
+					"tuesday": true,
+					"wednesday": true,
+					"thursday": true,
+					"friday": true,
+					"saturday": false,
+					"sunday": false,
+					"schoolTerm": true,
+					"schoolHolidays": false,
+					"publicHolidays": false,
+					"atHome": true,
+					"away": true
+				},
+				"eatBreakySchoolMallee": {
+					"id": "eatBreakySchool",
+					"active": true,
+					"thumbnail": null,
+					"name": "Eat your breakfast and clean up",
+					"available": "06:00",
+					"due": "07:50",
+					"extendedEndTime": "08:10",
+					"priority": 1,
+					"overNight": false,
+					"required": true,
+					"canCompleteBefore": true,
+					"img": null,
+					"steps": [
+						{"text": "Eat all your breakfast", "src": ""},
+						{"text": "Scrape bowl into chicken bucket", "src": ""},
+						{"text": "Put bowl in the dishwasher (or on the sink)", "src": ""},
+						{"text": "Put breakfast things away", "src": ""}
+					],
+					"extraSteps": [
+						{"text": "Wipe down table", "src": ""}
+					],
+					"valueModifiers": {
+						"completionLevel": {
+							"Not": 0,
+							"Outstandingly": 1.5
+						},
+						"interventionLevel": {
+							"Volunteered": 1.3,
+							"Prompted": 1,
+							"Coerced": 0.7,
+							"Battled": 0.4
+						},
+						"overdue": 0.5
+					},
+					"value": 0.8,
+					"rotatingID": null,
+					"monday": true,
+					"tuesday": true,
+					"wednesday": true,
+					"thursday": true,
+					"friday": true,
+					"saturday": true,
+					"sunday": false,
+					"schoolTerm": true,
+					"schoolHolidays": false,
+					"publicHolidays": false,
+					"atHome": true,
+					"away": true
+				},
+				"eatBreakySchoolAda": {
+					"id": "eatBreakySchool",
+					"active": true,
+					"thumbnail": null,
+					"name": "Eat your breakfast and clean up",
+					"available": "06:00",
+					"due": "08:00",
+					"extendedEndTime": "08:20",
+					"priority": 1,
+					"overNight": false,
+					"required": true,
+					"canCompleteBefore": true,
+					"img": null,
+					"steps": [
+						{"text": "Eat all your breakfast", "src": ""},
+						{"text": "Scrape bowl into chicken bucket", "src": ""},
+						{"text": "Put bowl in the dishwasher (or on the sink)", "src": ""},
+						{"text": "Put breakfast things away", "src": ""}
+					],
+					"extraSteps": [
+						{"text": "Wipe down table", "src": ""}
+					],
+					"valueModifiers": {
+						"completionLevel": {
+							"Not": 0,
+							"Outstandingly": 1.5
+						},
+						"interventionLevel": {
+							"Volunteered": 1.3,
+							"Prompted": 1,
+							"Coerced": 0.7,
+							"Battled": 0.4
+						},
+						"overdue": 0.5
+					},
+					"value": 0.8,
+					"rotatingID": null,
+					"monday": true,
+					"tuesday": true,
+					"wednesday": true,
+					"thursday": true,
+					"friday": true,
+					"saturday": true,
+					"sunday": false,
+					"schoolTerm": true,
+					"schoolHolidays": false,
+					"publicHolidays": false,
+					"atHome": true,
+					"away": true
+				},
+				"eatBreakyNonSchool": {
+					"id": "eatBreakyNonSchool",
+					"active": true,
+					"thumbnail": null,
+					"name": "Eat your breakfast and clean up",
+					"available": "06:00",
+					"due": "09:30",
+					"extendedEndTime": null,
+					"priority": 1,
+					"overNight": false,
+					"required": true,
+					"canCompleteBefore": true,
+					"img": null,
+					"steps": [
+						{"text": "Eat all your breakfast", "src": ""},
+						{"text": "Scrape bowl into chicken bucket", "src": ""},
+						{"text": "Put bowl in the dishwasher (or on the sink)", "src": ""},
+						{"text": "Put breakfast things away", "src": ""}
+					],
+					"extraSteps": [
+						{"text":"Wipe down table", "src": ""}
+					],
+					"valueModifiers": {
+						"completionLevel": {
+							"Not": 0,
+							"Outstandingly": 1.2
+						},
+						"interventionLevel": {
+							"Volunteered": 1.2,
+							"Prompted": 0.9,
+							"Coerced": 0.6,
+							"Battled": 0.3
+						},
+						"overdue": 0.5
+					},
+					"value": 0.5,
+					"rotatingID": null,
+					"monday": true,
+					"tuesday": true,
+					"wednesday": true,
+					"thursday": true,
+					"friday": true,
+					"saturday": true,
+					"sunday": true,
+					"schoolTerm": false,
+					"schoolHolidays": true,
+					"publicHolidays": true,
+					"atHome": true,
+					"away": true
+				},
+				"putOnYourSchoolShoes": {
+					"id": "putOnYourSchoolShoes",
+					"active": true,
+					"thumbnail": null,
+					"name": "Put on your school shoes",
+					"available": "07:45",
+					"due": "08:10",
+					"extendedEndTime": null,
+					"priority": 2,
+					"overNight": false,
+					"required": true,
+					"canCompleteBefore": true,
+					"img": null,
+					"steps": [
+						{"text": "Find socks", "src": ""},
+						{"text": "Put on socks", "src": ""},
+						{"text": "Put on shoes", "src": ""}
+						
+					],
+					"extraSteps": [
+						{"text": "Tie shoe laces", "src": ""},
+						{"text": "Put unused shoes on shoe shelf", "src": ""}
+					],
+					"valueModifiers": {
+						"completionLevel": {
+							"Not": 0,
+							"Outstandingly": 1.5
+						},
+						"interventionLevel": {
+							"Volunteered": 1.3,
+							"Prompted": 1,
+							"Coerced": 0.7,
+							"Battled": 0.4
+						},
+						"overdue": 0.5
+					},
+					"value": 1,
+					"rotatingID": null,
+					"monday": true,
+					"tuesday": true,
+					"wednesday": true,
+					"thursday": true,
+					"friday": true,
+					"saturday": false,
+					"sunday": false,
+					"schoolTerm": true,
+					"schoolHolidays": false,
+					"publicHolidays": false,
+					"atHome": true,
+					"false": true
+				},
+				"getToysToTakeToSchool": {
+					"id": "getToysToTakeToSchool",
+					"active": true,
+					"thumbnail": null,
+					"name": "Get toys to take to school",
+					"available": "06:45",
+					"due": "08:10",
+					"extendedEndTime": "8:15",
+					"priority": 3,
+					"overNight": false,
+					"required": false,
+					"canCompleteBefore": true,
+					"img": null,
+					"steps": [
+						{"text": "Choose toys", "src": ""},
+						{"text": "Find toys", "src": ""},
+						{"text": "Put toys in school bag", "src": ""}
+					],
+					"extraSteps": [],
+					"valueModifiers": {
+						"completionLevel": {
+							"Not": 0,
+							"Outstandingly": 1
+						},
+						"interventionLevel": {
+							"Volunteered": 1,
+							"Prompted": 0.8,
+							"Coerced": 0.5,
+							"Battled": 0.2
+						},
+						"overdue": 0.5
+					},
+					"value": 0.2,
+					"rotatingID": null,
+					"monday": true,
+					"tuesday": false,
+					"wednesday": false,
+					"thursday": false,
+					"friday": true,
+					"saturday": false,
+					"sunday": false,
+					"schoolTerm": true,
+					"schoolHolidays": false,
+					"publicHolidays": false,
+					"atHome": true,
+					"away": true
+				},
+				"emptyChickenBucket": {
+					"id": "emptyChickenBucket",
+					"active": true,
+					"thumbnail": null,
+					"name": "Empty chicken bucket",
+					"available": "05:45",
+					"due": "08:10",
+					"extendedEndTime": "16:45",
+					"priority": 3,
+					"overNight": false,
+					"required": true,
+					"canCompleteBefore": true,
+					"img": null,
+					"steps": [
+						{"text": "Get chicken bucket", "src": ""},
+						{"text": "Make sure all chickens are in chicken yard", "src": ""},
+						{"text": "Empty chicken bucket near Bannana trees", "src": ""},
+						{"text": "Make sure gate is properly closed", "src": ""}
+					],
+					"extraSteps": [
+						{"text": "Check feeder", "src": ""},
+						{"text": "Check water", "src": ""},
+						{"text": "Wash out chicken bucket", "src": ""},
+						{"text": "Collect eggs without breaking any", "src": ""}
+					],
+					"valueModifiers": {
+						"completionLevel": {
+							"Not": 0,
+							"Outstandingly": 1.5
+						},
+						"interventionLevel": {
+							"Volunteered": 1.3,
+							"Prompted": 1,
+							"Coerced": 0.7,
+							"Battled": 0.4
+						},
+						"overdue": 0.6
+					},
+					"value": 1.3,
+					"rotatID": "1",
+					"monday": true,
+					"tuesday": true,
+					"wednesday": true,
+					"thursday": true,
+					"friday": true,
+					"saturday": true,
+					"sunday": true,
+					"schoolTerm": true,
+					"schoolHolidays": true,
+					"publicHolidays": true,
+					"atHome": true,
+					"away": false
+				},
+				"putShoesOnShoeShelf": {
+					"id": "putShoesOnShoeShelf",
+					"active": true,
+					"thumbnail": null,
+					"name": "Put your shoes on the shoe shelf",
+					"available": "14:45",
+					"due": "20:00",
+					"extendedEndTime": null,
+					"priority": 1,
+					"overNight": false,
+					"required": true,
+					"canCompleteBefore": false,
+					"img": null,
+					"steps": [
+						{"text": "Put shoes on shoe shelf", "src": ""},
+						{"text": "If socks are clean put socks in shoes", "src": ""},
+						{"text": "or put them in the washing basket", "src": ""}
+					],
+					"extraSteps": [
+						{"text": "Put unused shoes on shoe shelf", "src": ""}
+					],
+					"valueModifiers": {
+						"completionLevel": {
+							"Not": 0,
+							"Outstandingly": 1.5
+						},
+						"interventionLevel": {
+							"Volunteered": 1.3,
+							"Prompted": 1,
+							"Coerced": 0.7,
+							"Battled": 0.4
+						},
+						"overdue": 0.5
+					},
+					"value": 1,
+					"rotatingID": null,
+					"monday": true,
+					"tuesday": true,
+					"wednesday": true,
+					"thursday": true,
+					"friday": true,
+					"saturday": true,
+					"sunday": true,
+					"schoolTerm": true,
+					"schoolHolidays": true,
+					"publicHolidays": true,
+					"atHome": true,
+					"away": false
+				},
+				"brushYourTeathBeforeBed": {
+					"id": "brushYourTeathBeforeBed",
+					"active": true,
+					"thumbnail": null,
+					"name": "Brush your teath",
+					"available": "18:45",
+					"due": "19:45",
+					"extendedEndTime": "20:15",
+					"priority": 1,
+					"overNight": false,
+					"required": true,
+					"canCompleteBefore": false,
+					"img": null,
+					"steps": [
+						{"text": "Get toothbrush", "src": ""},
+						{"text": "Get toothpaste", "src": ""},
+						{"text": "Put toothpaste on toothbrush", "src": ""},
+						{"text": "Put a bit of water on toothbrush", "src": ""},
+						{"text": "Brush teeth", "src": ""},
+						{"text": "Swish, swish spit", "src": ""},
+						{"text": "Swish, swish spit", "src": ""},
+						{"text": "Clean toothbrush", "src": ""},
+						{"text": "Put toothbrush away", "src": ""},
+						{"text": "Put cap on Toothpaste and put away", "src": ""}
+					],
+					"extraSteps": [
+						{"text": "Clean mirror", "src": ""}
+					],
+					"valueModifiers": {
+						"completionLevel": {
+							"Not": 0,
+							"Outstandingly": 1.5
+						},
+						"interventionLevel": {
+							"Volunteered": 1.3,
+							"Prompted": 1,
+							"Coerced": 0.7,
+							"Battled": 0.4
+						},
+						"overdue": 0.5
+					},
+					"value": 1,
+					"rotatingID": null,
+					"monday": true,
+					"tuesday": true,
+					"wednesday": true,
+					"thursday": true,
+					"friday": true,
+					"saturday": false,
+					"sunday": false,
+					"schoolTerm": true,
+					"schoolHolidays": true,
+					"publicHolidays": true
+				},
+				"brushYourTeathAfterBreakfast": {
+					"id": "brushYourTeathAfterBreakfast",
+					"active": true,
+					"thumbnail": null,
+					"name": "Brush your teath",
+					"available": "07:45",
+					"due": "08:05",
+					"extendedEndTime": "20:15",
+					"priority": 1,
+					"overNight": false,
+					"required": true,
+					"canCompleteBefore": false,
+					"img": null,
+					"steps": [
+						{"text": "Get toothbrush", "src": ""},
+						{"text": "Get toothpaste", "src": ""},
+						{"text": "Put toothpaste on toothbrush", "src": ""},
+						{"text": "Put a bit of water on toothbrush", "src": ""},
+						{"text": "Brush teeth", "src": ""},
+						{"text": "Swish, swish spit", "src": ""},
+						{"text": "Swish, swish spit", "src": ""},
+						{"text": "Clean toothbrush", "src": ""},
+						{"text": "Put toothbrush away", "src": ""},
+						{"text": "Put cap on Toothpaste and put away", "src": ""}
+					],
+					"extraSteps": [],
+					"valueModifiers": {
+						"completionLevel": {
+							"Not": 0,
+							"Outstandingly": 1.5
+						},
+						"interventionLevel": {
+							"Volunteered": 1.3,
+							"Prompted": 1,
+							"Coerced": 0.7,
+							"Battled": 0.4
+						},
+						"overdue": 0.5
+					},
+					"value": 1,
+					"rotatingID": null,
+					"monday": true,
+					"tuesday": true,
+					"wednesday": true,
+					"thursday": true,
+					"friday": true,
+					"saturday": false,
+					"sunday": false,
+					"schoolTerm": true,
+					"schoolHolidays": true,
+					"publicHolidays": true,
+					"atHome": true,
+					"away": false
+				},
+				"putJarmiesSchool": {
+					"id": "putJarmiesSchool",
+					"active": true,
+					"thumbnail": null,
+					"name": "Put on your Jarmies",
+					"available": "16:30",
+					"due": "20:00",
+					"extendedEndTime": null,
+					"priority": 1,
+					"overNight": false,
+					"required": false,
+					"canCompleteBefore": true,
+					"img": null,
+					"steps": [
+						"Get get undressed",
+						"Put on your jarmies",
+						"Put dirty cloths in basket",
+						"Put clean cloths on the end of your bed"
+					],
+					"extraSteps": [
+						"Pick up any dirty cloths on the floor and put in dirty cloths basket"
+					],
+					"valueModifiers": {
+						"completionLevel": {
+							"Not": 0,
+							"Outstandingly": 1.5
+						},
+						"interventionLevel": {
+							"Volunteered": 1.3,
+							"Prompted": 1,
+							"Coerced": 0.7,
+							"Battled": 0.4
+						},
+						"overdue": 0.5
+					},
+					"value": 1,
+					"rotatingID": null,
+					"monday": true,
+					"tuesday": true,
+					"wednesday": true,
+					"thursday": true,
+					"friday": false,
+					"saturday": false,
+					"sunday": true,
+					"schoolTerm": true,
+					"schoolHolidays": true,
+					"publicHolidays": true,
+					"atHome": true,
+					"away": true
+				},
+				"putJarmiesWeekends": {
+					"id": "putJarmiesNonSchool",
+					"active": true,
+					"thumbnail": null,
+					"name": "Put on your Jarmies",
+					"available": "16:30",
+					"due": "20:00",
+					"extendedEndTime": null,
+					"priority": 1,
+					"overNight": false,
+					"required": false,
+					"canCompleteBefore": true,
+					"img": null,
+					"steps": [
+						{"text": "Get get undressed", "src": ""},
+						{"text": "Put on your jarmies", "src": ""},
+						{"text": "Put dirty cloths in basket", "src": ""},
+						{"text": "Put clean cloths on the end of your bed", "src": ""}
+					],
+					"extraSteps": [
+						{"text": "Pick up any dirty cloths on the floor and put in dirty cloths basket", "src": ""}
+					],
+					"valueModifiers": {
+						"completionLevel": {
+							"Not": 0,
+							"Outstandingly": 1.3
+						},
+						"interventionLevel": {
+							"Volunteered": 1.2,
+							"Prompted": 1,
+							"Coerced": 0.6,
+							"Battled": 0.3
+						},
+						"overdue": 0.8
+					},
+					"value": 1,
+					"rotatingID": null,
+					"monday": false,
+					"tuesday": false,
+					"wednesday": false,
+					"thursday": false,
+					"friday": true,
+					"saturday": true,
+					"sunday": false,
+					"schoolTerm": true,
+					"schoolHolidays": false,
+					"publicHolidays": false,
+					"atHome": true,
+					"away": true
+				},
+				"putJarmiesHolidays": {
+					"id": "putJarmiesNonSchool",
+					"active": true,
+					"thumbnail": null,
+					"name": "Put on your Jarmies",
+					"available": "16:30",
+					"due": "20:00",
+					"extendedEndTime": null,
+					"priority": 1,
+					"overNight": false,
+					"required": false,
+					"canCompleteBefore": true,
+					"img": null,
+					"steps": [
+						{"text": "Get get undressed", "src": ""},
+						{"text": "Put on your jarmies", "src": ""},
+						{"text": "Put dirty cloths in basket", "src": ""},
+						{"text": "Put clean cloths on the end of your bed", "src": ""}
+					],
+					"extraSteps": [
+						{"text": "Pick up any dirty cloths on the floor and put in dirty cloths basket", "src": ""},
+						
+					],
+					"valueModifiers": {
+						"completionLevel": {
+							"Not": 0,
+							"Outstandingly": 1.3
+						},
+						"interventionLevel": {
+							"Volunteered": 1.2,
+							"Prompted": 1,
+							"Coerced": 0.6,
+							"Battled": 0.3
+						},
+						"overdue": 0.8
+					},
+					"value": 0.8,
+					"rotatingID": null,
+					"monday": true,
+					"tuesday": true,
+					"wednesday": true,
+					"thursday": true,
+					"friday": true,
+					"saturday": true,
+					"sunday": true,
+					"schoolTerm": false,
+					"schoolHolidays": true,
+					"publicHolidays": true,
+					"atHome": true,
+					"away": true
+				},
+				"doWeeBeforeBed": {
+					"id": "doWeeBeforeBed",
+					"active": true,
+					"thumbnail": null,
+					"name": "Do a wee before bed",
+					"available": "19:30",
+					"due": "20:15",
+					"extendedEndTime": "21:00",
+					"priority": 1,
+					"overNight": false,
+					"required": true,
+					"canCompleteBefore": false,
+					"img": null,
+					"steps": [
+						{"text": "Lift up toilet seat", "src": ""},
+						{"text": "Do wee", "src": ""},
+						{"text": "put toilet seat back down", "src": ""}
+					],
+					"extraSteps": [
+						{"text": "Put toilet seet back down", "src": ""}
+						
+					],
+					"valueModifiers": {
+						"completionLevel": {
+							"Not": -0.3,
+							"Outstandingly": 1.2
+						},
+						"interventionLevel": {
+							"Volunteered": 1.3,
+							"Prompted": 1,
+							"Coerced": 0.6,
+							"Battled": 0.3
+						},
+						"overdue": 1
+					},
+					"value": 1,
+					"rotatingID": null,
+					"monday": true,
+					"tuesday": true,
+					"wednesday": true,
+					"thursday": true,
+					"friday": true,
+					"saturday": false,
+					"sunday": false,
+					"schoolTerm": true,
+					"schoolHolidays": true,
+					"publicHolidays": true,
+					"atHome": true,
+					"away": true
+				},
+				"getReadyForSwimming": {
+					"id": "getReadyForSwimming",
+					"active": true,
+					"thumbnail": null,
+					"name": "Get ready for swimming",
+					"available": "16:00",
+					"due": "08:20",
+					"priority": 1,
+					"overNight": true,
+					"required": true,
+					"extendedEndTime": null,
+					"canCompleteBefore": true,
+					"expand": true,
+					"img": null,
+					"steps": [
+						{"text": "Find swimmers", "src": ""},
+						{"text": "get clean undies", "src": ""},
+						{"text": "get goggles & swimming cap", "src": ""},
+						{"text": "get towel", "src": ""}
+					],
+					"extraSteps": [
+						{"text": "Get clean cloths for after swimming", "src": ""},
+						{"text": "Get clean shoes and socks", "src": ""}
+					],
+					"valModComLevelNot": -0.3,
+					"valModComLevelExtra": 1.5,
+					"valueModifiers": {
+						"completionLevel": {
+							"Not": -0.3,
+							"Outstandingly": 1.5
+						},
+						"interventionLevel": {
+							"Volunteered": 1.4,
+							"Prompted": 1,
+							"Coerced": 0.7,
+							"Battled": 0.4
+						},
+						"overdue": 0.5
+					},
+					"value": 1.2,
+					"monday": false,
+					"tuesday": false,
+					"wednesday": false,
+					"thursday": false,
+					"friday": true,
+					"saturday": false,
+					"sunday": false,
+					"rotatingID": null,
+					"schoolTerm": true,
+					"schoolHolidays": false,
+					"publicHolidays": false,
+					"atHome": true,
+					"away": false
+				}
 			},
-			"mallee": {
-				"id": "mallee",
-				"name": "Mallee",
-				// "created": "2017-10-18T10:47:00+1000",
-				// "YoB": 2008,
-				// "MoB": 5,
-				"active": true,
-				"approver": false,
-				"colour": "21d13e",
-				"avatarURL": "",
-				// "email": "",
-				"absentDates": [],
-				"showTimeRemaining": true
+			"allIDs": ["putOnYourSchoolUniform", "eatBreakySchool", "eatBreakyNonSchool", "putOnYourSchoolShoes", "getToysToTakeToSchool", "emptyChickenBucket", "putShoesOnShoeShelf", "brushYourTeathBeforeBed", "brushYourTeathAfterBreakfast", "putJarmiesSchool", "putJarmiesWeekends", "putJarmiesHolidays", "doWeeBeforeBed", "getReadyForSwimming"],
+			"mondayIDs": [], // Index of tasks that can be done on Mondays
+			"tuesdayIDs": [],
+			"wednesdayIDs": [],
+			"thursdayIDs": [],
+			"fridayIDs": [],
+			"saturdayIDs": [],
+			"sundayIDs": [],
+			"schoolTermIDs": [],
+			"schoolHolidayIDs": [],
+			"publicHolidayIDs": []
+		},
+		"userTask": {
+			"byID": {
+				"1": {
+					"id": "1",
+					"taskID": "putOnYourSchoolUniform",
+					"userID": "mallee"
+				},
+				"2": {
+					"id": "2",
+					"taskID": "putOnYourSchoolUniform",
+					"userID": "ada"
+				},
+				"3": {
+					"id": "3",
+					"taskID": "eatBreakySchool",
+					"userID": "mallee"
+				},
+				"4": {
+					"id": "4",
+					"taskID": "eatBreakySchool",
+					"userID": "ada"
+				},
+				"5": {
+					"id": "5",
+					"taskID": "eatBreakyNonSchool",
+					"userID": "mallee"
+				},
+				"6": {
+					"id": "6",
+					"taskID": "eatBreakyNonSchool",
+					"userID": "ada"
+				},
+				"7": {
+					"id": "7",
+					"taskID": "putOnYourSchoolShoes",
+					"userID": "mallee"
+				},
+				"8": {
+					"id": "8",
+					"taskID": "putOnYourSchoolShoes",
+					"userID": "ada"
+				},
+				"9": {
+					"id": "9",
+					"taskID": "putOnYourSchoolUniform",
+					"userID": "mallee"
+				},
+				"10": {
+					"id": "10",
+					"taskID": "putOnYourSchoolUniform",
+					"userID": "ada"
+				},
+				"11": {
+					"id": "11",
+					"taskID": "getToysToTakeToSchool",
+					"userID": "mallee"
+				},
+				"12": {
+					"id": "12",
+					"taskID": "getToysToTakeToSchool",
+					"userID": "ada"
+				},
+				"13": {
+					"id": "13",
+					"taskID": "emptyChickenBucket",
+					"userID": "mallee"
+				},
+				"14": {
+					"id": "14",
+					"taskID": "emptyChickenBucket",
+					"userID": "ada"
+				},
+				"15": {
+					"id": "15",
+					"taskID": "putShoesOnShoeShelf",
+					"userID": "mallee"
+				},
+				"16": {
+					"id": "16",
+					"taskID": "putShoesOnShoeShelf",
+					"userID": "ada"
+				},
+				"17": {
+					"id": "17",
+					"taskID": "brushYourTeathBeforeBed",
+					"userID": "mallee"
+				},
+				"18": {
+					"id": "18",
+					"taskID": "brushYourTeathBeforeBed",
+					"userID": "ada"
+				},
+				"19": {
+					"id": "19",
+					"taskID": "brushYourTeathAfterBreakfast",
+					"userID": "mallee"
+				},
+				"20": {
+					"id": "20",
+					"taskID": "brushYourTeathAfterBreakfast",
+					"userID": "ada"
+				},
+				"21": {
+					"id": "21",
+					"taskID": "putJarmiesSchool",
+					"userID": "mallee"
+				},
+				"22": {
+					"id": "22",
+					"taskID": "putJarmiesSchool",
+					"userID": "ada"
+				},
+				"23": {
+					"id": "23",
+					"taskID": "putJarmiesWeekends",
+					"userID": "mallee"
+				},
+				"24": {
+					"id": "24",
+					"taskID": "putJarmiesWeekends",
+					"userID": "ada"
+				},
+				"25": {
+					"id": "25",
+					"taskID": "putJarmiesHolidays",
+					"userID": "mallee"
+				},
+				"26": {
+					"id": "26",
+					"taskID": "putJarmiesHolidays",
+					"userID": "ada"
+				},
+				"27": {
+					"id": "27",
+					"taskID": "doWeeBeforeBed",
+					"userID": "mallee"
+				}
 			},
-			"ada": {
-				"id": "ada",
-				"name": "Ada",
-				// "created": "2017-10-18T10:47:00+1000",
-				// "YoB": 2010,
-				// "MoB": 7,
-				"active": true,
-				"approver": false,
-				"colour": "3328cc",
-				"avatarURL": "",
-				// "email": "",
-				"absentDates": [],
-				"showTimeRemaining": true
+			"allIDs": ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27"],
+			"IDsByUser": {
+				"mallee": ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27"],
+				"ada": ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26"]
+			},
+			"IDsByTask": {}
+		},
+		"userSchoolTerm": {
+			"byID": {
+				"1": {
+					"id": "1",
+					"schoolTerm": "2017012720170407",
+					"user": "mallee"
+				},
+				"2": {
+					"id": "2",
+					"schoolTerm": "2017012720170407",
+					"user": "ada"
+				},
+				"3": {
+					"id": "3",
+					"schoolTerm": "2017042420170630",
+					"user": "mallee"
+				},
+				"4": {
+					"id": "4",
+					"schoolTerm": "2017042420170630",
+					"user": "ada"
+				},
+				"5": {
+					"id": "5",
+					"schoolTerm": "2017071720170922",
+					"user": "mallee"
+				},
+				"6": {
+					"id": "6",
+					"schoolTerm": "2017071720170922",
+					"user": "ada"
+				},
+				"7": {
+					"id": "7",
+					"schoolTerm": "2017100920171219",
+					"user": "mallee"
+				},
+				"8": {
+					"id": "8",
+					"schoolTerm": "2017100920171219",
+					"user": "ada"
+				},
+				"9": {
+					"id": "9",
+					"schoolTerm": "2018012920180413",
+					"user": "mallee"
+				},
+				"10": {
+					"id": "10",
+					"schoolTerm": "2018012920180413",
+					"user": "ada"
+				},
+				"11": {
+					"id": "11",
+					"schoolTerm": "2018050120180706",
+					"user": "mallee"
+				},
+				"12": {
+					"id": "12",
+					"schoolTerm": "2018050120180706",
+					"user": "ada"
+				},
+				"13": {
+					"id": "13",
+					"schoolTerm": "2018072420180928",
+					"user": "mallee"
+				},
+				"14": {
+					"id": "14",
+					"schoolTerm": "2018072420180928",
+					"user": "ada"
+				},
+				"15": {
+					"id": "15",
+					"schoolTerm": "2018101520181219",
+					"user": "mallee"
+				},
+				"16": {
+					"id": "16",
+					"schoolTerm": "2018101520181219",
+					"user": "ada"
+				}
+			},
+			"allIDs": ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16"]
+		},
+		"tags": {
+			"byID": {
+				"1": {
+					"id": "1",
+					"name": "Personal care"
+				},
+				"2": {
+					"id": "2",
+					"name": "Household chore"
+				},
+				"3": {
+					"id": "3",
+					"name": "School"
+				},
+				"4": {
+					"id": "4",
+					"name": "Pets"
+				},
+				"5": {
+					"id": "5",
+					"name": "Preparation"
+				},
+				"6": {
+					"id": "6",
+					"name": "Food"
+				}
+			},
+			"allIDs": ["1", "2", "3", "4", "5"]
+		},
+		"taskTags": {
+			"byID": {
+				"1": {
+					"id": "1",
+					"taskID": "putOnYourSchoolUniform",
+					"tagID": "1"
+				},
+				"2": {
+					"id": "2",
+					"taskID": "putOnYourSchoolUniform",
+					"tagID": "3"
+				},
+				"3": {
+					"id": "3",
+					"taskID": "putOnYourSchoolUniform",
+					"tagID": "5"
+				},
+				"4": {
+					"id": "4",
+					"taskID": "eatBreakySchoolMallee",
+					"tagID": "1"
+				},
+				"5": {
+					"id": "5",
+					"taskID": "eatBreakySchoolMallee",
+					"tagID": "5"
+				},
+				"6": {
+					"id": "6",
+					"taskID": "eatBreakySchoolMallee",
+					"tagID": "6"
+				},
+				"7": {
+					"id": "7",
+					"taskID": "eatBreakySchoolAda",
+					"tagID": "1"
+				},
+				"8": {
+					"id": "8",
+					"taskID": "eatBreakySchoolAda",
+					"tagID": "5"
+				},
+				"9": {
+					"id": "9",
+					"taskID": "eatBreakySchoolAda",
+					"tagID": "6"
+				},
+				"10": {
+					"id": "10",
+					"taskID": "eatBreakyNonSchool",
+					"tagID": "1"
+				},
+				"11": {
+					"id": "11",
+					"taskID": "eatBreakyNonSchool",
+					"tagID": "6"
+				},
+				"12": {
+					"id": "12",
+					"taskID": "getToysToTakeToSchool",
+					"tagID": "3"
+				},
+				"13": {
+					"id": "14",
+					"taskID": "getToysToTakeToSchool",
+					"tagID": "5"
+				},
+				"14": {
+					"id": "14",
+					"taskID": "emptyChickenBucket",
+					"tagID": "2"
+				},
+				"15": {
+					"id": "15",
+					"taskID": "emptyChickenBucket",
+					"tagID": "4"
+				},
+				"16": {
+					"id": "16",
+					"taskID": "putShoesOnShoeShelf",
+					"tagID": "1"
+				},
+				"17": {
+					"id": "17",
+					"taskID": "putShoesOnShoeShelf",
+					"tagID": "2"
+				},
+				"18": {
+					"id": "18",
+					"taskID": "brushYourTeathBeforeBed",
+					"tagID": "1"
+				},
+				"19": {
+					"id": "19",
+					"taskID": "brushYourTeathBeforeBed",
+					"tagID": "5"
+				},
+				"20": {
+					"id": "20",
+					"taskID": "brushYourTeathBeforeBed",
+					"tagID": "6"
+				},
+				"21": {
+					"id": "21",
+					"taskID": "brushYourTeathAfterBreakfast",
+					"tagID": "1"
+				},
+				"22": {
+					"id": "22",
+					"taskID": "brushYourTeathAfterBreakfast",
+					"tagID": "5"
+				},
+				"23": {
+					"id": "23",
+					"taskID": "brushYourTeathAfterBreakfast",
+					"tagID": "6"
+				},
+				"24": {
+					"id": "24",
+					"taskID": "putJarmiesSchool",
+					"tagID": "1"
+				},
+				"25": {
+					"id": "25",
+					"taskID": "putJarmiesSchool",
+					"tagID": "5"
+				},
+				"26": {
+					"id": "26",
+					"taskID": "putJarmiesWeekends",
+					"tagID": "1"
+				},
+				"27": {
+					"id": "27",
+					"taskID": "putJarmiesWeekends",
+					"tagID": "5"
+				},
+				"28": {
+					"id": "28",
+					"taskID": "putJarmiesHolidays",
+					"tagID": "1"
+				},
+				"29": {
+					"id": "29",
+					"taskID": "putJarmiesHolidays",
+					"tagID": "5"
+				},
+				"30": {
+					"id": "30",
+					"taskID": "doWeeBeforeBed",
+					"tagID": "1"
+				},
+				"31": {
+					"id": "31",
+					"taskID": "doWeeBeforeBed",
+					"tagID": "5"
+				},
+				"32": {
+					"id": "32",
+					"taskID": "getReadyForSwimming",
+					"tagID": "5"
+				}
+			},
+			"allIDs": ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32"]
+		},
+		"taskRotation": {
+			"byID": {
+				"1": {
+					"id": "1",
+					"taskID": "emptyChickenBucket",
+					"currentUser": "ada",
+					"availableUserIDs": [],
+					"turnTakenUserIDs": []
+				}
 			}
 		},
-		"allIDs": ["evan", "georgie", "mallee", "ada"]
-	},
-	"tasks": {
-		"byID":{
-			"putOnYourSchoolUniform": {
-				"id": "putOnYourSchoolUniform",
-				"thumbnail": null,
-				"active": true,
-				"name": "Put on your school uniform",
-				"available": "07:00",
-				"due": "08:10",
-				"extendedEndTime": null,
-				"priority": 1,
-				"overNight": false,
-				"required": true,
-				"canCompleteBefore": true,
-				"img": null,
-				"steps": [
-					{"text": "Take off pyjamas", "src": ""},
-					{"text": "put pyjamas on your bed", "src": ""},
-					{"text": "put used undies in washing basket", "src": ""},
-					{"text": "put clean undies on", "src": ""},
-					{"text": "get school cloths out of draws", "src": ""},
-					{"text": "put on school cloths", "src": ""}
-				],
-				"extraSteps": [],
-				"valueModifiers": {
-					"completionLevel": {
-						"Not": 0,
-						"Outstandingly": 1.5
+		"activities": {
+			"byID": {
+				"55da8d15": {
+					"id": "55da8d15",
+					"rawID": "20171201-Ada-EatBreakySchoolAda",
+					"userID": "ada",
+					"taskID": "eatBreakySchoolAda",
+					"valueModifiers": {
+						"completionLevel": {
+							"Not": 0,
+							"Outstandingly": 1.5
+						},
+						"interventionLevel": {
+							"Volunteered": 1.3,
+							"Prompted": 1,
+							"Coerced": 0.7,
+							"Battled": 0.4
+						},
+						"overdue": 0.5
 					},
-					"interventionLevel": {
-						"Volunteered": 1.3,
-						"Prompted": 1,
-						"Coerced": 0.7,
-						"Battled": 0.4
-					},
-					"overdue": 0.5
+					"value": 0.8,
+					"pointsToCurrency": 0.1,
+					"scheduleStatus": "Complete",
+					"activityStatus": "Approved",
+					"completed": "2017-12-01T08:05:00+11:00",
+					"acknowledged": "2017-12-01T11:35:12+11:00",
+					"acknowledgedBy": "evan",
+					"acknowledgementNotes": "",
+					"completionLevel": "Partially",
+					"completionValue": 0.8,
+					"interventionLevel": "coerced",
+					"interventionValue": 0.9,
+					"computedValue": 0.7,
+					"doerNotes": "",
+					"ignoreTime": false
 				},
-				"value": 1,
-				"rotatingID": null,
-				"monday": true,
-				"tuesday": true,
-				"wednesday": true,
-				"thursday": true,
-				"friday": true,
-				"saturday": false,
-				"sunday": false,
-				"schoolTerm": true,
-				"schoolHolidays": false,
-				"publicHolidays": false,
-				"atHome": true,
-				"away": true
+				"f919e4cb": {
+					"id": "f919e4cb",
+					"rawID": "20171201-Mallee-EatBreakySchoolMallee",
+					"userID": "mallee",
+					"taskID": "eatBreakySchoolMallee",
+					"valueModifiers": {
+						"completionLevel": {
+							"Not": 0,
+							"Outstandingly": 1.5
+						},
+						"interventionLevel": {
+							"Volunteered": 1.3,
+							"Prompted": 1,
+							"Coerced": 0.7,
+							"Battled": 0.4
+						},
+						"overdue": 0.5
+					},
+					"value": 0.8,
+					"pointsToCurrency": 0.1,
+					"scheduleStatus": "Complete",
+					"activityStatus": "Approved",
+					"completed": "2017-12-01T07:20:00+11:00",
+					"acknowledged": "2017-12-01T11:32:34+11:00",
+					"acknowledgedBy": "evan",
+					"acknowledgementNotes": "",
+					"completionLevel": "Fully",
+					"completionValue": 1,
+					"interventionLevel": "Prompted",
+					"interventionValue": 1,
+					"computedValue": 0.8,
+					"doerNotes": "",
+					"ignoreTime": false
+				}
 			},
-			"eatBreakySchoolMallee": {
-				"id": "eatBreakySchool",
-				"active": true,
-				"thumbnail": null,
-				"name": "Eat your breakfast and clean up",
-				"available": "06:00",
-				"due": "07:50",
-				"extendedEndTime": "08:10",
-				"priority": 1,
-				"overNight": false,
-				"required": true,
-				"canCompleteBefore": true,
-				"img": null,
-				"steps": [
-					{"text": "Eat all your breakfast", "src": ""},
-					{"text": "Scrape bowl into chicken bucket", "src": ""},
-					{"text": "Put bowl in the dishwasher (or on the sink)", "src": ""},
-					{"text": "Put breakfast things away", "src": ""}
-				],
-				"extraSteps": [
-					{"text": "Wipe down table", "src": ""}
-				],
-				"valueModifiers": {
-					"completionLevel": {
-						"Not": 0,
-						"Outstandingly": 1.5
-					},
-					"interventionLevel": {
-						"Volunteered": 1.3,
-						"Prompted": 1,
-						"Coerced": 0.7,
-						"Battled": 0.4
-					},
-					"overdue": 0.5
-				},
-				"value": 0.8,
-				"rotatingID": null,
-				"monday": true,
-				"tuesday": true,
-				"wednesday": true,
-				"thursday": true,
-				"friday": true,
-				"saturday": true,
-				"sunday": false,
-				"schoolTerm": true,
-				"schoolHolidays": false,
-				"publicHolidays": false,
-				"atHome": true,
-				"away": true
+			"allIDs": ["f919e4cb", "c65e5fc2"],
+			"IDsByDate": {
+				"2017-12-04": ["f919e4cb", "c65e5fc2"]
 			},
-			"eatBreakySchoolAda": {
-				"id": "eatBreakySchool",
-				"active": true,
-				"thumbnail": null,
-				"name": "Eat your breakfast and clean up",
-				"available": "06:00",
-				"due": "08:00",
-				"extendedEndTime": "08:20",
-				"priority": 1,
-				"overNight": false,
-				"required": true,
-				"canCompleteBefore": true,
-				"img": null,
-				"steps": [
-					{"text": "Eat all your breakfast", "src": ""},
-					{"text": "Scrape bowl into chicken bucket", "src": ""},
-					{"text": "Put bowl in the dishwasher (or on the sink)", "src": ""},
-					{"text": "Put breakfast things away", "src": ""}
-				],
-				"extraSteps": [
-					{"text": "Wipe down table", "src": ""}
-				],
-				"valueModifiers": {
-					"completionLevel": {
-						"Not": 0,
-						"Outstandingly": 1.5
-					},
-					"interventionLevel": {
-						"Volunteered": 1.3,
-						"Prompted": 1,
-						"Coerced": 0.7,
-						"Battled": 0.4
-					},
-					"overdue": 0.5
-				},
-				"value": 0.8,
-				"rotatingID": null,
-				"monday": true,
-				"tuesday": true,
-				"wednesday": true,
-				"thursday": true,
-				"friday": true,
-				"saturday": true,
-				"sunday": false,
-				"schoolTerm": true,
-				"schoolHolidays": false,
-				"publicHolidays": false,
-				"atHome": true,
-				"away": true
+			"IDsByUser": {
+				"ada": ["3571aa91"],
+				"mallee": ["f919e4cb"]
 			},
-			"eatBreakyNonSchool": {
-				"id": "eatBreakyNonSchool",
-				"active": true,
-				"thumbnail": null,
-				"name": "Eat your breakfast and clean up",
-				"available": "06:00",
-				"due": "09:30",
-				"extendedEndTime": null,
-				"priority": 1,
-				"overNight": false,
-				"required": true,
-				"canCompleteBefore": true,
-				"img": null,
-				"steps": [
-					{"text": "Eat all your breakfast", "src": ""},
-					{"text": "Scrape bowl into chicken bucket", "src": ""},
-					{"text": "Put bowl in the dishwasher (or on the sink)", "src": ""},
-					{"text": "Put breakfast things away", "src": ""}
-				],
-				"extraSteps": [
-					{"text":"Wipe down table", "src": ""}
-				],
-				"valueModifiers": {
-					"completionLevel": {
-						"Not": 0,
-						"Outstandingly": 1.2
-					},
-					"interventionLevel": {
-						"Volunteered": 1.2,
-						"Prompted": 0.9,
-						"Coerced": 0.6,
-						"Battled": 0.3
-					},
-					"overdue": 0.5
-				},
-				"value": 0.5,
-				"rotatingID": null,
-				"monday": true,
-				"tuesday": true,
-				"wednesday": true,
-				"thursday": true,
-				"friday": true,
-				"saturday": true,
-				"sunday": true,
-				"schoolTerm": false,
-				"schoolHolidays": true,
-				"publicHolidays": true,
-				"atHome": true,
-				"away": true
+			"IDsByTask": {
+				"eatBreakySchoolMallee": ["f919e4cb"],
+				"eatBreakySchoolAda": ["55da8d15"]
 			},
-			"putOnYourSchoolShoes": {
-				"id": "putOnYourSchoolShoes",
-				"active": true,
-				"thumbnail": null,
-				"name": "Put on your school shoes",
-				"available": "07:45",
-				"due": "08:10",
-				"extendedEndTime": null,
-				"priority": 2,
-				"overNight": false,
-				"required": true,
-				"canCompleteBefore": true,
-				"img": null,
-				"steps": [
-					{"text": "Find socks", "src": ""},
-					{"text": "Put on socks", "src": ""},
-					{"text": "Put on shoes", "src": ""}
-					
-				],
-				"extraSteps": [
-					{"text": "Tie shoe laces",, "url": ""},
-					{"text": "Put unused shoes on shoe shelf", "src": ""}
-				],
-				"valueModifiers": {
-					"completionLevel": {
-						"Not": 0,
-						"Outstandingly": 1.5
-					},
-					"interventionLevel": {
-						"Volunteered": 1.3,
-						"Prompted": 1,
-						"Coerced": 0.7,
-						"Battled": 0.4
-					},
-					"overdue": 0.5
-				},
-				"value": 1,
-				"rotatingID": null,
-				"monday": true,
-				"tuesday": true,
-				"wednesday": true,
-				"thursday": true,
-				"friday": true,
-				"saturday": false,
-				"sunday": false,
-				"schoolTerm": true,
-				"schoolHolidays": false,
-				"publicHolidays": false,
-				"atHome": true,
-				"false": true
+			"IDsByCompletionLevel": {
+				"Fully": ["f919e4cb"],
+				"Partially": ["c65e5fc2"]
 			},
-			"getToysToTakeToSchool": {
-				"id": "getToysToTakeToSchool",
-				"active": true,
-				"thumbnail": null,
-				"name": "Get toys to take to school",
-				"available": "06:45",
-				"due": "08:10",
-				"extendedEndTime": "8:15",
-				"priority": 3,
-				"overNight": false,
-				"required": false,
-				"canCompleteBefore": true,
-				"img": null,
-				"steps": [
-					{"text": "Choose toys", "src": ""},
-					{"text": "Find toys", "src": ""},
-					{"text": "Put toys in school bag", "src": ""}
-				],
-				"extraSteps": [],
-				"valueModifiers": {
-					"completionLevel": {
-						"Not": 0,
-						"Outstandingly": 1
-					},
-					"interventionLevel": {
-						"Volunteered": 1,
-						"Prompted": 0.8,
-						"Coerced": 0.5,
-						"Battled": 0.2
-					},
-					"overdue": 0.5
-				},
-				"value": 0.2,
-				"rotatingID": null,
-				"monday": true,
-				"tuesday": false,
-				"wednesday": false,
-				"thursday": false,
-				"friday": true,
-				"saturday": false,
-				"sunday": false,
-				"schoolTerm": true,
-				"schoolHolidays": false,
-				"publicHolidays": false,
-				"atHome": true,
-				"away": true
-			},
-			"emptyChickenBucket": {
-				"id": "emptyChickenBucket",
-				"active": true,
-				"thumbnail": null,
-				"name": "Empty chicken bucket",
-				"available": "05:45",
-				"due": "08:10",
-				"extendedEndTime": "16:45",
-				"priority": 3,
-				"overNight": false,
-				"required": true,
-				"canCompleteBefore": true,
-				"img": null,
-				"steps": [
-					{"text": "Get chicken bucket", "src": ""},
-					{"text": "Make sure all chickens are in chicken yard", "src": ""},
-					{"text": "Empty chicken bucket near Bannana trees", "src": ""},
-					{"text": "Make sure gate is properly closed", "src": ""}
-				],
-				"extraSteps": [
-					{"text": "Check feeder", "src": ""},
-					{"text": "Check water", "src": ""},
-					{"text": "Wash out chicken bucket", "src": ""},
-					{"text": "Collect eggs without breaking any", "src": ""}
-				],
-				"valueModifiers": {
-					"completionLevel": {
-						"Not": 0,
-						"Outstandingly": 1.5
-					},
-					"interventionLevel": {
-						"Volunteered": 1.3,
-						"Prompted": 1,
-						"Coerced": 0.7,
-						"Battled": 0.4
-					},
-					"overdue": 0.6
-				},
-				"value": 1.3,
-				"rotatID": "1",
-				"monday": true,
-				"tuesday": true,
-				"wednesday": true,
-				"thursday": true,
-				"friday": true,
-				"saturday": true,
-				"sunday": true,
-				"schoolTerm": true,
-				"schoolHolidays": true,
-				"publicHolidays": true,
-				"atHome": true,
-				"away": false
-			},
-			"putShoesOnShoeShelf": {
-				"id": "putShoesOnShoeShelf",
-				"active": true,
-				"thumbnail": null,
-				"name": "Put your shoes on the shoe shelf",
-				"available": "14:45",
-				"due": "20:00",
-				"extendedEndTime": null,
-				"priority": 1,
-				"overNight": false,
-				"required": true,
-				"canCompleteBefore": false,
-				"img": null,
-				"steps": [
-					{"text": "Put shoes on shoe shelf", "src": ""},
-					{"text": "If socks are clean put socks in shoes", "src": ""},
-					{"text": "or put them in the washing basket", "src": ""}
-				],
-				"extraSteps": [
-					{"text": "Put unused shoes on shoe shelf", "src": ""}
-				],
-				"valueModifiers": {
-					"completionLevel": {
-						"Not": 0,
-						"Outstandingly": 1.5
-					},
-					"interventionLevel": {
-						"Volunteered": 1.3,
-						"Prompted": 1,
-						"Coerced": 0.7,
-						"Battled": 0.4
-					},
-					"overdue": 0.5
-				},
-				"value": 1,
-				"rotatingID": null,
-				"monday": true,
-				"tuesday": true,
-				"wednesday": true,
-				"thursday": true,
-				"friday": true,
-				"saturday": true,
-				"sunday": true,
-				"schoolTerm": true,
-				"schoolHolidays": true,
-				"publicHolidays": true,
-				"atHome": true,
-				"away": false
-			},
-			"brushYourTeathBeforeBed": {
-				"id": "brushYourTeathBeforeBed",
-				"active": true,
-				"thumbnail": null,
-				"name": "Brush your teath",
-				"available": "18:45",
-				"due": "19:45",
-				"extendedEndTime": "20:15",
-				"priority": 1,
-				"overNight": false,
-				"required": true,
-				"canCompleteBefore": false,
-				"img": null,
-				"steps": [
-					{"text": "Get toothbrush", "src": ""},
-					{"text": "Get toothpaste", "src": ""},
-					{"text": "Put toothpaste on toothbrush", "src": ""},
-					{"text": "Put a bit of water on toothbrush", "src": ""},
-					{"text": "Brush teeth", "src": ""},
-					{"text": "Swish, swish spit", "src": ""},
-					{"text": "Swish, swish spit", "src": ""},
-					{"text": "Clean toothbrush", "src": ""},
-					{"text": "Put toothbrush away", "src": ""},
-					{"text": "Put cap on Toothpaste and put away", "src": ""}
-				],
-				"extraSteps": [
-					{"text": "Clean mirror", "src": ""}
-				],
-				"valueModifiers": {
-					"completionLevel": {
-						"Not": 0,
-						"Outstandingly": 1.5
-					},
-					"interventionLevel": {
-						"Volunteered": 1.3,
-						"Prompted": 1,
-						"Coerced": 0.7,
-						"Battled": 0.4
-					},
-					"overdue": 0.5
-				},
-				"value": 1,
-				"rotatingID": null,
-				"monday": true,
-				"tuesday": true,
-				"wednesday": true,
-				"thursday": true,
-				"friday": true,
-				"saturday": false,
-				"sunday": false,
-				"schoolTerm": true,
-				"schoolHolidays": true,
-				"publicHolidays": true
-			},
-			"brushYourTeathAfterBreakfast": {
-				"id": "brushYourTeathAfterBreakfast",
-				"active": true,
-				"thumbnail": null,
-				"name": "Brush your teath",
-				"available": "07:45",
-				"due": "08:05",
-				"extendedEndTime": "20:15",
-				"priority": 1,
-				"overNight": false,
-				"required": true,
-				"canCompleteBefore": false,
-				"img": null,
-				"steps": [
-					{"text": "Get toothbrush", "src": ""},
-					{"text": "Get toothpaste", "src": ""},
-					{"text": "Put toothpaste on toothbrush", "src": ""},
-					{"text": "Put a bit of water on toothbrush", "src": ""},
-					{"text": "Brush teeth", "src": ""},
-					{"text": "Swish, swish spit", "src": ""},
-					{"text": "Swish, swish spit", "src": ""},
-					{"text": "Clean toothbrush", "src": ""},
-					{"text": "Put toothbrush away", "src": ""},
-					{"text": "Put cap on Toothpaste and put away", "src": ""}
-				],
-				"extraSteps": [],
-				"valueModifiers": {
-					"completionLevel": {
-						"Not": 0,
-						"Outstandingly": 1.5
-					},
-					"interventionLevel": {
-						"Volunteered": 1.3,
-						"Prompted": 1,
-						"Coerced": 0.7,
-						"Battled": 0.4
-					},
-					"overdue": 0.5
-				},
-				"value": 1,
-				"rotatingID": null,
-				"monday": true,
-				"tuesday": true,
-				"wednesday": true,
-				"thursday": true,
-				"friday": true,
-				"saturday": false,
-				"sunday": false,
-				"schoolTerm": true,
-				"schoolHolidays": true,
-				"publicHolidays": true,
-				"atHome": true,
-				"away": false
-			},
-			"putJarmiesSchool": {
-				"id": "putJarmiesSchool",
-				"active": true,
-				"thumbnail": null,
-				"name": "Put on your Jarmies",
-				"available": "16:30",
-				"due": "20:00",
-				"extendedEndTime": null,
-				"priority": 1,
-				"overNight": false,
-				"required": false,
-				"canCompleteBefore": true,
-				"img": null,
-				"steps": [
-					"Get get undressed",
-					"Put on your jarmies",
-					"Put dirty cloths in basket",
-					"Put clean cloths on the end of your bed"
-				],
-				"extraSteps": [
-					"Pick up any dirty cloths on the floor and put in dirty cloths basket"
-				],
-				"valueModifiers": {
-					"completionLevel": {
-						"Not": 0,
-						"Outstandingly": 1.5
-					},
-					"interventionLevel": {
-						"Volunteered": 1.3,
-						"Prompted": 1,
-						"Coerced": 0.7,
-						"Battled": 0.4
-					},
-					"overdue": 0.5
-				},
-				"value": 1,
-				"rotatingID": null,
-				"monday": true,
-				"tuesday": true,
-				"wednesday": true,
-				"thursday": true,
-				"friday": false,
-				"saturday": false,
-				"sunday": true,
-				"schoolTerm": true,
-				"schoolHolidays": true,
-				"publicHolidays": true,
-				"atHome": true,
-				"away": true
-			},
-			"putJarmiesWeekends": {
-				"id": "putJarmiesNonSchool",
-				"active": true,
-				"thumbnail": null,
-				"name": "Put on your Jarmies",
-				"available": "16:30",
-				"due": "20:00",
-				"extendedEndTime": null,
-				"priority": 1,
-				"overNight": false,
-				"required": false,
-				"canCompleteBefore": true,
-				"img": null,
-				"steps": [
-					{"text": "Get get undressed", "src": ""},
-					{"text": "Put on your jarmies", "src": ""},
-					{"text": "Put dirty cloths in basket", "src": ""},
-					{"text": "Put clean cloths on the end of your bed", "src": ""}
-				],
-				"extraSteps": [
-					{"text": "Pick up any dirty cloths on the floor and put in dirty cloths basket", "src": ""}
-				],
-				"valueModifiers": {
-					"completionLevel": {
-						"Not": 0,
-						"Outstandingly": 1.3
-					},
-					"interventionLevel": {
-						"Volunteered": 1.2,
-						"Prompted": 1,
-						"Coerced": 0.6,
-						"Battled": 0.3
-					},
-					"overdue": 0.8
-				},
-				"value": 1,
-				"rotatingID": null,
-				"monday": false,
-				"tuesday": false,
-				"wednesday": false,
-				"thursday": false,
-				"friday": true,
-				"saturday": true,
-				"sunday": false,
-				"schoolTerm": true,
-				"schoolHolidays": false,
-				"publicHolidays": false,
-				"atHome": true,
-				"away": true
-			},
-			"putJarmiesHolidays": {
-				"id": "putJarmiesNonSchool",
-				"active": true,
-				"thumbnail": null,
-				"name": "Put on your Jarmies",
-				"available": "16:30",
-				"due": "20:00",
-				"extendedEndTime": null,
-				"priority": 1,
-				"overNight": false,
-				"required": false,
-				"canCompleteBefore": true,
-				"img": null,
-				"steps": [
-					{"text": "Get get undressed", "src": ""},
-					{"text": "Put on your jarmies", "src": ""},
-					{"text": "Put dirty cloths in basket", "src": ""},
-					{"text": "Put clean cloths on the end of your bed", "src": ""}
-				],
-				"extraSteps": [
-					{"text": "Pick up any dirty cloths on the floor and put in dirty cloths basket", "src": ""},
-					
-				],
-				"valueModifiers": {
-					"completionLevel": {
-						"Not": 0,
-						"Outstandingly": 1.3
-					},
-					"interventionLevel": {
-						"Volunteered": 1.2,
-						"Prompted": 1,
-						"Coerced": 0.6,
-						"Battled": 0.3
-					},
-					"overdue": 0.8
-				},
-				"value": 0.8,
-				"rotatingID": null,
-				"monday": true,
-				"tuesday": true,
-				"wednesday": true,
-				"thursday": true,
-				"friday": true,
-				"saturday": true,
-				"sunday": true,
-				"schoolTerm": false,
-				"schoolHolidays": true,
-				"publicHolidays": true,
-				"atHome": true,
-				"away": true
-			},
-			"doWeeBeforeBed": {
-				"id": "doWeeBeforeBed",
-				"active": true,
-				"thumbnail": null,
-				"name": "Do a wee before bed",
-				"available": "19:30",
-				"due": "20:15",
-				"extendedEndTime": "21:00",
-				"priority": 1,
-				"overNight": false,
-				"required": true,
-				"canCompleteBefore": false,
-				"img": null,
-				"steps": [
-					{"text": "Lift up toilet seat", "src": ""},
-					{"text": "Do wee", "src": ""},
-					{"text": "put toilet seat back down", "src": ""}
-				],
-				"extraSteps": [
-					{"text": "Put toilet seet back down", "src": ""}
-					
-				],
-				"valueModifiers": {
-					"completionLevel": {
-						"Not": -0.3,
-						"Outstandingly": 1.2
-					},
-					"interventionLevel": {
-						"Volunteered": 1.3,
-						"Prompted": 1,
-						"Coerced": 0.6,
-						"Battled": 0.3
-					},
-					"overdue": 1
-				},
-				"value": 1,
-				"rotatingID": null,
-				"monday": true,
-				"tuesday": true,
-				"wednesday": true,
-				"thursday": true,
-				"friday": true,
-				"saturday": false,
-				"sunday": false,
-				"schoolTerm": true,
-				"schoolHolidays": true,
-				"publicHolidays": true,
-				"atHome": true,
-				"away": true
-			},
-			"getReadyForSwimming": {
-				"id": "getReadyForSwimming",
-				"active": true,
-				"thumbnail": null,
-				"name": "Get ready for swimming",
-				"available": "16:00",
-				"due": "08:20",
-				"priority": 1,
-				"overNight": true,
-				"required": true,
-				"extendedEndTime": null,
-				"canCompleteBefore": true,
-				"expand": true,
-				"img": null,
-				"steps": [
-					{"text": "Find swimmers", "src": ""},
-					{"text": "get clean undies", "src": ""},
-					{"text": "get goggles & swimming cap", "src": ""},
-					{"text": "get towel", "src": ""}
-				],
-				"extraSteps": [
-					{"text": "Get clean cloths for after swimming", "src": ""},
-					{"text": "Get clean shoes and socks", "src": ""}
-				],
-				"valModComLevelNot": -0.3,
-				"valModComLevelExtra": 1.5,
-				"valueModifiers": {
-					"completionLevel": {
-						"Not": -0.3,
-						"Outstandingly": 1.5
-					},
-					"interventionLevel": {
-						"Volunteered": 1.4,
-						"Prompted": 1,
-						"Coerced": 0.7,
-						"Battled": 0.4
-					},
-					"overdue": 0.5
-				},
-				"value": 1.2,
-				"monday": false,
-				"tuesday": false,
-				"wednesday": false,
-				"thursday": false,
-				"friday": true,
-				"saturday": false,
-				"sunday": false,
-				"rotatingID": null,
-				"schoolTerm": true,
-				"schoolHolidays": false,
-				"publicHolidays": false,
-				"atHome": true,
-				"away": false
+			"IDsByinterventionLevel": {
+				"Prompted": ["f919e4cb"],
+				"Coerced": ["c65e5fc2"]
 			}
 		},
-		"allIDs": ["putOnYourSchoolUniform", "eatBreakySchool", "eatBreakyNonSchool", "putOnYourSchoolShoes", "getToysToTakeToSchool", "emptyChickenBucket", "putShoesOnShoeShelf", "brushYourTeathBeforeBed", "brushYourTeathAfterBreakfast", "putJarmiesSchool", "putJarmiesWeekends", "putJarmiesHolidays", "doWeeBeforeBed", "getReadyForSwimming"],
-		"mondayIDs": [], // Index of tasks that can be done on Mondays
-		"tuesdayIDs": [],
-		"wednesdayIDs": [],
-		"thursdayIDs": [],
-		"fridayIDs": [],
-		"saturdayIDs": [],
-		"sundayIDs": [],
-		"schoolTermIDs": [],
-		"schoolHolidayIDs": [],
-		"publicHolidayIDs": []
-	},
-	"userTask": {
-		"byID": {
-			"1": {
-				"id": "1",
-				"taskID": "putOnYourSchoolUniform",
-				"userID": "mallee"
-			},
-			"2": {
-				"id": "2",
-				"taskID": "putOnYourSchoolUniform",
-				"userID": "ada"
-			},
-			"3": {
-				"id": "3",
-				"taskID": "eatBreakySchool",
-				"userID": "mallee"
-			},
-			"4": {
-				"id": "4",
-				"taskID": "eatBreakySchool",
-				"userID": "ada"
-			},
-			"5": {
-				"id": "5",
-				"taskID": "eatBreakyNonSchool",
-				"userID": "mallee"
-			},
-			"6": {
-				"id": "6",
-				"taskID": "eatBreakyNonSchool",
-				"userID": "ada"
-			},
-			"7": {
-				"id": "7",
-				"taskID": "putOnYourSchoolShoes",
-				"userID": "mallee"
-			},
-			"8": {
-				"id": "8",
-				"taskID": "putOnYourSchoolShoes",
-				"userID": "ada"
-			},
-			"9": {
-				"id": "9",
-				"taskID": "putOnYourSchoolUniform",
-				"userID": "mallee"
-			},
-			"10": {
-				"id": "10",
-				"taskID": "putOnYourSchoolUniform",
-				"userID": "ada"
-			},
-			"11": {
-				"id": "11",
-				"taskID": "getToysToTakeToSchool",
-				"userID": "mallee"
-			},
-			"12": {
-				"id": "12",
-				"taskID": "getToysToTakeToSchool",
-				"userID": "ada"
-			},
-			"13": {
-				"id": "13",
-				"taskID": "emptyChickenBucket",
-				"userID": "mallee"
-			},
-			"14": {
-				"id": "14",
-				"taskID": "emptyChickenBucket",
-				"userID": "ada"
-			},
-			"15": {
-				"id": "15",
-				"taskID": "putShoesOnShoeShelf",
-				"userID": "mallee"
-			},
-			"16": {
-				"id": "16",
-				"taskID": "putShoesOnShoeShelf",
-				"userID": "ada"
-			},
-			"17": {
-				"id": "17",
-				"taskID": "brushYourTeathBeforeBed",
-				"userID": "mallee"
-			},
-			"18": {
-				"id": "18",
-				"taskID": "brushYourTeathBeforeBed",
-				"userID": "ada"
-			},
-			"19": {
-				"id": "19",
-				"taskID": "brushYourTeathAfterBreakfast",
-				"userID": "mallee"
-			},
-			"20": {
-				"id": "20",
-				"taskID": "brushYourTeathAfterBreakfast",
-				"userID": "ada"
-			},
-			"21": {
-				"id": "21",
-				"taskID": "putJarmiesSchool",
-				"userID": "mallee"
-			},
-			"22": {
-				"id": "22",
-				"taskID": "putJarmiesSchool",
-				"userID": "ada"
-			},
-			"23": {
-				"id": "23",
-				"taskID": "putJarmiesWeekends",
-				"userID": "mallee"
-			},
-			"24": {
-				"id": "24",
-				"taskID": "putJarmiesWeekends",
-				"userID": "ada"
-			},
-			"25": {
-				"id": "25",
-				"taskID": "putJarmiesHolidays",
-				"userID": "mallee"
-			},
-			"26": {
-				"id": "26",
-				"taskID": "putJarmiesHolidays",
-				"userID": "ada"
-			},
-			"27": {
-				"id": "27",
-				"taskID": "doWeeBeforeBed",
-				"userID": "mallee"
-			}
+		"archivedActivities": {
+			"byID": {},
+			"allIDs": [],
+			"IDsByDate": {},
+			"IDsByUser": {},
+			"IDsByCompletionLevel": {},
+			"IDsByinterventionLevel": {}
 		},
-		"allIDs": ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27"],
-		"IDsByUser": {
-			"mallee": ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27"],
-			"ada": ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26"]
-		},
-		"IDsByTask": {}
-	},
-	"userSchoolTerm": {
-		"byID": {
-			"1": {
-				"id": "1",
-				"schoolTerm": "2017012720170407",
-				"user": "mallee"
-			},
-			"2": {
-				"id": "2",
-				"schoolTerm": "2017012720170407",
-				"user": "ada"
-			},
-			"3": {
-				"id": "3",
-				"schoolTerm": "2017042420170630",
-				"user": "mallee"
-			},
-			"4": {
-				"id": "4",
-				"schoolTerm": "2017042420170630",
-				"user": "ada"
-			},
-			"5": {
-				"id": "5",
-				"schoolTerm": "2017071720170922",
-				"user": "mallee"
-			},
-			"6": {
-				"id": "6",
-				"schoolTerm": "2017071720170922",
-				"user": "ada"
-			},
-			"7": {
-				"id": "7",
-				"schoolTerm": "2017100920171219",
-				"user": "mallee"
-			},
-			"8": {
-				"id": "8",
-				"schoolTerm": "2017100920171219",
-				"user": "ada"
-			},
-			"9": {
-				"id": "9",
-				"schoolTerm": "2018012920180413",
-				"user": "mallee"
-			},
-			"10": {
-				"id": "10",
-				"schoolTerm": "2018012920180413",
-				"user": "ada"
-			},
-			"11": {
-				"id": "11",
-				"schoolTerm": "2018050120180706",
-				"user": "mallee"
-			},
-			"12": {
-				"id": "12",
-				"schoolTerm": "2018050120180706",
-				"user": "ada"
-			},
-			"13": {
-				"id": "13",
-				"schoolTerm": "2018072420180928",
-				"user": "mallee"
-			},
-			"14": {
-				"id": "14",
-				"schoolTerm": "2018072420180928",
-				"user": "ada"
-			},
-			"15": {
-				"id": "15",
-				"schoolTerm": "2018101520181219",
-				"user": "mallee"
-			},
-			"16": {
-				"id": "16",
-				"schoolTerm": "2018101520181219",
-				"user": "ada"
-			}
-		},
-		"allIDs": ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16"]
-	},
-	"tags": {
-		"byID": {
-			"1": {
-				"id": "1",
-				"name": "Personal care"
-			},
-			"2": {
-				"id": "2",
-				"name": "Household chore"
-			},
-			"3": {
-				"id": "3",
-				"name": "School"
-			},
-			"4": {
-				"id": "4",
-				"name": "Pets"
-			},
-			"5": {
-				"id": "5",
-				"name": "Preparation"
-			},
-			"6": {
-				"id": "6",
-				"name": "Food"
-			}
-		},
-		"allIDs": ["1", "2", "3", "4", "5"]
-	},
-	"taskTags": {
-		"byID": {
-			"1": {
-				"id": "1",
-				"taskID": "putOnYourSchoolUniform",
-				"tagID": "1"
-			},
-			"2": {
-				"id": "2",
-				"taskID": "putOnYourSchoolUniform",
-				"tagID": "3"
-			},
-			"3": {
-				"id": "3",
-				"taskID": "putOnYourSchoolUniform",
-				"tagID": "5"
-			},
-			"4": {
-				"id": "4",
-				"taskID": "eatBreakySchoolMallee",
-				"tagID": "1"
-			},
-			"5": {
-				"id": "5",
-				"taskID": "eatBreakySchoolMallee",
-				"tagID": "5"
-			},
-			"6": {
-				"id": "6",
-				"taskID": "eatBreakySchoolMallee",
-				"tagID": "6"
-			},
-			"7": {
-				"id": "7",
-				"taskID": "eatBreakySchoolAda",
-				"tagID": "1"
-			},
-			"8": {
-				"id": "8",
-				"taskID": "eatBreakySchoolAda",
-				"tagID": "5"
-			},
-			"9": {
-				"id": "9",
-				"taskID": "eatBreakySchoolAda",
-				"tagID": "6"
-			},
-			"10": {
-				"id": "10",
-				"taskID": "eatBreakyNonSchool",
-				"tagID": "1"
-			},
-			"11": {
-				"id": "11",
-				"taskID": "eatBreakyNonSchool",
-				"tagID": "6"
-			},
-			"12": {
-				"id": "12",
-				"taskID": "getToysToTakeToSchool",
-				"tagID": "3"
-			},
-			"13": {
-				"id": "14",
-				"taskID": "getToysToTakeToSchool",
-				"tagID": "5"
-			},
-			"14": {
-				"id": "14",
-				"taskID": "emptyChickenBucket",
-				"tagID": "2"
-			},
-			"15": {
-				"id": "15",
-				"taskID": "emptyChickenBucket",
-				"tagID": "4"
-			},
-			"16": {
-				"id": "16",
-				"taskID": "putShoesOnShoeShelf",
-				"tagID": "1"
-			},
-			"17": {
-				"id": "17",
-				"taskID": "putShoesOnShoeShelf",
-				"tagID": "2"
-			},
-			"18": {
-				"id": "18",
-				"taskID": "brushYourTeathBeforeBed",
-				"tagID": "1"
-			},
-			"19": {
-				"id": "19",
-				"taskID": "brushYourTeathBeforeBed",
-				"tagID": "5"
-			},
-			"20": {
-				"id": "20",
-				"taskID": "brushYourTeathBeforeBed",
-				"tagID": "6"
-			},
-			"21": {
-				"id": "21",
-				"taskID": "brushYourTeathAfterBreakfast",
-				"tagID": "1"
-			},
-			"22": {
-				"id": "22",
-				"taskID": "brushYourTeathAfterBreakfast",
-				"tagID": "5"
-			},
-			"23": {
-				"id": "23",
-				"taskID": "brushYourTeathAfterBreakfast",
-				"tagID": "6"
-			},
-			"24": {
-				"id": "24",
-				"taskID": "putJarmiesSchool",
-				"tagID": "1"
-			},
-			"25": {
-				"id": "25",
-				"taskID": "putJarmiesSchool",
-				"tagID": "5"
-			},
-			"26": {
-				"id": "26",
-				"taskID": "putJarmiesWeekends",
-				"tagID": "1"
-			},
-			"27": {
-				"id": "27",
-				"taskID": "putJarmiesWeekends",
-				"tagID": "5"
-			},
-			"28": {
-				"id": "28",
-				"taskID": "putJarmiesHolidays",
-				"tagID": "1"
-			},
-			"29": {
-				"id": "29",
-				"taskID": "putJarmiesHolidays",
-				"tagID": "5"
-			},
-			"30": {
-				"id": "30",
-				"taskID": "doWeeBeforeBed",
-				"tagID": "1"
-			},
-			"31": {
-				"id": "31",
-				"taskID": "doWeeBeforeBed",
-				"tagID": "5"
-			},
-			"32": {
-				"id": "32",
-				"taskID": "getReadyForSwimming",
-				"tagID": "5"
-			}
-		},
-		"allIDs": ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32"]
-	},
-	"taskRotation": {
-		"byID": {
-			"1": {
-				"id": "1",
-				"taskID": "emptyChickenBucket",
-				"currentUser": "ada",
-				"availableUserIDs": [],
-				"turnTakenUserIDs": []
-			}
-		}
-	},
-	"activities": {
-		"byID": {
-			"55da8d15": {
-				"id": "55da8d15",
-				"rawID": "20171201-Ada-EatBreakySchoolAda",
-				"userID": "ada",
-				"taskID": "eatBreakySchoolAda",
-				"valueModifiers": {
-					"completionLevel": {
-						"Not": 0,
-						"Outstandingly": 1.5
-					},
-					"interventionLevel": {
-						"Volunteered": 1.3,
-						"Prompted": 1,
-						"Coerced": 0.7,
-						"Battled": 0.4
-					},
-					"overdue": 0.5
+		"accountLedger": {
+			"byID": {
+				"595d6705": {
+					"id": "595d6705",
+					"created": "2017-12-01T11:32:34+11:00",
+					"entryType": "Credit",
+					"authorisingUserID": "evan",
+					"userID": "ada",
+					"activityID": "55da8d15",
+					"pointsValue": 0.7,
+					"monetaryValue": 0.07,
+					"originalEntry": null
 				},
-				"value": 0.8,
-				"pointsToCurrency": 0.1,
-				"scheduleStatus": "Complete",
-				"activityStatus": "Approved",
-				"completed": "2017-12-01T08:05:00+11:00",
-				"acknowledged": "2017-12-01T11:35:12+11:00",
-				"acknowledgedBy": "evan",
-				"acknowledgementNotes": "",
-				"completionLevel": "Partially",
-				"completionValue": 0.8,
-				"interventionLevel": "coerced",
-				"interventionValue": 0.9,
-				"computedValue": 0.7,
-				"doerNotes": "",
-				"ignoreTime": false
+				"727b311f": {
+					"id": "727b311f",
+					"created": "2017-12-01T11:32:34+11:00",
+					"entryType": "Credit",
+					"authorisingUserID": "evan",
+					"userID": "mallee",
+					"activityID": "f919e4cb",
+					"pointsValue": 0.8,
+					"monetaryValue": 0.08,
+					"originalEntry": null
+				}
 			},
-			"f919e4cb": {
-				"id": "f919e4cb",
-				"rawID": "20171201-Mallee-EatBreakySchoolMallee",
-				"userID": "mallee",
-				"taskID": "eatBreakySchoolMallee",
-				"valueModifiers": {
-					"completionLevel": {
-						"Not": 0,
-						"Outstandingly": 1.5
-					},
-					"interventionLevel": {
-						"Volunteered": 1.3,
-						"Prompted": 1,
-						"Coerced": 0.7,
-						"Battled": 0.4
-					},
-					"overdue": 0.5
-				},
-				"value": 0.8,
-				"pointsToCurrency": 0.1,
-				"scheduleStatus": "Complete",
-				"activityStatus": "Approved",
-				"completed": "2017-12-01T07:20:00+11:00",
-				"acknowledged": "2017-12-01T11:32:34+11:00",
-				"acknowledgedBy": "evan",
-				"acknowledgementNotes": "",
-				"completionLevel": "Fully",
-				"completionValue": 1,
-				"interventionLevel": "Prompted",
-				"interventionValue": 1,
-				"computedValue": 0.8,
-				"doerNotes": "",
-				"ignoreTime": false
-			}
-		},
-		"allIDs": ["f919e4cb", "c65e5fc2"],
-		"IDsByDate": {
-			"2017-12-04": ["f919e4cb", "c65e5fc2"]
-		},
-		"IDsByUser": {
-			"ada": ["3571aa91"],
-			"mallee": ["f919e4cb"]
-		},
-		"IDsByTask": {
-			"eatBreakySchoolMallee": ["f919e4cb"],
-			"eatBreakySchoolAda": ["55da8d15"]
-		},
-		"IDsByCompletionLevel": {
-			"Fully": ["f919e4cb"],
-			"Partially": ["c65e5fc2"]
-		},
-		"IDsByinterventionLevel": {
-			"Prompted": ["f919e4cb"],
-			"Coerced": ["c65e5fc2"]
+			"allIDs": [],
+			"IDsByDate": {
+				"2017-12-04": ["595d6705", "727b311f"]
+			},
+			"IDsByUser": {
+				"ada": ["595d6705"],
+				"mallee": ["727b311f"]
+			},
+			"IDsByCredit": ["595d6705", "727b311f"],
+			"IDsByDebit": []
 		}
 	},
 	"actvitiesToReviewIDs":[],
-	"archivedActivities": {
-		"byID": {},
-		"allIDs": [],
-		"IDsByDate": {},
-		"IDsByUser": {},
-		"IDsByCompletionLevel": {},
-		"IDsByinterventionLevel": {}
-	},
-	"accountLedger": {
-		"byID": {
-			"595d6705": {
-				"id": "595d6705",
-				"created": "2017-12-01T11:32:34+11:00",
-				"userID": "ada",
-				"activityID": "55da8d15",
-				"pointsValue": 0.7,
-				"monetaryValue": 0.07
-			},
-			"727b311f": {
-				"id": "727b311f",
-				"created": "2017-12-01T11:32:34+11:00",
-				"userID": "mallee",
-				"activityID": "f919e4cb",
-				"pointsValue": 0.8,
-				"monetaryValue": 0.08
-			}
-		},
-		"allIDs": [],
-		"IDsByDate": {
-			"2017-12-04": ["595d6705", "727b311f"]
-		},
-		"IDsByUser": {
-			"ada": ["595d6705"],
-			"mallee": ["727b311f"]
-		},
-		"IDsByCredit": ["595d6705", "727b311f"],
-		"IDsByDebit": []
-	},
 	"errors": [],
 	"todaysMeta": {
 		"isSchoolDay": false,
