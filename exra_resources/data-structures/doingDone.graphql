@@ -2,7 +2,6 @@ type householdMeta {
 	id: ID,
 	active: Boolean!,
 	name: String!,
-	timezone: String!,
 	locale: String!,
 
 	# valueModifiers are used to multiply task points to get a
@@ -17,20 +16,24 @@ type householdMeta {
 		# currency value for each point e.g. $1 = 2 points
 		pointsToCurrency: Float!
 	},
-	pay: {
+	payMeta: {
 		period: Int!, # weeks
 		start: DayOfWeek,
 	},
-	token: String!,
+	#
+	authToken: String!,
 	deviceMode: DevicesMode,
 	todaysMeta: {
 		isSchoolDay: Boolean!,
 		isSchoolHoliday: Boolean!,
 		isPublicHoliday: Boolean!,
+		atHome: Boolean!,
+		away: Boolean!,
 		start: DateTime,
 		end: DateTime,
 		date: Date,
-		dayOfWeek: DayOfWeek
+		dayOfWeek: DayOfWeek,
+		activityIDs: [String]!
 	},
 	subscribeToSchoolTerms: Boolean!,
 	subscribeToPublicHolidays: Boolean!,
@@ -426,6 +429,7 @@ type GoalActivity implements Activity {
 	goal: Goal.id!
 }
 
+# ===================================================================
 
 
 type DateBlock {
@@ -486,7 +490,7 @@ type AccountLedgerEntry {
 
 # ===============================================
 
-enum scheduledItemStatus {
+enum activityScheduledStatus {
 	Queued,
 	Active,
 	Overdue,
@@ -494,6 +498,7 @@ enum scheduledItemStatus {
 	Complete
 }
 enum activityStatus {
+	Not started
 	In progress,
 	Complete,
 	Approved,

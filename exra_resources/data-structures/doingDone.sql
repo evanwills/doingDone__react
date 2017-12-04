@@ -19,10 +19,13 @@ DROP TABLE IF EXISTS `doingDone_users`;
 DROP TABLE IF EXISTS `doingDone_households`;
 DROP TABLE IF EXISTS `_doingDone__enum__intervention_required`;
 DROP TABLE IF EXISTS `_doingDone__enum__completion_level`;
+DROP TABLE IF EXISTS `_doingDone__enum__activity_schedule_status`;
+DROP TABLE IF EXISTS `_doingDone__enum__activity_status`;
 DROP TABLE IF EXISTS `_doingDone__enum__day_of_week`;
 DROP TABLE IF EXISTS `_doingDone__enum__devices`;
 DROP TABLE IF EXISTS `_doingDone__enum__school_term_mode`;
 DROP TABLE IF EXISTS `_doingDone__enum__repeat_mode`;
+DROP TABLE IF EXISTS `_doingDone__enum__device_mode`;
 
 -- --------------------------------------------------------
 
@@ -50,7 +53,7 @@ VALUES
 ( NULL , 'Not done' ),
 ( NULL , 'Partially done' ),
 ( NULL , 'Done fully' ),
-( NULL , 'Dine outstandingly' );
+( NULL , 'Done outstandingly' );
 
 
 
@@ -72,10 +75,61 @@ INSERT INTO `_doingDone__enum__intervention_required` (
 	`intervention_required_name`
 )
 VALUES
-( NULL , 'Battled' ),
-( NULL , 'Coerced' ),
+( NULL , 'Volunteered' ),
 ( NULL , 'Prompted' ),
-( NULL , 'Volunteered' );
+( NULL , 'Coerced' ),
+( NULL , 'Battled' );
+
+
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `_doingDone__enum__activity_schedule_status`
+--
+
+CREATE TABLE IF NOT EXISTS `_doingDone__enum__activity_schedule_status` (
+  `activity_schedule_status_id` tinyint(3) unsigned NOT NULL auto_increment,
+  `activity_schedule_status_name` varchar(8) NOT NULL,
+  PRIMARY KEY  (`activity_schedule_status_id`),
+  UNIQUE KEY `activity_schedule_status_name` (`activity_schedule_status_name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
+
+INSERT INTO `_doingDone__enum__activity_schedule_status` (
+	`activity_schedule_status_id` ,
+	`activity_schedule_status_name`
+)
+VALUES
+( NULL , 'Queued' ),
+( NULL , 'Active' ),
+( NULL , 'Overdue' ),
+( NULL , 'Expired' ),
+( NULL , 'Complete' );
+
+
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `_doingDone__enum__activity_status`
+--
+
+CREATE TABLE IF NOT EXISTS `_doingDone__enum__activity_status` (
+  `activity_status_id` tinyint(3) unsigned NOT NULL auto_increment,
+  `activity_status_name` varchar(8) NOT NULL,
+  PRIMARY KEY  (`activity_status_id`),
+  UNIQUE KEY `activity_status_name` (`activity_status_name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
+
+INSERT INTO `_doingDone__enum__activity_status` (
+	`activity_status_id` ,
+	`activity_status_name`
+)
+VALUES
+( NULL , 'In progress' ),
+( NULL , 'Complete' ),
+( NULL , 'Approved' ),
+( NULL , 'Archived' );
 
 
 
@@ -115,8 +169,8 @@ VALUES
 CREATE TABLE IF NOT EXISTS `_doingDone__enum__device_mode` (
   `device_mode_id` tinyint(3) unsigned NOT NULL auto_increment,
   `device_mode_name` varchar(44) NOT NULL,
-  PRIMARY KEY  (`device_id`),
-  UNIQUE KEY `device_name` (`device_name`)
+  PRIMARY KEY  (`device_mode_id`),
+  UNIQUE KEY `device_mode_name` (`device_mode_name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;
 
 INSERT INTO `_doingDone__enum__device_mode` (
@@ -190,27 +244,24 @@ CREATE TABLE IF NOT EXISTS `doingDone_households` (
 	`household_name` varchar(32) NOT NULL,
 	`household_timezone` varchar(32) NOT NULL,
 	`household_locale` char(5) NOT NULL,
-	`household_is_school_day` tinyint(1) unsigned DEFAULT 0,
-	`household_is_school_holiday` tinyint(1) unsigned DEFAULT 0,
-	`household_is_public_holiday` tinyint(1) unsigned DEFAULT 0,
 	`household_completion_level_not` float DEFAULT 0,
-	`household_completion_level_partially` float DEFAULT 0.5,
-	`household_completion_level_fully` float DEFAULT 1.0,
-	`household_completion_level_outstandingly` float DEFAULT 1.5,
-	`household_intervention_required_volunteered` float DEFAULT 1.3,
-	`household_intervention_required_prompted` float DEFAULT 1,
+	`household_completion_level_outstandingly` float unsigned NOT NULL DEFAULT 1.5,
+	`household_intervention_required_volunteered` float unsigned NOT NULL DEFAULT 1.3,
+	`household_intervention_required_prompted` float unsigned NOT NULL DEFAULT 1,
 	`household_intervention_required_coerced` float DEFAULT 0.7,
 	`household_intervention_required_battled` float DEFAULT 0.4,
-	`household_currency` varchar(6) DEFAULT 'AUD',
-	`household_pay_period` tinyint(3) DEFAULT 7 COMMENT 'number of days',
-	`household_pay_day__day_of_week_id` tinyint(3) unsigned NOT NULL,
-	`household_points_to_currency` float DEFAULT 1,
+	`household_archive_after_x_days` tinyint(3) unsigned NOT NULL DEFAULT 30,
+	`household_delete_after_x_days` smallint(5) unsigned NOT NULL DEFAULT 365,
+	`household_overdue` float NOT NULL DEFAULT 0.5,
+	`household_currency` varchar(6) NOT NULL DEFAULT 'AUD',
+	`household_currency_prefix` char(1) NOT NULL DEFAULT '$',
+	`household_currency_rounding` smallint(3) unsigned NOT NULL DEFAULT 2,
+	`household_points_to_currency` float DEFAULT 0.1 COMMENT 'monetary value of each point',
+	`household_pay_period` tinyint(3) unsigned NOT NULL DEFAULT 7 COMMENT 'number of days',
+	`household_pay_day__day_of_week_id` tinyint(3) unsigned NOT NULL DEFAULT 6,
 	PRIMARY KEY  (`household_id`),
 	UNIQUE KEY `household_name` (`household_name`),
 	INDEX `household_active` (`household_active`),
-	INDEX `household_is_school_day` (`household_is_school_day`),
-	INDEX `household_is_school_holiday` (`household_is_school_holiday`),
-	INDEX `household_is_public_holiday` (`household_is_public_holiday`),
 	FOREIGN KEY (`household_pay_day__day_of_week_id`)
 		REFERENCES `_doingDone__enum__day_of_week` (`day_of_week_id`)
 		ON DELETE NO ACTION ON UPDATE CASCADE
@@ -227,17 +278,14 @@ CREATE TABLE IF NOT EXISTS `doingDone_users` (
 	`user_id` int(11) unsigned NOT NULL auto_increment,
 	`user__household_id` int(11) unsigned DEFAULT NULL,
 	`user_created` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-	`user_username` varchar(16),
+	`user_username` varchar(16) NOT NULL,
 	`user_password` char(42) NOT NULL COMMENT 'pbk hash',
 	`user_name` varchar(16) NOT NULL,
 	`user_email` char(42) DEFAULT NULL COMMENT 'two way hash',
 	`user_avatar` text DEFAULT NULL COMMENT 'either base64 encoded image file used as avatar for user',
-	`user_approver` tinyint(1) unsigned DEFAULT 0,
-	`user_active` tinyint(1) unsigned DEFAULT 1,
-	`user_show_time_remaining` tinyint(1) unsigned DEFAULT 1 COMMENT 'When displaying a task in a list for doers, show how much time is left before task expires',
-	`user_points_period_total` float default NULL COMMENT 'total amount of point for current period',
-	`user_points_grand_total` float default NULL COMMENT 'total amount of point ever earned by this user',
-	`user_last_pay_date` date default NULL COMMENT 'Date user was last paid'
+	`user_approver` tinyint(1) unsigned NOT NULL DEFAULT 0,
+	`user_active` tinyint(1) unsigned NOT NULL DEFAULT 1,
+	`user_show_time_remaining` tinyint(1) unsigned NOT NULL DEFAULT 1 COMMENT 'When displaying a task in a list for doers, show how much time is left before task expires',
 	PRIMARY KEY  (`user_id`),
 	INDEX `user_name` (`user_name`),
 	UNIQUE KEY `doingDone_household_users` (`user_username`),
@@ -261,7 +309,7 @@ CREATE TABLE IF NOT EXISTS `doingDone_users` (
 CREATE TABLE IF NOT EXISTS `doingDone_tasks` (
 	`task_id` int(11) unsigned NOT NULL auto_increment,
 	`task_created` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-	`task__household_id` int(11) unsigned NOT NULL,
+	-- `task__household_id` int(11) unsigned NOT NULL,
 	`task_active` tinyint(1) unsigned DEFAULT 0,
 	`task_allow_partial` tinyint(1) unsigned DEFAULT 0,
 	`task_required` tinyint(1) unsigned DEFAULT 0,
@@ -291,6 +339,8 @@ CREATE TABLE IF NOT EXISTS `doingDone_tasks` (
 	`task_school_days` tinyint(1) unsigned DEFAULT 1,
 	`task_school_holidays` tinyint(1) unsigned DEFAULT 1,
 	`task_public_holidays` tinyint(1) unsigned DEFAULT 1,
+	`task_at_home` tinyint(1) unsigned DEFAULT 1,
+	`task_away` tinyint(1) unsigned DEFAULT 1,
 	`value` float unsigned DEFAULT 1 COMMENT 'used to boost points for difficult/higher value/less palatable task and lower points for easy/fun tasks',
 	PRIMARY KEY  (`task_id`),
 	INDEX `task__household_id` (`task__household_id`),
@@ -301,46 +351,46 @@ CREATE TABLE IF NOT EXISTS `doingDone_tasks` (
 	INDEX `task_school_holidays` (`task_school_holidays`),
 	INDEX `task_public_holidays` (`task_public_holidays`),
 	INDEX `monday` (
-		`task__household_id`,
+		-- `task__household_id`,
 		`task_monday`,
-		`task_start_time`,
-		`task_end_time`
+		-- `task_start_time`,
+		-- `task_end_time`
 	),
 	INDEX `tuesday` (
-		`task__household_id`,
+		-- `task__household_id`,
 		`task_tuesday`,
-		`task_start_time`,
-		`task_end_time`
+		-- `task_start_time`,
+		-- `task_end_time`
 	),
 	INDEX `wednesday` (
-		`task__household_id`,
+		-- `task__household_id`,
 		`task_wednesday`,
-		`task_start_time`,
-		`task_end_time`
+		-- `task_start_time`,
+		-- `task_end_time`
 	),
 	INDEX `thursday` (
-		`task__household_id`,
+		-- `task__household_id`,
 		`task_thursday`,
-		`task_start_time`,
-		`task_end_time`
+		-- `task_start_time`,
+		-- `task_end_time`
 	),
 	INDEX `friday` (
-		`task__household_id`,
+		-- `task__household_id`,
 		`task_friday`,
-		`task_start_time`,
-		`task_end_time`
+		-- `task_start_time`,
+		-- `task_end_time`
 	),
 	INDEX `saturday` (
-		`task__household_id`,
+		-- `task__household_id`,
 		`task_saturday`,
-		`task_start_time`,
-		`task_end_time`
+		-- `task_start_time`,
+		-- `task_end_time`
 	),
 	INDEX `sunday` (
-		`task__household_id`,
+		-- `task__household_id`,
 		`task_sunday`,
-		`task_start_time`,
-		`task_end_time`
+		-- `task_start_time`,
+		-- `task_end_time`
 	),
 	INDEX `task_repeat_absolute_start_end_date` (
 		`task_repeat_initial_start_date`,
