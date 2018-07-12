@@ -4,19 +4,13 @@
 			"id": 1,
 			"name": "pickles",
 			"users": [
-				/**
-				 * list of all users in a given household
-				 */
+				// list of all users in a given household
 			],
 			"tasks": [
-				/**
-				 * complete list of all task objects available
-				 * to a given househole
-				 */
+				// complete list of all task objects available
+				// to a given househole
 			],
-			/**
-			 * list of tasks available to each user at any given moment.
-			 */
+			// list of tasks available to each user at any given moment.
 			"availableTasks": [
 				{
 					"userID": [
@@ -55,9 +49,6 @@
 		"One off",
 		"Fixed period"
 	],
-	/**
-	 *
-	 */
 	"user": {
 		"_id": 1,
 		"name": "Evan",

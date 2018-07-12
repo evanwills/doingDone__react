@@ -1464,10 +1464,17 @@
 			},
 			"IDsByCredit": ["595d6705", "727b311f"],
 			"IDsByDebit": []
+		},
+		"messages": {
+			"byID": {},
+			"allIDs": {}
+		},
+		"messageUser": {
+			"byID": {},
+			"allIDs": {}
 		}
 	},
 	"actvitiesToReviewIDs":[],
-	"errors": [],
 	"todaysMeta": {
 		"isSchoolDay": false,
 		"isSchoolHoliday": false,

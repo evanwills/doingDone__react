@@ -14,9 +14,14 @@ DROP TABLE IF EXISTS `doingDone__join__payment_user_amount`;
 DROP TABLE IF EXISTS `doingDone__join__activities`;
 DROP TABLE IF EXISTS `doingDone__join__random_recurrences`;
 DROP TABLE IF EXISTS `doingDone__join__task_actor`;
+DROP TABLE IF EXISTS `doingDone__join__users_user_groups`;
+DROP TABLE IF EXISTS `doingDone__join__tasks_user_groups`;
+DROP TABLE IF EXISTS `doingDone__join__tasks_venues`;
 DROP TABLE IF EXISTS `doingDone_tasks`;
 DROP TABLE IF EXISTS `doingDone_users`;
+DROP TABLE IF EXISTS `doingDone_user_groups`;
 DROP TABLE IF EXISTS `doingDone_households`;
+DROP TABLE IF EXISTS `doingDone_venues`;
 DROP TABLE IF EXISTS `_doingDone__enum__intervention_required`;
 DROP TABLE IF EXISTS `_doingDone__enum__completion_level`;
 DROP TABLE IF EXISTS `_doingDone__enum__activity_schedule_status`;
@@ -336,14 +341,14 @@ CREATE TABLE IF NOT EXISTS `doingDone_tasks` (
 	`task_friday` tinyint(1) unsigned DEFAULT 1,
 	`task_saturday` tinyint(1) unsigned DEFAULT 1,
 	`task_sunday` tinyint(1) unsigned DEFAULT 1,
-	`task_school_days` tinyint(1) unsigned DEFAULT 1,
+	`task_school_term` tinyint(1) unsigned DEFAULT 1,
 	`task_school_holidays` tinyint(1) unsigned DEFAULT 1,
 	`task_public_holidays` tinyint(1) unsigned DEFAULT 1,
 	`task_at_home` tinyint(1) unsigned DEFAULT 1,
 	`task_away` tinyint(1) unsigned DEFAULT 1,
 	`value` float unsigned DEFAULT 1 COMMENT 'used to boost points for difficult/higher value/less palatable task and lower points for easy/fun tasks',
 	PRIMARY KEY  (`task_id`),
-	INDEX `task__household_id` (`task__household_id`),
+	-- INDEX `task__household_id` (`task__household_id`),
 	INDEX `task_rotating` (`task_rotating`),
 	INDEX `task_active` (`task_active`),
 	INDEX `task_assigned_to` (`task_assigned_to__user_id`),
@@ -352,43 +357,43 @@ CREATE TABLE IF NOT EXISTS `doingDone_tasks` (
 	INDEX `task_public_holidays` (`task_public_holidays`),
 	INDEX `monday` (
 		-- `task__household_id`,
-		`task_monday`,
+		`task_monday`
 		-- `task_start_time`,
 		-- `task_end_time`
 	),
 	INDEX `tuesday` (
 		-- `task__household_id`,
-		`task_tuesday`,
+		`task_tuesday`
 		-- `task_start_time`,
 		-- `task_end_time`
 	),
 	INDEX `wednesday` (
 		-- `task__household_id`,
-		`task_wednesday`,
+		`task_wednesday`
 		-- `task_start_time`,
 		-- `task_end_time`
 	),
 	INDEX `thursday` (
 		-- `task__household_id`,
-		`task_thursday`,
+		`task_thursday`
 		-- `task_start_time`,
 		-- `task_end_time`
 	),
 	INDEX `friday` (
 		-- `task__household_id`,
-		`task_friday`,
+		`task_friday`
 		-- `task_start_time`,
 		-- `task_end_time`
 	),
 	INDEX `saturday` (
 		-- `task__household_id`,
-		`task_saturday`,
+		`task_saturday`
 		-- `task_start_time`,
 		-- `task_end_time`
 	),
 	INDEX `sunday` (
 		-- `task__household_id`,
-		`task_sunday`,
+		`task_sunday`
 		-- `task_start_time`,
 		-- `task_end_time`
 	),
@@ -400,15 +405,15 @@ CREATE TABLE IF NOT EXISTS `doingDone_tasks` (
 		`task_repeat_next_start_date`,
 		`task_repeat_next_end_date`
 	),
-	FOREIGN KEY (`task__household_id`)
-		REFERENCES `doingDone_households` (`household_id`)
-		ON DELETE RESTRICT ON UPDATE CASCADE,
+	-- FOREIGN KEY (`task__household_id`)
+	-- 	REFERENCES `doingDone_households` (`household_id`)
+	-- 	ON DELETE RESTRICT ON UPDATE CASCADE,
 	FOREIGN KEY (`task_assigned_to__user_id`)
 		REFERENCES `doingDone_users` (`user_id`)
 		ON DELETE RESTRICT ON UPDATE CASCADE,
-	FOREIGN KEY (`task__school_term_mode_id`)
-		REFERENCES `_doingDone__enum__school_term_mode` (`school_term_mode_id`)
-		ON DELETE NO ACTION ON UPDATE CASCADE,
+	-- FOREIGN KEY (`task__school_term_mode_id`)
+	-- 	REFERENCES `_doingDone__enum__school_term_mode` (`school_term_mode_id`)
+	-- 	ON DELETE NO ACTION ON UPDATE CASCADE,
 	FOREIGN KEY (`task__repeat_mode_id`)
 		REFERENCES `_doingDone__enum__repeat_mode` (`repeat_mode_id`)
 		ON DELETE NO ACTION ON UPDATE CASCADE
