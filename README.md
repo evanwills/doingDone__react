@@ -102,10 +102,11 @@ __NOTE:__ because things change over time, the points value and monetary value (
 7. Implement household settings
 8. Implement pocket money & reward management
 9. Implement personal goals
-10. Get local persistance synced with cloud/server
-11. Implement sharehouse mode - all tasks are rotated between each household member and any household member (other than the task doer) can approve a task activity.
-12. Set up community server to allow sharing of task data with other households. And sharing school holidays
-13. Create an native android version of the app. If there's enough money, (and demand) I'll employ someone to create an iOS app version too. Windows (and other platforms) will only have access to the web app.
+10. Implement bills management (for share households)
+11. Get local persistance synced with cloud/server
+12. Implement sharehouse mode - all tasks are rotated between each household member and any household member (other than the task doer) can approve a task activity.
+13. Set up community server to allow sharing of task data with other households. And sharing school holidays
+14. Create an native android version of the app. If there's enough money, (and demand) I'll employ someone to create an iOS app version too. Windows (and other platforms) will only have access to the web app.
 
 ## The future
 
